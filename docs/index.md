@@ -1,5 +1,11 @@
 # Programmieren I
 
+---
+
+***Das ist bereits der neue Kurs für das Wintersemester 2022/23. Alte und andere Kurse sind unter [https://freiheit.f4.htw-berlin.de/](https://freiheit.f4.htw-berlin.de/) verlinkt.***
+
+---
+
 Herzlich willkommen zur **Programmieren I** Veranstaltung! Wir werden unter Verwendung der Programmiersprache Java die wesentlichen Konzepte lernen, die für das Verständnis modernen Programmierens notwendig sind. Es sind keinerlei Vorkenntnisse erforderlich. Hier einige Tipps, damit Sie die Veranstaltung erfolgreich durchführen und Sie dabei auch Spaß haben:
 
 1. Lösen Sie alle **Übungsaufgaben** selbständig! Es ist kein Problem, wenn Sie für das Bewältigen der Übungen etwas länger benötigen. Sollten Sie es gar nicht alleine schaffen, ist das auch kein Problem. Wichtig ist dann, dass Sie sich die Lösung anschauen und es erneut selbständig versuchen. Hören Sie nicht auf, bis Sie es geschafft haben!
