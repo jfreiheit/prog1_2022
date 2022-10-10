@@ -384,6 +384,56 @@
                 
                 <h1 id="ubungen">Übungen<a class="headerlink" href="#ubungen" title="Permanent link">&para;</a></h1>
 <h2 id="ubungsblatter-wochenweise">Übungsblätter (wochenweise)<a class="headerlink" href="#ubungsblatter-wochenweise" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Übung 0</summary><ol>
+<li>Installieren Sie sich - falls noch nicht geschehen - eine Java-Entwicklungsumgebung (siehe <a href="../tools/#java"><strong>Java</strong></a>).</li>
+<li>Installieren Sie sich die IDE Ihrer Wahl (siehe <a href="../tools/#ide"><strong>IDE</strong></a>). In den Vorlesungen und Übungen verwende ich <a href="../tools/#eclipse"><strong>Eclipse</strong></a> und beschreibe die Schritte auch für Eclipse.</li>
+<li>Starten Sie Eclipse durch Doppelklick auf das Programmsymbol.</li>
+<li>Erstellen Sie einen <em>Workspace</em> (Arbeitsbereich) in einem gewünschten Ordner (z. B.
+<code>Prog12</code>) im Dateisystem. Achten Sie darauf, dass Sie Schreibrechte in diesem Ordner besitzen.</li>
+<li>Anlegen eines Projektordners:<ul>
+<li>Auswahl im Menü <code>File--&gt;New--&gt;Java Project</code>.</li>
+<li>Eingabe des <code>Project name:</code> Name des Projektes (z.B. <code>WiSe22</code>). Klicken auf den Button <code>Finish</code>.</li>
+<li>Das Fenster <code>New module-info.java</code> können Sie einfach mit <code>Create</code> bestätigen.</li>
+</ul>
+</li>
+<li>Erstellen eines neuen Packages (Paketes):<ul>
+<li>Öffnen der Projektmappe im <code>Package Explorer</code>.</li>
+<li>Auswahl des Ordners <code>src</code> mit der rechten Maustaste.</li>
+<li>Auswahl des Menüpunktes <code>New --&gt; Package</code>.</li>
+<li>Geben Sie folgenden Paketnamen ein (Paketnamen werden kleingeschrieben) <code>uebungen.uebung0</code> (Achten Sie auf den Punkt und dass Sie alles zusammen schreiben).</li>
+</ul>
+</li>
+<li>Erstellen einer neuen Klasse:<ul>
+<li>Öffnen der Projektmappe im Package Explorer.</li>
+<li>Auswahl des Paketes (<code>uebungen.uebung0</code>) mit der rechten Maustaste.</li>
+<li>Auswahl des Menüpunktes <code>New --&gt; Class</code>.</li>
+<li>Eingabe des Namens, der gleichzeitig der Klassen- und Dateiname ist: <code>Uebung0</code>. Klassennamen werden immer groß geschrieben.</li>
+<li>Setzen des Häkchens bei <code>public static void main()</code>. (Sollten Sie vergessen haben, das Häkchen zu setzen, dann ist die Klasse, nachdem Sie <code>Finish</code> gedrückt haben, leer. Setzen Sie dann den Cursor zwischen die beiden geschweiften Klammern <code>{ }</code>, geben dann <code>main</code> ein und drücken die <kbd class="key-ctrl">Ctrl</kbd><span>+</span><kbd class="key-space">Leer</kbd>-Tasten und anschließend <kbd class="key-enter">Enter</kbd>. Dann erscheint die <code>main()</code>-Methode)</li>
+<li>Klicken auf den Button <code>Finish</code>.</li>
+</ul>
+</li>
+<li>In die <code>main()</code>-Methode (zwischen die geschweiften Klammern <code>{</code> und <code>}</code> geben    Sie ein: <code>System.out.println("Uebung 0"));</code>.</li>
+<li>Drücken Sie dann entweder auf den <img alt="run" src="../files/16_run.png" />-Button oder         wählen Sie aus dem Menü <code>Run --&gt; Run</code> oder drücken Sie <kbd class="key-shift">shift</kbd><span>+</span><kbd class="key-command">command</kbd>+</span><kbd class="key-f11">f11</kbd>. In der <code>Console</code> in Ihrer IDE (in Eclipse unten) erscheint <code>Uebung 0</code>. </li>
+</ol>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Uebung1.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung0</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung0</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Uebung 0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p><img alt="uebung0" src="../files/17_uebung0.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Fertig! Ihre Entwicklungsumgebung ist bereit! Wir können loslegen. <img alt="👍" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg" title=":thumbsup:" /></p>
+</div>
+</details>
 <details class="note"><summary>Übung 1 (Aufgabe folgt)</summary></details>
                 
               
