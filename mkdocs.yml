@@ -66,6 +66,9 @@ nav:
     - Home: index.md
     - Algorithmen: algorithmen.md
     - Erstes Programm: start.md
+    - Variablen: variablen.md
+    - Ausdrücke: ausdruecke.md 
+    - Methoden: methoden.md 
     - Werkzeuge: tools.md
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md 
