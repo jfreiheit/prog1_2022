@@ -46,4 +46,28 @@
 	!!! success
 		Fertig! Ihre Entwicklungsumgebung ist bereit! Wir können loslegen. :thumbsup:
 
-??? note "Übung 1 (Aufgabe folgt)"
+
+??? note "Übung 1"
+	1. Erstellen Sie ein package `uebungen.uebung1`. 
+	2. Erstellen Sie in diesem package eine Klasse `Uebung1` mit `main()`-Methode.
+	3. Deklarieren und initialisieren Sie in der `main()`-Methode jeweils eine Variable mit dem Datentyp `int`, `long`, `char`, `byte`, `short`, `float`, `double`, `boolean` und `String`. Geben Sie alle Werte einzeln durch Aufruf der `println()`-Methode aus. Erzeugen Sie dabei folgende Ausgabe (Werte nur Beispiele):
+	```bash
+	Wert vom Typ int 		: 	123
+	Wert vom Typ long 		: 	456789
+	Wert vom Typ char 		: 	a
+	Wert vom Typ byte 		: 	127
+	Wert vom Typ short 		: 	32767
+	Wert vom Typ float 		: 	4.23
+	Wert vom Typ double		: 	6.98
+	Wert vom Typ boolean	: 	true
+	Wert vom Typ String		: 	Hallo!
+	```
+	4. Setzen Sie den Wert Ihrer `int`-Variablen auf `2147483647`. Geben Sie den Wert auf der Konsole aus, z.B.:	
+	```bash
+	Wert von i 	: 	2147483647
+	```
+	Erhöhen Sie nun den Wert der Variablen um `1` und geben Sie den Wert erneut aus. Was passiert? Warum?
+	5. Wiederholen Sie das gleiche mit einer `long`-Variablen.
+	6. Weisen Sie Ihrer `char`-Variablen den Wert `65` zu. Geben Sie den Wert Ihrer `char`-Variablen aus. Was passiert? Warum?
+
+
