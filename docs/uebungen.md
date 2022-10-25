@@ -69,5 +69,89 @@
 	Erhöhen Sie nun den Wert der Variablen um `1` und geben Sie den Wert erneut aus. Was passiert? Warum?
 	5. Wiederholen Sie das gleiche mit einer `long`-Variablen.
 	6. Weisen Sie Ihrer `char`-Variablen den Wert `65` zu. Geben Sie den Wert Ihrer `char`-Variablen aus. Was passiert? Warum?
+	7. Gegeben ist die folgende Klasse:
+			
+		```java
+		public class PrinterClass 
+		{
 
+			public static void main(String[] args) 
+			{
+				System.out.print("answer=");
+				System.out.println(40 + 2);
+			}
+		}
+		```
 
+		Was wird auf der Konsole ausgegeben?<br/>
+		<b>a)</b> 
+		```
+		answer=42
+		```
+		<b>b)</b> 
+		```
+		answer=
+		42
+		```
+		<b>c)</b> 
+		```
+		answer
+		=
+		42
+		```
+	8. Betrachten Sie folgenden Pseudocode:
+			
+		```
+		cake prices are 1.0 and 2.0
+		for each item
+			if cake price is even
+				print "even"
+			else
+				print "uneven"
+		```		
+
+		Welche Bedeutungen haben die Einrückungen? Was wird ausgegeben? <br/>
+		<b>a)</b> 
+		```
+		even
+		```
+		<b>b)</b> 
+		```
+		uneven
+		```
+		<b>c)</b> 
+		```
+		even, uneven
+		```
+		<b>d)</b> 
+		```
+		uneven, even
+		```
+	9. Betrachten Sie folgenden Pseudocode:
+			
+		```
+		n = 3
+		while n > 1
+			print n
+			n = n – 1
+		```		
+
+		Welche Bedeutungen haben die Einrückungen? Was wird ausgegeben? <br/>
+		<b>a)</b> 
+		```
+		3
+		```
+		<b>b)</b> 
+		```
+		3,2
+		```
+		<b>c)</b> 
+		```
+		3,2,1
+		```
+	10. Führen Sie folgende Übungen mit 8 Stellen durch:
+
+		1. Rechnen Sie `126` in eine Binärzahl um.
+	2. Rechnen Sie `-126` in eine Binärzahl um.
+	3. Addieren Sie `00001010` und `00001100`. 
+	4. Subtrahieren Sie `00001010` und `00001100`. 
