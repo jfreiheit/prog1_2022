@@ -155,3 +155,114 @@
 	2. Rechnen Sie `-126` in eine Binärzahl um.
 	3. Addieren Sie `00001010` und `00001100`. 
 	4. Subtrahieren Sie `00001010` und `00001100`. 
+
+
+??? question "Eine mögliche Lösung für Übung1"
+	```java
+	package uebungen.uebung1;
+
+	public class Uebung1
+	{
+		public static void main(String[] args)
+		{
+			int in = 123;
+			long lo = 456789;
+			char ch = 'a';
+			byte by = 127;
+			short sh = 32767;
+			float fl = 4.23f;
+			double d1 = 6.98;
+			boolean b1 = true;
+			String s1 = "Hallo!";
+			
+			System.out.println(" --- Aufgabe 3 -------");
+			System.out.println();
+			System.out.println("Wert vom Typ int     : " + in );
+			System.out.println("Wert vom Typ long    : " + lo );
+			System.out.println("Wert vom Typ char    : " + ch );
+			System.out.println("Wert vom Typ byte    : " + by );
+			System.out.println("Wert vom Typ short   : " + sh );
+			System.out.println("Wert vom Typ float   : " + fl );
+			System.out.println("Wert vom Typ double  : " + d1 );
+			System.out.println("Wert vom Typ boolean : " + b1 );
+			System.out.println("Wert vom Typ String  : " + s1 );
+			
+			System.out.println();
+			System.out.println(" --- Aufgabe 4 -------");
+			System.out.println();
+			in = 2147483647;
+			System.out.println("Wert vom Typ int     : " + in );
+			in = in + 1;		// in++;
+			System.out.println("Wert vom Typ int     : " + in );
+			
+			System.out.println();
+			System.out.println(" --- Aufgabe 5 -------");
+			System.out.println();
+			lo = 2147483647L;	// L am Ende des Wertes beachten
+			System.out.println("Wert vom Typ long    : " + lo );
+			lo = lo +1 ;
+			System.out.println("Wert vom Typ long    : " + lo );
+			
+			System.out.println();
+			System.out.println(" --- Aufgabe 6 -------");
+			System.out.println();
+			ch = 65;
+			System.out.println("Wert vom Typ char    : " + ch );
+			
+			// 7 a)
+			// 8 d)
+			// 9 b)
+			//  126 --> 0111 1110
+			// -126 --> 1000 0010
+			// 0000 1010 + 0000 1100 = 0001 0110  ( 10 + 12 = 22 )
+			// 0000 1010 - 0000 1100 = 0000 1010 + 1111 0100 = 1111 1110 ( 10 - 12 = -2 )			
+		}
+
+	}
+	```
+
+
+
+??? note "Übung 2"
+	
+	1. Erstellen Sie ein package `uebungen.uebung2`. 
+	2. Erstellen Sie in diesem package eine Klasse `Uebung2` mit `main()`-Methode.
+	3. Schreiben Sie eine Methode 
+	```java
+	public static void printIntDivision(int nr1, int nr2) 
+	{
+	}
+	``` 
+	Diese Methode soll folgende Ausgabe auf die Konsole erzeugen,
+	z.B. für `printIntDivision(7, 4);` die Ausgabe 
+	```bash
+	7 geteilt durch 4 ergibt 1. Es bleibt ein Rest von 3
+	```
+	z.B. für `printIntDivision(17, 4);` die Ausgabe
+	```bash 
+	17 geteilt durch 4 ergibt 4. Es bleibt ein Rest von 1
+	```
+	
+		Rufen Sie die Methode entsprechend in der `main()`-Methode auf!
+
+	4. Schreiben/ändern Sie die Methode so, dass bei einer ganzzahligen Division ohne Rest die Ausgabe in der Form ist (Aufruf z.B. `printIntDivision(16, 4);`): 
+	```bash
+	16 geteilt durch 4 ergibt 4 ohne Rest.
+	```
+	5. Schreiben Sie zwei Methoden 
+	```java
+	public static int getQuotient(int nr1, int nr2) {} // und 
+	public static int getRemainder(int nr1, int nr2) {}
+	``` 
+	Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen Werte zu (z.B. `17` und `4`). Wenden Sie die beiden Methoden so an, dass mit Hilfe der `println()`-Methode folgende Ausgaben erscheinen: 
+	```bash 
+	17/4 = 4
+	17 mod 4 = 1
+	```
+	6. Besitzen die folgende Methodenaufrufe einem Wert? Wenn ja, welcher?
+
+		- `printIntDivision(17, 4);`
+	- `getQuotient(17,4);`
+	- `getRemainder(17,4);`
+
+	7. Können wir die Methoden `getQuotient(int nr1, int nr2)` und `getRemainder(int nr1, int nr2)` auch in der `printIntDivision(int nr1, int nr2)`-Methode verwenden/aufrufen? Wenn ja, wie?

@@ -301,6 +301,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../selektion/" class="md-nav__link">
+        Selektion
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteration/" class="md-nav__link">
+        Iteration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tools/" class="md-nav__link">
         Werkzeuge
       </a>
@@ -587,7 +617,51 @@ Zur offiziellen Abgabe einer Aufgabe gehören also</p>
 <p><img alt="review" src="../files/12_review.png" /></p>
 <h2 id="aufgaben_1">Aufgaben<a class="headerlink" href="#aufgaben_1" title="Permanent link">&para;</a></h2>
 <h4 id="aufgabe-1-abgabe-bis-24102022-2400-uhr">Aufgabe 1 (Abgabe bis 24.10.2022 24:00 Uhr)<a class="headerlink" href="#aufgabe-1-abgabe-bis-24102022-2400-uhr" title="Permanent link">&para;</a></h4>
-<details><summary>Aufgabe 1 kommt in Kürze</summary></details>
+<details><summary>Aufgabe1 - Rhombus</summary><ul>
+<li>Erstellen Sie eine Klasse <code>Aufgabe1</code> mit <code>main()</code>-Methode im package <code>aufgaben.aufgabe1</code> </li>
+<li>Implementieren Sie eine Methode <code>public static void printRhombus(int upperHalf, boolean filled){}</code></li>
+<li>Ist der Parameterwert von <code>filled</code> <code>true</code>, dann soll ein Rhombus (eine Raute) wie folgt auf die Konsole ausgegeben werden:
+    <div class="highlight"><pre><span></span><code>      *
+     ***
+    *****
+   *******
+  *********
+ ***********
+  *********
+   *******
+    *****
+     ***
+      *
+</code></pre></div></li>
+<li>Ist der Parameterwert von <code>filled</code> <code>false</code>, dann soll der Rhombus ungefüllt sein, also so:
+    <div class="highlight"><pre><span></span><code>      *
+     * *
+    *   *
+   *     *
+  *       *
+ *         *
+  *       *
+   *     *
+    *   *
+     * *
+      *
+</code></pre></div></li>
+<li>der Wert für <code>upperHalf</code> gibt die Höhe einer Hälfte des Rhombus an. Die Gesamthöhe des Rhombus berechnet sich aus `
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">upperHalf</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></li>
+<li>In unserem oben gezeigten Beispiel ist der Wert von <code>upperHalf</code> <code>5</code> und die Gesamthöhe des Rhombus <code>11</code>. </li>
+<li>Die obere Ausgabe ist also durch die Anweisung <code>printRhombus(5, true);</code> und die untere durch die Anweisung <code>printRhombus(5, false);</code> entstanden.</li>
+<li>Die Berechnung der Höhe aus dem Parameterwert <code>upperHalf</code> hat die Vorteile, <ul>
+<li>dass die Höhe dadurch immer eine ungerade Zahl ist (was notwendig ist) und </li>
+<li>dass Sie den Wert <code>upperHalf</code> gut verwenden können (was ebenfalls notwendig ist, wie Sie merken werden)</li>
+</ul>
+</li>
+<li><strong>Tipp:</strong>: Schreiben Sie sich zwei weitere Methoden <code>public static void printRhombusFilled(int upperHalf){}</code> und <code>public static void printRhombusUnfilled(int upperHalf){}</code>, die Sie entsprechend des Wertes von <code>filled</code> aufrufen. In der einen Methode erstellen Sie die ausgefüllte Raute und in der anderen die ungefüllte. Dann wird Ihr Programm nicht zu unübersichtlich. Fangen Sie am besten mit der ausgefüllten an, die ist etwas leichter. </li>
+<li>Das Programm soll für beliebige (nicht so große - max. Wert <code>100</code>) positive Zahlen (also <code>&gt; 0</code>) von <code>upperHalf</code> funktionieren. Insbesondere sind die Tests für <code>upperhalf == 1</code> interssant. </li>
+<li>Laden Sie Ihre Lösung bis Sonntag, den <strong>22.11.2020 um 24.00 Uhr</strong> in Moodle hoch</li>
+<li>Viel Spaß und viel Erfolg!</li>
+</ul>
+</details>
                 
               
               

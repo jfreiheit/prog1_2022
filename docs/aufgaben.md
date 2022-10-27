@@ -61,4 +61,49 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 #### Aufgabe 1 (Abgabe bis 24.10.2022 24:00 Uhr)
 
-??? "Aufgabe 1 kommt in Kürze"
+
+??? "Aufgabe1 - Rhombus"
+	- Erstellen Sie eine Klasse `Aufgabe1` mit `main()`-Methode im package `aufgaben.aufgabe1` 
+	- Implementieren Sie eine Methode `public static void printRhombus(int upperHalf, boolean filled){}`
+	- Ist der Parameterwert von `filled` `true`, dann soll ein Rhombus (eine Raute) wie folgt auf die Konsole ausgegeben werden:
+		```bash
+		      *
+		     ***
+		    *****
+		   *******
+		  *********
+		 ***********
+		  *********
+		   *******
+		    *****
+		     ***
+		      *
+		```
+	- Ist der Parameterwert von `filled` `false`, dann soll der Rhombus ungefüllt sein, also so:
+		```bash
+		      *
+		     * *
+		    *   *
+		   *     *
+		  *       *
+		 *         *
+		  *       *
+		   *     *
+		    *   *
+		     * *
+		      *
+		```
+	- der Wert für `upperHalf` gibt die Höhe einer Hälfte des Rhombus an. Die Gesamthöhe des Rhombus berechnet sich aus `
+		```java
+		int height = 2 * upperHalf +1;
+		```
+	- In unserem oben gezeigten Beispiel ist der Wert von `upperHalf` `5` und die Gesamthöhe des Rhombus `11`. 
+	- Die obere Ausgabe ist also durch die Anweisung `printRhombus(5, true);` und die untere durch die Anweisung `printRhombus(5, false);` entstanden.
+	- Die Berechnung der Höhe aus dem Parameterwert `upperHalf` hat die Vorteile, 
+		- dass die Höhe dadurch immer eine ungerade Zahl ist (was notwendig ist) und 
+		- dass Sie den Wert `upperHalf` gut verwenden können (was ebenfalls notwendig ist, wie Sie merken werden)
+	- **Tipp:**: Schreiben Sie sich zwei weitere Methoden `public static void printRhombusFilled(int upperHalf){}` und `public static void printRhombusUnfilled(int upperHalf){}`, die Sie entsprechend des Wertes von `filled` aufrufen. In der einen Methode erstellen Sie die ausgefüllte Raute und in der anderen die ungefüllte. Dann wird Ihr Programm nicht zu unübersichtlich. Fangen Sie am besten mit der ausgefüllten an, die ist etwas leichter. 
+	- Das Programm soll für beliebige (nicht so große - max. Wert `100`) positive Zahlen (also `> 0`) von `upperHalf` funktionieren. Insbesondere sind die Tests für `upperhalf == 1` interssant. 
+	- Laden Sie Ihre Lösung bis Sonntag, den **22.11.2020 um 24.00 Uhr** in Moodle hoch
+	- Viel Spaß und viel Erfolg!
+

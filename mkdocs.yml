@@ -69,6 +69,8 @@ nav:
     - Variablen: variablen.md
     - Ausdrücke: ausdruecke.md 
     - Methoden: methoden.md 
+    - Selektion: selektion.md 
+    - Iteration: iteration.md 
     - Werkzeuge: tools.md
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md 

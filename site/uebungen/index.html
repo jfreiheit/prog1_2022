@@ -301,6 +301,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../selektion/" class="md-nav__link">
+        Selektion
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iteration/" class="md-nav__link">
+        Iteration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tools/" class="md-nav__link">
         Werkzeuge
       </a>
@@ -568,6 +598,112 @@ while n &gt; 1
 <li>Addieren Sie <code>00001010</code> und <code>00001100</code>. </li>
 <li>Subtrahieren Sie <code>00001010</code> und <code>00001100</code>. </li>
 </ol>
+</li>
+</ol>
+</details>
+<details class="question"><summary>Eine mögliche Lösung für Übung1</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung1</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung1</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">in</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+        <span class="kt">long</span> <span class="n">lo</span> <span class="o">=</span> <span class="mi">456789</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+        <span class="kt">byte</span> <span class="n">by</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;</span>
+        <span class="kt">short</span> <span class="n">sh</span> <span class="o">=</span> <span class="mi">32767</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">fl</span> <span class="o">=</span> <span class="mf">4.23f</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">d1</span> <span class="o">=</span> <span class="mf">6.98</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">b1</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;Hallo!&quot;</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 3 -------&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span> <span class="o">+</span> <span class="n">in</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span> <span class="o">+</span> <span class="n">lo</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ char    : &quot;</span> <span class="o">+</span> <span class="n">ch</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ byte    : &quot;</span> <span class="o">+</span> <span class="n">by</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ short   : &quot;</span> <span class="o">+</span> <span class="n">sh</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ float   : &quot;</span> <span class="o">+</span> <span class="n">fl</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ double  : &quot;</span> <span class="o">+</span> <span class="n">d1</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ boolean : &quot;</span> <span class="o">+</span> <span class="n">b1</span> <span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ String  : &quot;</span> <span class="o">+</span> <span class="n">s1</span> <span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 4 -------&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">in</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span> <span class="o">+</span> <span class="n">in</span> <span class="p">);</span>
+        <span class="n">in</span> <span class="o">=</span> <span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">// in++;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span> <span class="o">+</span> <span class="n">in</span> <span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 5 -------&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">lo</span> <span class="o">=</span> <span class="mi">2147483647L</span><span class="p">;</span>   <span class="c1">// L am Ende des Wertes beachten</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span> <span class="o">+</span> <span class="n">lo</span> <span class="p">);</span>
+        <span class="n">lo</span> <span class="o">=</span> <span class="n">lo</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span> <span class="o">+</span> <span class="n">lo</span> <span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 6 -------&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ char    : &quot;</span> <span class="o">+</span> <span class="n">ch</span> <span class="p">);</span>
+
+        <span class="c1">// 7 a)</span>
+        <span class="c1">// 8 d)</span>
+        <span class="c1">// 9 b)</span>
+        <span class="c1">//  126 --&gt; 0111 1110</span>
+        <span class="c1">// -126 --&gt; 1000 0010</span>
+        <span class="c1">// 0000 1010 + 0000 1100 = 0001 0110  ( 10 + 12 = 22 )</span>
+        <span class="c1">// 0000 1010 - 0000 1100 = 0000 1010 + 1111 0100 = 1111 1110 ( 10 - 12 = -2 )           </span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details class="note"><summary>Übung 2</summary><ol>
+<li>Erstellen Sie ein package <code>uebungen.uebung2</code>. </li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Uebung2</code> mit <code>main()</code>-Methode.</li>
+<li>
+<p>Schreiben Sie eine Methode 
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printIntDivision</span><span class="p">(</span><span class="kt">int</span> <span class="n">nr1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr2</span><span class="p">)</span> 
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+Diese Methode soll folgende Ausgabe auf die Konsole erzeugen,
+z.B. für <code>printIntDivision(7, 4);</code> die Ausgabe 
+<div class="highlight"><pre><span></span><code><span class="m">7</span> geteilt durch <span class="m">4</span> ergibt <span class="m">1</span>. Es bleibt ein Rest von <span class="m">3</span>
+</code></pre></div>
+z.B. für <code>printIntDivision(17, 4);</code> die Ausgabe
+<div class="highlight"><pre><span></span><code><span class="m">17</span> geteilt durch <span class="m">4</span> ergibt <span class="m">4</span>. Es bleibt ein Rest von <span class="m">1</span>
+</code></pre></div></p>
+<p>Rufen Sie die Methode entsprechend in der <code>main()</code>-Methode auf!</p>
+</li>
+<li>
+<p>Schreiben/ändern Sie die Methode so, dass bei einer ganzzahligen Division ohne Rest die Ausgabe in der Form ist (Aufruf z.B. <code>printIntDivision(16, 4);</code>): 
+<div class="highlight"><pre><span></span><code><span class="m">16</span> geteilt durch <span class="m">4</span> ergibt <span class="m">4</span> ohne Rest.
+</code></pre></div></p>
+</li>
+<li>Schreiben Sie zwei Methoden 
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getQuotient</span><span class="p">(</span><span class="kt">int</span> <span class="n">nr1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr2</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// und </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getRemainder</span><span class="p">(</span><span class="kt">int</span> <span class="n">nr1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr2</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen Werte zu (z.B. <code>17</code> und <code>4</code>). Wenden Sie die beiden Methoden so an, dass mit Hilfe der <code>println()</code>-Methode folgende Ausgaben erscheinen: 
+<div class="highlight"><pre><span></span><code><span class="m">17</span>/4 <span class="o">=</span> <span class="m">4</span>
+<span class="m">17</span> mod <span class="nv">4</span> <span class="o">=</span> <span class="m">1</span>
+</code></pre></div></li>
+<li>
+<p>Besitzen die folgende Methodenaufrufe einem Wert? Wenn ja, welcher?</p>
+<ul>
+<li><code>printIntDivision(17, 4);</code></li>
+<li><code>getQuotient(17,4);</code></li>
+<li><code>getRemainder(17,4);</code></li>
+</ul>
+</li>
+<li>
+<p>Können wir die Methoden <code>getQuotient(int nr1, int nr2)</code> und <code>getRemainder(int nr1, int nr2)</code> auch in der <code>printIntDivision(int nr1, int nr2)</code>-Methode verwenden/aufrufen? Wenn ja, wie?</p>
 </li>
 </ol>
 </details>
