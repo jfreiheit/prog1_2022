@@ -245,10 +245,6 @@
 	
 		Rufen Sie die Methode entsprechend in der `main()`-Methode auf!
 
-	4. Schreiben/ändern Sie die Methode so, dass bei einer ganzzahligen Division ohne Rest die Ausgabe in der Form ist (Aufruf z.B. `printIntDivision(16, 4);`): 
-	```bash
-	16 geteilt durch 4 ergibt 4 ohne Rest.
-	```
 	5. Schreiben Sie zwei Methoden 
 	```java
 	public static int getQuotient(int nr1, int nr2) {} // und 
