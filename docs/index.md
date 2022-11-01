@@ -45,19 +45,136 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 |-|-------|--------------------|-------|-----------------|
 | 1. | 10.-14.10.2022 | [Organisatorisches](./#organisatorisches), [Algorithmen](./algorithmen/#was-ist-programmieren) und [Erstes Programm](./start/#unser-erstes-programm)| -  | - | 
 | 2. | 17.-21.10.2022 | [Variablen und Datentypen](./variablen/#variablen-und-datentypen) | -  | - | 
-| 3. | 24.-28.10.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | Aufgabe 1  | 01.11.2022 | 
-| 4. | 31.-04.11.2022 | Selektion (if) und Iteration (for)| Aufgabe 2 | 08.11.2022 | 
-| 5. | 07.-11.11.2022 | Iteration (while) | Aufgabe 3 | 15.11.2022 | 
-| 6. | 14.-18.11.2022 | Klassen und Objekte | Aufgabe 4  | 22.11.2022 | 
-| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | Aufgabe 5 | 29.11.2022 | 
-| 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 6  | 06.12.2022 |
-| 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 7  | 13.12.2022 |
-| 10. | 12.-16.12.2022 | Arrays | Aufgabe 8 | 03.01.2023 |
-| 11. | 19.-23.12.2022 | Algorithmen über Arrays  | Aufgabe 9  | 10.01.2023 |
+| 3. | 24.-28.10.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | -  | - | 
+| 4. | 31.-04.11.2022 | Selektion (if) und Iteration (for)| - | - | 
+| 5. | 07.-11.11.2022 | Iteration (while) | Aufgabe 1 | 15.11.2022 | 
+| 6. | 14.-18.11.2022 | Klassen und Objekte | Aufgabe 2  | 22.11.2022 | 
+| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | Aufgabe 3 | 29.11.2022 | 
+| 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 06.12.2022 |
+| 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 13.12.2022 |
+| 10. | 12.-16.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
+| 11. | 19.-23.12.2022 | Algorithmen über Arrays  | Aufgabe 7  | 10.01.2023 |
 | | | | | | | |
-| 12. | 02.-06.01.2023 | Sortieren von Arrays | Aufgabe 10  | 17.01.2023 |
-| 13. | 09.-13.01.2023 | Suchen in Arrays | Aufgabe 11 | 24.01.2023 |
+| 12. | 02.-06.01.2023 | Sortieren von Arrays | Aufgabe 8  | 17.01.2023 |
+| 13. | 09.-13.01.2023 | Suchen in Arrays | Aufgabe 9 | 24.01.2023 |
 | 14. | 16.-20.01.2023 | Wiederholung, Klausurvorbereitung  | -  | - |
 | 15. | 23.-27.01.2023 | Wiederholung, Klausurvorbereitung | - | - |
 | 16. | tba| Klausur  | -  | - |
 
+
+## Code aus der Vorlesung
+
+??? note "Operatoren, Ausdrücke und Methoden"
+	```java linenums="1"
+	public class OperatorenAusdrueckeMethoden 
+	{
+		
+
+		public static void printSum(int summand1, int summand2)
+		{
+			// int summe = summand1 + summand2;
+			int summe = computeSum(summand1, summand2);
+			System.out.println(summand1 + " + " + summand2 + " = " + summe);
+		}
+		
+		public static int computeSum(int summand1, int summand2)
+		{
+			int summe = summand1 + summand2;
+			return summe;
+		}
+		
+		public static void main(String[] args) 
+		{
+			
+			final double PI = 3.14;
+			// PI = 6.28;		// Fehler --> Konstante
+			
+			int numberForComputingInt = 5;
+			System.out.println(numberForComputingInt);
+			
+			numberForComputingInt = 6;
+			System.out.println(numberForComputingInt);
+			
+			// double numberForComputing; 	// Fehler --> existiert bereits
+
+			double numberDouble = 1.0;
+			
+			// Arithmetische Operatoren
+			
+			// unaere Operatoren
+			numberForComputingInt = -5;
+			numberForComputingInt = +5;
+			
+			// binaere Operatoren
+			
+			// ganzeZahl Operator ganzeZahl
+			// Ergebnis ist ganzeZahl --> int
+			numberForComputingInt = 5 + 5;	// 10
+			numberForComputingInt = 10 -5; // 5
+			numberForComputingInt = 7 * 3;	// 21
+			numberForComputingInt = 7 / 3;	// 2 int!!
+			numberForComputingInt = 7 % 3;	// 1
+			
+			// gleitKommaZahl Operator gleitKommaZahl
+			// Ergebnis ist gleitKommaZahl --> double
+			numberDouble = 5.0 + 5.0;	// 10.0
+			numberDouble = 10.0 - 5.0;	// 5.0
+			numberDouble = 7.0 * 3.0;	// 21.0
+			numberDouble = 7.0 / 3.0;	// 2.3333333333
+			numberDouble = 7.0 % 3.0;	// 1.0
+			
+			// Vergleichsoperatoren
+			// zahl Operator zahl
+			// Ergebnis ist true oder false --> boolean
+			int number1 = 3;
+			int number2 = 4;
+			boolean result;
+			result = (number1 == number2);	// false
+			result = (number1 > number2);	// false
+			result = (number1 < number2);	// true
+			result = (number1 >= number2);	// false
+			result = (number1 <= number2);	// true
+			result = (number1 != number2);	// true
+			
+			// logische Operatoren
+			// boolean Operator boolean
+			// Ergebnis ist true oder false --> boolean
+			boolean b1 = true;
+			boolean b2 = false;
+			result = (b1 && b2); 	// false
+			result = (b1 || b2); 	// true
+			result = !b1; 			// false
+			result = (b1 ^ b2);		// true
+			
+			
+			int summand1 = 3;
+			int summand2 = 4;
+			int summe = summand1 + summand2;
+			System.out.println(summand1 + " + " + summand2 + " = " + summe);
+		
+			summand1 = -3;
+			summand2 = 4;
+			summe = summand1 + summand2;
+			System.out.println(summand1 + " + " + summand2 + " = " + summe);
+		
+			summand1 = -173;
+			summand2 = 411;
+			summe = summand1 + summand2;
+			System.out.println(summand1 + " + " + summand2 + " = " + summe);
+		
+			
+			System.out.println("---- ab hier Methodenaufrufe -----");
+			System.out.println();
+			
+			printSum(3, 4);
+			printSum(-3, 4);
+			printSum(-173, 411);
+			
+			int ergebnis = computeSum(3,4);
+			System.out.println(ergebnis);
+			System.out.println(computeSum(-3,4));
+		}
+
+	}
+
+	```
