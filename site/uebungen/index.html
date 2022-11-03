@@ -9,14 +9,13 @@
         <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren I">
       
       
-      
         <meta name="author" content="Jörn Freiheit">
       
       
         <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog1/uebungen/">
       
       <link rel="icon" href="../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
     
     
       
@@ -24,34 +23,37 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
           
           
           <meta name="theme-color" content="#757575">
         
       
+      
+
     
     
     
       
         
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../extra.css">
     
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-
+    
     
     
   </head>
@@ -65,7 +67,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -82,15 +83,18 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
     <a href=".." title="Programmieren I" class="md-header__button md-logo" aria-label="Programmieren I" data-md-component="logo">
       
   <img src="../img/fiw.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -112,22 +116,21 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Suche">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -147,11 +150,10 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/jfreiheit/prog1/" title="Quellcode" class="md-source" data-md-component="source">
+        <a href="https://github.com/jfreiheit/prog1" title="Zum Repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     prog1
@@ -160,11 +162,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -189,11 +194,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/jfreiheit/prog1/" title="Quellcode" class="md-source" data-md-component="source">
+      <a href="https://github.com/jfreiheit/prog1" title="Zum Repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     prog1
@@ -365,6 +369,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
   
   
@@ -420,6 +425,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
   
   
@@ -448,18 +454,23 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/jfreiheit/prog1/edit/master/docs/uebungen.md" title="Seite editieren" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="ubungen">Übungen<a class="headerlink" href="#ubungen" title="Permanent link">&para;</a></h1>
+                  
+
+  <a href="https://github.com/jfreiheit/prog1/edit/master/docs/uebungen.md" title="Seite editieren" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="ubungen">Übungen<a class="headerlink" href="#ubungen" title="Permanent link">&para;</a></h1>
 <h2 id="ubungsblatter-wochenweise">Übungsblätter (wochenweise)<a class="headerlink" href="#ubungsblatter-wochenweise" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Übung 0</summary><ol>
+<details class="note">
+<summary>Übung 0</summary>
+<ol>
 <li>Installieren Sie sich - falls noch nicht geschehen - eine Java-Entwicklungsumgebung (siehe <a href="../tools/#java"><strong>Java</strong></a>).</li>
 <li>Installieren Sie sich die IDE Ihrer Wahl (siehe <a href="../tools/#ide"><strong>IDE</strong></a>). In den Vorlesungen und Übungen verwende ich <a href="../tools/#eclipse"><strong>Eclipse</strong></a> und beschreibe die Schritte auch für Eclipse.</li>
 <li>Starten Sie Eclipse durch Doppelklick auf das Programmsymbol.</li>
@@ -491,15 +502,15 @@
 <li>Drücken Sie dann entweder auf den <img alt="run" src="../files/16_run.png" />-Button oder         wählen Sie aus dem Menü <code>Run --&gt; Run</code> oder drücken Sie <kbd class="key-shift">shift</kbd><span>+</span><kbd class="key-command">command</kbd>+</span><kbd class="key-f11">f11</kbd>. In der <code>Console</code> in Ihrer IDE (in Eclipse unten) erscheint <code>Uebung 0</code>. </li>
 </ol>
 <div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Uebung0.java</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung0</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung0</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung0</span>
-<span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Uebung 0&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Uebung0</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Uebung 0&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -509,7 +520,9 @@
 <p>Fertig! Ihre Entwicklungsumgebung ist bereit! Wir können loslegen. <img alt="👍" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg" title=":thumbsup:" /></p>
 </div>
 </details>
-<details class="note"><summary>Übung 1</summary><ol>
+<details class="note">
+<summary>Übung 1</summary>
+<ol>
 <li>Erstellen Sie ein package <code>uebungen.uebung1</code>. </li>
 <li>Erstellen Sie in diesem package eine Klasse <code>Uebung1</code> mit <code>main()</code>-Methode.</li>
 <li>Deklarieren und initialisieren Sie in der <code>main()</code>-Methode jeweils eine Variable mit dem Datentyp <code>int</code>, <code>long</code>, <code>char</code>, <code>byte</code>, <code>short</code>, <code>float</code>, <code>double</code>, <code>boolean</code> und <code>String</code>. Geben Sie alle Werte einzeln durch Aufruf der <code>println()</code>-Methode aus. Erzeugen Sie dabei folgende Ausgabe (Werte nur Beispiele):
@@ -531,30 +544,32 @@ Erhöhen Sie nun den Wert der Variablen um <code>1</code> und geben Sie den Wert
 <li>Weisen Sie Ihrer <code>char</code>-Variablen den Wert <code>65</code> zu. Geben Sie den Wert Ihrer <code>char</code>-Variablen aus. Was passiert? Warum?</li>
 <li>
 <p>Gegeben ist die folgende Klasse:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PrinterClass</span> 
-<span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PrinterClass</span><span class="w"> </span>
+<span class="p">{</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
-    <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;answer=&quot;</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">40</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;answer=&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">40</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Was wird auf der Konsole ausgegeben?<br/>
-    <b>a)</b> 
-    <div class="highlight"><pre><span></span><code>answer=42
+<b>a)</b> 
+<div class="highlight"><pre><span></span><code>answer=42
 </code></pre></div>
-    <b>b)</b> 
-    <div class="highlight"><pre><span></span><code>answer=
+<b>b)</b> 
+<div class="highlight"><pre><span></span><code>answer=
 42
 </code></pre></div>
-    <b>c)</b> 
-    <div class="highlight"><pre><span></span><code>answer
+<b>c)</b> 
+<div class="highlight"><pre><span></span><code>answer
 =
 42
-</code></pre></div>
-8. Betrachten Sie folgenden Pseudocode:</p>
+</code></pre></div></p>
+</li>
+<li>
+<p>Betrachten Sie folgenden Pseudocode:</p>
 <div class="highlight"><pre><span></span><code>cake prices are 1.0 and 2.0
 for each item
     if cake price is even
@@ -563,114 +578,124 @@ for each item
         print &quot;uneven&quot;
 </code></pre></div>
 <p>Welche Bedeutungen haben die Einrückungen? Was wird ausgegeben? <br/>
-    <b>a)</b> 
-    <div class="highlight"><pre><span></span><code>even
+<b>a)</b> 
+<div class="highlight"><pre><span></span><code>even
 </code></pre></div>
-    <b>b)</b> 
-    <div class="highlight"><pre><span></span><code>uneven
+<b>b)</b> 
+<div class="highlight"><pre><span></span><code>uneven
 </code></pre></div>
-    <b>c)</b> 
-    <div class="highlight"><pre><span></span><code>even, uneven
+<b>c)</b> 
+<div class="highlight"><pre><span></span><code>even, uneven
 </code></pre></div>
-    <b>d)</b> 
-    <div class="highlight"><pre><span></span><code>uneven, even
-</code></pre></div>
-9. Betrachten Sie folgenden Pseudocode:</p>
+<b>d)</b> 
+<div class="highlight"><pre><span></span><code>uneven, even
+</code></pre></div></p>
+</li>
+<li>
+<p>Betrachten Sie folgenden Pseudocode:</p>
 <div class="highlight"><pre><span></span><code>n = 3
 while n &gt; 1
     print n
     n = n – 1
 </code></pre></div>
 <p>Welche Bedeutungen haben die Einrückungen? Was wird ausgegeben? <br/>
-    <b>a)</b> 
-    <div class="highlight"><pre><span></span><code>3
+<b>a)</b> 
+<div class="highlight"><pre><span></span><code>3
 </code></pre></div>
-    <b>b)</b> 
-    <div class="highlight"><pre><span></span><code>3,2
+<b>b)</b> 
+<div class="highlight"><pre><span></span><code>3,2
 </code></pre></div>
-    <b>c)</b> 
-    <div class="highlight"><pre><span></span><code>3,2,1
-</code></pre></div>
-10. Führen Sie folgende Übungen mit 8 Stellen durch:</p>
+<b>c)</b> 
+<div class="highlight"><pre><span></span><code>3,2,1
+</code></pre></div></p>
+</li>
+<li>
+<p>Führen Sie folgende Übungen mit 8 Stellen durch:</p>
 <ol>
 <li>Rechnen Sie <code>126</code> in eine Binärzahl um.</li>
-<li>Rechnen Sie <code>-126</code> in eine Binärzahl um.</li>
+</ol>
+</li>
+<li>
+<p>Rechnen Sie <code>-126</code> in eine Binärzahl um.</p>
+</li>
 <li>Addieren Sie <code>00001010</code> und <code>00001100</code>. </li>
 <li>Subtrahieren Sie <code>00001010</code> und <code>00001100</code>. </li>
 </ol>
-</li>
-</ol>
 </details>
-<details class="question"><summary>Eine mögliche Lösung für Übung1</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung1</span><span class="p">;</span>
+<details class="question">
+<summary>Eine mögliche Lösung für Übung1</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung1</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung1</span>
-<span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">in</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-        <span class="kt">long</span> <span class="n">lo</span> <span class="o">=</span> <span class="mi">456789</span><span class="p">;</span>
-        <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
-        <span class="kt">byte</span> <span class="n">by</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;</span>
-        <span class="kt">short</span> <span class="n">sh</span> <span class="o">=</span> <span class="mi">32767</span><span class="p">;</span>
-        <span class="kt">float</span> <span class="n">fl</span> <span class="o">=</span> <span class="mf">4.23f</span><span class="p">;</span>
-        <span class="kt">double</span> <span class="n">d1</span> <span class="o">=</span> <span class="mf">6.98</span><span class="p">;</span>
-        <span class="kt">boolean</span> <span class="n">b1</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;Hallo!&quot;</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Uebung1</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">456789</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">byte</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">short</span><span class="w"> </span><span class="n">sh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32767</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">fl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.23f</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.98</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hallo!&quot;</span><span class="p">;</span><span class="w"></span>
 
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 3 -------&quot;</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span> <span class="o">+</span> <span class="n">in</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span> <span class="o">+</span> <span class="n">lo</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ char    : &quot;</span> <span class="o">+</span> <span class="n">ch</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ byte    : &quot;</span> <span class="o">+</span> <span class="n">by</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ short   : &quot;</span> <span class="o">+</span> <span class="n">sh</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ float   : &quot;</span> <span class="o">+</span> <span class="n">fl</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ double  : &quot;</span> <span class="o">+</span> <span class="n">d1</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ boolean : &quot;</span> <span class="o">+</span> <span class="n">b1</span> <span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ String  : &quot;</span> <span class="o">+</span> <span class="n">s1</span> <span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 3 -------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ char    : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ byte    : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ short   : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sh</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ float   : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fl</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ double  : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ boolean : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ String  : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 4 -------&quot;</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">in</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="p">;</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span> <span class="o">+</span> <span class="n">in</span> <span class="p">);</span>
-        <span class="n">in</span> <span class="o">=</span> <span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">// in++;</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span> <span class="o">+</span> <span class="n">in</span> <span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 4 -------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2147483647</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">        </span><span class="c1">// in++;</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ int     : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 5 -------&quot;</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">lo</span> <span class="o">=</span> <span class="mi">2147483647L</span><span class="p">;</span>   <span class="c1">// L am Ende des Wertes beachten</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span> <span class="o">+</span> <span class="n">lo</span> <span class="p">);</span>
-        <span class="n">lo</span> <span class="o">=</span> <span class="n">lo</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span> <span class="o">+</span> <span class="n">lo</span> <span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 5 -------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2147483647L</span><span class="p">;</span><span class="w">   </span><span class="c1">// L am Ende des Wertes beachten</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ long    : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 6 -------&quot;</span><span class="p">);</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
-        <span class="n">ch</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ char    : &quot;</span> <span class="o">+</span> <span class="n">ch</span> <span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; --- Aufgabe 6 -------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wert vom Typ char    : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// 7 a)</span>
-        <span class="c1">// 8 d)</span>
-        <span class="c1">// 9 b)</span>
-        <span class="c1">//  126 --&gt; 0111 1110</span>
-        <span class="c1">// -126 --&gt; 1000 0010</span>
-        <span class="c1">// 0000 1010 + 0000 1100 = 0001 0110  ( 10 + 12 = 22 )</span>
-        <span class="c1">// 0000 1010 - 0000 1100 = 0000 1010 + 1111 0100 = 1111 1110 ( 10 - 12 = -2 )           </span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="c1">// 7 a)</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 8 d)</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 9 b)</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//  126 --&gt; 0111 1110</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// -126 --&gt; 1000 0010</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 0000 1010 + 0000 1100 = 0001 0110  ( 10 + 12 = 22 )</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 0000 1010 - 0000 1100 = 0000 1010 + 1111 0100 = 1111 1110 ( 10 - 12 = -2 )           </span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-<span class="p">}</span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </details>
-<details class="note"><summary>Übung 2</summary><ol>
+<details class="note">
+<summary>Übung 2</summary>
+<ol>
 <li>Erstellen Sie ein package <code>uebungen.uebung2</code>. </li>
 <li>Erstellen Sie in diesem package eine Klasse <code>Uebung2</code> mit <code>main()</code>-Methode.</li>
 <li>
 <p>Schreiben Sie eine Methode 
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printIntDivision</span><span class="p">(</span><span class="kt">int</span> <span class="n">nr1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr2</span><span class="p">)</span> 
-<span class="p">{</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printIntDivision</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr2</span><span class="p">)</span><span class="w"> </span>
+<span class="p">{</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 Diese Methode soll folgende Ausgabe auf die Konsole erzeugen,
 z.B. für <code>printIntDivision(7, 4);</code> die Ausgabe 
@@ -683,8 +708,8 @@ z.B. für <code>printIntDivision(17, 4);</code> die Ausgabe
 </li>
 <li>
 <p>Schreiben Sie zwei Methoden 
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getQuotient</span><span class="p">(</span><span class="kt">int</span> <span class="n">nr1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr2</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// und </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getRemainder</span><span class="p">(</span><span class="kt">int</span> <span class="n">nr1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr2</span><span class="p">)</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getQuotient</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr2</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// und </span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getRemainder</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr2</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
 </code></pre></div>
 Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen Werte zu (z.B. <code>17</code> und <code>4</code>). Wenden Sie die beiden Methoden so an, dass mit Hilfe der <code>println()</code>-Methode folgende Ausgaben erscheinen: 
 <div class="highlight"><pre><span></span><code><span class="m">17</span>/4 <span class="o">=</span> <span class="m">4</span>
@@ -695,37 +720,273 @@ Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen W
 <p>Besitzen die folgende Methodenaufrufe einem Wert? Wenn ja, welcher?</p>
 <ul>
 <li><code>printIntDivision(17, 4);</code></li>
-<li><code>getQuotient(17,4);</code></li>
-<li><code>getRemainder(17,4);</code></li>
 </ul>
+</li>
+<li>
+<p><code>getQuotient(17,4);</code></p>
+</li>
+<li>
+<p><code>getRemainder(17,4);</code></p>
 </li>
 <li>
 <p>Können wir die Methoden <code>getQuotient(int nr1, int nr2)</code> und <code>getRemainder(int nr1, int nr2)</code> auch in der <code>printIntDivision(int nr1, int nr2)</code>-Methode verwenden/aufrufen? Wenn ja, wie?</p>
 </li>
 </ol>
 </details>
-                
-              
-              
-                
+<details class="question">
+<summary>Eine mögliche Lösung für Übung 2</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung2</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Uebung2</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printIntDivision</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//int quotient = nr1 / nr2;             </span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getQuotient</span><span class="p">(</span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="n">nr2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//int remainder = nr1 % nr2;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRemainder</span><span class="p">(</span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="n">nr2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nr1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; geteilt &quot;</span><span class="w"></span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;durch &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nr2</span><span class="w"> </span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; ergibt &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;. &quot;</span><span class="w"></span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Es bleibt ein Rest &quot;</span><span class="w"></span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;von &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">remainder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getQuotient</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr2</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nr1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nr2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">quotient</span><span class="p">;</span><span class="w">        </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getRemainder</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nr1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr2</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nr1</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">nr2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">remainder</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printIntDivision</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">printIntDivision</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">number1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getQuotient</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRemainder</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span><span class="w"> </span><span class="n">number2</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">number1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="w"> </span>
+<span class="w">                        </span><span class="o">+</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span>
+<span class="w">                        </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">number1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; mod &quot;</span><span class="w"> </span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="n">number2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="n">rest</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<details class="note">
+<summary>Übung 3</summary>
+<ol>
+<li>Erstellen Sie ein package <code>uebungen.uebung3</code>. </li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Uebung3</code> mit <code>main()</code>-Methode.</li>
+<li>
+<p>Schreiben Sie eine Methode <code>public static void printTimesTables(int nr1, int nr2)</code>. Bei Aufruf der Methode z.B. für <code>printTimesTables(10,10);</code> soll das kleine Ein-Mal-Eins in der folgenden Form ausgegeben werden:</p>
+<details>
+<summary>Ausgabe für printTimesTables(10,10);</summary>
+<div class="highlight"><pre><span></span><code><span class="m">1</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">1</span>
+<span class="m">1</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">2</span>
+<span class="m">1</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">3</span>
+<span class="m">1</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">4</span>
+<span class="m">1</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">5</span>
+<span class="m">1</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">6</span>
+<span class="m">1</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">7</span>
+<span class="m">1</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">8</span>
+<span class="m">1</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">9</span>
+<span class="m">1</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">10</span>
+
+<span class="m">2</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">2</span>
+<span class="m">2</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">4</span>
+<span class="m">2</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">6</span>
+<span class="m">2</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">8</span>
+<span class="m">2</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">10</span>
+<span class="m">2</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">12</span>
+<span class="m">2</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">14</span>
+<span class="m">2</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">16</span>
+<span class="m">2</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">18</span>
+<span class="m">2</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">20</span>
+
+<span class="m">3</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">3</span>
+<span class="m">3</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">6</span>
+<span class="m">3</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">9</span>
+<span class="m">3</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">12</span>
+<span class="m">3</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">15</span>
+<span class="m">3</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">18</span>
+<span class="m">3</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">21</span>
+<span class="m">3</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">24</span>
+<span class="m">3</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">27</span>
+<span class="m">3</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">30</span>
+
+<span class="m">4</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">4</span>
+<span class="m">4</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">8</span>
+<span class="m">4</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">12</span>
+<span class="m">4</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">16</span>
+<span class="m">4</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">20</span>
+<span class="m">4</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">24</span>
+<span class="m">4</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">28</span>
+<span class="m">4</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">32</span>
+<span class="m">4</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">36</span>
+<span class="m">4</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">40</span>
+
+<span class="m">5</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">5</span>
+<span class="m">5</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">10</span>
+<span class="m">5</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">15</span>
+<span class="m">5</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">20</span>
+<span class="m">5</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">25</span>
+<span class="m">5</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">30</span>
+<span class="m">5</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">35</span>
+<span class="m">5</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">40</span>
+<span class="m">5</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">45</span>
+<span class="m">5</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">50</span>
+
+<span class="m">6</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">6</span>
+<span class="m">6</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">12</span>
+<span class="m">6</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">18</span>
+<span class="m">6</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">24</span>
+<span class="m">6</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">30</span>
+<span class="m">6</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">36</span>
+<span class="m">6</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">42</span>
+<span class="m">6</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">48</span>
+<span class="m">6</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">54</span>
+<span class="m">6</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">60</span>
+
+<span class="m">7</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">7</span>
+<span class="m">7</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">14</span>
+<span class="m">7</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">21</span>
+<span class="m">7</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">28</span>
+<span class="m">7</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">35</span>
+<span class="m">7</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">42</span>
+<span class="m">7</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">49</span>
+<span class="m">7</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">56</span>
+<span class="m">7</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">63</span>
+<span class="m">7</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">70</span>
+
+<span class="m">8</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">8</span>
+<span class="m">8</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">16</span>
+<span class="m">8</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">24</span>
+<span class="m">8</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">32</span>
+<span class="m">8</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">40</span>
+<span class="m">8</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">48</span>
+<span class="m">8</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">56</span>
+<span class="m">8</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">64</span>
+<span class="m">8</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">72</span>
+<span class="m">8</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">80</span>
+
+<span class="m">9</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">9</span>
+<span class="m">9</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">18</span>
+<span class="m">9</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">27</span>
+<span class="m">9</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">36</span>
+<span class="m">9</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">45</span>
+<span class="m">9</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">54</span>
+<span class="m">9</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">63</span>
+<span class="m">9</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">72</span>
+<span class="m">9</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">81</span>
+<span class="m">9</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">90</span>
+
+<span class="m">10</span> * <span class="nv">1</span> <span class="o">=</span> <span class="m">10</span>
+<span class="m">10</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">20</span>
+<span class="m">10</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">30</span>
+<span class="m">10</span> * <span class="nv">4</span> <span class="o">=</span> <span class="m">40</span>
+<span class="m">10</span> * <span class="nv">5</span> <span class="o">=</span> <span class="m">50</span>
+<span class="m">10</span> * <span class="nv">6</span> <span class="o">=</span> <span class="m">60</span>
+<span class="m">10</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">70</span>
+<span class="m">10</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">80</span>
+<span class="m">10</span> * <span class="nv">9</span> <span class="o">=</span> <span class="m">90</span>
+<span class="m">10</span> * <span class="nv">10</span> <span class="o">=</span> <span class="m">100</span>
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Schreiben Sie eine Methode <code>public static void printTimesMatrix(int nr1, int nr2)</code>. Bei Aufruf der Methode z.B. für printTimesMatrix(10,10) soll das kleine Ein-Mal-Eins in der folgenden Form ausgegeben werden:</p>
+<details>
+<summary>Ausgabe für printTimesMatrix(10,10);</summary>
+<div class="highlight"><pre><span></span><code> <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span>  <span class="m">10</span> 
+ <span class="m">2</span>  <span class="m">4</span>  <span class="m">6</span>  <span class="m">8</span>  <span class="m">10</span>  <span class="m">12</span>  <span class="m">14</span>  <span class="m">16</span>  <span class="m">18</span>  <span class="m">20</span> 
+ <span class="m">3</span>  <span class="m">6</span>  <span class="m">9</span>  <span class="m">12</span>  <span class="m">15</span>  <span class="m">18</span>  <span class="m">21</span>  <span class="m">24</span>  <span class="m">27</span>  <span class="m">30</span> 
+ <span class="m">4</span>  <span class="m">8</span>  <span class="m">12</span>  <span class="m">16</span>  <span class="m">20</span>  <span class="m">24</span>  <span class="m">28</span>  <span class="m">32</span>  <span class="m">36</span>  <span class="m">40</span> 
+ <span class="m">5</span>  <span class="m">10</span>  <span class="m">15</span>  <span class="m">20</span>  <span class="m">25</span>  <span class="m">30</span>  <span class="m">35</span>  <span class="m">40</span>  <span class="m">45</span>  <span class="m">50</span> 
+ <span class="m">6</span>  <span class="m">12</span>  <span class="m">18</span>  <span class="m">24</span>  <span class="m">30</span>  <span class="m">36</span>  <span class="m">42</span>  <span class="m">48</span>  <span class="m">54</span>  <span class="m">60</span> 
+ <span class="m">7</span>  <span class="m">14</span>  <span class="m">21</span>  <span class="m">28</span>  <span class="m">35</span>  <span class="m">42</span>  <span class="m">49</span>  <span class="m">56</span>  <span class="m">63</span>  <span class="m">70</span> 
+ <span class="m">8</span>  <span class="m">16</span>  <span class="m">24</span>  <span class="m">32</span>  <span class="m">40</span>  <span class="m">48</span>  <span class="m">56</span>  <span class="m">64</span>  <span class="m">72</span>  <span class="m">80</span> 
+ <span class="m">9</span>  <span class="m">18</span>  <span class="m">27</span>  <span class="m">36</span>  <span class="m">45</span>  <span class="m">54</span>  <span class="m">63</span>  <span class="m">72</span>  <span class="m">81</span>  <span class="m">90</span> 
+ <span class="m">10</span>  <span class="m">20</span>  <span class="m">30</span>  <span class="m">40</span>  <span class="m">50</span>  <span class="m">60</span>  <span class="m">70</span>  <span class="m">80</span>  <span class="m">90</span>  <span class="m">100</span> 
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Schreiben Sie eine Methode <code>public static void printTriangleUp(int height)</code>. Bei Aufruf der Methode z.B. für <code>printTriangleUp(7)</code> soll folgende Ausgabe erscheinen:
+    <div class="highlight"><pre><span></span><code>*******
+******
+*****
+****
+***
+**
+*
+</code></pre></div></p>
+</li>
+<li>
+<p>Geben Sie alle möglichen Kombinationen für 3 ganze Zahlen <code>x</code>, <code>y</code> und <code>z</code> aus, für die gilt:
+    <div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">und</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="w"></span>
+</code></pre></div></p>
+<hr />
+<p><b><i>Genügt bis hierher. Ab hier Zusatz nur für diejenigen, die bereits früher fertig sind.</i></b></p>
+<hr />
+</li>
+<li>
+<p><b>Zusatz</b> Schreiben Sie eine Umrechnung für eine gegebene Anzahl von Sekunden (<code>printSeconds(int seconds)</code>), z.B. <code>printSeconds(3456789)</code>:
+    <div class="highlight"><pre><span></span><code><span class="m">3456789</span> Sekunden sind <span class="m">40</span> Tage, <span class="m">13</span> Minuten, <span class="m">9</span> Sekunden.
+</code></pre></div>
+    Aber z.B. <code>printSeconds(2345678)</code>:
+    <div class="highlight"><pre><span></span><code><span class="m">2345678</span> Sekunden sind <span class="m">27</span> Tage, <span class="m">3</span> Stunden, <span class="m">34</span> Minuten, <span class="m">38</span> Sekunden.
+</code></pre></div>
+    Aber z.B. <code>printSeconds(123456)</code>:
+    <div class="highlight"><pre><span></span><code><span class="m">123456</span> Sekunden sind <span class="m">1</span> Tag, <span class="m">10</span> Stunden, <span class="m">17</span> Minuten, <span class="m">36</span> Sekunden.
+</code></pre></div>
+    Aber z.B. <code>printSeconds(12345)</code>:
+    <div class="highlight"><pre><span></span><code><span class="m">12345</span> Sekunden sind <span class="m">3</span> Stunden, <span class="m">25</span> Minuten, <span class="m">45</span> Sekunden.
+</code></pre></div></p>
+</li>
+<li><b>Zusatz</b> Schreiben Sie eine Methode, die für eine natürliche Zahl deren Quersumme ausgibt, z.B.: <code>crossSum(12345678)</code>
+    <div class="highlight"><pre><span></span><code>Die Quersumme von <span class="m">12345678</span> ist <span class="m">36</span>.
+</code></pre></div></li>
+</ol>
+</details>
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
       
         
         <a href="../tools/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Werkzeuge" rel="prev">
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
           <div class="md-footer__title">
             <div class="md-ellipsis">
@@ -749,7 +1010,7 @@ Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen W
             </div>
           </div>
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
           </div>
         </a>
       
@@ -757,18 +1018,19 @@ Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen W
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2022 Jörn Freiheit
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Jörn Freiheit
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -778,10 +1040,11 @@ Deklarieren Sie in der main()-Methode zwei int-Variablen und weisen Sie diesen W
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
       
     
   </body>
