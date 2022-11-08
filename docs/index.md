@@ -178,3 +178,211 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	}
 
 	```
+
+
+??? note "Selektion und Iteration"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_08;
+
+	public class SelektionUndIteration
+	{
+
+		public static boolean isEven(int number) 
+		{
+			int reminder = number % 2;		
+			boolean isEven = (reminder == 0);
+			return isEven;
+			
+			// return (number % 2 == 0);
+		}
+		
+		public static void collatz(int start)
+		{
+			int n = start;
+		}
+		
+		public static void printRectangle(int width, int height)
+		{
+			for(int row = 0; row < height; row++)
+			{
+				System.out.print(row + " : ");
+				
+				// pro Zeile :
+				for(int nrOfStars = 0; nrOfStars < width; nrOfStars++)
+				{
+					System.out.print("* ");
+				}
+				
+				System.out.println("  <-- Ende Zeile " + row);
+			}
+		}
+		
+		public static void printSumFrom1ToN(int n)
+		{
+			long sum = 0L;
+			for(int i = 1; i <= n; i++)
+			{
+				sum = sum + i;
+				if(i < n)
+				{
+					System.out.print(i + " + ");
+				}
+				else
+				{
+					System.out.print(i);
+				}
+				if(i % 10 == 0)
+				{
+					System.out.println();
+				}
+			}
+			System.out.println(" = " + sum);
+		}
+		
+		public static void compare3numbers(int a, int b, int c)
+		{
+			if(a > b && b > c)
+			{
+				System.out.println(a + " > " + b + " > " + c);
+			}
+			else // !(a > b) || !(b > c)
+			{
+				if(b > a && a > c)
+				{
+					System.out.println(b + " > " + a + " > " + c);
+				}
+				else
+				{
+					if(c > a && a > b)
+					{
+						System.out.println(c + " > " + a + " > " + b);
+					}
+					else
+					{
+						if(a > c && c > b)
+						{
+							System.out.println(a + " > " + c + " > " + b);
+						}
+						else
+						{
+							if(b > c && c > a)
+							{
+								System.out.println(b + " > " + c + " > " + a);
+							}
+							else
+							{
+								System.out.println(c + " > " + b + " > " + a);
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		public static void main(String[] args)
+		{
+			// Wiederholung
+			int number = 5;
+			System.out.println("Ist " + number + " gerade ? :  " + isEven(number));
+
+			// Selektion
+			if(isEven(number))
+			{
+				number = number / 2;
+			}
+			else 
+			{
+				number = 3 * number + 1;
+			}
+			System.out.println("number " + number);
+			
+			int a = 6;
+			int b = 7;
+			if(a > b)
+			{
+				a = a - b;
+			}
+			else
+			{
+				b = b - a;
+			}
+			System.out.println("a = " + a + ", b = " + b);
+			
+			a = 3; 
+			b = 4;
+			int c = 5;
+			compare3numbers(a,b,c);
+			
+			int weekday = 7;
+			String weekdayName = "";
+			switch(weekday)
+			{
+				case 0 : weekdayName = "Montag"; 
+						 break;
+				case 1 : weekdayName = "Dienstag";
+						 break;
+				case 2 : weekdayName = "Mittwoch";
+				 		break;
+				case 3 : weekdayName = "Donnerstag";
+				 		break;
+				case 4 : weekdayName = "Freitag";
+				 		break;
+				case 5 : weekdayName = "Samstag";
+				 		break;
+				case 6 : weekdayName = "Sonntag";
+				 		break;
+				default : weekdayName = "kein Wochentag";
+			}
+			System.out.println(weekdayName);
+			
+			weekdayName = switch(weekday) 
+			{
+				case 0 -> "Montag";
+				case 1 -> "Dienstag";
+				case 2 -> "Mittwoch";
+				case 3 -> "Donnerstag";
+				case 4 -> "Freitag";
+				case 5 -> "Samstag";
+				case 6 -> "Sonntag";
+				default -> "kein Wochentag";
+			};
+			
+			// Iteration
+			// for - Schleife
+			
+			for(int i = 0; i < 10; i++)
+			{
+				System.out.println(i);
+			}
+			System.out.println("Ende erste Schleife");
+			
+			for(int i = 10; !(i <= 0); i--)
+			{
+				System.out.println(i);
+			}
+			System.out.println("Ende zweite Schleife");
+			
+			for(int i = 0; i < 10; i+=2)
+			{
+				System.out.println(i);
+			}
+			System.out.println("Ende dritte Schleife");
+			
+			printSumFrom1ToN(123);
+			
+			System.out.println();
+			printRectangle(10, 7);
+			
+			System.out.println();
+			printRectangle(3, 8);
+		}
+
+	}
+	```
+
+
+
+
+
+
+
