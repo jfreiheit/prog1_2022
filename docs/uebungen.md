@@ -499,3 +499,126 @@
 		Die Quersumme von 12345678 ist 36.
 		```
 
+
+??? question "Eine mögliche Lösung für Übung 3"
+	```java 
+	package uebungen.uebung3;
+
+	public class Uebung3
+	{
+
+		public static void printTimesTables(int nr1, int nr2)
+		{
+			for (int i = 1; i <= nr1; i++)
+			{
+				for(int j = 1; j <= nr2; j++)
+				{
+					// System.out.println(" i = " + i + ", j = " + j);
+					int product = i * j;
+					System.out.println(i + " * " + j + " = " + product);
+				}
+				System.out.println();
+			}
+		}
+
+		public static void printTimesMatrix(int nr1, int nr2)
+		{
+			for (int i = 1; i <= nr1; i++)
+			{
+				for(int j = 1; j <= nr2; j++)
+				{
+					System.out.print(" i = " + i + ", j = " + j + " ");
+					int product = i * j;
+					System.out.print(product + " ");
+				}
+				System.out.println();
+			}
+		}
+
+		public static void printTriangleUp(int height)
+		{
+			for(int row = 0; row < height; row++)
+			{
+				// System.out.print("Zeile " + row + " : ");
+
+				for(int nrOfStars = 0; nrOfStars < (height - row); nrOfStars++)
+				{
+					// System.out.print(nrOfStars + " ");
+					System.out.print("* ");
+				}
+
+				// System.out.println("  <- Ende Zeile " + row);
+				System.out.println();
+			}
+		}
+
+		public static void printXYZ()
+		{
+			for(int x = -36; x <= 36; x++)
+			{
+				for(int y = x; y <= 36; y++)
+				{
+					for(int z = y; z <= 36; z++)
+					{
+						if(x * y * z == 36)
+						{
+							System.out.println("x=" + x + ", y=" + y + ", z= " + z);
+						}
+					}
+				}
+			}
+		}
+
+		public static void main(String[] args)
+		{
+			System.out.println();
+			System.out.println("---------------- Aufgabe 3 --------------");
+			System.out.println();
+			printTimesTables(10,10);
+
+			System.out.println();
+			System.out.println("---------------- Aufgabe 4 --------------");
+			System.out.println();
+			printTimesMatrix(10,10);
+
+			System.out.println();
+			System.out.println("---------------- Aufgabe 5 --------------");
+			System.out.println();
+			printTriangleUp(7);
+
+
+			System.out.println();
+			System.out.println("---------------- Aufgabe 6 --------------");
+			System.out.println();
+			printXYZ();
+		}
+
+	}
+
+	```
+
+	
+??? note "Übung 4"
+	
+	1. Erstellen Sie ein package `uebungen.uebung4`. 
+	2. Erstellen Sie in diesem package eine Klasse `Uebung4` mit `main()`-Methode.
+	3. Implementieren Sie folgende Methoden: 
+		- `public static int inputInt()` – in dieser Methode wird über die Konsole eine `int`-Zahl eingelesen. Diese Zahl wird von der Methode zurückgegeben. Zur Eingabe von Zahlen über die Konsole siehe Klasse [Scanner](../hilfsklassen/#die-klasse-scanner).
+		- `public static boolean isPrime(int number)` – diese Methode prüft, ob die als Parameter übergebene `number` eine Primzahl ist. Die Methode gibt ein `true` zurück, wenn `number` eine Primzahl ist und `false` sonst.
+		- `public static void printPrimeNumbers(int maximum)` – diese Methode gibt alle Primzahlen von 1 bis einschließlich `maximum` wie folgt auf der Konsole aus (Bsp. für `maximum=61`):
+			```bash
+			Zahl : 61
+			.2 3 .5 .7 ...11 .13 ...17 .19 ...23 .....29 .31 .....37 ...41 .43 ...47 .....53 .....59 .61
+			```
+			d.h. es werden die Zahlen, die Primzahlen sind, ausgegeben und für die anderen Zahlen erscheint nur ein Punkt. Verwenden Sie in der Methode `printPrimenumbers(int)` die Methode `isPrime(int)`.
+		- `public static int getSmallestDivider(int number)` – diese Methode gibt den kleinsten Teiler zurück, der `number` ganzzahlig teilt. Ist `number` eine Primzahl, wird `number` zurückgegeben. Für den Fall, dass `number` kleiner als `2` ist, geben Sie ebenfalls `number` zurück.
+		- `public static String createStringOfPrimeFactorization(int number)` – diese Methode gibt einen String in folgender Form zurück (Bsp. für `number=632060`):
+			```bash
+			" 2 * 2 * 5 * 11 * 13 * 13 * 17 = 632060 "
+			```
+			d.h. alle kleinsten Teiler werden mit dem Multiplikationszeichen verbunden und am Ende erscheint `= Wert von number`. 
+		- Testen Sie alle Methoden. Rufen Sie insbesondere `inputInt()`, `printPrimenumbers(int)` und `createStringOfPrimeFactorization(int)` in der `main()`-Methode auf.
+	4. **Tipp:** Bei der Überprüfung, ob `number` eine Primzahl ist, genügt es, Teiler bis zur Wurzel von `number` zu suchen. Werden bis dahin keine Teiler gefunden, ist `number` eine Primzahl. Sie können sich dazu z.B. eine Variable der Form 
+	`int bound = (int) Math.sqrt(number);` erstellen und müssen dann den Teiler nur bis `bound` suchen (der Typkonvertierungsoperator `(int)` macht aus der `double`-Zahl einen `int` - schneidet die Nachkommastellen ab).
+
+

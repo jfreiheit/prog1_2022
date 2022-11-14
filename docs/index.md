@@ -47,11 +47,11 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 2. | 17.-21.10.2022 | [Variablen und Datentypen](./variablen/#variablen-und-datentypen) | -  | - | 
 | 3. | 24.-28.10.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | -  | - | 
 | 4. | 31.-04.11.2022 | Selektion (if) und Iteration (for)| - | - | 
-| 5. | 07.-11.11.2022 | Iteration (while) | Aufgabe 1 | 15.11.2022 | 
-| 6. | 14.-18.11.2022 | Klassen und Objekte | Aufgabe 2  | 22.11.2022 | 
-| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | Aufgabe 3 | 29.11.2022 | 
-| 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 06.12.2022 |
-| 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 13.12.2022 |
+| 5. | 07.-11.11.2022 | Iteration (while) | Aufgabe 1 | 22.11.2022 | 
+| 6. | 14.-18.11.2022 | Klassen und Objekte | Aufgabe 2  | 29.11.2022 | 
+| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | Aufgabe 3 | 06.12.2022 | 
+| 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 13.12.2022 |
+| 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
 | 10. | 12.-16.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
 | 11. | 19.-23.12.2022 | Algorithmen über Arrays  | Aufgabe 7  | 10.01.2023 |
 | | | | | | | |

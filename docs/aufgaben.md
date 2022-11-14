@@ -59,7 +59,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 ## Aufgaben
 
-#### Aufgabe 1 (Abgabe bis 24.10.2022 24:00 Uhr)
+#### Aufgabe 1 (Abgabe bis 22.11.2022 24:00 Uhr)
 
 
 ??? "Aufgabe1 - Rhombus"
@@ -103,7 +103,8 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 		- dass die Höhe dadurch immer eine ungerade Zahl ist (was notwendig ist) und 
 		- dass Sie den Wert `upperHalf` gut verwenden können (was ebenfalls notwendig ist, wie Sie merken werden)
 	- **Tipp:**: Schreiben Sie sich zwei weitere Methoden `public static void printRhombusFilled(int upperHalf){}` und `public static void printRhombusUnfilled(int upperHalf){}`, die Sie entsprechend des Wertes von `filled` aufrufen. In der einen Methode erstellen Sie die ausgefüllte Raute und in der anderen die ungefüllte. Dann wird Ihr Programm nicht zu unübersichtlich. Fangen Sie am besten mit der ausgefüllten an, die ist etwas leichter. 
+	- Bedenken Sie auch, dass in jeder Zeile nicht nur eine bestimmte Anzahl Sterne ausgegeben werden muss, sondern erst noch eine bestimmte Anzahl Leerzeichen. Wieviele Leerzeichen sind es in Zeile `x` bei einem gegebenen Wert für `upperHalf`? Wieviele Sterne sind es in Zeile `x` bei einem gegebenen Wert für `upperHalf`? Sie sollten diese Fragen zunächst mithilfe von Zettel und Stift beantworten ehe Sie mit dem Programmieren beginnen. Zettel und Stift sind die wichtigsten Hilfsmittel einer Programmiererin!
 	- Das Programm soll für beliebige (nicht so große - max. Wert `100`) positive Zahlen (also `> 0`) von `upperHalf` funktionieren. Insbesondere sind die Tests für `upperhalf == 1` interssant. 
-	- Laden Sie Ihre Lösung bis Sonntag, den **22.11.2020 um 24.00 Uhr** in Moodle hoch
+	- Laden Sie Ihre Lösung bis Sonntag, den **22.11.2022 um 24.00 Uhr** in Moodle hoch
 	- Viel Spaß und viel Erfolg!
 
