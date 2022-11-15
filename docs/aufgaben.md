@@ -61,7 +61,6 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 #### Aufgabe 1 (Abgabe bis 22.11.2022 24:00 Uhr)
 
-
 ??? "Aufgabe1 - Rhombus"
 	- Erstellen Sie eine Klasse `Aufgabe1` mit `main()`-Methode im package `aufgaben.aufgabe1` 
 	- Implementieren Sie eine Methode `public static void printRhombus(int upperHalf, boolean filled){}`
@@ -105,6 +104,86 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- **Tipp:**: Schreiben Sie sich zwei weitere Methoden `public static void printRhombusFilled(int upperHalf){}` und `public static void printRhombusUnfilled(int upperHalf){}`, die Sie entsprechend des Wertes von `filled` aufrufen. In der einen Methode erstellen Sie die ausgefüllte Raute und in der anderen die ungefüllte. Dann wird Ihr Programm nicht zu unübersichtlich. Fangen Sie am besten mit der ausgefüllten an, die ist etwas leichter. 
 	- Bedenken Sie auch, dass in jeder Zeile nicht nur eine bestimmte Anzahl Sterne ausgegeben werden muss, sondern erst noch eine bestimmte Anzahl Leerzeichen. Wieviele Leerzeichen sind es in Zeile `x` bei einem gegebenen Wert für `upperHalf`? Wieviele Sterne sind es in Zeile `x` bei einem gegebenen Wert für `upperHalf`? Sie sollten diese Fragen zunächst mithilfe von Zettel und Stift beantworten ehe Sie mit dem Programmieren beginnen. Zettel und Stift sind die wichtigsten Hilfsmittel einer Programmiererin!
 	- Das Programm soll für beliebige (nicht so große - max. Wert `100`) positive Zahlen (also `> 0`) von `upperHalf` funktionieren. Insbesondere sind die Tests für `upperhalf == 1` interssant. 
-	- Laden Sie Ihre Lösung bis Sonntag, den **22.11.2022 um 24.00 Uhr** in Moodle hoch
+	- Laden Sie Ihre Lösung bis Dienstag, den **22.11.2022 um 24.00 Uhr** in Moodle hoch
+	- Viel Spaß und viel Erfolg!
+
+
+#### Aufgabe 2 (Abgabe bis 29.11.2022 24:00 Uhr)
+
+??? "Aufgabe2 - Numbers"
+	- Erstellen Sie eine Klasse `Aufgabe2` mit `main()`-Methode im package `aufgaben.aufgabe2`.
+	- Bei der Lösung der Aufgabe soll nicht der Datentyp `String` verwendet werden! 
+	- Implementieren Sie eine Methode `public static int lengthOfNumber(int number){}`. Diese Methode gibt die Länge von `number` zurück, d.h. die Anzahl der Ziffern in der Zahl. **Beachten Sie**: für `number == 0` soll jedoch `0` zurückgegeben werden. <br/>
+		**Beispiele:** <br/>
+			```
+			number  --> Rückgabewert
+			0 		--> 0
+			1 		--> 1
+			9 		--> 1
+			10 	    --> 2
+			1234    --> 4
+			-1234   --> 4
+			```
+
+	- Implementieren Sie eine Methode `public static int firstDigit(int number){}`. Diese Methode gibt die erste Ziffer von `number` zurück.  <br/>
+		**Beispiele:** <br/>
+			```
+			number  --> Rückgabewert
+			0 		--> 0
+			1 		--> 1
+			9 		--> 9
+			10 	    --> 1
+			1234    --> 1
+			-1234   --> 1
+			5678    --> 5
+			```
+
+	- Implementieren Sie eine Methode `public static int powerOf10ToN(int n){}`. Diese Methode gibt den Wert für `10 ^ n` zurück. Sie können davon ausgehen, dass `n >= 0` gilt.  <br/>
+		**Beispiele:** <br/>
+			```
+			n       --> Rückgabewert
+			0 		--> 1
+			1 		--> 10
+			2 		--> 100
+			3 	    --> 1000
+			4       --> 10000
+			```
+
+	- Implementieren Sie eine Methode `public static int cutFirstDigit(int number){}`. Diese Methode entfernt von `number` die erste Ziffer.  Für `-10 < number < 10` wird `0` zurückgegeben. <br/>
+		**Beispiele:** <br/>
+			```
+			number  --> Rückgabewert
+			0 		--> 0
+			1 		--> 0
+			9 		--> 0
+			-9 	    --> 0
+			11      --> 1
+			91      --> 1
+			1234    --> 234
+			-1234   --> -234
+			9999    --> 999
+			-9999   --> -999
+			1023    --> 23  // Achtung! führende Nullen in der verbleibenden Zahl entfallen
+			```
+
+	- Implementieren Sie eine Methode `public static boolean secondDigitIsZero(int number){}`. Diese Methode gibt ein `true` zurück, wenn die zweite Ziffer in `number` eine `0` ist. Sonst `false`. <br/>
+		**Beispiele:** <br/>
+			```
+			number  --> Rückgabewert
+			0 		--> false
+			1 		--> false
+			9 		--> false
+			11 	    --> false
+			101     --> true
+			111     --> false
+			1001    --> true
+			-10234  --> true
+			1111    --> false
+			10000   --> true
+			```
+
+	- Testen Sie alle Methoden ausführlich in der `main()`-Methode.
+	
+	- Laden Sie Ihre Lösung bis Dienstag, den **29.11.2022 um 24.00 Uhr** in Moodle hoch
 	- Viel Spaß und viel Erfolg!
 

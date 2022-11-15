@@ -483,6 +483,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-abgabe-bis-29112022-2400-uhr" class="md-nav__link">
+    Aufgabe 2 (Abgabe bis 29.11.2022 24:00 Uhr)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -573,6 +580,13 @@
           <li class="md-nav__item">
   <a href="#aufgabe-1-abgabe-bis-22112022-2400-uhr" class="md-nav__link">
     Aufgabe 1 (Abgabe bis 22.11.2022 24:00 Uhr)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-abgabe-bis-29112022-2400-uhr" class="md-nav__link">
+    Aufgabe 2 (Abgabe bis 29.11.2022 24:00 Uhr)
   </a>
   
 </li>
@@ -700,7 +714,91 @@ Zur offiziellen Abgabe einer Aufgabe gehören also</p>
 <li><strong>Tipp:</strong>: Schreiben Sie sich zwei weitere Methoden <code>public static void printRhombusFilled(int upperHalf){}</code> und <code>public static void printRhombusUnfilled(int upperHalf){}</code>, die Sie entsprechend des Wertes von <code>filled</code> aufrufen. In der einen Methode erstellen Sie die ausgefüllte Raute und in der anderen die ungefüllte. Dann wird Ihr Programm nicht zu unübersichtlich. Fangen Sie am besten mit der ausgefüllten an, die ist etwas leichter. </li>
 <li>Bedenken Sie auch, dass in jeder Zeile nicht nur eine bestimmte Anzahl Sterne ausgegeben werden muss, sondern erst noch eine bestimmte Anzahl Leerzeichen. Wieviele Leerzeichen sind es in Zeile <code>x</code> bei einem gegebenen Wert für <code>upperHalf</code>? Wieviele Sterne sind es in Zeile <code>x</code> bei einem gegebenen Wert für <code>upperHalf</code>? Sie sollten diese Fragen zunächst mithilfe von Zettel und Stift beantworten ehe Sie mit dem Programmieren beginnen. Zettel und Stift sind die wichtigsten Hilfsmittel einer Programmiererin!</li>
 <li>Das Programm soll für beliebige (nicht so große - max. Wert <code>100</code>) positive Zahlen (also <code>&gt; 0</code>) von <code>upperHalf</code> funktionieren. Insbesondere sind die Tests für <code>upperhalf == 1</code> interssant. </li>
-<li>Laden Sie Ihre Lösung bis Sonntag, den <strong>22.11.2022 um 24.00 Uhr</strong> in Moodle hoch</li>
+<li>Laden Sie Ihre Lösung bis Dienstag, den <strong>22.11.2022 um 24.00 Uhr</strong> in Moodle hoch</li>
+<li>Viel Spaß und viel Erfolg!</li>
+</ul>
+</details>
+<h4 id="aufgabe-2-abgabe-bis-29112022-2400-uhr">Aufgabe 2 (Abgabe bis 29.11.2022 24:00 Uhr)<a class="headerlink" href="#aufgabe-2-abgabe-bis-29112022-2400-uhr" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Aufgabe2 - Numbers</summary>
+<ul>
+<li>Erstellen Sie eine Klasse <code>Aufgabe2</code> mit <code>main()</code>-Methode im package <code>aufgaben.aufgabe2</code>.</li>
+<li>Bei der Lösung der Aufgabe soll nicht der Datentyp <code>String</code> verwendet werden! </li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int lengthOfNumber(int number){}</code>. Diese Methode gibt die Länge von <code>number</code> zurück, d.h. die Anzahl der Ziffern in der Zahl. <strong>Beachten Sie</strong>: für <code>number == 0</code> soll jedoch <code>0</code> zurückgegeben werden. <br/>
+    <strong>Beispiele:</strong> <br/>
+        <div class="highlight"><pre><span></span><code>number  --&gt; Rückgabewert
+0       --&gt; 0
+1       --&gt; 1
+9       --&gt; 1
+10      --&gt; 2
+1234    --&gt; 4
+-1234   --&gt; 4
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int firstDigit(int number){}</code>. Diese Methode gibt die erste Ziffer von <code>number</code> zurück.  <br/>
+    <strong>Beispiele:</strong> <br/>
+        <div class="highlight"><pre><span></span><code>number  --&gt; Rückgabewert
+0       --&gt; 0
+1       --&gt; 1
+9       --&gt; 9
+10      --&gt; 1
+1234    --&gt; 1
+-1234   --&gt; 1
+5678    --&gt; 5
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int powerOf10ToN(int n){}</code>. Diese Methode gibt den Wert für <code>10 ^ n</code> zurück. Sie können davon ausgehen, dass <code>n &gt;= 0</code> gilt.  <br/>
+    <strong>Beispiele:</strong> <br/>
+        <div class="highlight"><pre><span></span><code>n       --&gt; Rückgabewert
+0       --&gt; 1
+1       --&gt; 10
+2       --&gt; 100
+3       --&gt; 1000
+4       --&gt; 10000
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int cutFirstDigit(int number){}</code>. Diese Methode entfernt von <code>number</code> die erste Ziffer.  Für <code>-10 &lt; number &lt; 10</code> wird <code>0</code> zurückgegeben. <br/>
+    <strong>Beispiele:</strong> <br/>
+        <div class="highlight"><pre><span></span><code>number  --&gt; Rückgabewert
+0       --&gt; 0
+1       --&gt; 0
+9       --&gt; 0
+-9      --&gt; 0
+11      --&gt; 1
+91      --&gt; 1
+1234    --&gt; 234
+-1234   --&gt; -234
+9999    --&gt; 999
+-9999   --&gt; -999
+1023    --&gt; 23  // Achtung! führende Nullen in der verbleibenden Zahl entfallen
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static boolean secondDigitIsZero(int number){}</code>. Diese Methode gibt ein <code>true</code> zurück, wenn die zweite Ziffer in <code>number</code> eine <code>0</code> ist. Sonst <code>false</code>. <br/>
+    <strong>Beispiele:</strong> <br/>
+        <div class="highlight"><pre><span></span><code>number  --&gt; Rückgabewert
+0       --&gt; false
+1       --&gt; false
+9       --&gt; false
+11      --&gt; false
+101     --&gt; true
+111     --&gt; false
+1001    --&gt; true
+-10234  --&gt; true
+1111    --&gt; false
+10000   --&gt; true
+</code></pre></div></p>
+</li>
+<li>
+<p>Testen Sie alle Methoden ausführlich in der <code>main()</code>-Methode.</p>
+</li>
+<li>
+<p>Laden Sie Ihre Lösung bis Dienstag, den <strong>29.11.2022 um 24.00 Uhr</strong> in Moodle hoch</p>
+</li>
 <li>Viel Spaß und viel Erfolg!</li>
 </ul>
 </details>
