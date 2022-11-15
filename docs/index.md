@@ -46,9 +46,9 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 1. | 10.-14.10.2022 | [Organisatorisches](./#organisatorisches), [Algorithmen](./algorithmen/#was-ist-programmieren) und [Erstes Programm](./start/#unser-erstes-programm)| -  | - | 
 | 2. | 17.-21.10.2022 | [Variablen und Datentypen](./variablen/#variablen-und-datentypen) | -  | - | 
 | 3. | 24.-28.10.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | -  | - | 
-| 4. | 31.-04.11.2022 | Selektion (if) und Iteration (for)| - | - | 
-| 5. | 07.-11.11.2022 | Iteration (while) | Aufgabe 1 | 22.11.2022 | 
-| 6. | 14.-18.11.2022 | Klassen und Objekte | Aufgabe 2  | 29.11.2022 | 
+| 4. | 31.-04.11.2022 | [Selektion (if)](./selektion/#selektion) und [Iteration (for)](./iteration/#die-for-schleife)| - | - | 
+| 5. | 07.-11.11.2022 | [Iteration (while)](./iteration/#die-while-schleife) und [Methodenstack](./methodenstack/#methodenstack) | [Aufgabe 1](./aufgaben/#aufgabe-1-abgabe-bis-22112022-2400-uhr) | 22.11.2022 | 
+| 6. | 14.-18.11.2022 | Klassen und Objekte | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
 | 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | Aufgabe 3 | 06.12.2022 | 
 | 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 13.12.2022 |
 | 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
