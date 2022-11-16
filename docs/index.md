@@ -43,24 +43,24 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 | | Woche | Themen (Vorlesung) | Aufgabe | Abgabe Aufgabe bis | 
 |-|-------|--------------------|-------|-----------------|
-| 1. | 10.-14.10.2022 | [Organisatorisches](./#organisatorisches), [Algorithmen](./algorithmen/#was-ist-programmieren) und [Erstes Programm](./start/#unser-erstes-programm)| -  | - | 
-| 2. | 17.-21.10.2022 | [Variablen und Datentypen](./variablen/#variablen-und-datentypen) | -  | - | 
-| 3. | 24.-28.10.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | -  | - | 
-| 4. | 31.-04.11.2022 | [Selektion (if)](./selektion/#selektion) und [Iteration (for)](./iteration/#die-for-schleife)| - | - | 
-| 5. | 07.-11.11.2022 | [Iteration (while)](./iteration/#die-while-schleife) und [Methodenstack](./methodenstack/#methodenstack) | [Aufgabe 1](./aufgaben/#aufgabe-1-abgabe-bis-22112022-2400-uhr) | 22.11.2022 | 
-| 6. | 14.-18.11.2022 | [Klassen und Objekte](./objekte1/#klassen-und-objekte) | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
-| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | [Aufgabe 3](./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr) | 06.12.2022 | 
-| 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 13.12.2022 |
-| 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
-| 10. | 12.-16.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
-| 11. | 19.-23.12.2022 | Algorithmen über Arrays  | Aufgabe 7  | 10.01.2023 |
+| 1. | 17.-21.10.2022 | [Organisatorisches](./#organisatorisches), [Algorithmen](./algorithmen/#was-ist-programmieren) und [Erstes Programm](./start/#unser-erstes-programm)| -  | - | 
+| 2. | 24.-28.10.2022 | [Variablen und Datentypen](./variablen/#variablen-und-datentypen) | -  | - | 
+| 3. | 31.-04.11.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | -  | - | 
+| 4. | 07.-11.11.2022 | [Selektion (if)](./selektion/#selektion) und [Iteration (for)](./iteration/#die-for-schleife)| - | - | 
+| 5. | 14.-18.11.2022 | [Iteration (while)](./iteration/#die-while-schleife) und [Methodenstack](./methodenstack/#methodenstack) | [Aufgabe 1](./aufgaben/#aufgabe-1-abgabe-bis-22112022-2400-uhr) | 22.11.2022 | 
+| 6. | 21.-25.11.2022 | [Klassen und Objekte](./objekte1/#klassen-und-objekte) | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
+| 7. | 28.-02.12.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | [Aufgabe 3](./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr) | 06.12.2022 | 
+| 8. | 05.-09.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 13.12.2022 |
+| 9. | 12.-16.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
+| 10. | 19.-23.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
 | | | | | | | |
-| 12. | 02.-06.01.2023 | Sortieren von Arrays | Aufgabe 8  | 17.01.2023 |
-| 13. | 09.-13.01.2023 | Suchen in Arrays | Aufgabe 9 | 24.01.2023 |
-| 14. | 16.-20.01.2023 | Wiederholung, Klausurvorbereitung  | -  | - |
-| 15. | 23.-27.01.2023 | Wiederholung, Klausurvorbereitung | - | - |
-| 16. | tba| Klausur  | -  | - |
-
+| 11. | 02.-06.01.2023 | Algorithmen über Arrays  | Aufgabe 7  | 10.01.2023 |
+| 12. | 09.-13.01.2023 | Sortieren von Arrays | Aufgabe 8  | 17.01.2023 |
+| 13. | 16.-20.01.2023 | Suchen in Arrays | Aufgabe 9 | 24.01.2023 |
+| 14. | 23.-27.01.2023 | Wiederholung, Klausurvorbereitung  | -  | - |
+| 15. | 30.-03.02.2023 | Wiederholung, Klausurvorbereitung | - | - |
+| 16. | 07.02.2023 12-14 Uhr| Klausur 1.PZ | -  | - |
+| 16. | 28.03.2023 12-14 Uhr| Klausur 2.PZ | -  | - |
 
 ## Code aus der Vorlesung
 
