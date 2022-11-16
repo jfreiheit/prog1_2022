@@ -48,8 +48,8 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 3. | 24.-28.10.2022 | [Operatoren und Ausdrücke](./ausdruecke/#operatoren-und-ausdrucke) sowie [Methoden](./methoden/#methoden) | -  | - | 
 | 4. | 31.-04.11.2022 | [Selektion (if)](./selektion/#selektion) und [Iteration (for)](./iteration/#die-for-schleife)| - | - | 
 | 5. | 07.-11.11.2022 | [Iteration (while)](./iteration/#die-while-schleife) und [Methodenstack](./methodenstack/#methodenstack) | [Aufgabe 1](./aufgaben/#aufgabe-1-abgabe-bis-22112022-2400-uhr) | 22.11.2022 | 
-| 6. | 14.-18.11.2022 | Klassen und Objekte | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
-| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | Aufgabe 3 | 06.12.2022 | 
+| 6. | 14.-18.11.2022 | [Klassen und Objekte](./objekte1/#klassen-und-objekte) | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
+| 7. | 21.-25.11.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | [Aufgabe 3](./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr) | 06.12.2022 | 
 | 8. | 28.-02.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 13.12.2022 |
 | 9. | 05.-09.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
 | 10. | 12.-16.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
@@ -380,6 +380,190 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	}
 	```
 
+
+??? note "Iteration - while-Schleife"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_15a;
+
+	public class IterationWhile
+	{
+
+		public static void printNChar(int n, char c) 
+		{
+			for(int i = 0; i < n; i++)
+			{
+				System.out.print(c);
+			}
+			//System.out.println();
+		}
+		
+		public static void printNRows(int n)
+		{
+			for(int i = 0; i < n; i++)
+			{
+				//System.out.print((i+1) + " : ");
+				printNChar((n-i), ' ');
+				printNChar(i, 'x');
+				printNChar(i, 'x');
+				System.out.println();
+			}
+			System.out.println();
+		}
+		
+		public static void computeGGT(final int a, final int b)
+		{
+			int a1 = a;
+			int b1 = b;
+			while(a1 != b1)
+			{
+				if(a1 > b1)
+				{
+					a1 = a1 - b1;
+				}
+				else 
+				{
+					b1 = b1 - a1;
+				}
+			}
+			System.out.println("ggT von " + a + " und " + b + " ist " + a1);
+		}
+		
+		public static void collatz(int start)
+		{
+			int n = start;
+			while(n > 1)
+			{
+				System.out.print(n + " ");
+				if(n%2 == 0)
+				{
+					n = n / 2;
+				}
+				else
+				{
+					n = 3 * n + 1;
+				}
+			}
+			System.out.println(n);
+		}
+		
+		public static long computeFactorial(int n)
+		{
+			long result = 1;
+			
+			for (int factor = 1; factor <= n; factor++)
+			{
+				result = result * factor;
+				//System.out.print(factor + " * ");		// Nebeneffekt - schlecht!
+			}
+			//System.out.println(" = " + result); 		// Nebeneffekt - schlecht!
+			return result;
+		}
+		
+		public static void main(String[] args)
+		{
+			printNChar(11, '*');
+			printNRows(12);
+			
+			computeGGT(40, 24);
+			
+			collatz(11);
+			
+			int number = 7;
+			System.out.print(number + "! = ");
+			long result = computeFactorial(number);
+			System.out.println(result);
+
+		}
+
+	}
+
+	```
+
+
+??? note "Methodenstack"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_15b;
+
+	public class Methodenstack
+	{
+	    public static void a(int vaa)
+	    {
+	        int vab = 1;
+	        System.out.println("      +--a()   --> vaa  = " + vaa + " vab  = " + vab);
+	        b(vaa, vab);
+	        System.out.println("         a() Ende ");
+	        
+	    }
+
+	    public static void b(int vba, int vbb)
+	    {
+	        System.out.println("         +--b()  --> vba = " + vba + " vbb = " + vbb);
+	        System.out.println("            b() Ende ");
+
+	    }
+
+	    public static void main(String[] args)
+	    {
+	        System.out.println("main Start");
+	        System.out.println();
+	        for(int va=0; va<3; va++)
+	        {
+	            System.out.println("  in main()   --> va  = " + va);
+	            a(va);
+	            System.out.println();
+	        }
+	        System.out.println("main Ende");
+	    }
+	}
+	```
+
+
+??? note "Sichtbarkeit und Lebensdauer von Variablen"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_15b;
+
+	public class WirUeben
+	{
+		public static int m1(int i)
+		{
+			i++;
+			i = m2(i);
+			return i;
+		}
+		
+		public static int m2(int i)
+		{
+			i++;
+			return i;
+		}
+		
+		public static void wasMacheIch(int n)
+		{
+			for(int i = 0; i < n; i++)
+			{
+				int j = i;
+				while(j < n)
+				{
+					System.out.print("* ");
+					j++;
+				}
+				System.out.println();
+			}
+		}
+
+		public static void main(String[] args)
+		{
+			int i = 0;
+			i++;
+			i = m1(i);
+			System.out.println(i);
+			wasMacheIch(5);
+
+		}
+
+	}
+
+	```
 
 
 

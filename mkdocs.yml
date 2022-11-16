@@ -52,7 +52,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true 
   - pymdownx.tilde
   - codehilite:
       guess_lang: false
@@ -72,6 +73,8 @@ nav:
     - Selektion: selektion.md 
     - Iteration: iteration.md 
     - Methodenstack: methodenstack.md 
+    - Klassen und Objekte I: objekte1.md 
+    - Klassen und Objekte II: objekte2.md 
     - Hilfsklassen: hilfsklassen.md 
     - Werkzeuge: tools.md
     - Übungen: uebungen.md

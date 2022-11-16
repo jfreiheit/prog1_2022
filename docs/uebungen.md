@@ -622,3 +622,329 @@
 	`int bound = (int) Math.sqrt(number);` erstellen und müssen dann den Teiler nur bis `bound` suchen (der Typkonvertierungsoperator `(int)` macht aus der `double`-Zahl einen `int` - schneidet die Nachkommastellen ab).
 
 
+??? question "Eine mögliche Lösung für Übung 4"
+	```java 
+	package uebungen.uebung4;
+
+	import java.util.Scanner;
+
+	public class Uebung4
+	{
+		public static int inputInt()
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Geben Sie eine Zahl ein : ");
+			int number = sc.nextInt();
+			sc.close();
+			return number;
+		}
+		
+		/*
+		 * in der Methode wird <code>isPrime</code> verwendet, um nur ein <code>return</code> am 
+		 * Ende der Methode zu realisieren. Man könnte auch statt <code>isPrime = false;</code>
+		 * jeweils <code>return false;</code> bzw. statt <code>isPrime = true;</code>
+		 * <code>return true;</code> schreiben und bräuchte dann weder <code>isPrime</code> noch
+		 * die jeweiligen <code>else</code>-Zweige.
+		 */
+		public static boolean isPrime(int number)
+		{
+			boolean isPrime = true;		// true ist wichtig!
+			
+			if(number<2)
+			{
+				isPrime = false;
+			}
+			else 
+			{
+				if(number==2)
+				{
+					isPrime=true;
+				}
+				else
+				{
+					for(int divider=2; divider<=Math.sqrt(number) && isPrime; divider++)
+					{
+						if(number % divider == 0)
+						{
+							isPrime = false;
+						}
+					}
+				}
+			}
+			
+			return isPrime;
+		}
+		
+		public static void printPrimeNumbers(int maximum)
+		{
+			for(int number=1; number<=maximum; number++)
+			{
+				if(isPrime(number))
+				{
+					System.out.print(number+" ");
+				}
+				else
+				{
+					System.out.print(". ");
+				}
+				if(number%30 == 0)
+				{
+					System.out.println();
+				}
+			}
+		}
+		
+		/*
+		 * in der Methode wird <code>found</code> verwendet, um nur ein <code>return</code> am 
+		 * Ende der Methode zu realisieren. Man könnte auch statt <code>smallestDivider = number;</code>
+		 * jeweils <code>return number;</code> bzw. statt <code>smallestDivider = divider;</code>
+		 * <code>return divider;</code> schreiben und bräuchte dann weder <code>found</code> noch
+		 * die jeweiligen <code>else</code>-Zweige.
+		 */
+		public static int getSmallestDivider(int number)
+		{
+			int smallestDivider = 0;
+			boolean found = false;
+			
+			if(number<2)
+			{
+				smallestDivider = number;
+			}
+			else
+			{
+				if(isPrime(number))
+				{
+					smallestDivider = number;
+				}
+				else
+				{
+					for(int divider=2; divider<number && !found; divider++)
+					{
+						if(number % divider == 0)
+						{
+							smallestDivider = divider;
+							found = true;
+						}
+					}
+				}
+			}
+			return smallestDivider;
+		}
+		
+		public static String createStringOfPrimeFactorization(int number) 
+		{
+			String s = "";
+			/*
+			 * 	2 * 2 * 5 * 11 * 13 * 13 * 17 = 632060
+			 *  632060 --> 2 
+			 *  316030 --> 2
+			 *  158015 --> 5
+			 *   ...   --> divider
+			 *  result/divider == 1
+			 */
+			int smallestDivider = getSmallestDivider(number);
+			s = s + smallestDivider;
+			int result = number/smallestDivider;
+			
+			while(result > 1)
+			{
+				smallestDivider = getSmallestDivider(result);
+				s = s + " * " + smallestDivider;
+				result = result/smallestDivider;
+			}
+			s = s + " = " + number;
+			
+			return s;
+		}
+
+		public static void main(String[] args)
+		{
+			System.out.printf("%n%n----------- Aufgabe 1 ------------ %n %n");
+			int number = inputInt();
+			System.out.println("Sie haben " + number + " eingegeben.");
+			
+			System.out.printf("%n%n----------- Aufgabe 2 ------------ %n %n");
+			System.out.println(isPrime(number));
+			
+			System.out.printf("%n%n----------- Aufgabe 3 ------------ %n %n");
+			printPrimeNumbers(number);
+			
+			System.out.printf("%n%n----------- Aufgabe 4 ------------ %n %n");
+			System.out.println(getSmallestDivider(number));
+			
+			System.out.printf("%n%n----------- Aufgabe 5 ------------ %n %n");
+			String output = createStringOfPrimeFactorization(632060);
+			System.out.println(output);
+			
+		
+		}
+
+	}
+	```
+	
+??? note "Übung 5"
+	
+	1. Erstellen Sie ein package `uebungen.uebung5`. 
+	2. Erstellen Sie in diesem package eine Klasse `Konto` (ohne `main()`-Methode!)
+	3. Erstellen Sie in diesem package eine Klasse `Testklasse` mit `main()`-Methode	
+	4. Erstellen Sie in der Klasse `Konto` zwei Objektvariablen
+		- `guthaben` vom Typ `double` --> nur in der Klasse sichtbar!
+		- `pin` vom Typ `int`	--> ebenfalls nur in der Klasse sichtbar!
+	5. Erstellen Sie in der Klasse `Konto` einen Konstruktor für `Konto`
+		- diesem Konstruktor wird als Parameter `int pPin` übergeben
+		- mit dem Wert des Parameters wird innerhalb des Konstruktors der Wert von `pin` initialisiert
+		- Initialisieren Sie im Konstruktor auch die Objektvariable `guthaben`. Sie bekommt den Wert `0.0` (hierfür haben wir also keinen Parameter, wir setzen den initialen Wert einfach generell auf `0.0`)
+	6. Erstellen Sie in der Klasse `Konto` eine Objektmethode `einzahlen(double betrag)`
+		- diese Objektmethode ist `public` und gibt nichts zurück
+		- in dieser Methode wird der Wert der Objektvariablen `guthaben` um den Wert von `betrag` erhöht
+		- erzeugen Sie in dieser Methode außerdem eine Ausgabe in der Form:
+			```bash
+			Es wurden 100,00 Euro eingezahlt.
+			```
+			falls der `betrag` den Wert `100.0` hatte. Verwenden Sie am besten die `printf()`-Methode, um stets genau 2 Stellen nach dem Komma des Betrages auszugeben (siehe [hier](../hilfsklassen/#formatierung-von-gleikommazahlen)). 
+	7. Geben Sie in der `main()`-Methode der `Testklasse` ein:
+		```java
+		Konto k1 = new Konto(1234);
+		
+		k1.einzahlen(100.0);
+		k1.einzahlen(50.0);
+		k1.einzahlen(150.0);
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende Ausgaben erzeugt werden:
+		```bash
+		Es wurden 100,00 Euro eingezahlt.
+		Es wurden 50,00 Euro eingezahlt.
+		Es wurden 150,00 Euro eingezahlt.
+		```
+	8. Erstellen Sie in der Klasse `Konto` eine Objektmethode `kontoauszug(int pPin)`
+		- diese Objektmethode ist `public` und gibt nichts zurück
+		- einen `kontoauszug(int pPin)` können Sie nur "ziehen", wenn der Parameterwert von `pPin` mit dem Wert der Objektvariablen `pin` übereinstimmt
+		- wird der richtige Wert für die `pin` übergeben, geben Sie das `guthaben` in der folgenden Form aus:
+			```bash
+			Ihr aktuelles Guthaben betraegt 300,00 Euro.
+			```
+			falls `guthaben` den Wert von `300.0` hat. 
+		- wird ein falscher Wert für die `pin` übergeben, geben Sie folgende Ausgabe aus:
+			```bash
+			Falsche PIN!
+			```
+	9. Erweitern Sie die `main()`-Methode der Testklasse um folgende Anweisungen:
+		```java
+		k1.kontoauszug(1235); 		// Falsche PIN!
+		k1.kontoauszug(1234); 	
+		``` 
+		und führen Sie die `Testklasse` aus. Es sollten folgende (weitere) Ausgaben erzeugt werden:
+		```bash
+		Falsche PIN!
+		Ihr aktuelles Guthaben betraegt 300,00 Euro.
+		```
+	10. Erstellen Sie in der Klasse `Konto` eine Objektmethode `auszahlen(int pPin, double betrag)`
+		- diese Objektmethode ist `public` und gibt nichts zurück
+		- es kann nur etwas ausgezahlt werden, wenn der Parameterwert von `pPin` mit dem Wert der Objektvariablen `pin` übereinstimmt
+		- stimmen die Werte nicht überein, geben Sie erneut 
+			```bash
+			Falsche PIN!
+			```
+			aus. 
+		- stimmt der `pin`-Wert, dann müssen Sie prüfen, ob das `guthaben` reicht, um `betrag` auszuzahlen. Ist nicht genug `guthaben` vorhanden, dann geben Sie aus
+			```bash
+			Ihr Guthaben reicht nicht, um 400,00 Euro auszuzahlen.
+			``` 
+			falls `betrag` den Wert `400.0` hatte. 
+		- wenn der `pin`-Wert stimmt und genug `guthaben` vorhanden ist, um den `betrag` auszuzahlen, dann reduzieren Sie `guthaben` um den entsprechenden `betrag` und geben aus
+			```bash
+			Es wurden 100,00 Euro ausgezahlt.
+			```
+			falls der `betrag` den Wert `100.0` hatte.
+	11. Erweitern Sie die `main()`-Methode der Testklasse um folgende Anweisungen:
+		```java
+		k1.auszahlen(1235, 100.0); 	// Falsche PIN!
+		k1.auszahlen(1234, 100.0); 	
+		k1.kontoauszug(1234); 		
+		k1.auszahlen(1234, 300.0);	// Guthaben reicht nicht
+		k1.auszahlen(1234, 200.0); 	
+		k1.kontoauszug(1234); 	
+		``` 
+		und führen Sie die `Testklasse` aus. Es sollten folgende (weitere) Ausgaben erzeugt werden:
+		```bash
+		Falsche PIN!
+		Es wurden 100,00 Euro ausgezahlt.
+		Ihr aktuelles Guthaben betraegt 200,00 Euro.
+		Ihr Guthaben reicht nicht, um 300,00 Euro auszuzahlen.
+		Es wurden 200,00 Euro ausgezahlt.
+		Ihr aktuelles Guthaben betraegt 0,00 Euro.
+		```
+	12. **Zusatz:** 
+		- Erweitern Sie die Klasse um eine weitere Objektvariable `private double dispogrenze`
+		- Initialisieren Sie diese Variable innerhalb des Konstruktors (ohne weiteren Parmeter) auf den Wert `-1000.0`. Sie dürfen somit Ihr Konto um `1000.00 Euro` überziehen.
+		- Passen Sie die `auszahlen()`-Methode entsprechend an, so dass es auch möglich ist, einen `betrag` auszuzahlen, so lange man nicht unter die `dispogrenze` fällt.
+		- Erstellen Sie eine Methode `public void zinsenZahlen()`.
+			- Erstellen Sie in dieser Methode zwei [Konstanten](../variablen/#konstanten)
+				- `DISPOZINSEN` vom Typ `double` bekommt den Wert `12.0` (soll `12%` entsprechen) und
+				- `GUTHABENZINSEN` vom Typ `double` bekommt den Wert `0.5` (soll `0.5%` entsprechen) 
+			- Berechnen Sie innerhalb der Methode die Zinsen für das Konto
+				- `DISPOZINSEN` werden fällig (werden von `guthaben` abgezogen), falls `guthaben` negativ ist
+				- `GUTHABENZINSEN` werden gewährt (werden zu `guthaben` addiert), falls `guthaben` positiv ist
+				- passen Sie den Wert von `guthaben` entsprechend an
+				- erzeugen Sie entsprechende Ausgaben, z.B. 
+					```bash
+					Ihnen wurden 18,00 Euro Zinsen abgebucht.
+					```
+					bzw.
+					```bash
+					Ihnen wurden 4,16 Euro Zinsen gutgeschrieben.
+					```
+		- Angenommen, die gesamte `main()`-Methode sieht jetzt so aus:
+			```java
+			public static void main(String[] args)
+			{
+				Konto k1 = new Konto(1234);
+				
+				k1.einzahlen(100.0);
+				k1.einzahlen(50.0);
+				k1.einzahlen(150.0);
+				
+				k1.kontoauszug(1235); 		// Falsche PIN!
+				k1.kontoauszug(1234); 		
+				
+				k1.auszahlen(1235, 100.0); 	// Falsche PIN!
+				k1.auszahlen(1234, 100.0); 	
+				k1.kontoauszug(1234); 		
+				k1.auszahlen(1234, 300.0);	
+				k1.auszahlen(1234, 200.0); 	
+				k1.kontoauszug(1234); 
+				
+				k1.einzahlen(150.0);
+				k1.kontoauszug(1234); 		
+				k1.zinsenZahlen();
+				k1.kontoauszug(1234); 		
+				k1.einzahlen(1000.0);
+				k1.kontoauszug(1234); 		
+				k1.zinsenZahlen();
+				k1.kontoauszug(1234); 
+			}
+			```
+			dann sollten Sie folgende Ausgabe erzeugen (gilt nur für **Zusatz**!):
+			```bash
+			Es wurden 100,00 Euro eingezahlt.
+			Es wurden 50,00 Euro eingezahlt.
+			Es wurden 150,00 Euro eingezahlt.
+			Falsche PIN!
+			Ihr aktuelles Guthaben betraegt 300,00 Euro.
+			Falsche PIN!
+			Es wurden 100,00 Euro ausgezahlt.
+			Ihr aktuelles Guthaben betraegt 200,00 Euro.
+			Es wurden 300,00 Euro ausgezahlt.
+			Es wurden 200,00 Euro ausgezahlt.
+			Ihr aktuelles Guthaben betraegt -300,00 Euro.
+			Es wurden 150,00 Euro eingezahlt.
+			Ihr aktuelles Guthaben betraegt -150,00 Euro.
+			Ihnen wurden 18,00 Euro Zinsen abgebucht.
+			Ihr aktuelles Guthaben betraegt -168,00 Euro.
+			Es wurden 1000,00 Euro eingezahlt.
+			Ihr aktuelles Guthaben betraegt 832,00 Euro.
+			Ihnen wurden 4,16 Euro Zinsen gutgeschrieben.
+			Ihr aktuelles Guthaben betraegt 836,16 Euro.
+			```
+
+

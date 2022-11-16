@@ -506,6 +506,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../objekte1/" class="md-nav__link">
+        Klassen und Objekte I
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objekte2/" class="md-nav__link">
+        Klassen und Objekte II
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../hilfsklassen/" class="md-nav__link">
         Hilfsklassen
       </a>
@@ -817,7 +847,9 @@
 <h3 id="weitere-beispiele-fur-einfache-for-schleifen">Weitere Beispiele für einfache <code>for</code>-Schleifen<a class="headerlink" href="#weitere-beispiele-fur-einfache-for-schleifen" title="Permanent link">&para;</a></h3>
 <p>Wir betrachten noch einige Beispiele für einfache <code>for</code>-Schleifen, um uns mit dem Konzept weiter vertraut zu machen. </p>
 <h4 id="summe-1-bis-n">Summe 1 bis n<a class="headerlink" href="#summe-1-bis-n" title="Permanent link">&para;</a></h4>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Ausgabe der Summe von 1 bis n</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ausgabe der Summe von 1 bis n</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -848,13 +880,16 @@
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
+</div>
 <p>In der Methode <code>computeSumFrom1ToN(int n)</code> wird die Summe von <code>1 + 2 + ... + n</code> berechnet, wobai <code>n</code> als Parameterwert der Methode übergeben wird. Jeder einzelne Schritt wird ausgegeben. Dazu wird ein <code>String s</code> erzeugt, der initial den Wert <code>"1"</code> hat. Für jede Weitere Addition kommt <code>" + 2"</code>, <code>" + 3"</code> usw. zu diesem String hinzu. </p>
 <ul>
 <li>Beachten Sie, dass wir die Variable <code>s</code> außerhalb der <code>for</code>-Schleife deklariert haben. Wäre sie innerhalb der <code>for</code>-Schleife deklariert, dann würde sie bei jedem Schleifendurchlauf neu erzeugt werden. So wird ihr Wert bei jedem Schleifendurchlauf aktualisiert. </li>
 <li>Die Selektion wurde eingefügt, damit beim ersten Schleifendurchlauf (für <code>i==1</code>) nichts an den String <code>s</code> angehängt wird, sondern nur für alle weiteren Schleifendurchläufe. </li>
 <li>Beachten Sie auch, dass die Laufvariable <code>i</code> von <code>1</code> bis einschließlich <code>n</code> laäuft und wir dadurch die Summe von <code>1 + 2 + ... + n</code> erzeugen. Wird als Parameterwert eine Zahl kleiner als <code>1</code> übergeben, erfolgt keine Ausgabe, denn dann ist die Bedingung <code>1&lt;=n</code> bereits vor dem ersten Schleifendurchlauf <code>false</code>. </li>
 </ul>
-<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Ausgabe für den Aufruf <code>computeSumFrom1ToN(10)</code></label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Ausgabe für den Aufruf <code>computeSumFrom1ToN(10)</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nv">1</span> <span class="o">=</span> <span class="m">1</span>
 <span class="m">1</span> + <span class="nv">2</span> <span class="o">=</span> <span class="m">3</span>
 <span class="m">1</span> + <span class="m">2</span> + <span class="nv">3</span> <span class="o">=</span> <span class="m">6</span>
@@ -868,9 +903,12 @@
 </code></pre></div>
 </div>
 </div>
+</div>
 <h4 id="fakultat-von-n">Fakultät von n<a class="headerlink" href="#fakultat-von-n" title="Permanent link">&para;</a></h4>
 <p>Die Fakultät von n ist definiert als <code>n! = 1 * 2 * ... * n</code> für alle Natürlichen Zahlen <code>n&gt;=1</code>. Wir schreiben uns dafür eine Methode und übergeben ein <code>n</code>:</p>
-<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Fakultät von n</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Fakultät von n</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -909,8 +947,11 @@
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
+</div>
 <p>In der Variablen <code>product</code> speichern wir das Produkt aus den Faktoren <code>1 * 2 * ... * n</code>. beachten Sie, dass <code>product</code> am Anfang den Wert <code>1</code> haben muss, um nicht immer mit <code>0</code> zu multiplizieren und somit wäre das Produkt immer <code>0</code>. Anstelle von <code>product *= i;</code> hätten wir auch <code>product = product * i;</code> schreiben können. Weil wir unseren Ausgabestring <code>s</code> noch ein wenig komplizierter gestalttet haben, ist hier sogar eine Fallunterscheidung zwischen <code>i==2</code> und <code>i&gt;2)</code> notwendig. </p>
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Ausgabe für den Aufruf <code>fakultaetVonN(8)</code></label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ausgabe für den Aufruf <code>fakultaetVonN(8)</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="m">1</span>! <span class="o">=</span> <span class="m">1</span>
 <span class="m">2</span>! <span class="o">=</span> <span class="m">1</span> * <span class="nv">2</span> <span class="o">=</span> <span class="m">2</span>
 <span class="m">3</span>! <span class="o">=</span> <span class="m">1</span> * <span class="m">2</span> * <span class="nv">3</span> <span class="o">=</span> <span class="m">6</span>
@@ -920,6 +961,7 @@
 <span class="m">7</span>! <span class="o">=</span> <span class="m">1</span> * <span class="m">2</span> * <span class="m">3</span> * <span class="m">4</span> * <span class="m">5</span> * <span class="m">6</span> * <span class="nv">7</span> <span class="o">=</span> <span class="m">5040</span>
 <span class="m">8</span>! <span class="o">=</span> <span class="m">1</span> * <span class="m">2</span> * <span class="m">3</span> * <span class="m">4</span> * <span class="m">5</span> * <span class="m">6</span> * <span class="m">7</span> * <span class="nv">8</span> <span class="o">=</span> <span class="m">40320</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h4 id="fibonacci-folge">Fibonacci-Folge<a class="headerlink" href="#fibonacci-folge" title="Permanent link">&para;</a></h4>
@@ -1335,7 +1377,9 @@ sondern folgende:
 <p>Das gleiche gilt für die (3n+1)-Vermutung. Dort lautet die Beschreibung der Iteration <code>solange n ungleich 1 ist, wiederhole</code>. Nach wieviel Wiederholungen (also nach welcher <strong>Anzahl</strong>) lässt sich vorher nicht sagen, aber die Bedingung dafür, dass die Schleife erneut wiederholt werden soll, lässt sich leicht formulieren, nämlich <code>(n!=1)</code>. </p>
 <h3 id="implementierung-des-euklidischen-algorithmus">Implementierung des Euklidischen Algorithmus<a class="headerlink" href="#implementierung-des-euklidischen-algorithmus" title="Permanent link">&para;</a></h3>
 <p>Mithilfe der <code>while</code>-Schleife implementieren wir nun mal beide Allgorithmen. Zuerst den Euklidischen Algorithmus:</p>
-<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Berechnung des ggT nach Euklid</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Berechnung des ggT nach Euklid</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1368,12 +1412,15 @@ sondern folgende:
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
+</div>
 <p>Die Ausgabe für z.B. <code>berechneGGT(24, 40);</code> ist <code>8</code>. </p>
 <div class="admonition hint">
 <p class="admonition-title">Veränderung der Werte von Parametern in Methoden</p>
 <p>In unserer Methode zur Berechnung des größten gemeinsamen Teilers nach Euklid haben wir die Werte der Parameter <code>a</code> und <code>b</code> innerhalb unserer Methode geändert (siehe <code>a = a -b;</code> und <code>b = b - a;</code>). <strong>Das ist kein guter Stil!</strong> So haben wir z.B. nicht die Möglichkeit, am Ende der Methode eine Ausgabe der Form <code>Der ggT von 24 und 40 ist 8.</code> zu erstellen, da wir auf die Werte <code>24</code> (von <code>a</code>) und <code>40</code> (von <code>b</code>) keinen Zugriff mehr haben. Wir sollten uns angewöhnen, die Parameterwerte in Methoden nicht zu ändern, sondern lieber mit Kopien der Werte zu rechnen. Später werden wir unsere Parameter als Konstanten definieren, dann ist eine Änderung gar nicht möglich. Das folgende Beispiel zeigt eine bessere Lösung:</p>
 </div>
-<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Berechnung des ggT nach Euklid (ohne Änderung der Parameterwerte)</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Berechnung des ggT nach Euklid (ohne Änderung der Parameterwerte)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1408,6 +1455,7 @@ sondern folgende:
 <span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Der ggT von &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; und &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; ist &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nr1</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <p>Die Ausgabe für z.B. <code>berechneGGT(24, 40);</code> ist nun <code>Der ggT von 24 und 40 ist 8</code>. </p>
