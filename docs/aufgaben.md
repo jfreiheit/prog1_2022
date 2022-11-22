@@ -188,7 +188,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
-#### Aufgabe 3 (Abgabe bis 06.11.2022 24:00 Uhr)
+#### Aufgabe 3 (Abgabe bis 06.12.2022 24:00 Uhr)
 
 
 ??? "Aufgabe 3 - Triangle"

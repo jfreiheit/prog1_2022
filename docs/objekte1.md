@@ -21,9 +21,10 @@ In der Welt des *objektorientierten Programmierens* sind die *Klassen* die "Must
 - eine *Struktur* der Objekte (das sind die *Objektvariablen*) und
 - ein *Verhalten* dieser Objekte (das sind die *Objektmethoden*). 
 
-Insgesamt sprechen wir bei der Struktur und dem Verhalten von den *Eigenschaften* einer Klasse. Eine Klasse ist ein *Datentyp* und jeder "Wert"[^1] ist ein konkretes *Objekt* von diesem Typ. Von einer Klasse können wir beliebig viele Objekte erzeugen. 
+Insgesamt sprechen wir bei der Struktur und dem Verhalten von den *Eigenschaften* einer Klasse. Eine Klasse ist ein *Datentyp* und jeder "Wert" ist ein konkretes *Objekt* von diesem Typ. Von einer Klasse können wir beliebig viele Objekte erzeugen. 
 
-[^1]: In der objektorientierten Programmierung unterscheiden wir sehr genau zwischen Objekten und Werten. Werte sind soetwas wie `4`, `true`, `5.5` usw. Solche Werte haben kein Verhalten. Objekte haben aber ein Verhalten (die Objektmethoden - siehe z.B. für `String` die Methoden `charAt()`, `length()`, `substring()`). Wir werden sehr detailliert auf die Unterschiede zwischen Werten und Objekten eingehen. Die Datentypen, die wir erstellen, sind sogenannte *Referentypen*. Eine Variable von so einem Referenztyp *zeigt auf* (referenziert) ein Objekt.
+!!! info "Beachte!"
+	In der objektorientierten Programmierung unterscheiden wir sehr genau zwischen Objekten und Werten. Werte sind soetwas wie `4`, `true`, `5.5` usw. Solche Werte haben kein Verhalten. Objekte haben aber ein Verhalten (die Objektmethoden - siehe z.B. für `String` die Methoden `charAt()`, `length()`, `substring()`). Wir werden sehr detailliert auf die Unterschiede zwischen Werten und Objekten eingehen. Die Datentypen, die wir erstellen, sind sogenannte *Referentypen*. Eine Variable von so einem Referenztyp *zeigt auf* (*referenziert*) ein Objekt.
 
 
 ### Ein erster eigener Datentyp `Adresse`
@@ -264,7 +265,7 @@ Die `Testklasse` lässt sich nun nicht mehr compilieren und ausführen. Auch les
 Wie können wir unseren Objektvariablen aber nun Werte zuweisen? Dafür gibt es zwei Antworten
 
 1. durch einen parametrisierten Konstruktor und
-2. durch sogenannte *Getter*
+2. durch sogenannte *Setter*
 
 Wir betrachten zunächst den parametrisierten Konstruktor. 
 

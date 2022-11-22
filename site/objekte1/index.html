@@ -752,7 +752,11 @@
 <li>eine <em>Struktur</em> der Objekte (das sind die <em>Objektvariablen</em>) und</li>
 <li>ein <em>Verhalten</em> dieser Objekte (das sind die <em>Objektmethoden</em>). </li>
 </ul>
-<p>Insgesamt sprechen wir bei der Struktur und dem Verhalten von den <em>Eigenschaften</em> einer Klasse. Eine Klasse ist ein <em>Datentyp</em> und jeder "Wert"<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> ist ein konkretes <em>Objekt</em> von diesem Typ. Von einer Klasse können wir beliebig viele Objekte erzeugen. </p>
+<p>Insgesamt sprechen wir bei der Struktur und dem Verhalten von den <em>Eigenschaften</em> einer Klasse. Eine Klasse ist ein <em>Datentyp</em> und jeder "Wert" ist ein konkretes <em>Objekt</em> von diesem Typ. Von einer Klasse können wir beliebig viele Objekte erzeugen. </p>
+<div class="admonition info">
+<p class="admonition-title">Beachte!</p>
+<p>In der objektorientierten Programmierung unterscheiden wir sehr genau zwischen Objekten und Werten. Werte sind soetwas wie <code>4</code>, <code>true</code>, <code>5.5</code> usw. Solche Werte haben kein Verhalten. Objekte haben aber ein Verhalten (die Objektmethoden - siehe z.B. für <code>String</code> die Methoden <code>charAt()</code>, <code>length()</code>, <code>substring()</code>). Wir werden sehr detailliert auf die Unterschiede zwischen Werten und Objekten eingehen. Die Datentypen, die wir erstellen, sind sogenannte <em>Referentypen</em>. Eine Variable von so einem Referenztyp <em>zeigt auf</em> (<em>referenziert</em>) ein Objekt.</p>
+</div>
 <h3 id="ein-erster-eigener-datentyp-adresse">Ein erster eigener Datentyp <code>Adresse</code><a class="headerlink" href="#ein-erster-eigener-datentyp-adresse" title="Permanent link">&para;</a></h3>
 <p>Wir erstellen uns einfach mal einen neuen Datentyp. Wir nennen ihn <code>Adresse</code>. In unserer IDE (Eclipse) erstellen wir eine neue Klasse <code>Adresse</code>. Achtung! Wenn wir einen Datentyp erzeugen, dann <strong>ohne <code>main()</code>-Methode</strong>. Die <code>main()</code>-Methode ist <strong>keine Eigenschaft</strong> eines Datentyps. Unsere neue Klasse sieht also so aus:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Adresse.java</label></div>
@@ -1079,7 +1083,7 @@ Treskowallee <span class="m">8</span> <span class="k">in</span> <span class="m">
 <p>Wie können wir unseren Objektvariablen aber nun Werte zuweisen? Dafür gibt es zwei Antworten</p>
 <ol>
 <li>durch einen parametrisierten Konstruktor und</li>
-<li>durch sogenannte <em>Getter</em></li>
+<li>durch sogenannte <em>Setter</em></li>
 </ol>
 <p>Wir betrachten zunächst den parametrisierten Konstruktor. </p>
 <h4 id="ein-eigener-konstruktor">Ein eigener Konstruktor<a class="headerlink" href="#ein-eigener-konstruktor" title="Permanent link">&para;</a></h4>
@@ -2763,14 +2767,6 @@ c1 gleich c1       ? true
 </div>
 </div>
 </details>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>In der objektorientierten Programmierung unterscheiden wir sehr genau zwischen Objekten und Werten. Werte sind soetwas wie <code>4</code>, <code>true</code>, <code>5.5</code> usw. Solche Werte haben kein Verhalten. Objekte haben aber ein Verhalten (die Objektmethoden - siehe z.B. für <code>String</code> die Methoden <code>charAt()</code>, <code>length()</code>, <code>substring()</code>). Wir werden sehr detailliert auf die Unterschiede zwischen Werten und Objekten eingehen. Die Datentypen, die wir erstellen, sind sogenannte <em>Referentypen</em>. Eine Variable von so einem Referenztyp <em>zeigt auf</em> (referenziert) ein Objekt.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

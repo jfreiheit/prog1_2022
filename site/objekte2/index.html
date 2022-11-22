@@ -1282,7 +1282,7 @@ Max Mustermann wohnt <span class="k">in</span> Treskowallee <span class="m">8</s
 </blockquote>
 <p>Innerhalb der Klasse <code>Person</code> wissen wir nicht, von welchem konkreten Objekt eine Objektmethode aufgerufen wird. Die Referenzvariablen <code>max</code> und <code>maria</code> sind z.B. innerhalb der Klasse <code>Person</code> nicht sichtbar (es sind lokale Variablen der <code>main()</code>-Methode von <code>Testklasse</code>). Wir wissen aber, dass es ein aufrufendes Objekt gibt (denn nur für ein konkretes Objekt kann eine Objektmethode aufgerufen werden). Dieses konkrete Objekt können wir innerhalb der Klasse referenzieren - das machen wir mit dem Schlüsselwort <code>this</code>. <code>this</code> steht also für das konkrete Objekt, das die Methode (gerade) aufruft. </p>
 <blockquote>
-<p><code>this</code> ist das aufrufende Objekt.</p>
+<p><code>this</code> ist das aufrufende Objekt. (genauer: die <em>Referenz</em> auf das aufrufende Objekt)</p>
 </blockquote>
 <p>Schauen wir uns zur Wiederholung nochmal die Klasse <a href="./#ein-weiterer-datentyp-circle">Circle</a> an. In der dazugehörigen <code>Testklasse</code> hatten wir zwei Objekte der Klasse <code>Circle</code> erstellt und diese Objekte haben Objektmethoden aufgerufen:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Testklasse.java</label></div>

@@ -363,7 +363,7 @@ Wenn wir uns also den Aufruf einer Objektmethode anschauen, dann wissen wir auch
 
 Innerhalb der Klasse `Person` wissen wir nicht, von welchem konkreten Objekt eine Objektmethode aufgerufen wird. Die Referenzvariablen `max` und `maria` sind z.B. innerhalb der Klasse `Person` nicht sichtbar (es sind lokale Variablen der `main()`-Methode von `Testklasse`). Wir wissen aber, dass es ein aufrufendes Objekt gibt (denn nur für ein konkretes Objekt kann eine Objektmethode aufgerufen werden). Dieses konkrete Objekt können wir innerhalb der Klasse referenzieren - das machen wir mit dem Schlüsselwort `this`. `this` steht also für das konkrete Objekt, das die Methode (gerade) aufruft. 
 
-> `this` ist das aufrufende Objekt.
+> `this` ist das aufrufende Objekt. (genauer: die *Referenz* auf das aufrufende Objekt)
 
 Schauen wir uns zur Wiederholung nochmal die Klasse [Circle](./#ein-weiterer-datentyp-circle) an. In der dazugehörigen `Testklasse` hatten wir zwei Objekte der Klasse `Circle` erstellt und diese Objekte haben Objektmethoden aufgerufen:
 
