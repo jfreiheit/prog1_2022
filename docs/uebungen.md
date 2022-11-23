@@ -947,4 +947,245 @@
 			Ihr aktuelles Guthaben betraegt 836,16 Euro.
 			```
 
+??? question "Eine mögliche Lösung für Übung 5"
+	=== "Konto.java"
+		```java 
+		package uebungen.uebung5;
+
+		public class Konto
+		{
+			private double guthaben;
+			private int pin;
+			private double dispogrenze;
+			
+			public Konto(int pPin)
+			{
+				guthaben = 0;
+				pin = pPin;
+				dispogrenze = -1000.0;
+			}
+			
+			public void einzahlen(double betrag)
+			{
+				guthaben = guthaben + betrag;
+				System.out.printf("Es wurden %.2f Euro eingezahlt.%n", betrag);
+			}
+			
+			public void auszahlen(int pPin, double betrag)
+			{
+				if(pin==pPin)
+				{
+					if(guthaben - dispogrenze >= betrag)
+					{
+						guthaben = guthaben - betrag;
+						System.out.printf("Es wurden %.2f Euro ausgezahlt.%n", betrag);
+					}
+					else
+					{
+						System.out.printf("Ihr Guthaben reicht nicht, um %.2f Euro auszuzahlen.%n", betrag);
+					}
+				}
+				else
+				{
+					System.out.println("Falsche PIN!");
+				}
+			}
+			
+			public void kontoauszug(int pPin)
+			{
+				if(pin==pPin)
+				{
+					System.out.printf("Ihr aktuelles Guthaben betraegt %.2f Euro.%n", guthaben);
+				}
+				else
+				{
+					System.out.println("Falsche PIN!");
+				}
+			}
+			
+			public void zinsenZahlen()
+			{
+				final double DISPOZINSEN = 12.0;
+				final double GUTHABENZINSEN = 0.5;
+				if(guthaben >0)
+				{
+					double zinsen = guthaben * GUTHABENZINSEN / 100.0;
+					guthaben = guthaben + zinsen;
+					System.out.printf("Ihnen wurden %.2f Euro Zinsen gutgeschrieben.%n", zinsen);
+				}
+				else
+				{
+					double zinsen = guthaben * DISPOZINSEN / 100.0;		// ist negativ!
+					guthaben = guthaben + zinsen;
+					System.out.printf("Ihnen wurden %.2f Euro Zinsen abgebucht.%n", -zinsen);
+				}
+			}
+		}
+		```
+	=== "Testklasse.java"
+		```java 
+		package uebungen.uebung5;
+
+		public class Testklasse
+		{
+
+			public static void main(String[] args)
+			{
+				Konto k1 = new Konto(1234);
+				
+				k1.einzahlen(100.0);
+				k1.einzahlen(50.0);
+				k1.einzahlen(150.0);
+				
+				k1.kontoauszug(1235); 		// Falsche PIN!
+				k1.kontoauszug(1234); 		
+				
+				k1.auszahlen(1235, 100.0); 	// Falsche PIN!
+				k1.auszahlen(1234, 100.0); 	
+				k1.kontoauszug(1234); 		
+				k1.auszahlen(1234, 300.0);	
+				k1.auszahlen(1234, 200.0); 	
+				k1.kontoauszug(1234); 
+				
+				k1.einzahlen(150.0);
+				k1.kontoauszug(1234); 		
+				k1.zinsenZahlen();
+				k1.kontoauszug(1234); 		
+				k1.einzahlen(1000.0);
+				k1.kontoauszug(1234); 		
+				k1.zinsenZahlen();
+				k1.kontoauszug(1234); 
+			}
+		}
+		```
+
+
+??? note "Übung 6"
+	
+	1. Erstellen Sie ein package `uebungen.uebung6`. 
+	2. Erstellen Sie in diesem package eine Klasse `Rectangle` (ohne `main()`-Methode!)
+	3. Erstellen Sie in diesem package eine Klasse `Testklasse` mit `main()`-Methode	
+	4. Erstellen Sie in der Klasse `Rectangle` zwei Objektvariablen
+		- `a` vom Typ `int` --> nur in der Klasse sichtbar!
+		- `b` vom Typ `int`	--> ebenfalls nur in der Klasse sichtbar!
+		`a` und `b` sollen die Seiten des Rechtecks sein. 
+	5. Implementieren Sie einen parameterlosen Konstruktor `Rectangle()`, der für die Seite `a` den Wert `10` und für die Seite `b` den Wert `20` setzt. 
+	6. Implementieren Sie einen parametrisierten Konstruktor `Rectangle(int a, int b)`, der die Parameterwerte zum Initialisieren der Seiten verwendet. 
+	7. Implementieren Sie eine Objektmethode `public int area()`, die den Flächeninhalt des Rechtecks zurückgibt. 
+	8. Implementieren Sie eine Objektmethode `public int perimeter()`, die den Umfang des Rechtecks zurückgibt. 
+	9. Implementieren Sie eine Objektmethode `public String toString()`, die einen `String` mit allen Informationen des Rechtecks in der folgenden Form
+		```bash
+		Rectangle : ( a=10, b=20, area=200, perimeter=60 )
+		```
+		zurückgibt. 
+	10. Implementieren Sie eine Objektmethode `public void print()`, die den durch `toString()` erzeugten `String` auf die Konsole ausgibt.
+	11. Geben Sie in der `main()`-Methode der `Testklasse` ein:
+		```java
+		// Objekte erzeugen
+		Rectangle r1 = new Rectangle();
+		Rectangle r2 = new Rectangle(12, 18);
+		Rectangle r3 = new Rectangle(40, 5);
+		Rectangle r4 = new Rectangle(20, 10);
+		Rectangle r5 = new Rectangle(11, 21);
+		
+		System.out.printf("%n%n--------------- print()-Methode -----------------%n%n");
+		r1.print();
+		r2.print();
+		r3.print();
+		r4.print();
+		r5.print();
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende Ausgaben erzeugt werden:
+		```bash
+		--------------- print()-Methode -----------------
+
+		Rectangle : ( a=10, b=20, area=200, perimeter=60 )
+		Rectangle : ( a=12, b=18, area=216, perimeter=60 )
+		Rectangle : ( a=40, b= 5, area=200, perimeter=90 )
+		Rectangle : ( a=20, b=10, area=200, perimeter=60 )
+		Rectangle : ( a=11, b=21, area=231, perimeter=64 )
+		```
+	12. Implementieren Sie eine Objektmethode `public boolean sidesAreEqual(Rectangle r)`, die ein `true` zurückgibt, wenn die Seiten des aufrufenden Objektes gleich den Seiten des Rectangle `r` sind. Beachten Sie, dass das Rechteck auch gedreht noch gleiche Seiten haben soll, also `a=10, b=20` ist nicht nur mit `a=10, b=20` gleich, sondern auch mit `a=20, b=10`. Wenn die Seiten ungleich sind, gibt die Methode ein `false` zurück.
+	13. Implementieren Sie eine Objektmethode `public boolean areasAreEqual(Rectangle r)`, die ein `true` zurückgibt, wenn die Flächeninhalte des aufrufenden Objektes und des Rectangle `r` gleich sind. Ansonsten `false`.
+	14. Implementieren Sie eine Objektmethode `public boolean perimetersAreEqual(Rectangle r)`, die ein `true` zurückgibt, wenn die Umfänge des aufrufenden Objektes und des Rectangle `r` gleich sind. Ansonsten `false`.
+	15. Implementieren Sie eine Objektmethode `public void printComparison(Rectangle r)`, die die Vergleiche mit `r` in der unten dargestellten Form ausgibt. Rufen Sie in der Methode die Methoden `print()` (oder `toString()`), `sidesAreEqual()`, `areasAreEqual()` und `perimetersAreEqual()` auf. 
+	16. Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n---------- printComparison()-Methode ------------%n%n");
+		r1.printComparison(r2);
+		r1.printComparison(r3);
+		r1.printComparison(r4);
+		r1.printComparison(r5);
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		---------- printComparison()-Methode ------------
+
+		this      Rectangle : ( a=10, b=20, area=200, perimeter=60 ) 
+		the other Rectangle : ( a=12, b=18, area=216, perimeter=60 ) 
+		sides are not equal 
+		areas are not equal 
+		perimeters are equal 
+
+		this      Rectangle : ( a=10, b=20, area=200, perimeter=60 ) 
+		the other Rectangle : ( a=40, b= 5, area=200, perimeter=90 ) 
+		sides are not equal 
+		areas are equal 
+		perimeters are not equal 
+
+		this      Rectangle : ( a=10, b=20, area=200, perimeter=60 ) 
+		the other Rectangle : ( a=20, b=10, area=200, perimeter=60 ) 
+		sides are equal 
+		areas are equal 
+		perimeters are equal 
+
+		this      Rectangle : ( a=10, b=20, area=200, perimeter=60 ) 
+		the other Rectangle : ( a=11, b=21, area=231, perimeter=64 ) 
+		sides are not equal 
+		areas are not equal 
+		perimeters are not equal 
+		```
+	17. **Zusatz:** 
+		- Implementieren Sie eine Objektmethode `public double diagonal()`, die die Länge einer Diagonalen des Rechtecks zurückgibt. 
+		- Erweitern Sie die `toString()`-Methode um die Ausgabe dieser Länge wie folgt:
+			```bash
+			Rectangle : ( a=10, b=20, area=200, perimeter=60, diagonal=22,361 )
+			Rectangle : ( a=12, b=18, area=216, perimeter=60, diagonal=21,633 )
+			Rectangle : ( a=40, b= 5, area=200, perimeter=90, diagonal=40,311 )
+			Rectangle : ( a=20, b=10, area=200, perimeter=60, diagonal=22,361 )
+			Rectangle : ( a=11, b=21, area=231, perimeter=64, diagonal=23,707 )
+			``` 
+			Es sollen drei Nachkommastellen der Länge der Diagonalen ausgegeben werden.
+		- Implementieren Sie eine Objektmethode `public void scale(int factor)`. Diese Methode "skaliert" das Rechteck um den Faktor `factor`, genauer gesagt, wird der **Flächeninhalt** um diesen Faktor skaliert. Die neuen Seiten sollen das gleiche Verhältnis zueinander haben, wie die alten Seiten. Geben Sie die neuen Seitenlängen in der folgenden Form auf die Konsole aus (siehe nächsten Punkt `main()`).
+		- Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n--------------- scale()-Methode -----------------%n%n");
+		r1.scale(2);
+		r2.scale(2);
+		r3.scale(2);
+		r4.scale(2);
+		r5.scale(2);
+		r1.scale(10);
+		r2.scale(10);
+		r3.scale(10);
+		r4.scale(10);
+		r5.scale(10);
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		--------------- scale()-Methode -----------------
+
+		newArea=  400,00 newA= 14,14 newB= 28,28 check (newA*newB)= 400,00
+		newArea=  432,00 newA= 16,97 newB= 25,46 check (newA*newB)= 432,00
+		newArea=  400,00 newA= 56,57 newB=  7,07 check (newA*newB)= 400,00
+		newArea=  400,00 newA= 28,28 newB= 14,14 check (newA*newB)= 400,00
+		newArea=  462,00 newA= 15,56 newB= 29,70 check (newA*newB)= 462,00
+		newArea= 2000,00 newA= 31,62 newB= 63,25 check (newA*newB)=2000,00
+		newArea= 2160,00 newA= 37,95 newB= 56,92 check (newA*newB)=2160,00
+		newArea= 2000,00 newA=126,49 newB= 15,81 check (newA*newB)=2000,00
+		newArea= 2000,00 newA= 63,25 newB= 31,62 check (newA*newB)=2000,00
+		newArea= 2310,00 newA= 34,79 newB= 66,41 check (newA*newB)=2310,00
+		```
+
+
 

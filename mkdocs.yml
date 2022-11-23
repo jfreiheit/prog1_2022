@@ -75,6 +75,8 @@ nav:
     - Methodenstack: methodenstack.md 
     - Klassen und Objekte I: objekte1.md 
     - Klassen und Objekte II: objekte2.md 
+    - Vererbung: vererbung.md 
+    - Klasse Object: object.md 
     - Hilfsklassen: hilfsklassen.md 
     - Werkzeuge: tools.md
     - Übungen: uebungen.md

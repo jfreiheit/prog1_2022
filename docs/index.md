@@ -50,7 +50,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 5. | 14.-18.11.2022 | [Iteration (while)](./iteration/#die-while-schleife) und [Methodenstack](./methodenstack/#methodenstack) | [Aufgabe 1](./aufgaben/#aufgabe-1-abgabe-bis-22112022-2400-uhr) | 22.11.2022 | 
 | 6. | 21.-25.11.2022 | [Klassen und Objekte](./objekte1/#klassen-und-objekte) | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
 | 7. | 28.-02.12.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | [Aufgabe 3](./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr) | 06.12.2022 | 
-| 8. | 05.-09.12.2022 | Eigene Datentypen in Datentypen verwenden | Aufgabe 4  | 13.12.2022 |
+| 8. | 05.-09.12.2022 | Eigene Datentypen in Datentypen verwenden | [Aufgabe 4](./aufgaben/#aufgabe-4-abgabe-bis-13122022-2400-uhr)  | 13.12.2022 |
 | 9. | 12.-16.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
 | 10. | 19.-23.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
 | | | | | | | |
@@ -565,6 +565,187 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 	```
 
+
+??? note "Datentyp Adresse"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_22;
+
+	public class Adresse
+	{
+		// Objektvariablen
+		private String strasse;
+		private int nummer;
+		private int postleitzahl;
+		private String wohnort;
+		
+		// Konstruktor
+		public Adresse(String str, int nr, int plz, String ort)
+		{
+			strasse = str;
+			nummer = nr;
+			postleitzahl = plz;
+			wohnort = ort;
+		}
+		
+		// Objektmethoden
+		public String getAdresse() 
+		{
+			return strasse + " " + nummer + " in " + postleitzahl + " " + wohnort;
+		}
+		
+		/*
+		public String getStrasse()
+		{
+			return strasse;
+		}
+		*/
+		
+		public void setStrasse(String str) 
+		{
+			strasse = str;
+		}
+
+		public int getNummer()
+		{
+			return nummer;
+		}
+
+		public int getPostleitzahl()
+		{
+			return postleitzahl;
+		}
+
+		public String getWohnort()
+		{
+			return wohnort;
+		}
+	}
+
+	```
+
+??? note "Datentyp Point"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_22;
+
+	public class Point
+	{
+		// Objektvariablen
+		private int x;
+		private int y;
+		
+		// Konstruktor
+		public Point(int px, int py)
+		{
+			x = px;
+			y = py;
+		}
+		
+		public int getX()
+		{
+			return x;
+		}
+		
+		public int getY()
+		{
+			return y;
+		}
+		
+		public void print()
+		{
+			System.out.println("[ " + x + ", " + y + " ]");
+		}
+		
+		public void translate(int deltaX, int deltaY)
+		{
+			x = x + deltaX;
+			y = y + deltaY;
+		}
+		
+		public boolean isLeft(Point p)
+		{
+			return x < p.x;
+		}
+	}
+	```
+
+??? note "Programmklasse für Adresse und Point (und Random)"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_22;
+
+	import java.util.Random;
+
+	public class Programmklasse
+	{
+
+		public static void main(String[] args)
+		{
+			Adresse adresse1 = new Adresse("Hallostr.", 75, 12459, "Berlin");	// Konstruktoraufruf
+			Adresse adresse2 = new Adresse("Treskowalle", 8, 10318, "Berlin");
+			
+			/*
+			adresse1.strasse = "Wilhelminenhofstr.";
+			adresse1.nummer = 75;
+			adresse1.postleitzahl = 12459;
+			adresse1.wohnort = "Berlin";
+			*/
+			
+			String wilhelminenhof = adresse1.getAdresse();
+			System.out.println(wilhelminenhof);
+			
+			/*
+			adresse2.strasse = "Treskowalle";
+			adresse2.nummer = 8;
+			adresse2.postleitzahl = 10318;
+			adresse2.wohnort = "Berlin";
+			*/
+			
+			String treskowallee = adresse2.getAdresse();
+			System.out.println(treskowallee);
+			
+			// getAdresse();	// geht nicht --> nur fuer ein Objekt
+			
+			System.out.println(adresse1.getPostleitzahl());
+			System.out.println(adresse1.getWohnort());
+			//System.out.println(adresse1.getStrasse());
+			System.out.println(adresse1.getNummer());
+			
+			System.out.println(adresse2.getPostleitzahl());
+			System.out.println(adresse2.getWohnort());
+			//System.out.println(adresse2.getStrasse());
+			System.out.println(adresse2.getNummer());
+			
+			adresse1.setStrasse("Wilhelminenhofstr.");
+			System.out.println(adresse1.getAdresse());
+			
+			Random r = new Random();
+			for(int i= 0; i<100; i++)
+			{
+				int zufZahl = r.nextInt(39) - 19;
+				System.out.print(zufZahl + ", ");
+			}
+			System.out.println();
+			
+			Point p1 = new Point(2, 3);
+			Point p2 = new Point(-3, 1);
+			
+			System.out.println("x von p1 : " + p1.getX());
+			System.out.println("y von p1 : " + p1.getY());
+			System.out.println("x von p2 : " + p2.getX());
+			System.out.println("y von p2 : " + p2.getY());
+			p1.print();
+			p2.print();
+			p1.translate(2, 1);
+			p2.translate(3, -3);
+			p1.print();
+			p2.print();
+			
+			System.out.println("p1 links von p2 ? " + p1.isLeft(p2));
+			System.out.println("p2 links von p1 ? " + p2.isLeft(p1));
+		}
+
+	}
+
+	```
 
 
 

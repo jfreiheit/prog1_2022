@@ -380,6 +380,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../vererbung/" class="md-nav__link">
+        Vererbung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        Klasse Object
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../hilfsklassen/" class="md-nav__link">
         Hilfsklassen
       </a>
@@ -1472,6 +1502,248 @@ Es wurden <span class="m">1000</span>,00 Euro eingezahlt.
 Ihr aktuelles Guthaben betraegt <span class="m">832</span>,00 Euro.
 Ihnen wurden <span class="m">4</span>,16 Euro Zinsen gutgeschrieben.
 Ihr aktuelles Guthaben betraegt <span class="m">836</span>,16 Euro.
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+</details>
+<details class="question">
+<summary>Eine mögliche Lösung für Übung 5</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Konto.java</label><label for="__tabbed_2_2">Testklasse.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung5</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Konto</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">guthaben</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pin</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dispogrenze</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Konto</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pPin</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">guthaben</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pPin</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">dispogrenze</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">1000.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">einzahlen</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">betrag</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">guthaben</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guthaben</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">betrag</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Es wurden %.2f Euro eingezahlt.%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">betrag</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">auszahlen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pPin</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">betrag</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">pin</span><span class="o">==</span><span class="n">pPin</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">guthaben</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dispogrenze</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">betrag</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">guthaben</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guthaben</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">betrag</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Es wurden %.2f Euro ausgezahlt.%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">betrag</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Ihr Guthaben reicht nicht, um %.2f Euro auszuzahlen.%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">betrag</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Falsche PIN!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">kontoauszug</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pPin</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">pin</span><span class="o">==</span><span class="n">pPin</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Ihr aktuelles Guthaben betraegt %.2f Euro.%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">guthaben</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Falsche PIN!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">zinsenZahlen</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">DISPOZINSEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">GUTHABENZINSEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">guthaben</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">zinsen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guthaben</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">GUTHABENZINSEN</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">guthaben</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guthaben</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">zinsen</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Ihnen wurden %.2f Euro Zinsen gutgeschrieben.%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">zinsen</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">zinsen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guthaben</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">DISPOZINSEN</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span><span class="w">     </span><span class="c1">// ist negativ!</span><span class="w"></span>
+<span class="w">            </span><span class="n">guthaben</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guthaben</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">zinsen</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Ihnen wurden %.2f Euro Zinsen abgebucht.%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">zinsen</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung5</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Testklasse</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Konto</span><span class="w"> </span><span class="n">k1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Konto</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">einzahlen</span><span class="p">(</span><span class="mf">100.0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">einzahlen</span><span class="p">(</span><span class="mf">50.0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">einzahlen</span><span class="p">(</span><span class="mf">150.0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1235</span><span class="p">);</span><span class="w">       </span><span class="c1">// Falsche PIN!</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w">       </span>
+
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">auszahlen</span><span class="p">(</span><span class="mi">1235</span><span class="p">,</span><span class="w"> </span><span class="mf">100.0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Falsche PIN!</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">auszahlen</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="mf">100.0</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w">       </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">auszahlen</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="mf">300.0</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">auszahlen</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="mf">200.0</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">einzahlen</span><span class="p">(</span><span class="mf">150.0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w">       </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">zinsenZahlen</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w">       </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">einzahlen</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w">       </span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">zinsenZahlen</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">k1</span><span class="p">.</span><span class="na">kontoauszug</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="note">
+<summary>Übung 6</summary>
+<ol>
+<li>Erstellen Sie ein package <code>uebungen.uebung6</code>. </li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Rectangle</code> (ohne <code>main()</code>-Methode!)</li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Testklasse</code> mit <code>main()</code>-Methode    </li>
+<li>Erstellen Sie in der Klasse <code>Rectangle</code> zwei Objektvariablen<ul>
+<li><code>a</code> vom Typ <code>int</code> &rarr; nur in der Klasse sichtbar!</li>
+<li><code>b</code> vom Typ <code>int</code> &rarr; ebenfalls nur in der Klasse sichtbar!
+<code>a</code> und <code>b</code> sollen die Seiten des Rechtecks sein. </li>
+</ul>
+</li>
+<li>Implementieren Sie einen parameterlosen Konstruktor <code>Rectangle()</code>, der für die Seite <code>a</code> den Wert <code>10</code> und für die Seite <code>b</code> den Wert <code>20</code> setzt. </li>
+<li>Implementieren Sie einen parametrisierten Konstruktor <code>Rectangle(int a, int b)</code>, der die Parameterwerte zum Initialisieren der Seiten verwendet. </li>
+<li>Implementieren Sie eine Objektmethode <code>public int area()</code>, die den Flächeninhalt des Rechtecks zurückgibt. </li>
+<li>Implementieren Sie eine Objektmethode <code>public int perimeter()</code>, die den Umfang des Rechtecks zurückgibt. </li>
+<li>Implementieren Sie eine Objektmethode <code>public String toString()</code>, die einen <code>String</code> mit allen Informationen des Rechtecks in der folgenden Form
+    <div class="highlight"><pre><span></span><code>Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span>
+</code></pre></div>
+    zurückgibt. </li>
+<li>Implementieren Sie eine Objektmethode <code>public void print()</code>, die den durch <code>toString()</code> erzeugten <code>String</code> auf die Konsole ausgibt.</li>
+<li>Geben Sie in der <code>main()</code>-Methode der <code>Testklasse</code> ein:
+    <div class="highlight"><pre><span></span><code><span class="c1">// Objekte erzeugen</span><span class="w"></span>
+<span class="n">Rectangle</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">();</span><span class="w"></span>
+<span class="n">Rectangle</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span><span class="w"></span>
+<span class="n">Rectangle</span><span class="w"> </span><span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="n">Rectangle</span><span class="w"> </span><span class="n">r4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">Rectangle</span><span class="w"> </span><span class="n">r5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n--------------- print()-Methode -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">r2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">r3</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">r4</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">r5</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+    und führen Sie die <code>Testklasse</code> aus. Es sollten folgende Ausgaben erzeugt werden:
+    <div class="highlight"><pre><span></span><code>--------------- print<span class="o">()</span>-Methode -----------------
+
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">12</span>, <span class="nv">b</span><span class="o">=</span><span class="m">18</span>, <span class="nv">area</span><span class="o">=</span><span class="m">216</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">40</span>, <span class="nv">b</span><span class="o">=</span> <span class="m">5</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">90</span> <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">20</span>, <span class="nv">b</span><span class="o">=</span><span class="m">10</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">11</span>, <span class="nv">b</span><span class="o">=</span><span class="m">21</span>, <span class="nv">area</span><span class="o">=</span><span class="m">231</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">64</span> <span class="o">)</span>
+</code></pre></div></li>
+<li>Implementieren Sie eine Objektmethode <code>public boolean sidesAreEqual(Rectangle r)</code>, die ein <code>true</code> zurückgibt, wenn die Seiten des aufrufenden Objektes gleich den Seiten des Rectangle <code>r</code> sind. Beachten Sie, dass das Rechteck auch gedreht noch gleiche Seiten haben soll, also <code>a=10, b=20</code> ist nicht nur mit <code>a=10, b=20</code> gleich, sondern auch mit <code>a=20, b=10</code>. Wenn die Seiten ungleich sind, gibt die Methode ein <code>false</code> zurück.</li>
+<li>Implementieren Sie eine Objektmethode <code>public boolean areasAreEqual(Rectangle r)</code>, die ein <code>true</code> zurückgibt, wenn die Flächeninhalte des aufrufenden Objektes und des Rectangle <code>r</code> gleich sind. Ansonsten <code>false</code>.</li>
+<li>Implementieren Sie eine Objektmethode <code>public boolean perimetersAreEqual(Rectangle r)</code>, die ein <code>true</code> zurückgibt, wenn die Umfänge des aufrufenden Objektes und des Rectangle <code>r</code> gleich sind. Ansonsten <code>false</code>.</li>
+<li>Implementieren Sie eine Objektmethode <code>public void printComparison(Rectangle r)</code>, die die Vergleiche mit <code>r</code> in der unten dargestellten Form ausgibt. Rufen Sie in der Methode die Methoden <code>print()</code> (oder <code>toString()</code>), <code>sidesAreEqual()</code>, <code>areasAreEqual()</code> und <code>perimetersAreEqual()</code> auf. </li>
+<li>Fügen Sie in der <code>main()</code>-Methode der <code>Testklasse</code> folgende Anweisungen hinzu:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n---------- printComparison()-Methode ------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">printComparison</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">printComparison</span><span class="p">(</span><span class="n">r3</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">printComparison</span><span class="p">(</span><span class="n">r4</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">printComparison</span><span class="p">(</span><span class="n">r5</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+    und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+    <div class="highlight"><pre><span></span><code>---------- printComparison<span class="o">()</span>-Methode ------------
+
+this      Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span> 
+the other Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">12</span>, <span class="nv">b</span><span class="o">=</span><span class="m">18</span>, <span class="nv">area</span><span class="o">=</span><span class="m">216</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span> 
+sides are not equal 
+areas are not equal 
+perimeters are equal 
+
+this      Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span> 
+the other Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">40</span>, <span class="nv">b</span><span class="o">=</span> <span class="m">5</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">90</span> <span class="o">)</span> 
+sides are not equal 
+areas are equal 
+perimeters are not equal 
+
+this      Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span> 
+the other Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">20</span>, <span class="nv">b</span><span class="o">=</span><span class="m">10</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span> 
+sides are equal 
+areas are equal 
+perimeters are equal 
+
+this      Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span> <span class="o">)</span> 
+the other Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">11</span>, <span class="nv">b</span><span class="o">=</span><span class="m">21</span>, <span class="nv">area</span><span class="o">=</span><span class="m">231</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">64</span> <span class="o">)</span> 
+sides are not equal 
+areas are not equal 
+perimeters are not equal 
+</code></pre></div></li>
+<li><strong>Zusatz:</strong> <ul>
+<li>Implementieren Sie eine Objektmethode <code>public double diagonal()</code>, die die Länge einer Diagonalen des Rechtecks zurückgibt. </li>
+<li>Erweitern Sie die <code>toString()</code>-Methode um die Ausgabe dieser Länge wie folgt:
+    <div class="highlight"><pre><span></span><code>Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">22</span>,361 <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">12</span>, <span class="nv">b</span><span class="o">=</span><span class="m">18</span>, <span class="nv">area</span><span class="o">=</span><span class="m">216</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">21</span>,633 <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">40</span>, <span class="nv">b</span><span class="o">=</span> <span class="m">5</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">90</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">40</span>,311 <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">20</span>, <span class="nv">b</span><span class="o">=</span><span class="m">10</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">22</span>,361 <span class="o">)</span>
+Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">11</span>, <span class="nv">b</span><span class="o">=</span><span class="m">21</span>, <span class="nv">area</span><span class="o">=</span><span class="m">231</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">64</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">23</span>,707 <span class="o">)</span>
+</code></pre></div>
+    Es sollen drei Nachkommastellen der Länge der Diagonalen ausgegeben werden.</li>
+<li>Implementieren Sie eine Objektmethode <code>public void scale(int factor)</code>. Diese Methode "skaliert" das Rechteck um den Faktor <code>factor</code>, genauer gesagt, wird der <strong>Flächeninhalt</strong> um diesen Faktor skaliert. Die neuen Seiten sollen das gleiche Verhältnis zueinander haben, wie die alten Seiten. Geben Sie die neuen Seitenlängen in der folgenden Form auf die Konsole aus (siehe nächsten Punkt <code>main()</code>).</li>
+<li>Fügen Sie in der <code>main()</code>-Methode der <code>Testklasse</code> folgende Anweisungen hinzu:
+<div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n--------------- scale()-Methode -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r2</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r3</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r4</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r5</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r1</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">r2</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">r3</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">r4</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">r5</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+<div class="highlight"><pre><span></span><code>--------------- scale<span class="o">()</span>-Methode -----------------
+
+<span class="nv">newArea</span><span class="o">=</span>  <span class="m">400</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">14</span>,14 <span class="nv">newB</span><span class="o">=</span> <span class="m">28</span>,28 check <span class="o">(</span>newA*newB<span class="o">)=</span> <span class="m">400</span>,00
+<span class="nv">newArea</span><span class="o">=</span>  <span class="m">432</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">16</span>,97 <span class="nv">newB</span><span class="o">=</span> <span class="m">25</span>,46 check <span class="o">(</span>newA*newB<span class="o">)=</span> <span class="m">432</span>,00
+<span class="nv">newArea</span><span class="o">=</span>  <span class="m">400</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">56</span>,57 <span class="nv">newB</span><span class="o">=</span>  <span class="m">7</span>,07 check <span class="o">(</span>newA*newB<span class="o">)=</span> <span class="m">400</span>,00
+<span class="nv">newArea</span><span class="o">=</span>  <span class="m">400</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">28</span>,28 <span class="nv">newB</span><span class="o">=</span> <span class="m">14</span>,14 check <span class="o">(</span>newA*newB<span class="o">)=</span> <span class="m">400</span>,00
+<span class="nv">newArea</span><span class="o">=</span>  <span class="m">462</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">15</span>,56 <span class="nv">newB</span><span class="o">=</span> <span class="m">29</span>,70 check <span class="o">(</span>newA*newB<span class="o">)=</span> <span class="m">462</span>,00
+<span class="nv">newArea</span><span class="o">=</span> <span class="m">2000</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">31</span>,62 <span class="nv">newB</span><span class="o">=</span> <span class="m">63</span>,25 check <span class="o">(</span>newA*newB<span class="o">)=</span><span class="m">2000</span>,00
+<span class="nv">newArea</span><span class="o">=</span> <span class="m">2160</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">37</span>,95 <span class="nv">newB</span><span class="o">=</span> <span class="m">56</span>,92 check <span class="o">(</span>newA*newB<span class="o">)=</span><span class="m">2160</span>,00
+<span class="nv">newArea</span><span class="o">=</span> <span class="m">2000</span>,00 <span class="nv">newA</span><span class="o">=</span><span class="m">126</span>,49 <span class="nv">newB</span><span class="o">=</span> <span class="m">15</span>,81 check <span class="o">(</span>newA*newB<span class="o">)=</span><span class="m">2000</span>,00
+<span class="nv">newArea</span><span class="o">=</span> <span class="m">2000</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">63</span>,25 <span class="nv">newB</span><span class="o">=</span> <span class="m">31</span>,62 check <span class="o">(</span>newA*newB<span class="o">)=</span><span class="m">2000</span>,00
+<span class="nv">newArea</span><span class="o">=</span> <span class="m">2310</span>,00 <span class="nv">newA</span><span class="o">=</span> <span class="m">34</span>,79 <span class="nv">newB</span><span class="o">=</span> <span class="m">66</span>,41 check <span class="o">(</span>newA*newB<span class="o">)=</span><span class="m">2310</span>,00
 </code></pre></div></li>
 </ul>
 </li>
