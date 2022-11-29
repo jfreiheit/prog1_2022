@@ -540,6 +540,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../arrays/" class="md-nav__link">
+        Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sortieren/" class="md-nav__link">
+        Sortieren
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../hilfsklassen/" class="md-nav__link">
         Hilfsklassen
       </a>
@@ -743,7 +773,7 @@
 <li>das Schlüsselwort <code>this</code> kennenlernen. </li>
 </ul>
 <h2 id="eigene-datentypen-in-eigenen-datentypen-verwenden">Eigene Datentypen in eigenen Datentypen verwenden<a class="headerlink" href="#eigene-datentypen-in-eigenen-datentypen-verwenden" title="Permanent link">&para;</a></h2>
-<p>Wir beginnen damit, eigene Datentypen in neuen Datentypen zu verwenden, da dies eine gute Wiederholung ist. Angenommen, wir haben unsere Klasse <a href="./#ein-erster-eigener-datentyp-adresse"><code>Adresse</code></a> in einem package <code>themen.objekte</code> erstellt und wir wollen die kommenden Klassen in einem package <code>themn.objekte2</code> erstellen. In diesem package erstellen wir uns eine neue Klasse <code>Person</code> mit folgenden Objektvariablen:</p>
+<p>Wir beginnen damit, eigene Datentypen in neuen Datentypen zu verwenden, da dies eine gute Wiederholung ist. Angenommen, wir haben unsere Klasse <a href="../objekte1/#ein-erster-eigener-datentyp-adresse"><code>Adresse</code></a> in einem package <code>themen.objekte</code> erstellt und wir wollen die kommenden Klassen in einem package <code>themn.objekte2</code> erstellen. In diesem package erstellen wir uns eine neue Klasse <code>Person</code> mit folgenden Objektvariablen:</p>
 <ul>
 <li><code>name</code> vom Typ <code>String</code>,</li>
 <li><code>vorname</code> vom Typ <code>String</code> und</li>
@@ -809,7 +839,7 @@
 </div>
 </div>
 <ul>
-<li>In Zeile <code>10</code> verwenden wir <a href="./#ein-erster-eigener-datentyp-adresse">die von uns geschriebene</a> Klasse <code>Adresse</code>. Wir haben extra mal die Klasse <code>Person</code> in einem anderen Paket (<code>themen.objekte2</code> - siehe Zeile <code>1</code>) erstellt, als die Klasse <code>Adresse</code> (<code>themen.objekte</code> - ist bei Ihnen sicherlich ein anderes Paket), um zu zeigen, wie wir Klassen aus anderen Paketen importieren (siehe Zeile <code>3</code>).</li>
+<li>In Zeile <code>10</code> verwenden wir <a href="../objekte1/#ein-erster-eigener-datentyp-adresse">die von uns geschriebene</a> Klasse <code>Adresse</code>. Wir haben extra mal die Klasse <code>Person</code> in einem anderen Paket (<code>themen.objekte2</code> - siehe Zeile <code>1</code>) erstellt, als die Klasse <code>Adresse</code> (<code>themen.objekte</code> - ist bei Ihnen sicherlich ein anderes Paket), um zu zeigen, wie wir Klassen aus anderen Paketen importieren (siehe Zeile <code>3</code>).</li>
 <li>der Konstruktor (Zeilen <code>13-18</code>) sieht aus, wie erwartet. Wir initialisieren alle Objektvariablen mit den als Parameter übergebenen Werten. </li>
 <li>in den Zeilen <code>21-25</code> haben wir auch schon die <code>print()</code>-Methode vorbereitet. Darin wollen wir alle Informationen über das jeweilige <code>Person</code>-Objekt ausgeben. Für <code>name</code> und <code>vorname</code> ist das sicherlich einfach. Aber wie kommen wir an die Informationen von <code>adresse</code>? </li>
 </ul>
@@ -909,7 +939,7 @@
 <div class="highlight"><pre><span></span><code>Maria Musterfrau
 Max Mustermann
 </code></pre></div>
-<p>Wie können wir nun auch die Adressen von <code>maria</code> und <code>max</code> ausgeben? Die Antwort ist: mithilfe der Objektmethoden von <code>Adresse</code>. Schauen wir uns die Objektmethoden von <code>Adresse</code> nochmal an (siehe auch <a href="./#getxxx-methoden-getter">hier</a>):</p>
+<p>Wie können wir nun auch die Adressen von <code>maria</code> und <code>max</code> ausgeben? Die Antwort ist: mithilfe der Objektmethoden von <code>Adresse</code>. Schauen wir uns die Objektmethoden von <code>Adresse</code> nochmal an (siehe auch <a href="../objekte1/#getxxx-methoden-getter">hier</a>):</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Objektmethoden von Adresse.java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1762,7 +1792,7 @@ Flaecheninhalt : <span class="m">3</span>.141592653589793
 </code></pre></div>
 <p>Das Prinzip, das hierbei angewendet wird, nennt sich <em>Überladen von Methoden</em>. </p>
 <h3 id="uberladen-von-methoden">Überladen von Methoden<a class="headerlink" href="#uberladen-von-methoden" title="Permanent link">&para;</a></h3>
-<p>Wir hatten dieses Prinzip auch bereits in <a href="">Übung 4</a> angewendet, wo wir zwei <code>print()</code>-Methoden erstellt hatten. Die eine <code>print()</code>-Methode hat ein <code>char[]</code> als Parameter erwartet und die andere ein <code>int[]</code>. Das <em>Überladen von Methoden</em> erfolgt immer dann, wenn Methoden gleichen Namens existieren. Wichtig ist, dass sich diese Methoden in ihrer Parameterliste unterscheiden.</p>
+<p>Das <em>Überladen von Methoden</em> erfolgt immer dann, wenn Methoden gleichen Namens existieren. Wichtig ist, dass sich diese Methoden in ihrer Parameterliste unterscheiden.</p>
 <p>Was bedeutet, dass sich Parameterlisten von Methoden unterscheiden? Methoden haben eine <strong>unterschiedliche Parameterliste</strong>, wenn</p>
 <ul>
 <li>sich die Anzahl der Parameter unterscheidet oder wenn</li>
@@ -1790,7 +1820,7 @@ Flaecheninhalt : <span class="m">3</span>.141592653589793
 <p>Für alle Methoden einer Klasse müssen sich deren Methodensignaturen unterscheiden, also entweder deren Namen oder deren Parameterlisten. </p>
 </blockquote>
 <h3 id="mehrere-konstruktoren-in-point">Mehrere Konstruktoren in <code>Point</code><a class="headerlink" href="#mehrere-konstruktoren-in-point" title="Permanent link">&para;</a></h3>
-<p>Für unsere Klasse <a href="./#eine-weiterer-datentyp-point"><code>Point</code></a> wollen wir ebenfalls mehrere Konstruktoren definieren:</p>
+<p>Für unsere Klasse <a href="../objekte1/#eine-weiterer-datentyp-point"><code>Point</code></a> wollen wir ebenfalls mehrere Konstruktoren definieren:</p>
 <ul>
 <li>Konstruktor mit zwei Paramtern (haben wir schon) &rarr; <code>x</code> und <code>y</code> werden mit den Parameterwerten initialisiert</li>
 <li>Konstruktor mit einem Parameter &rarr; <code>x</code> und <code>y</code> bekommen den gleichen Wert, den des Parameters</li>
@@ -1901,7 +1931,7 @@ Treskowallee <span class="m">8</span> <span class="k">in</span> <span class="m">
 Rudower Chaussee <span class="m">25</span> <span class="k">in</span> <span class="m">12489</span> Berlin
 </code></pre></div>
 <h3 id="objekterzeugende-methoden-mit-objekt-als-ruckgabe">Objekterzeugende Methoden mit Objekt als Rückgabe<a class="headerlink" href="#objekterzeugende-methoden-mit-objekt-als-ruckgabe" title="Permanent link">&para;</a></h3>
-<p>Wir betrachten zur Wiederholung erneut die Klasse <code>Point</code>. Wir erinnern uns: ein <code>Point</code> bestand aus einer <code>x</code>- und einer <code>y</code>-Koordinate. Wir hatten verschiedene Objektmethoden für <code>Point</code> erstellt - siehe <a href="./#eine-weiterer-datentyp-point">hier</a>. </p>
+<p>Wir betrachten zur Wiederholung erneut die Klasse <code>Point</code>. Wir erinnern uns: ein <code>Point</code> bestand aus einer <code>x</code>- und einer <code>y</code>-Koordinate. Wir hatten verschiedene Objektmethoden für <code>Point</code> erstellt - siehe <a href="../objekte1/#eine-weiterer-datentyp-point">hier</a>. </p>
 <p>Angenommen, wir wollen zwei Punkte addieren - z.B. ein <code>Point p1</code> und ein <code>Point p2</code>. Die Idee dabei ist, dass die Summe der beiden <code>x</code>-Werte (<code>p1.x + p2.x</code>) einen neuen <code>x</code>-Wert und die Summe der beiden <code>y</code>-Werte (<code>p1.y + p2.y</code>) einen neuen <code>y</code>-Wert ergibt. </p>
 <p>Wir starten einen ersten Versuch und implementieren eine <code>add()</code>-Methode wie folgt:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"></span>

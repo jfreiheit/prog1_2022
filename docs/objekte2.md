@@ -9,7 +9,7 @@ Wir machen weiter mit eigenen Datentypen und erstellen uns Objekte, die von dies
 
 ## Eigene Datentypen in eigenen Datentypen verwenden
 
-Wir beginnen damit, eigene Datentypen in neuen Datentypen zu verwenden, da dies eine gute Wiederholung ist. Angenommen, wir haben unsere Klasse [`Adresse`](./#ein-erster-eigener-datentyp-adresse) in einem package `themen.objekte` erstellt und wir wollen die kommenden Klassen in einem package `themn.objekte2` erstellen. In diesem package erstellen wir uns eine neue Klasse `Person` mit folgenden Objektvariablen:
+Wir beginnen damit, eigene Datentypen in neuen Datentypen zu verwenden, da dies eine gute Wiederholung ist. Angenommen, wir haben unsere Klasse [`Adresse`](../objekte1/#ein-erster-eigener-datentyp-adresse) in einem package `themen.objekte` erstellt und wir wollen die kommenden Klassen in einem package `themn.objekte2` erstellen. In diesem package erstellen wir uns eine neue Klasse `Person` mit folgenden Objektvariablen:
 
 - `name` vom Typ `String`,
 - `vorname` vom Typ `String` und
@@ -47,7 +47,7 @@ Wir fügen auch gleich noch den Konstruktor hinzu und bereiten die `print()`-Met
 	}
 	```
 
-- In Zeile `10` verwenden wir [die von uns geschriebene](./#ein-erster-eigener-datentyp-adresse) Klasse `Adresse`. Wir haben extra mal die Klasse `Person` in einem anderen Paket (`themen.objekte2` - siehe Zeile `1`) erstellt, als die Klasse `Adresse` (`themen.objekte` - ist bei Ihnen sicherlich ein anderes Paket), um zu zeigen, wie wir Klassen aus anderen Paketen importieren (siehe Zeile `3`).
+- In Zeile `10` verwenden wir [die von uns geschriebene](../objekte1/#ein-erster-eigener-datentyp-adresse) Klasse `Adresse`. Wir haben extra mal die Klasse `Person` in einem anderen Paket (`themen.objekte2` - siehe Zeile `1`) erstellt, als die Klasse `Adresse` (`themen.objekte` - ist bei Ihnen sicherlich ein anderes Paket), um zu zeigen, wie wir Klassen aus anderen Paketen importieren (siehe Zeile `3`).
 - der Konstruktor (Zeilen `13-18`) sieht aus, wie erwartet. Wir initialisieren alle Objektvariablen mit den als Parameter übergebenen Werten. 
 - in den Zeilen `21-25` haben wir auch schon die `print()`-Methode vorbereitet. Darin wollen wir alle Informationen über das jeweilige `Person`-Objekt ausgeben. Für `name` und `vorname` ist das sicherlich einfach. Aber wie kommen wir an die Informationen von `adresse`? 
 
@@ -117,7 +117,7 @@ Maria Musterfrau
 Max Mustermann
 ```
 
-Wie können wir nun auch die Adressen von `maria` und `max` ausgeben? Die Antwort ist: mithilfe der Objektmethoden von `Adresse`. Schauen wir uns die Objektmethoden von `Adresse` nochmal an (siehe auch [hier](./#getxxx-methoden-getter)):
+Wie können wir nun auch die Adressen von `maria` und `max` ausgeben? Die Antwort ist: mithilfe der Objektmethoden von `Adresse`. Schauen wir uns die Objektmethoden von `Adresse` nochmal an (siehe auch [hier](../objekte1/#getxxx-methoden-getter)):
 
 
 === "Objektmethoden von Adresse.java"
@@ -648,7 +648,7 @@ Das Prinzip, das hierbei angewendet wird, nennt sich *Überladen von Methoden*.
 
 ### Überladen von Methoden
 
-Wir hatten dieses Prinzip auch bereits in [Übung 4]() angewendet, wo wir zwei `print()`-Methoden erstellt hatten. Die eine `print()`-Methode hat ein `char[]` als Parameter erwartet und die andere ein `int[]`. Das *Überladen von Methoden* erfolgt immer dann, wenn Methoden gleichen Namens existieren. Wichtig ist, dass sich diese Methoden in ihrer Parameterliste unterscheiden.
+Das *Überladen von Methoden* erfolgt immer dann, wenn Methoden gleichen Namens existieren. Wichtig ist, dass sich diese Methoden in ihrer Parameterliste unterscheiden.
 
 Was bedeutet, dass sich Parameterlisten von Methoden unterscheiden? Methoden haben eine **unterschiedliche Parameterliste**, wenn
 
@@ -679,7 +679,7 @@ Die Namen der Parameter spielen **keine** Rolle. Beispielsweise wäre `method(in
 
 ### Mehrere Konstruktoren in `Point`
 
-Für unsere Klasse [`Point`](./#eine-weiterer-datentyp-point) wollen wir ebenfalls mehrere Konstruktoren definieren:
+Für unsere Klasse [`Point`](../objekte1/#eine-weiterer-datentyp-point) wollen wir ebenfalls mehrere Konstruktoren definieren:
 
 - Konstruktor mit zwei Paramtern (haben wir schon) --> `x` und `y` werden mit den Parameterwerten initialisiert
 - Konstruktor mit einem Parameter --> `x` und `y` bekommen den gleichen Wert, den des Parameters
@@ -794,7 +794,7 @@ Rudower Chaussee 25 in 12489 Berlin
 
 ### Objekterzeugende Methoden mit Objekt als Rückgabe
 
-Wir betrachten zur Wiederholung erneut die Klasse `Point`. Wir erinnern uns: ein `Point` bestand aus einer `x`- und einer `y`-Koordinate. Wir hatten verschiedene Objektmethoden für `Point` erstellt - siehe [hier](./#eine-weiterer-datentyp-point). 
+Wir betrachten zur Wiederholung erneut die Klasse `Point`. Wir erinnern uns: ein `Point` bestand aus einer `x`- und einer `y`-Koordinate. Wir hatten verschiedene Objektmethoden für `Point` erstellt - siehe [hier](../objekte1/#eine-weiterer-datentyp-point). 
 
 Angenommen, wir wollen zwei Punkte addieren - z.B. ein `Point p1` und ein `Point p2`. Die Idee dabei ist, dass die Summe der beiden `x`-Werte (`p1.x + p2.x`) einen neuen `x`-Wert und die Summe der beiden `y`-Werte (`p1.y + p2.y`) einen neuen `y`-Wert ergibt. 
 
