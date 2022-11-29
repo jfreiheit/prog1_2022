@@ -1155,8 +1155,8 @@
 			Rectangle : ( a=20, b=10, area=200, perimeter=60, diagonal=22,361 )
 			Rectangle : ( a=11, b=21, area=231, perimeter=64, diagonal=23,707 )
 			``` 
-			Es sollen drei Nachkommastellen der Länge der Diagonalen ausgegeben werden.
-		- Implementieren Sie eine Objektmethode `public void scale(int factor)`. Diese Methode "skaliert" das Rechteck um den Faktor `factor`, genauer gesagt, wird der **Flächeninhalt** um diesen Faktor skaliert. Die neuen Seiten sollen das gleiche Verhältnis zueinander haben, wie die alten Seiten. Geben Sie die neuen Seitenlängen in der folgenden Form auf die Konsole aus (siehe nächsten Punkt `main()`).
+			
+		- Implementieren Sie eine Objektmethode `public void scale(int factor)`. Diese Methode "skaliert" (vergrößert oder verkleinert) das Rechteck um den Faktor `factor`, genauer gesagt, wird der **Flächeninhalt** um diesen Faktor skaliert (vergrößert oder verkleinert). Die neuen Seiten sollen das gleiche Verhältnis zueinander haben, wie die alten Seiten. Geben Sie die neuen Seitenlängen in der folgenden Form auf die Konsole aus (siehe nächsten Punkt `main()`).
 		- Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
 		```java	
 		System.out.printf("%n%n--------------- scale()-Methode -----------------%n%n");

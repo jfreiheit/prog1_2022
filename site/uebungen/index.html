@@ -1737,7 +1737,8 @@ sides are not equal
 areas are not equal 
 perimeters are not equal 
 </code></pre></div></li>
-<li><strong>Zusatz:</strong> <ul>
+<li>
+<ul>
 <li>Implementieren Sie eine Objektmethode <code>public double diagonal()</code>, die die Länge einer Diagonalen des Rechtecks zurückgibt. </li>
 <li>Erweitern Sie die <code>toString()</code>-Methode um die Ausgabe dieser Länge wie folgt:
     <div class="highlight"><pre><span></span><code>Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">10</span>, <span class="nv">b</span><span class="o">=</span><span class="m">20</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">22</span>,361 <span class="o">)</span>
@@ -1745,9 +1746,11 @@ Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=<
 Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">40</span>, <span class="nv">b</span><span class="o">=</span> <span class="m">5</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">90</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">40</span>,311 <span class="o">)</span>
 Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">20</span>, <span class="nv">b</span><span class="o">=</span><span class="m">10</span>, <span class="nv">area</span><span class="o">=</span><span class="m">200</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">60</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">22</span>,361 <span class="o">)</span>
 Rectangle : <span class="o">(</span> <span class="nv">a</span><span class="o">=</span><span class="m">11</span>, <span class="nv">b</span><span class="o">=</span><span class="m">21</span>, <span class="nv">area</span><span class="o">=</span><span class="m">231</span>, <span class="nv">perimeter</span><span class="o">=</span><span class="m">64</span>, <span class="nv">diagonal</span><span class="o">=</span><span class="m">23</span>,707 <span class="o">)</span>
-</code></pre></div>
-    Es sollen drei Nachkommastellen der Länge der Diagonalen ausgegeben werden.</li>
-<li>Implementieren Sie eine Objektmethode <code>public void scale(int factor)</code>. Diese Methode "skaliert" das Rechteck um den Faktor <code>factor</code>, genauer gesagt, wird der <strong>Flächeninhalt</strong> um diesen Faktor skaliert. Die neuen Seiten sollen das gleiche Verhältnis zueinander haben, wie die alten Seiten. Geben Sie die neuen Seitenlängen in der folgenden Form auf die Konsole aus (siehe nächsten Punkt <code>main()</code>).</li>
+</code></pre></div></li>
+</ul>
+<p><strong>Zusatz:</strong> </p>
+<ul>
+<li>Implementieren Sie eine Objektmethode <code>public void scale(int factor)</code>. Diese Methode "skaliert" (vergrößert oder verkleinert) das Rechteck um den Faktor <code>factor</code>, genauer gesagt, wird der <strong>Flächeninhalt</strong> um diesen Faktor skaliert (vergrößert oder verkleinert). Die neuen Seiten sollen das gleiche Verhältnis zueinander haben, wie die alten Seiten. Geben Sie die neuen Seitenlängen in der folgenden Form auf die Konsole aus (siehe nächsten Punkt <code>main()</code>).</li>
 <li>Fügen Sie in der <code>main()</code>-Methode der <code>Testklasse</code> folgende Anweisungen hinzu:
 <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n--------------- scale()-Methode -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">r1</span><span class="p">.</span><span class="na">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
