@@ -1578,3 +1578,192 @@
 			```
 
 
+
+## Zusätzliche Übungen
+
+
+??? "Binäre Bäume"
+	
+	---
+
+	**Info:** Wir erstellen uns einen Datentyp `BinaryTreeNode`, der einen Knoten in einem Binärbaum repräsentiert. Hier wird die Verwendung von `null` und Rekursion geübt.
+
+	---
+	
+	1. Erstellen Sie eine Klasse `BinaryTreeNode`.
+	2. Objektvariablen (alle `private`) dieser Klasse sind
+
+		- `value` vom Typ `int`,
+		- `left` vom Typ `BinaryTreeNode` und
+		- `right` vom Typ `BinaryTreeNode`.
+
+	3. Erstellen Sie einen parametrisierten Konstruktor `public BinaryTreeNode(int value)`, in dem der linke und rechte Teilbaum jeweils auf `null` gesetzt und die Objektvariable `value` mit dem Parameterwert initialisiert werden. 
+
+	4. Implementieren Sie die Methoden `public boolean hasLeft()` und `public boolean hasRight()`, die ein `true` zurückgeben, wenn der linke bzw. rechte Teilbaum ein Objekt ist und `false`, wenn `left` bzw. `right` den Wert `null` haben. 
+
+	5. Implementieren Sie eine Methode `public void insert(int value)`, die die folgende private Methode `private void insert(BinaryTreeNode root, int value)` aufruft.
+
+	6. Implementieren Sie eine Methode `private void insert(BinaryTreeNode root, int value)`, die ein `BinaryTreeNode`-Objekt in den Binärbaum einfügt. Beachten Sie:
+
+		- wenn `value` kleiner ist, als der `value`, von dem Knoten, den Sie gerade betrachten, dann fügen Sie den Wert in den linken Teilbaum ein,
+		- wenn `value` größer ist, als der `value`, von dem Knoten, den Sie gerade betrachten, dann fügen Sie den Wert in den rechten Teilbaum ein,
+		- wenn im Baum bereits ein Knoten mit `value` existiert, dann wird kein Knoten hinzugefügt. 
+
+		**Tipp:** Sie sollten die Methode am besten rekursiv implementieren.
+
+	7. Implementieren Sie eine Methode `public void print()`, die die folgende private Methode `private void print(int indent)` aufruft.
+
+	8. Implementieren Sie eine Methode `private void print(int indent)`. Diese Methode gibt den `value` des aufrufenden Knotens auf die Konsole aus und ruft dann sowohl die `print(indent)`-Methode des linken Teilbaums als auch die `print(indent)`-Methode des rechten Teilbaums auf, falls sie jeweils existieren. Der `indent`-Parameter ist dazu da, damit für jede Verzweigungstiefe der Wert weiter eingerückt auf der Konsole ausgegeben wird, also z.B. so:
+
+		```bash
+		10
+		l--------5
+		         l--------3
+		                  r--------4
+		         r--------8
+		                  r--------9
+		r--------15
+		         l--------13
+		                  l--------12
+		                  r--------14
+		         r--------18
+		                  l--------17
+		```
+
+		**Tipp:** Sie sollten die Methode am besten rekursiv implementieren.
+
+	9. Die `main()`-methode der `Programmklasse` könnte z.B. so aussehen:
+
+		```java
+		BinaryTreeNode btn = new BinaryTreeNode(10);
+		btn.insert(5);
+		btn.insert(15); 
+		btn.insert(8); 
+		btn.insert(3); 
+		btn.insert(18); 
+		btn.insert(13);
+		btn.insert(14); 
+		btn.insert(9); 
+		btn.insert(4); 
+		btn.insert(17); 
+		btn.insert(12);
+		btn.print();
+		```
+
+
+??? question "Eine mögliche Lösung für Binäre Bäume"
+	=== "BinaryTreeNode.java"
+		```java 
+		public class BinaryTreeNode
+		{
+			private int value;
+			private BinaryTreeNode left;
+			private BinaryTreeNode right;
+			
+			BinaryTreeNode(int value)
+			{
+				this.value = value;
+				this.left = null;
+				this.right = null;	
+			}
+			
+			public boolean hasLeft()
+			{
+				return this.left != null;
+			}
+			
+			public boolean hasRight()
+			{
+				return this.right != null;
+			}	
+			
+			public void insert(int value)
+			{
+				this.insert(this, value);
+			}
+			
+			private void insert(BinaryTreeNode root, int value)
+			{ 
+				if(value < root.value)
+				{
+					if(!root.hasLeft())
+					{
+						root.left = new BinaryTreeNode(value);
+					}
+					else
+					{
+						insert(root.left, value);
+					}
+				}
+				else if(value > root.value)
+				{
+					if(!root.hasRight())
+					{
+						root.right = new BinaryTreeNode(value);
+					}
+					else
+					{
+						insert(root.right, value);
+					}
+				}
+			}
+			
+			public void print()
+			{
+				print(1);
+			}
+			
+			private void print(int indent)
+			{
+				System.out.println(this.value);
+				if(this.hasLeft())
+				{
+					for(int i = 0; i < indent; i++)
+					{
+						if(i == indent-1) System.out.print("l--------"); 
+						else 			  System.out.print("         "); 
+					}
+					this.left.print(indent+1);
+				}
+
+				if(this.hasRight())
+				{
+					for(int i = 0; i < indent; i++)
+					{
+						if(i == indent-1) System.out.print("r--------"); 
+						else 			  System.out.print("         ");  
+					} 
+					this.right.print(indent+1);
+				}
+			}
+
+		}
+		```
+	=== "Programmklasse.java"
+		```java 
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				BinaryTreeNode btn = new BinaryTreeNode(10);
+				btn.insert(5);
+				btn.insert(15); 
+				btn.insert(8); 
+				btn.insert(3); 
+				btn.insert(18); 
+				btn.insert(13);
+				btn.insert(14); 
+				btn.insert(9); 
+				btn.insert(4); 
+				btn.insert(17); 
+				btn.insert(12);
+				btn.print();
+			}
+
+		}
+		```
+
+
+
+
