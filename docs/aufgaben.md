@@ -483,3 +483,102 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
+
+#### Aufgabe 5 (Abgabe bis 20.12.2022 24:00 Uhr)
+
+
+??? "Aufgabe 5 - Doppelt-verkettete Liste"
+	- Wir erstellen uns einen neuen Datentyp `ListElement`. Dieser Datentyp wird für ein Element aus einer doppelt verketteten Liste verwendet. Eine Liste kann aus vielen `ListElement`-Elementen bestehen. Ein `ListElement` hat einen Vorgänger (`predecessor`) und einen Nachfolger (`successor`) in der Liste. Nur das erste Element hat keinen Vorgänger und das letzte Element hat keinen Nachfolger.
+
+	- Erstellen Sie im package `aufgaben.aufgabe5` eine Klasse `ListElement` ohne `main()`-Methode und eine Klasse `Programmklasse` mit `main()`-Methode. 
+
+	- In der Klasse `ListElement` erstellen Sie fünf nur in der Klasse sichtbare Objektvariablen:
+	 	- `value` vom Typ `char` 
+	 	- `hasPredecessor` vom Typ `boolean` 
+	 	- `hasSuccessor` vom Typ `boolean`
+	 	- `predecessor` vom Typ `ListElement` und
+	 	- `successor` vom Typ `ListElement`
+
+	- Implementieren Sie für die Klasse `ListElement` einen Konstruktor, dem ein Zeichen (`char`) als Parameter übergeben wird. Dieses Zeichen wird verwendet, um der Objektvariablen `value` einen Wert zuzuweisen. Setzen Sie außerdem die Objektvariablen `hasPredecessor` und `hasSuccessor` jeweils auf `false`. 
+
+	- Implementieren Sie die Objektmethode `public void insertBefore(ListElement element)`. Durch Aufruf dieser Methode soll das aufrufende `ListElement`-Objekt **vor** das `ListElement`-Objekt `element` in die Liste eingefügt werden. Dabei sind mehrere Dinge zu beachten:
+		- Angenommen, wir haben zwei einzelne `ListElement`-Objekte `l1` und `l2`. Dann entsteht durch `li.insertBefore(l2)` die Liste `l1 <--> l2`. Das heißt, `l2` wird der `successor` von `l1` und `l1` wird der `predecessor` von `l2`. Setzen Sie entsprechend auch die Variablenwerte für `hasSuccessor` und `hasPredecessor`.
+
+		- Angenommen, wir haben ein einzelnes `ListElement`-Objekt `l1` und eine Liste aus lauter `ListElement`-Objekten `l2 <--> l3 <--> l4 <--> l5`. Dann 
+			- ensteht durch `l1.insertBefore(l2)` die Liste `l1 <--> l2 <--> l3 <--> l4 <--> l5` und alles ist, wie im Fall zuvor, d.h. `l1` ist der `predecessor` von `l2` und `l2` ist der `successor` von `l1`.
+			- entsteht durch `l1.insertBefore(l3)` die Liste `l2 <--> l1 <--> l3 <--> l4 <--> l5`. Das bedeutet, dass `l3` der `successor` von `l1` wird und `l1` der `predecessor` von `l3`. Der **alte** `predecessor` von `l3` (`l2`) wird der **neue** `predecessor` von `l1` und `l1` wird der **neue** `successor` von `l2`.
+
+		- Angenommen, wir haben eine Liste aus lauter `ListElement`-Objekten `l1 <--> l2 <--> l3` und ein einzelnes `ListElement`-Objekt `l4`. Dann 
+			- ensteht sowohl durch `l1.insertBefore(l4)` als auch durch `l2.insertBefore(l4)` als auch durch `l3.insertBefore(l4)` die Liste `l1 <--> l2 <--> l3 <--> l4`.
+
+		- Angenommen, wir haben eine Liste aus lauter `ListElement`-Objekten `l1 <--> l2 <--> l3` und eine Liste aus lauter `ListElement`-Objekten `l4 <--> l5 <--> l6 <--> l7`. Dann 
+			- ensteht durch `l1.insertBefore(l4)` die Liste `l1 <--> l2 <--> l3 <--> l4 <--> l5 <--> l6 <--> l7`. Das heißt, es wird die **gesamte** Liste, die mit `l1` beginnt, **vor** `l4` eingefügt (und damit vor die Liste `l4 <--> l5 <--> l6 <--> l7`). 
+			- entsteht durch `l1.insertBefore(l6)` die Liste `l4 <--> l5 <--> l1 <--> l2 <--> l3 <--> l6 <--> l7`. 
+			- **übrigens**: wenn Sie für die gebebenen Lsten z.B. `l2.insertBefore(l5)` aufrufen, dann fällt `l1` weg, d.h. die entstehende Liste ist `l4 <--> l2 <--> l5 <--> l6 <--> l7`. Sie können sich überlegen, ob das überhaupt ein richtiges Verhalten ist oder ob es ein besseres gibt. 
+
+	- **Tipp:** Beginnen Sie mit der Implementierung des ersten (und einfachsten) Falls. Fügen Sie dann die weiteren Fälle schrittweise hinzu. Sie werden feststellen, dass Sie gar nicht viele Fallunterscheidungen machen müssen. Ich bin z.B. mit einem `if` und einer `while`-Schleife ausgekommen und die gesamte Methode hat nur ca. 10 Zeilen.
+
+	- Implementieren Sie die Objektmethode `public void print()`. Diese Methode soll den `value` des aufrufenden `ListElement`-Objektes auf die Konsole ausgeben (ohne Zeilenumbruch) und dann die `print()`-Methode des `successor`-Elementes aufrufen. Nur wenn das aufrufende `ListElement` keinen `successor` hat (Ende der Liste), wird der Wert des Objektes mit Zeilenumbruch ausgegeben und keine weitere `print()`-Methode aufgerufen. 
+
+	- Geben Sie in die `main()`-Methode der `Programmklasse` mindestens folgende Anweisungen ein:
+		```java 
+		ListElement l1 = new ListElement('W');
+		ListElement l2 = new ListElement('e');
+		ListElement l3 = new ListElement('i');
+		ListElement l4 = new ListElement('h');
+		ListElement l5 = new ListElement('n');
+		ListElement l6 = new ListElement('a');
+		ListElement l7 = new ListElement('c');
+		ListElement l8 = new ListElement('h');
+		ListElement l9 = new ListElement('t');
+		ListElement l10 = new ListElement('e');
+		ListElement l11 = new ListElement('n');
+		
+		System.out.printf("? : %15s", "W == ");l1.print();
+		l1.insertBefore(l2);		// W-e
+		System.out.printf("? : %15s", "We == ");l1.print();
+		
+		l5.insertBefore(l6);		// n-a
+		l5.insertBefore(l7);		// na-c
+		l7.insertBefore(l8);		// nac-h
+		l6.insertBefore(l9);		// nach-t
+		System.out.printf("? : %15s", "nacht == ");l5.print();
+		
+		l1.insertBefore(l5);		// We-nacht
+		System.out.printf("? : %15s", "Wenacht == ");l1.print();			
+		
+		l10.insertBefore(l11);		// e-n
+		l9.insertBefore(l10);		// Wenacht-en
+		System.out.printf("? : %15s", "Wenachten == ");l1.print();
+		System.out.printf("? : %15s", "nachten == ");l5.print();
+		
+		l3.insertBefore(l5);		// We-i-nachten
+		System.out.printf("? : %15s", "inachten == ");l3.print();
+		System.out.printf("? : %15s", "Weinachten == ");l1.print();
+		l4.insertBefore(l5);		// Wei-h-nachten
+		System.out.printf("? : %15s", "Weihnachten == ");l1.print();
+		``` 
+		und führen Sie die `Programmklasse` aus. Es sollten folgende Augaben entstehen:
+		```bash
+		? :           W == W
+		? :          We == We
+		? :       nacht == nacht
+		? :     Wenacht == Wenacht
+		? :   Wenachten == Wenachten
+		? :     nachten == nachten
+		? :    inachten == inachten
+		? :  Weinachten == Weinachten
+		? : Weihnachten == Weihnachten
+		```
+	- ---
+
+	- **Wenn Sie das geschafft haben, dann haben Sie die Aufgabe erfüllt! Herzlichen Glückwunsch! Die folgende Aufgabe ist optional :**
+
+		- Fügen Sie der Klasse `ListElement` die Objektvariable `private int index` hinzu und sorgen Sie dafür, dass in einer verketteten Liste die `ListElement`-Objekte den jeweils passenden Index entsprechend ihrer Position in der Liste haben (beginnend bei `0`). Also in der Liste `l1 <--> l2 <--> l3 <--> l4 <--> l5` hat `l1` den Index `0`, `l2` den Index `1`, `l3` den Index `2` usw. Wenn Sie dafür selbständig eine Lösung entwickelt haben, dann schicken Sie mir bitte eine E-Mail mit der Lösung.
+
+	- ---
+
+	- Laden Sie Ihre Lösung bis Dienstag, den **20.12.2022 um 24.00 Uhr** in Moodle hoch
+	- Viel Spaß und viel Erfolg!
+
+

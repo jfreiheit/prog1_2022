@@ -1188,4 +1188,393 @@
 		```
 
 
+??? question "Eine mögliche Lösung für Übung 6"
+	=== "Rectangle.java"
+		```java 
+		package uebungen.uebung6;
+
+		public class Rectangle
+		{
+			private int a;
+			private int b;
+			
+			public Rectangle()
+			{
+				this.a = 10;
+				this.b = 20;
+			}
+			
+			public Rectangle(int a, int b)
+			{
+				this.a = a;
+				this.b = b;
+			}
+			
+			public int area()
+			{
+				return this.a * this.b;
+			}
+			
+			public int perimeter()
+			{
+				return 2 * (this.a + this.b);
+			}
+			
+			public double diagonal()
+			{
+				int a2 = this.a * this.a;
+				int b2 = this.b * this.b;
+				double diagonal = Math.sqrt(a2 + b2);
+				return diagonal;
+			}
+			
+			public String toString()
+			{
+				/*
+				return "Rectangle : ( a=" + 
+						this.a + ", b=" + 
+						this.b + ", area=" + 
+						this.area() + ", perimeter=" + 
+						this.perimeter() + ", diagonal=" +
+						this.diagonal() + " )";
+						*/
+				return String.format("Rectangle : ( a=%2d, b=%2d, area=%3d, "
+						+ "perimeter=%2d, diagonal=%.3f )", 
+						this.a, 
+						this.b, 
+						this.area(), 
+						this.perimeter(),
+						this.diagonal());
+				
+			}
+			
+			public void print()
+			{
+				System.out.println( this.toString() );
+			}
+			
+			public boolean sidesAreEqual(Rectangle r)
+			{
+				return (this.a == r.a && this.b == r.b) ||
+						(this.a == r.b && this.b == r.a);
+			}
+			
+			public boolean areasAreEqual(Rectangle r)
+			{
+				return (this.area() == r.area());
+			}
+			
+			public boolean perimetersAreEqual(Rectangle r)
+			{
+				return (this.perimeter() == r.perimeter());
+			}
+			
+			public void printComparison(Rectangle r)
+			{
+				System.out.printf("%-9s %s %n", "this", this.toString());
+				System.out.printf("%-9s %s %n", "the other", r.toString());
+				if(this.sidesAreEqual(r))
+				{
+					System.out.println("sides are equal");
+				}
+				else
+				{
+					System.out.println("sides are not equal");
+				}
+				if(this.areasAreEqual(r))
+				{
+					System.out.println("areas are equal");
+				}
+				else
+				{
+					System.out.println("areas are not equal");
+				}
+				if(this.perimetersAreEqual(r))
+				{
+					System.out.println("perimeters are equal");
+				}
+				else
+				{
+					System.out.println("perimeters are not equal");
+				}
+				System.out.println();
+			}
+		}
+
+		```
+	=== "Testklasse.java"
+		```java 
+		package uebungen.uebung6;
+
+		public class Testklasse
+		{
+
+			public static void main(String[] args)
+			{
+				// Objekte erzeugen
+				Rectangle r1 = new Rectangle();
+				Rectangle r2 = new Rectangle(12, 18);
+				Rectangle r3 = new Rectangle(40, 5);
+				Rectangle r4 = new Rectangle(20, 10);
+				Rectangle r5 = new Rectangle(11, 21);
+
+				System.out.printf("%n%n--------------- print()-Methode -----------------%n%n");
+				r1.print();
+				r2.print();
+				r3.print();
+				r4.print();
+				r5.print();
+
+				System.out.printf("%n%n---------- printComparison()-Methode ------------%n%n");
+				r1.printComparison(r2);
+				r1.printComparison(r3);
+				r1.printComparison(r4);
+				r1.printComparison(r5);
+
+			}
+
+		}
+		```
+
+
+??? "Übung 7"
+	
+	---
+
+	**Info:** Wir erstellen uns zwei neue Datentypen `Counter` und `Clock`. Die Idee der Klasse `Counter` soll sein, einen `counter` bis zu einem bestimmten `limit` hochzuzählen. Bevor der `counter` das `limit` erreicht, wird er wieder auf `0` gesetzt. Angenommen also das `limit` ist `60` und der `counter` hat den aktuellen Wert `59` und soll erhöht werden, dann ist der nächste Wert von `counter` wieder `0`, da das `limit` erreicht wurde. Die Klasse `Clock` verwendet zwei `Counter`-Objekte, eins für `hours` und das andere für `minutes`.
+
+	---
+	
+	1. Erstellen Sie ein package `uebungen.uebung7`. 
+	2. Erstellen Sie in diesem package eine Klasse `Counter` (ohne `main()`-Methode!)
+	3. Erstellen Sie in diesem package eine Klasse `Programmklasse` mit `main()`-Methode	
+	4. Erstellen Sie in der Klasse `Counter` zwei Objektvariablen
+		- `counter` vom Typ `int` --> nur in der Klasse sichtbar!
+		- `limit` vom Typ `int`	--> ebenfalls nur in der Klasse sichtbar!
+
+	5. Erstellen Sie einen parametrisierten Konstruktor `public Counter(int limit)`, der den `counter` auf `0` initialisiert und das `limit` auf den Parameterwert. 
+
+	6. Implementieren Sie eine Methode `public boolean increase()`. Diese Methode soll den Wert von `counter` um `1` erhöhen. Es muss jedoch geprüft werden, ob eventuell das `limit` erreicht wurde. Sollte dies der Fall sein, wird der Wert von `counter` wieder auf `0` gesetzt. Wird der `counter` tatsächlich um `1` erhöht, gibt die Methode ein `true` zurück, wurde der Wert von `counter` jedoch auf `0` gesetzt, gibt die Methode `false` zurück. Beispiel:
+
+		- Angenommen `counter` hat den Wert `58` und das `limit` ist `60`. Dann ist der neue Wert von `counter` `59` und die Methode gibt `true` zurück. 
+
+		- Angenommen `counter` hat den Wert `59` und das `limit` ist `60`. Dann ist der neue Wert von `counter` `0` und die Methode gibt `false` zurück. 
+
+	7. Implementieren Sie eine Methode `public String toString()`. Diese Methode gibt den Wert von `counter` als zweistelligen String zurück. Beachten Sie
+
+		- Ist der Wert von `counter` einstellig, z.B. `5`, dann soll der String `"05"` zurückgegeben werden.
+
+	8. Implementieren Sie eine Methode `public void print()`. Diese Methode gibt den aktuellen Wert von `counter` unter Verwendung der Methode `toString()` auf die Konsole aus. 
+
+	9. Geben Sie in der `main()`-Methode der `Programmklasse` ein:
+		```java
+		System.out.printf("%n---------------- Test Counter -----------%n%n");
+		
+		Counter counter = new Counter(60);
+		for(int i=0; i<120; i++)
+		{
+			counter.increase();
+			System.out.printf("%3d : ", i);
+			counter.print();
+		}
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende Ausgaben erzeugt werden:
+
+		??? "Ausgabe auf der Konsole"
+
+			```bash
+
+			---------------- Test Counter -----------
+
+			  0 : 01
+			  1 : 02
+			  2 : 03
+			  3 : 04
+			  4 : 05
+			  5 : 06
+			  6 : 07
+			  7 : 08
+			  8 : 09
+			  9 : 10
+			 10 : 11
+			 11 : 12
+			 12 : 13
+			 13 : 14
+			 14 : 15
+			 15 : 16
+			 16 : 17
+			 17 : 18
+			 18 : 19
+			 19 : 20
+			 20 : 21
+			 21 : 22
+			 22 : 23
+			 23 : 24
+			 24 : 25
+			 25 : 26
+			 26 : 27
+			 27 : 28
+			 28 : 29
+			 29 : 30
+			 30 : 31
+			 31 : 32
+			 32 : 33
+			 33 : 34
+			 34 : 35
+			 35 : 36
+			 36 : 37
+			 37 : 38
+			 38 : 39
+			 39 : 40
+			 40 : 41
+			 41 : 42
+			 42 : 43
+			 43 : 44
+			 44 : 45
+			 45 : 46
+			 46 : 47
+			 47 : 48
+			 48 : 49
+			 49 : 50
+			 50 : 51
+			 51 : 52
+			 52 : 53
+			 53 : 54
+			 54 : 55
+			 55 : 56
+			 56 : 57
+			 57 : 58
+			 58 : 59
+			 59 : 00
+			 60 : 01
+			 61 : 02
+			 62 : 03
+			 63 : 04
+			 64 : 05
+			 65 : 06
+			 66 : 07
+			 67 : 08
+			 68 : 09
+			 69 : 10
+			 70 : 11
+			 71 : 12
+			 72 : 13
+			 73 : 14
+			 74 : 15
+			 75 : 16
+			 76 : 17
+			 77 : 18
+			 78 : 19
+			 79 : 20
+			 80 : 21
+			 81 : 22
+			 82 : 23
+			 83 : 24
+			 84 : 25
+			 85 : 26
+			 86 : 27
+			 87 : 28
+			 88 : 29
+			 89 : 30
+			 90 : 31
+			 91 : 32
+			 92 : 33
+			 93 : 34
+			 94 : 35
+			 95 : 36
+			 96 : 37
+			 97 : 38
+			 98 : 39
+			 99 : 40
+			100 : 41
+			101 : 42
+			102 : 43
+			103 : 44
+			104 : 45
+			105 : 46
+			106 : 47
+			107 : 48
+			108 : 49
+			109 : 50
+			110 : 51
+			111 : 52
+			112 : 53
+			113 : 54
+			114 : 55
+			115 : 56
+			116 : 57
+			117 : 58
+			118 : 59
+			119 : 00
+			```
+
+	10. Erstellen Sie im package eine weitere Klasse `Clock`. In der Klasse `Clock` verwenden Sie zwei `Counter`. Der eine `Counter` zählt die `minutes` und hat das `limit` `60` und der andere `Counter` zählt die `hours` udn hat das `limit` `24`.  
+
+	11. In der Klasse `Clock` erstellen Sie zwei Objektvariablen `minutes` und `hours`, jeweils vom Typ `Counter` (beide nur in der Klasse sichtbar). 
+
+	12. Erstellen Sie einen parameterlosen Konstruktor `public Clock()`. Darin erzeugen Sie für `minutes` das `Counter`-Objekt mit dem `limit` `60` und für `hours` das `Counter`-Objekt mit dem `limit` `24`.  
+
+	13. Implementieren Sie eine Methode `public void increase()`. Diese Methode soll den Wert von `minutes` um `1` erhöhen. Sollte jedoch das `limit` von `minutes` erreicht sein, wird auch `hours` um `1` erhöht. Nutzen Sie die `increase()`-Methode von `Counter`!
+
+	14. Implementieren Sie eine Methode `public String toString()`. Diese Methode gibt die Werte von `minutes` und `hours` in der Form `hh:mm`als String zurück, also z.B. `"23:59"` oder `"01:09"`. Nutzen Sie die `toString()`-Methode von `Counter`!
+
+	15. Implementieren Sie eine Methode `public void print()`. Diese Methode gibt den aktuellen Wert von `Clock` unter Verwendung der Methode `toString()` auf die Konsole aus. 
+
+	16. Fügen Sie in der `main()`-Methode der `Programmklasse` folgende Anweisungen hinzu:
+		```java	
+		
+		System.out.printf("%n----------------- Test Clock ------------%n%n");
+		
+	    Clock clock = new Clock();
+	    for(int i=0; i<1600; i++)
+	    {
+	        clock.increase();
+	        if(i%50==0)
+	        {
+	            System.out.printf("%4d : ", i);
+	            clock.print();
+	        }
+	    }
+	    ```
+		und führen Sie die `Programmklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+
+		??? "Ausgabe auf der Konsole"
+
+			```bash
+			----------------- Test Clock ------------
+
+			   0 : 00:01
+			  50 : 00:51
+			 100 : 01:41
+			 150 : 02:31
+			 200 : 03:21
+			 250 : 04:11
+			 300 : 05:01
+			 350 : 05:51
+			 400 : 06:41
+			 450 : 07:31
+			 500 : 08:21
+			 550 : 09:11
+			 600 : 10:01
+			 650 : 10:51
+			 700 : 11:41
+			 750 : 12:31
+			 800 : 13:21
+			 850 : 14:11
+			 900 : 15:01
+			 950 : 15:51
+			1000 : 16:41
+			1050 : 17:31
+			1100 : 18:21
+			1150 : 19:11
+			1200 : 20:01
+			1250 : 20:51
+			1300 : 21:41
+			1350 : 22:31
+			1400 : 23:21
+			1450 : 00:11
+			1500 : 01:01
+			1550 : 01:51
+			```
+
 

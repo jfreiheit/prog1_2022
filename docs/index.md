@@ -748,6 +748,189 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	```
 
 
+??? note "Datentyp Circle"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_29;
+
+	public class Circle
+	{
+		private double radius;
+		
+		public Circle(double radius) 
+		{
+			this.radius = radius;		// this erforderlich!!! shadowing
+		}
+		
+		public Circle()
+		{
+			this.radius = 1.0;
+		}
+		
+		public double getRadius()
+		{
+			return this.radius;
+		}
+		
+		public double getDiameter()
+		{
+			return 2.0 * this.radius;
+		}
+		
+		public void print()
+		{
+			System.out.printf("%-15s : %6.2f cm %n", "Radius", this.radius);
+			System.out.printf("%-15s : %6.2f cm%n", "Durchmesser", this.getDiameter());
+			System.out.printf("%-15s : %6.2f cm%n", "Flaecheninhalt", this.getArea());
+			System.out.printf("%-15s : %6.2f cm%n%n", "Umfang", this.getCircumference());
+		}
+		
+		public double getArea()
+		{
+			return Math.PI * this.radius * this.radius;
+		}
+		
+		public double getCircumference()
+		{
+			return Math.PI * this.getDiameter();
+		}
+		
+		public boolean isSmaller(Circle c)
+		{
+			return this.radius < c.radius;
+		}
+	}
+
+	```
+
+
+??? note "Datentyp Person"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_29;
+
+	import vorlesungen.vorl_2022_11_22.Adresse;	// bei Ihnen sicherlich anderes Paket
+
+	public class Person
+	{
+		private String name;
+		private String vorname;
+		private Adresse adresse;
+		
+		public Person(String name, String vorname, Adresse adresse)
+		{
+			this.name = name;
+			this.vorname = vorname;
+			this.adresse = new Adresse(adresse.getStrasse(), adresse.getNummer(), 
+					adresse.getPostleitzahl(), adresse.getWohnort());
+		}
+		
+		public Person(String name, String vorname, String strasse, int nummer, int plz, String ort)
+		{
+			this.name = name;
+			this.vorname = vorname;
+			this.adresse = new Adresse(strasse, nummer, plz, ort);
+		}
+		
+		public String getName()
+		{
+			return this.name;
+		}
+		
+		public Adresse getAdresse()
+		{
+			return new Adresse(this.adresse.getStrasse(), this.adresse.getNummer(), 
+					this.adresse.getPostleitzahl(), this.adresse.getWohnort());
+		}
+		
+		public void print()
+		{
+			System.out.print(this.vorname + " " + this.name + " wohnt in ");
+			System.out.println(this.adresse.toString());
+		}
+	}
+
+	```
+
+??? note "Programmklasse für Person und Circle"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_11_29;
+
+	import vorlesungen.vorl_2022_11_22.Adresse;
+
+	public class Programmklasse
+	{
+
+		public static void main(String[] args)
+		{
+			Circle c1 = new Circle(3.0);
+			Circle c2 = new Circle(4.0);
+			Circle c3 = new Circle();
+			
+			c1.print();
+			c2.print();
+			c3.print();
+			
+			if(c1.isSmaller(c2))
+			{
+				System.out.println("c1 ist kleiner als c2");
+			}
+			else
+			{
+				System.out.println("c1 ist nicht kleiner als c2");
+			}
+			
+			if(c2.isSmaller(c1))
+			{
+				System.out.println("c2 ist kleiner als c1");
+			}
+			else
+			{
+				System.out.println("c2 ist nicht kleiner als c1");
+			}
+			
+			Adresse adresse1 = new Adresse("Hallostr.", 75, 12459, "Berlin");	
+			Adresse adresse2 = new Adresse("Treskowalle", 8, 10318, "Berlin");
+			
+			Adresse adresse3 = adresse2;
+			System.out.println(adresse3.toString());
+			
+			Person maria = new Person("Mueller", "Maria", adresse1);
+			Person lara = new Person("London", "Lara", adresse2);
+			
+			maria.print();
+			lara.print();
+			
+			System.out.println(maria.getName());
+			String mariasName = maria.getName();
+			Adresse mariasAdresse = maria.getAdresse();				// getAdresse() von Person
+			String mariasAdresseString = mariasAdresse.toString(); // toString() von Adresse
+			System.out.println(mariasAdresseString);
+			
+			System.out.println(maria.getAdresse().toString());
+			
+			Adresse larasAdresse = lara.getAdresse();
+			Adresse meineAdresse = larasAdresse;
+			System.out.println(larasAdresse.toString());
+			System.out.println(meineAdresse.toString());
+			larasAdresse.setStrasse("Ballostr.");
+			System.out.println(meineAdresse.toString());
+			
+			System.out.println(lara.getAdresse().toString());
+			
+			Adresse a1 = new Adresse("Teststr", 11, 12345, "Berlin");
+			Person ich = new Person("Freiheit", "Jörn", a1);
+			a1.setStrasse("Falsche Strasse");
+			System.out.println(ich.getAdresse().toString());
+			System.out.println(a1.toString());
+			ich.getAdresse().setStrasse("irgendwas");
+			System.out.println(ich.getAdresse().toString());
+			
+			
+		}
+
+	}
+	```
+
+
 
 
 

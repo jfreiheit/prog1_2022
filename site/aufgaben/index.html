@@ -594,6 +594,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aufgabe-5-abgabe-bis-20122022-2400-uhr" class="md-nav__link">
+    Aufgabe 5 (Abgabe bis 20.12.2022 24:00 Uhr)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -705,6 +712,13 @@
           <li class="md-nav__item">
   <a href="#aufgabe-4-abgabe-bis-13122022-2400-uhr" class="md-nav__link">
     Aufgabe 4 (Abgabe bis 13.12.2022 24:00 Uhr)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5-abgabe-bis-20122022-2400-uhr" class="md-nav__link">
+    Aufgabe 5 (Abgabe bis 20.12.2022 24:00 Uhr)
   </a>
   
 </li>
@@ -1248,6 +1262,130 @@ _ <code>public String toString()</code> &rarr; gibt einen Bruch als <code>String
 <li>
 <p>Laden Sie Ihre Lösung bis Dienstag, den <strong>13.12.2022 um 24.00 Uhr</strong> in Moodle hoch</p>
 </li>
+<li>Viel Spaß und viel Erfolg!</li>
+</ul>
+</details>
+<h4 id="aufgabe-5-abgabe-bis-20122022-2400-uhr">Aufgabe 5 (Abgabe bis 20.12.2022 24:00 Uhr)<a class="headerlink" href="#aufgabe-5-abgabe-bis-20122022-2400-uhr" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Aufgabe 5 - Doppelt-verkettete Liste</summary>
+<ul>
+<li>
+<p>Wir erstellen uns einen neuen Datentyp <code>ListElement</code>. Dieser Datentyp wird für ein Element aus einer doppelt verketteten Liste verwendet. Eine Liste kann aus vielen <code>ListElement</code>-Elementen bestehen. Ein <code>ListElement</code> hat einen Vorgänger (<code>predecessor</code>) und einen Nachfolger (<code>successor</code>) in der Liste. Nur das erste Element hat keinen Vorgänger und das letzte Element hat keinen Nachfolger.</p>
+</li>
+<li>
+<p>Erstellen Sie im package <code>aufgaben.aufgabe5</code> eine Klasse <code>ListElement</code> ohne <code>main()</code>-Methode und eine Klasse <code>Programmklasse</code> mit <code>main()</code>-Methode. </p>
+</li>
+<li>
+<p>In der Klasse <code>ListElement</code> erstellen Sie fünf nur in der Klasse sichtbare Objektvariablen:</p>
+<ul>
+<li><code>value</code> vom Typ <code>char</code> </li>
+<li><code>hasPredecessor</code> vom Typ <code>boolean</code> </li>
+<li><code>hasSuccessor</code> vom Typ <code>boolean</code></li>
+<li><code>predecessor</code> vom Typ <code>ListElement</code> und</li>
+<li><code>successor</code> vom Typ <code>ListElement</code></li>
+</ul>
+</li>
+<li>
+<p>Implementieren Sie für die Klasse <code>ListElement</code> einen Konstruktor, dem ein Zeichen (<code>char</code>) als Parameter übergeben wird. Dieses Zeichen wird verwendet, um der Objektvariablen <code>value</code> einen Wert zuzuweisen. Setzen Sie außerdem die Objektvariablen <code>hasPredecessor</code> und <code>hasSuccessor</code> jeweils auf <code>false</code>. </p>
+</li>
+<li>
+<p>Implementieren Sie die Objektmethode <code>public void insertBefore(ListElement element)</code>. Durch Aufruf dieser Methode soll das aufrufende <code>ListElement</code>-Objekt <strong>vor</strong> das <code>ListElement</code>-Objekt <code>element</code> in die Liste eingefügt werden. Dabei sind mehrere Dinge zu beachten:</p>
+<ul>
+<li>
+<p>Angenommen, wir haben zwei einzelne <code>ListElement</code>-Objekte <code>l1</code> und <code>l2</code>. Dann entsteht durch <code>li.insertBefore(l2)</code> die Liste <code>l1 &lt;--&gt; l2</code>. Das heißt, <code>l2</code> wird der <code>successor</code> von <code>l1</code> und <code>l1</code> wird der <code>predecessor</code> von <code>l2</code>. Setzen Sie entsprechend auch die Variablenwerte für <code>hasSuccessor</code> und <code>hasPredecessor</code>.</p>
+</li>
+<li>
+<p>Angenommen, wir haben ein einzelnes <code>ListElement</code>-Objekt <code>l1</code> und eine Liste aus lauter <code>ListElement</code>-Objekten <code>l2 &lt;--&gt; l3 &lt;--&gt; l4 &lt;--&gt; l5</code>. Dann </p>
+<ul>
+<li>ensteht durch <code>l1.insertBefore(l2)</code> die Liste <code>l1 &lt;--&gt; l2 &lt;--&gt; l3 &lt;--&gt; l4 &lt;--&gt; l5</code> und alles ist, wie im Fall zuvor, d.h. <code>l1</code> ist der <code>predecessor</code> von <code>l2</code> und <code>l2</code> ist der <code>successor</code> von <code>l1</code>.</li>
+<li>entsteht durch <code>l1.insertBefore(l3)</code> die Liste <code>l2 &lt;--&gt; l1 &lt;--&gt; l3 &lt;--&gt; l4 &lt;--&gt; l5</code>. Das bedeutet, dass <code>l3</code> der <code>successor</code> von <code>l1</code> wird und <code>l1</code> der <code>predecessor</code> von <code>l3</code>. Der <strong>alte</strong> <code>predecessor</code> von <code>l3</code> (<code>l2</code>) wird der <strong>neue</strong> <code>predecessor</code> von <code>l1</code> und <code>l1</code> wird der <strong>neue</strong> <code>successor</code> von <code>l2</code>.</li>
+</ul>
+</li>
+<li>
+<p>Angenommen, wir haben eine Liste aus lauter <code>ListElement</code>-Objekten <code>l1 &lt;--&gt; l2 &lt;--&gt; l3</code> und ein einzelnes <code>ListElement</code>-Objekt <code>l4</code>. Dann </p>
+<ul>
+<li>ensteht sowohl durch <code>l1.insertBefore(l4)</code> als auch durch <code>l2.insertBefore(l4)</code> als auch durch <code>l3.insertBefore(l4)</code> die Liste <code>l1 &lt;--&gt; l2 &lt;--&gt; l3 &lt;--&gt; l4</code>.</li>
+</ul>
+</li>
+<li>
+<p>Angenommen, wir haben eine Liste aus lauter <code>ListElement</code>-Objekten <code>l1 &lt;--&gt; l2 &lt;--&gt; l3</code> und eine Liste aus lauter <code>ListElement</code>-Objekten <code>l4 &lt;--&gt; l5 &lt;--&gt; l6 &lt;--&gt; l7</code>. Dann </p>
+<ul>
+<li>ensteht durch <code>l1.insertBefore(l4)</code> die Liste <code>l1 &lt;--&gt; l2 &lt;--&gt; l3 &lt;--&gt; l4 &lt;--&gt; l5 &lt;--&gt; l6 &lt;--&gt; l7</code>. Das heißt, es wird die <strong>gesamte</strong> Liste, die mit <code>l1</code> beginnt, <strong>vor</strong> <code>l4</code> eingefügt (und damit vor die Liste <code>l4 &lt;--&gt; l5 &lt;--&gt; l6 &lt;--&gt; l7</code>). </li>
+<li>entsteht durch <code>l1.insertBefore(l6)</code> die Liste <code>l4 &lt;--&gt; l5 &lt;--&gt; l1 &lt;--&gt; l2 &lt;--&gt; l3 &lt;--&gt; l6 &lt;--&gt; l7</code>. </li>
+<li><strong>übrigens</strong>: wenn Sie für die gebebenen Lsten z.B. <code>l2.insertBefore(l5)</code> aufrufen, dann fällt <code>l1</code> weg, d.h. die entstehende Liste ist <code>l4 &lt;--&gt; l2 &lt;--&gt; l5 &lt;--&gt; l6 &lt;--&gt; l7</code>. Sie können sich überlegen, ob das überhaupt ein richtiges Verhalten ist oder ob es ein besseres gibt. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Tipp:</strong> Beginnen Sie mit der Implementierung des ersten (und einfachsten) Falls. Fügen Sie dann die weiteren Fälle schrittweise hinzu. Sie werden feststellen, dass Sie gar nicht viele Fallunterscheidungen machen müssen. Ich bin z.B. mit einem <code>if</code> und einer <code>while</code>-Schleife ausgekommen und die gesamte Methode hat nur ca. 10 Zeilen.</p>
+</li>
+<li>
+<p>Implementieren Sie die Objektmethode <code>public void print()</code>. Diese Methode soll den <code>value</code> des aufrufenden <code>ListElement</code>-Objektes auf die Konsole ausgeben (ohne Zeilenumbruch) und dann die <code>print()</code>-Methode des <code>successor</code>-Elementes aufrufen. Nur wenn das aufrufende <code>ListElement</code> keinen <code>successor</code> hat (Ende der Liste), wird der Wert des Objektes mit Zeilenumbruch ausgegeben und keine weitere <code>print()</code>-Methode aufgerufen. </p>
+</li>
+<li>
+<p>Geben Sie in die <code>main()</code>-Methode der <code>Programmklasse</code> mindestens folgende Anweisungen ein:
+    <div class="highlight"><pre><span></span><code><span class="n">ListElement</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;W&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;e&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;i&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;h&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;n&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;c&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;h&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;t&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;e&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">ListElement</span><span class="w"> </span><span class="n">l11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListElement</span><span class="p">(</span><span class="sc">&#39;n&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;W == &quot;</span><span class="p">);</span><span class="n">l1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">l1</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l2</span><span class="p">);</span><span class="w">        </span><span class="c1">// W-e</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;We == &quot;</span><span class="p">);</span><span class="n">l1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">l5</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l6</span><span class="p">);</span><span class="w">        </span><span class="c1">// n-a</span><span class="w"></span>
+<span class="n">l5</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l7</span><span class="p">);</span><span class="w">        </span><span class="c1">// na-c</span><span class="w"></span>
+<span class="n">l7</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l8</span><span class="p">);</span><span class="w">        </span><span class="c1">// nac-h</span><span class="w"></span>
+<span class="n">l6</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l9</span><span class="p">);</span><span class="w">        </span><span class="c1">// nach-t</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nacht == &quot;</span><span class="p">);</span><span class="n">l5</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">l1</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l5</span><span class="p">);</span><span class="w">        </span><span class="c1">// We-nacht</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Wenacht == &quot;</span><span class="p">);</span><span class="n">l1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">            </span>
+
+<span class="n">l10</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l11</span><span class="p">);</span><span class="w">      </span><span class="c1">// e-n</span><span class="w"></span>
+<span class="n">l9</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l10</span><span class="p">);</span><span class="w">       </span><span class="c1">// Wenacht-en</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Wenachten == &quot;</span><span class="p">);</span><span class="n">l1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nachten == &quot;</span><span class="p">);</span><span class="n">l5</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">l3</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l5</span><span class="p">);</span><span class="w">        </span><span class="c1">// We-i-nachten</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;inachten == &quot;</span><span class="p">);</span><span class="n">l3</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Weinachten == &quot;</span><span class="p">);</span><span class="n">l1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">l4</span><span class="p">.</span><span class="na">insertBefore</span><span class="p">(</span><span class="n">l5</span><span class="p">);</span><span class="w">        </span><span class="c1">// Wei-h-nachten</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;? : %15s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Weihnachten == &quot;</span><span class="p">);</span><span class="n">l1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+    und führen Sie die <code>Programmklasse</code> aus. Es sollten folgende Augaben entstehen:
+    <div class="highlight"><pre><span></span><code>? :           <span class="nv">W</span> <span class="o">==</span> W
+? :          <span class="nv">We</span> <span class="o">==</span> We
+? :       <span class="nv">nacht</span> <span class="o">==</span> nacht
+? :     <span class="nv">Wenacht</span> <span class="o">==</span> Wenacht
+? :   <span class="nv">Wenachten</span> <span class="o">==</span> Wenachten
+? :     <span class="nv">nachten</span> <span class="o">==</span> nachten
+? :    <span class="nv">inachten</span> <span class="o">==</span> inachten
+? :  <span class="nv">Weinachten</span> <span class="o">==</span> Weinachten
+? : <span class="nv">Weihnachten</span> <span class="o">==</span> Weihnachten
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<ul>
+<li>
+<p><strong>Wenn Sie das geschafft haben, dann haben Sie die Aufgabe erfüllt! Herzlichen Glückwunsch! Die folgende Aufgabe ist optional :</strong></p>
+<ul>
+<li>Fügen Sie der Klasse <code>ListElement</code> die Objektvariable <code>private int index</code> hinzu und sorgen Sie dafür, dass in einer verketteten Liste die <code>ListElement</code>-Objekte den jeweils passenden Index entsprechend ihrer Position in der Liste haben (beginnend bei <code>0</code>). Also in der Liste <code>l1 &lt;--&gt; l2 &lt;--&gt; l3 &lt;--&gt; l4 &lt;--&gt; l5</code> hat <code>l1</code> den Index <code>0</code>, <code>l2</code> den Index <code>1</code>, <code>l3</code> den Index <code>2</code> usw. Wenn Sie dafür selbständig eine Lösung entwickelt haben, dann schicken Sie mir bitte eine E-Mail mit der Lösung.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li>Laden Sie Ihre Lösung bis Dienstag, den <strong>20.12.2022 um 24.00 Uhr</strong> in Moodle hoch</li>
 <li>Viel Spaß und viel Erfolg!</li>
 </ul>
 </details>
