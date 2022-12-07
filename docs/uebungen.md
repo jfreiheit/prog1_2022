@@ -1508,7 +1508,7 @@
 			119 : 00
 			```
 
-	10. Erstellen Sie im package eine weitere Klasse `Clock`. In der Klasse `Clock` verwenden Sie zwei `Counter`. Der eine `Counter` zählt die `minutes` und hat das `limit` `60` und der andere `Counter` zählt die `hours` udn hat das `limit` `24`.  
+	10. Erstellen Sie im package eine weitere Klasse `Clock`. In der Klasse `Clock` verwenden Sie zwei `Counter`. Der eine `Counter` zählt die `minutes` und hat das `limit` `60` und der andere `Counter` zählt die `hours` und hat das `limit` `24`.  
 
 	11. In der Klasse `Clock` erstellen Sie zwei Objektvariablen `minutes` und `hours`, jeweils vom Typ `Counter` (beide nur in der Klasse sichtbar). 
 
@@ -1576,6 +1576,166 @@
 			1500 : 01:01
 			1550 : 01:51
 			```
+
+
+??? question "Eine mögliche Lösung für Übung 7"
+	=== "Counter.java"
+		```java 
+		package uebungen.uebung7;
+
+		public class Counter
+		{
+			private int counter;
+			private int limit;
+			
+			public Counter(int limit)
+			{
+				this.counter = 0;
+				this.limit = limit;
+			}
+			
+			public boolean increase()
+			{
+				boolean increased = true;
+				if(this.counter < this.limit - 1)
+				{
+					this.counter++;
+				}
+				else
+				{
+					this.counter = 0;
+					increased = false;
+				}
+				return increased;
+			}
+			
+			@Override
+			public String toString()
+			{
+		//		String s = "";
+		//		if(this.counter < 10)
+		//		{
+		//			s += "0" + this.counter;	// s = s + "0" + this.counter
+		//		}
+		//		else
+		//		{
+		//			s += this.counter;			// s = s + this.counter
+		//		}
+		//		return s;
+				return String.format("%02d", this.counter);
+			}
+			
+			public void print()
+			{
+				System.out.println(this.toString());
+			}
+		}
+
+		```
+	=== "Clock.java"
+		```java 
+		package uebungen.uebung7;
+
+		public class Clock
+		{
+			private Counter minutes;
+			private Counter hours;
+			
+			public Clock()
+			{
+				this.minutes = new Counter(60);
+				this.hours = new Counter(24);
+			}
+			
+			public void increase()
+			{
+				boolean increased = this.minutes.increase();
+				if(!increased)
+				{
+					this.hours.increase();
+				}
+			}
+			
+			@Override
+			public String toString()
+			{
+				return this.hours.toString() + ":" + this.minutes.toString();
+			}
+			
+			public void print()
+			{
+				System.out.println(this.toString());
+			}
+		}
+
+		```
+	=== "Programmklasse.java"
+		```java 
+		package uebungen.uebung7;
+
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				System.out.printf("%n---------------- Test Counter -----------%n%n");
+
+				Counter counter = new Counter(60);
+				for(int i=0; i<120; i++)
+				{
+				    counter.increase();
+				    System.out.printf("%3d : ", i);
+				    counter.print();
+				}
+				
+				System.out.printf("%n----------------- Test Clock ------------%n%n");
+
+				Clock clock = new Clock();
+				for(int i=0; i<1600; i++)
+				{
+				    clock.increase();
+				    if(i%50==0)
+				    {
+				        System.out.printf("%4d : ", i);
+				        clock.print();
+				    }
+				}
+
+
+			}
+
+		}
+
+		```
+
+
+??? note "Übung 8"
+	
+	1. Erstellen Sie ein package `uebungen.uebung8`. 
+	2. Erstellen Sie in diesem package eine Klasse `Uebung8` mit `main()`-Methode.
+	3. Implementieren Sie eine `public static void print(char[] ca)`-Methode, so dass das `char[] ca` auf die Konsole ausgegeben wird. Achten Sie darauf, dass hinter dem letzten Element kein Komma steht. Testen Sie Ihre Methode auch für ein leeres Array.<br/>
+		Bsp:  `print(['a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'])` <br/>
+		Ausgabe auf Konsole: `[a, b, c, a, c, a, b, c]`
+
+	4. Kopieren Sie die `print`-Methode vollständig und ändern Sie den Typ des Parameters von `char[]` in `int[]`. (Die Methode ist jetzt *überladen* und `print()` kann jetzt entweder ein `char[]` oder ein `int[]` übergeben werden, welches auf die Konsole ausgegeben wird.)
+
+	5. Implementieren Sie eine Methode `public static char[] stringToCharArray(String s)`. Diese Methode wandelt einen `String` in ein `char[]` um, so dass jedes Zeichen des Strings im `char[]` enthalten ist. Das `char[]` wird zurückgegeben. 
+		Tipps: die Länge eines Strings wird mit der Objektmethode `length()` ermittelt. Die einzelnen Zeichen eines Strings können mithilfe der `charAt(index)`-Objektmethode von Strings ermittelt werden. Siehe [String](../hilfsklassen/#die-klasse-string) <br/>
+		Bsp.: `stringToCharArray("hallo!")` --> `['h','a','l','l','o','!']` 
+
+	6. Implementieren Sie eine Methode `public static char[] filter(char[] carr, char filter)`, der als Parameter ein `char`-Array und ein `char` übergeben wird. Die Methode soll ein `char`-Array zurückgeben, das dem als Parameter übergeben Array entspricht, außer dass jedes Vorkommen des als Parameter übergeben `carr` entfernt wurde <br/>
+		Bsp: `filter(['a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'], 'c')` --> `['a', 'b', 'a', 'a', 'b']`
+
+	7. Implementieren Sie eine Methode `public static int[] minAndMax(int[] iarr)`, der ein `int`-Array als Parameter übergeben wird und die ein zweielementiges Array zurückgibt. Das erste Element des zurückgegeben Arrays ist das Minimum des als Parameter übergebenen Arrays und das zweite Element ist das Maximum. <br/>
+		Bsp.: 	`minAndMax([4,2,8,1,6,2,4,1,8])` --> `[1,8]` <br/>
+              	`minAndMax([4])` --> `[4,4]`
+
+	8. Implementieren Sie eine Methode `public static int[] reverse(int[] iarr)`, der ein `int`-Array übergeben wird und die die Reihenfolge der Elemente des Arrays umdreht (das letzte zuerst usw.) Das neuerstellte Array wird zurückgegeben. <br/>
+		Bsp.: `reverse([4,2,8,1,6,2,4,1,8])` --> `[8,1,4,2,6,1,8,2,4]`  <br/>
+              `reverse([4])` --> `[4]`
+
+    9. **Zusatz:** Implementieren Sie eine Methode `public static boolean containsDoublets(char[] ca)` die ein `true` zurückgibt, wenn *mindestens* ein Wert in `ca` *mindestens* zwei Mal vorkommt (wenn Sie schon dabei sind, können Sie sich auch überlegen, wenn *genau* ein Wert *genau* zwei Mal vorkommt - oder *mindestens* ein Wert *genau* zwei Mal - oder *genau* ein Wert *mindestens* zwei Mal) und `false` sonst.
+
 
 
 

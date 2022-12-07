@@ -382,6 +382,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#werte-vs-referenztypen" class="md-nav__link">
+    Werte- vs. Referenztypen
+  </a>
+  
+    <nav class="md-nav" aria-label="Werte- vs. Referenztypen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays-sind-auch-objekte" class="md-nav__link">
+    Arrays sind (auch) Objekte!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#das-leben-der-objekte" class="md-nav__link">
+    Das "Leben" der Objekte
+  </a>
+  
+    <nav class="md-nav" aria-label="Das "Leben" der Objekte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#der-null-wert" class="md-nav__link">
+    Der null-Wert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referenzvergleiche-mit" class="md-nav__link">
+    Referenzvergleiche mit ==
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -580,6 +627,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#werte-vs-referenztypen" class="md-nav__link">
+    Werte- vs. Referenztypen
+  </a>
+  
+    <nav class="md-nav" aria-label="Werte- vs. Referenztypen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays-sind-auch-objekte" class="md-nav__link">
+    Arrays sind (auch) Objekte!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#das-leben-der-objekte" class="md-nav__link">
+    Das "Leben" der Objekte
+  </a>
+  
+    <nav class="md-nav" aria-label="Das "Leben" der Objekte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#der-null-wert" class="md-nav__link">
+    Der null-Wert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referenzvergleiche-mit" class="md-nav__link">
+    Referenzvergleiche mit ==
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -744,6 +838,343 @@ main<span class="o">()</span>   --&gt; <span class="nv">va</span>  <span class="
 <div class="admonition note">
 <p class="admonition-title">Sichtbarkeit</p>
 <p>Der Vorteil dieser <em>lokalen</em> Sichtbarkeit besteht darin, dass man sich z.B. keine Sorgen machen muss, ob eine gleichnamige Variable evtl. bereits in einer anderen Methode deklariert wurde. Eine Variable darf ja immer nur einmal deklariert werden. Da alle anderen Variablen aber nicht in der eigenen Methode sichtbar sind, gibt es keinerlei Konflikte mit anderen lokalen Variablen. Die lokalen Variablen aus anderen Methoden haben mit den Variablen aus der eigenen Methode gar nichts zu tun. Außerdem ist es auch nicht möglich, einfach Werte von Variablen aus anderen Methoden zu schreiben oder zu lesen. Das würde ansonsten große Sicherheitsprobleme mit sich bringen und man könnte Programme auch leicht zum Absturz bringen. </p>
+</div>
+<h2 id="werte-vs-referenztypen">Werte- vs. Referenztypen<a class="headerlink" href="#werte-vs-referenztypen" title="Permanent link">&para;</a></h2>
+<p>Es ist ganz wichtig, zu verstehen, dass es ganz wesentliche Unterschiede zwischen Werte- und Referenztypen gibt. Einige der Unterschiede sind in der folgenden Tabelle aufgelistet:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Wertetypen</th>
+<th> Referenztypen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beispiele</td>
+<td> <code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>, <code>long</code>, <code>float</code>, <code>byte</code>, <code>short</code></td>
+<td> <code>String</code>, <code>Point</code>, <code>Triangle</code>, <code>Circle</code>, <code>Adresse</code>, <code>System</code>, ...</td>
+</tr>
+<tr>
+<td> neue erzeugbar?</td>
+<td> nein</td>
+<td> ja - einfach eigene Klasse erstellen</td>
+</tr>
+<tr>
+<td> Was ist der "Wert" einer Variablen?</td>
+<td> ein Wert (<code>5</code>, <code>true</code>, <code>1.234</code>, <code>'a'</code>, ...)</td>
+<td> die Referenz auf ein Objekt</td>
+</tr>
+<tr>
+<td> Manipulation von Werten</td>
+<td> mit Operatoren (<code>+</code>, <code>==</code>, <code>&amp;&amp;</code>, ...)</td>
+<td> mit Methoden</td>
+</tr>
+<tr>
+<td> <code>variable1 = variable2;</code></td>
+<td> Kopie des <strong>Wertes</strong> (<code>variable1</code> hat den Wert und <code>variable2</code> hat den Wert)</td>
+<td> Kopie der <strong>Referenz</strong> auf das Objekt (beide Variablen zeigen auf das gleiche Objekt)</td>
+</tr>
+</tbody>
+</table>
+<p>Insbesondere den letzten Punkt wollen wir uns genauer anschauen. Zunächst Wertetypen. Angenommen, wir haben folgende Anweisungen:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>Nach Abarbeitung dieser Anweisungen hat sowohl die Variable <code>a</code> den Wert <code>5</code> als auch die Variable <code>b</code>. Wenn wir nun <code>a=6;</code> setzen, dann hat <code>a</code> den Wert <code>6</code> und <code>b</code> immer noch den Wert <code>5</code>. </p>
+<blockquote>
+<p>Der Wert einer Variablen von einem Wertetyp kann sich nur durch den Zuweisungsoperator <code>=</code> ändern!</p>
+</blockquote>
+<p>Folgende Abbildung zeigt die Verwaltung der beiden <code>int</code>-Variablen <code>a</code> und <code>b</code> im Speicher:</p>
+<p><img alt="wertetyp" src="../files/74_wertetyp.png" /></p>
+<p>Die Zahlen in den Kästchen unter <code>a</code> und <code>b</code> stehen für Speicheradressen. Das Gute an Java ist, dass wir uns um solche Adressen nicht kümmern müssen. Wir greifen auf die Werte von <code>a</code> und <code>b</code> einfach über die Variablennamen <code>a</code> und <code>b</code> zu. Die Speicherdressen interessieren uns dabei (zum Glück) gar nicht. Wichtig ist, dass jede Variable <strong>ihren eigenen Wert</strong> hat. Wenn wir den Wert von <code>a</code> ändern, ändert sich nur der Wert von <code>a</code>, wenn wir den Wert von <code>b</code> ändern, ändert sich nur der Wert von <code>b</code>. Dabei ist ganz egal, ob <code>b</code> den Wert <code>5</code> durch die Wertzuweisung <code>b=5;</code> erhalten hat oder durch <code>b=a;</code>, wobei <code>a</code> den Wert <code>5</code> hatte. </p>
+<p>Anders ist es bei Referenzvariablen, also bei Variablen, die von einem Referenztyp sind. Nehmen wir z.B. unsere Klasse <code>Point</code> und führen folgende Anweisungen aus:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>Hier gibt es <strong>genau ein</strong> Objekt, nämlich das Objekt, in dem die Objektvariablen <code>x</code> und <code>y</code> den Wert <code>3</code> bzw. <code>4</code> haben. Die beiden Variablen <code>p1</code> und <code>p2</code> referenzieren <strong>das gleiche</strong> Objekt, d.h. sie zeigen darauf. Die folgende Abbildung verdeutlicht diesen Fall:</p>
+<p><img alt="referenztyp" src="../files/75_referenztyp.png" /></p>
+<p>Beide Variablen <code>p1</code> und <code>p2</code> zeigen auf <strong>dasselbe</strong> Objekt. Es gibt ja auch nur <strong>ein</strong> Objekt. Ein Objekt kann nur durch <code>new</code> und die Angabe des Konstruktors erzeugt werden. Das passiert hier genau einmal. Während also bei <code>int b = a;</code> eine <strong>Kopie des Wertes</strong> erfolgt, erfolgt bei <code>Point p2 = p1;</code> eine <strong>Kopie der Referenz</strong> (aber keine Kopie des Objektes!).</p>
+<p>Wichtig ist jetzt noch zu wissen, dass wir auf die Objekteigenschaften des <code>Point</code>-Objektes sowohl über die Referenz <code>p1</code> als auch über die Referenz <code>p2</code> zugreifen können, d.h. dass z.B. <code>p1.print()</code> und <code>p2.print()</code> exakt die gleiche <code>print()</code>-Methode aufrufen, nämlich die des obigen <code>Point</code>-Objektes. Sowohl <code>p1.getX()</code> als auch <code>p2.getX()</code> geben <code>3</code> zurück, da sie den Wert <strong>derselben</strong> Objektvariablen <code>x</code> abfragen.</p>
+<blockquote>
+<p>Wenn mehrere Referenzen auf dasselbe Objekt existieren, ist es egal, über welche Referenz wir auf die Objekteigenschaften zugreifen; es handelt sich um genau <strong>ein</strong> Objekt (mit mehreren Referenzen darauf).</p>
+</blockquote>
+<p>Wir müssen nun also wissen, dass bei den folgenden Anweisungen </p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>der Wert von <code>a</code> ausgegeben wird und der ist <code>5</code>, denn es gibt genau eine Wertzuweisung für <code>a</code> und das ist <code>a=5;</code>. Es spielt gar keine Rolle, ob <code>b</code> seinen Wert zwischendurch ändert oder nicht - bei der Anweisung <code>b = a;</code> ist der Wert <code>5</code> kopiert worden und der Wert von <code>a</code> ist danach völlig unabhängig von <code>b</code> und umgedreht. </p>
+<p>Wir müssen nun auch wissen, dass bei den folgenden Anweisungen </p>
+<div class="highlight"><pre><span></span><code><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="n">p2</span><span class="p">.</span><span class="na">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="na">getX</span><span class="p">());</span><span class="w"></span>
+</code></pre></div>
+<p>der Wert der Objektvariablen <code>x</code> des <strong>einen</strong> Objektes ausgegeben wird, das existiert. Durch die <code>translate()</code>-Methode ist der <code>x</code>-Wert des Objektes nun <code>4</code> (und der <code>y</code>-Wert ist <code>6</code>). Das heißt, es wird eine <code>4</code> ausgegeben. Dabei ist völlig egal, ob die <code>translate()</code>-Methode über die Referenz <code>p1</code> oder über die Referenz <code>p2</code> aufgerufen wird und es ist auch völlig egal, ob die <code>print()</code>-Methode über die Referenz <code>p1</code> oder über die Referenz <code>p2</code> aufgerufen wird. Beide referenzieren dasselbe Objekt.</p>
+<h3 id="arrays-sind-auch-objekte">Arrays sind (auch) Objekte!<a class="headerlink" href="#arrays-sind-auch-objekte" title="Permanent link">&para;</a></h3>
+<p>Schauen wir uns folgenden Fall an:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a1</span><span class="p">;</span><span class="w"></span>
+<span class="n">a2</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>Arrays sind (auch) Objekte. Also haben wir hier den gleichen Fall, wie bene bei <code>Point</code>. Auch referenzieren sowohl <code>a1</code> als auch <code>a2</code> <strong>dasselbe</strong> Array (es gibt ja nur eins). Wenn wir also über die Referenz <code>a2</code> den zweiten Wert im Array auf <code>5</code> setzen und wir danach über die Referenz <code>a1</code> den zweiten Wert dieses Array auslesen, dann ist er <code>5</code>.</p>
+<p>Sie werden sich jetzt sicherlich fragen, warum wir uns überhaupt Kopien der Referenzen machen - das ist doch nur verwirrend. Die Antwort ist, dass dieser Fall sogar sehr oft vorkommt, nämlich immer genau dann, wenn wir Referenzen von Objekten als Parameter übergeben. Schauen wir uns folgendes Beispiel an:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index2</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">index1</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">index1</span><span class="o">&lt;</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">index2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">index2</span><span class="o">&lt;</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">index1</span><span class="o">]</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">index1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">index2</span><span class="o">]</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">index2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>Diese Methode implementiert das Vertauschen zweier Elemente in einem <code>int</code>-Array. So, wie wir es z.B. in vielen Sortieralgorithmen benötigen. Die Werte der Elemente an den Indizes <code>index1</code> und <code>index2</code> werden miteinander getauscht. Wir speichern den einen Wert zwischen, damit wir ihn nicht überschreiben. Es wird vorab geprüft, ob die beiden Indizes <code>index1</code> und <code>index2</code> überhaupt im Array <code>arr</code> existieren. </p>
+<p>Angenommen, wir haben nun in der <code>main()</code>-Methode (oder einer anderen Methode) folgende Anweisungen</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="n">swap</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">         </span><span class="c1">// Uebergabe der Referenz auf das Array</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">a1</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+, dann ist die Ausgabe </p>
+<div class="highlight"><pre><span></span><code><span class="m">2</span> <span class="m">1</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</code></pre></div>
+<p>Wir übergeben bei Aufruf der Methode <code>swap(a1, 0, 1);</code> die Referenz auf das Array und in der Methode wird die lokale Variable <code>arr</code> mit genau dieser Referenz initialisiert, d.h. es existieren dann zwei Referenzen auf das Array! Die Referenz <code>arr</code> innnerhalb der <code>swap()</code>-Methode und die Referenz <code>a1</code> innerhalb der <code>main()</code>-Methode. Zwei Referenzen, aber nur ein Objekt!</p>
+<p>Lösen Sie die folgenden Übungsaufgaben durch Überlegen!</p>
+<details>
+<summary>Was wird ausgegeben?</summary>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<details>
+<summary>Was wird ausgegeben?</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">I.java</label><label for="__tabbed_2_2">TestI.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">I</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getO</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add1</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">o</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="n">i2</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">i2</span><span class="p">.</span><span class="na">add1</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">I</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">i2</span><span class="p">.</span><span class="na">add1</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="n">i3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">doSomething</span><span class="p">(</span><span class="n">i3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i1</span><span class="p">.</span><span class="na">getO</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i2</span><span class="p">.</span><span class="na">getO</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i3</span><span class="p">.</span><span class="na">getO</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="das-leben-der-objekte">Das "Leben" der Objekte<a class="headerlink" href="#das-leben-der-objekte" title="Permanent link">&para;</a></h2>
+<p>Wir haben uns bereits eingehend mit der <a href="./#lebensdauer-und-sichtbarkeit-von-lokalen-variablen">Lebensdauer und der Sichtbarkeit</a> von <em>lokalen</em> Variablen beschäftigt. Es ist dabei übrigens gaz egal, ob es sich um Variablen von einem Werte- oder einem Referenztyp handelt. Auf die Lebensdauer und Sichtbarkeit hat das keinen Einfluss. </p>
+<p>Wir wissen auch bereits, dass <em>Objektvariablen</em> für jeweils ein Objekt existieren. Die Lebensdauer einer Objektvariablen entspricht also der Lebensdauer ihres Objektes. Wir wissen auch über die Sichtbarkeit der Objektvariablen bescheid, denn sie sind in der gesamten Klasse sichtbar, in der sie deklariert werden, also auch in allen Methoden dieser Klasse. Ob sie darüber hinaus auch über eine Referenz auf ein Objekt in anderen Klassen sichtbar sind, hängt vom Sichtbarkeitsmodifizierer ab. Normalerweise nicht, denn wir deklarieren alle Objektvariablen als <code>private</code>.</p>
+<p>Wir wollen nun untersuchen, wie lange Objekte existieren. Wir wissen bereits, dass ihre Existenz mit der Anweisung <code>new</code> gefolgt vom Konstruktor beginnt. </p>
+<p>Wir haben gelernt, dass Methoden in einem sogenannten <em>Stack</em> abgearbeitet werden und dass in diesem Stack auch die lokalen Variablen existieren - und zwar so lange, so lange die Methode abgearbeitet wird, also im Stack existiert. Sichtbar sind jedoch nur die lokalen Variablen, die zur Methode gehören, die im Stack ganz oben liegt, also <em>gerade</em> abgearbeitet wird. Objekte werden <strong>nicht</strong> im Stack abgelegt. Der Speicherbereich für Objekte nennt sich <em>Heap</em>. Wir wollen auf die Speicherstruktur des <em>Heap</em> gar nicht weiter eingehen, wichtig ist nur, dass bei Erzeugung eines Objektes Speicherplatz im <em>Heap</em> für das Objekt reserviert wird. Die Größe des reservierten Speicherplatzes bestimmt der Konstruktor und ist von den Objektvariablen des Objektes abhängig, also von der Größe und der Anzahl der Objektvariablen<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Die Objektvariablen existieren auf dem Heap. Lebt das Objekt nicht mehr, wird der Speicherplatz auf dem Heap (automatisch) freigegeben.</p>
+<p>Wir wissen, wann Objekte anfangen, zu existieren (wenn sie erzeugt werden), aber wann hören Sie auf, zu existieren? Wir betrachten "das Leben" eines Objektes am Beispiel eines <code>Point</code>-Objektes:</p>
+<ol>
+<li>
+<p>Objekt-Referenz deklarieren</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Damit ist bereits eine Referenz mit dem Namen <code>p1</code> auf ein <code>Point</code>-Objekt definiert. Das Objekt existiert aber noch gar nicht! Aber es sind schonmal 64Bit im Heap reserviert. </p>
+<p>Die (Referenz-)Variable <code>p1</code> ist eine <em>lokale</em> Variable der Methode <code>main()</code>. <code>p1</code> ist nur in der <code>main()</code>-Methode sichtbar, sie existiert so lange, solange <code>main()</code> ausgeführt wird und sie existiert im <em>Stack</em>. </p>
+</li>
+<li>
+<p>Objekt erzeugen</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Jetzt existiert ein <code>Point</code>-Objekt! Es wird im <em>Heap</em> abgelegt. Insbesondere werden die Objektvariablen <code>x</code> und <code>y</code> im Heap abgelegt und bekommen die Werte <code>3</code> und <code>4</code>. </p>
+<p>Jetzt gibt es eine Referenzvariable <code>p1</code> im Stack und ein Objekt mit Objektvariablen im Heap. Durch den Zuweisungsoperator <code>=</code> werden die beiden miteinander verbunden, d.h <code>p1</code> <em>zeigt</em> jetzt auf das <code>Point</code>-Objekt. </p>
+<p><img alt="referenztyp" src="../files/76_referenztyp.png" /></p>
+<p>An dieser Stelle ist es schonmal sinnvoll zu betonen, dass die <strong>einzige</strong> Möglichkeit, auf das <code>Point</code>-Objekt zuzugreifen, derzeit über die <code>p1</code>-Variable existiert. Gäbe es diese Variable nicht, hätten wir keinen Zugriff auf das Objekt!</p>
+</li>
+<li>
+<p>Ein weiteres Objekt und eine Referenz darauf erzeugen</p>
+<p>Wir erzeugen zur Veranschaulichung ein weiteres Objekt und die Referenzvariable <code>p2</code>, die darauf zeigt.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Jetzt existieren zwei <code>Point</code>-Objekte im Heap und zwei Referenzvariablen <code>p1</code> und <code>p2</code>, die jeweils auf eines der beiden Objekte zeigen. <code>p1</code> und <code>p2</code> sind lokale Variablen der <code>main()</code>-Methode und existieren im Stack. </p>
+<p><img alt="referenztyp" src="../files/77_referenztyp.png" /></p>
+<p>Beachten Sie, dass die beiden Objekte zwar Objektvariablen haben, die gleiche Werte aufweisen, aber es handelt sich um zwei (verschiedene) Objekte!</p>
+</li>
+<li>
+<p>Eine weitere Referenz erzeugen</p>
+<p>Jetzt erzeugen wir noch eine weitere Referenz auf das erste <code>Point</code>-Objekt. Wir nennen die Referenzvariable <code>p3</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Diese Situation lässt sich so veranschaulichen:</p>
+<p><img alt="referenztyp" src="../files/78_referenztyp.png" /></p>
+<p>Auf das erste Objekt existieren also gleich zwei Referenzen. Über beide Referenzen kann mittels Punktnotation auf das Objekt (dessen Objekteigenschaften) zugegriffen werden. Es ist also egal, ob man <code>p1.</code> oder <code>p3.</code> schreibt, beide zeigen auf das gleiche Objekt. </p>
+</li>
+<li>
+<p>Eine Referenz ändern</p>
+<p>Wir ändern nun die soeben erstellte Referenz und lassen sie nun auf das zweite Objekt zeigen:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p><code>p3</code> darf natürlich nicht erneut deklariert werden. Wir kopieren die Referenz von <code>p2</code> nach <code>p3</code>. <code>p3</code> zeigt damit nun auf das zweite Objekt. </p>
+<p><img alt="referenztyp" src="../files/79_referenztyp.png" /></p>
+<p>Nun zeigen <code>p2</code> und <code>p3</code> auf dasselbe Objekt. Nun ist es also egal, ob man <code>p2.</code> oder <code>p3.</code> schreibt, beide zeigen auf dasselbe - das "zweite" - Objekt. Auf das "erste" Objekt zeigt nur noch <code>p1</code>. </p>
+</li>
+<li>
+<p>Eine weitere Referenz ändern</p>
+<p>Nun lassen wir auch noch <code>p1</code> auf das zweite Objekt zeigen. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span><span class="w">        </span><span class="c1">// exakt gleich zu p1 = p3;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Die nun entstandene Situation lässt sich wie folgt veranschaulichen:</p>
+<p><img alt="referenztyp" src="../files/80_referenztyp.png" /></p>
+<p>Der entscheidende Punkt ist nun der, dass es auf das erste Objekt <strong>keine Referenz</strong> mehr gibt. Damit ist das Objekt für uns verloren - wir haben <strong>keinen Zugriff</strong> mehr darauf!</p>
+<p>Was passiert mit einem solchen Objekt? Es wird aus dem Speicher gelöscht. Dies erfolgt automatisch. Die Laufzeitumgebung erkennt solche Objekte, auf die keine Referenz mehr zeigt. Die sogenannte <em>Garbage Collection</em> gibt diesen Speicher wieder für die weitere Verwendung frei. In Java müssen wir uns - im Gegensatz zu anderen Programmiersprachen - nicht um die Speicherfreigabe kümmern. Das erfolgt im Hintergrund und ganz automatisch. </p>
+</li>
+</ol>
+<p>Neben der Änderung einer Referenz kann eine Referenzvariable auch aufhören, zu existieren und damit ist ein Objekt ohne Referenz. Das folgende Beispiel zeigt einen solchen Fall:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createPoint</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">createPoint</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>In der <code>main()</code>-Methode wird die <code>createPoint()</code>-Methode aufgerufen. Darin wird eine Referenz <code>p</code> erzeugt und ein <code>Point</code>-Objekt. <code>p</code> zeigt auf dieses Objekt. Sobald die Methode abgearbeitet ist und verlassen wird, hört die lokale Variable <code>p</code> jedoch auf zu existieren. Sie wird aus dem Stack gelöscht. Somit ist das <code>Point</code>-Objekt im Heap ohne eine Referenz und muss von der <em>Garbage Collection</em> entsorgt werden. </p>
+<details>
+<summary>Erweitern Sie obiges Programm so, dass eine Referenz auf das <code>Point</code>-Objekt nicht verloren geht</summary>
+</details>
+<h3 id="der-null-wert">Der <code>null</code>-Wert<a class="headerlink" href="#der-null-wert" title="Permanent link">&para;</a></h3>
+<p>Zeigt eine Referenzvariable auf <strong>kein</strong> Objekt, so ist ihr Wert <code>null</code>. Beispiel:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w">   </span><span class="c1">// p1 hat den Wert null</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Die Referenzvariable <code>p1</code> vom Typ <code>Point</code> existiert bereits, aber es existiert (noch) kein <code>Point</code>-Objekt, auf das sie zeigt. Somit ist der "Wert" der Referenzvariable <code>p1</code> <code>null</code>. Referenzvariablen können auch explizit auf <code>null</code> gesetzt werden:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w">  </span><span class="c1">// Point-Objekt existiert, p1 zeigt auf das Point-Objekt</span><span class="w"></span>
+<span class="w">    </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">                  </span><span class="c1">// p1 zeigt auf kein Objekt (mehr) - das Point-Objekt wird von der GC entsorgt</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Im oberen Beispiel wurde die <code>p1</code>-referenzvariable vom Typ <code>Point</code> deklariert und ein <code>Point</code>-Objekt. Die <code>p1</code>-variable referenziert (zeigt auf) das <code>Point</code>-Objekt. Danach wird <code>p1</code> explizit der "Wert" <code>null</code> zugeordnet. Die <code>p1</code>-Variable zeigt auf <em>kein</em> <code>Point</code>-Objekt mehr. Da das <code>Point</code>-Objekt nun keine Referenz mehr auf sich hat (und somit nicht mehr verwendet werden kann), wird es durch die Garbage Collection entsorgt. </p>
+<h3 id="referenzvergleiche-mit">Referenzvergleiche mit <code>==</code><a class="headerlink" href="#referenzvergleiche-mit" title="Permanent link">&para;</a></h3>
+<p>Wir kennen den Operator <code>==</code> als logischen Vergleichsoperator von Werten, z.B. können wir <code>int</code>-Werte damit vergleichen oder <code>char</code>-Werte oder <code>boolean</code>-Werte usw. Der Vergleichsoperator <code>==</code> kann auch für Referenzvergleiche verwendet werden, aber <strong>Achtung!</strong>, es handelt sich dann ausschließlich um Referenzvergleiche und nicht um eine <strong>Gleichheit</strong> von Objekten (dazu verwenden wir später <code>equals()</code>). Beispiele:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p2</span><span class="p">);</span><span class="w">   </span><span class="c1">// false - nicht die gleiche Referenz (zwei verschiedene Objekte)</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p3</span><span class="p">);</span><span class="w">   </span><span class="c1">// true - die gleiche Referenz (ein Objekt)</span><span class="w"></span>
+<span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p4</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"> </span><span class="c1">// true - keine Referenz auf ein Objekt</span><span class="w"></span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"> </span><span class="c1">// true - Referenz auf ein Objekt, deshalb ungleich null</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Es ist eigentlich ungünstig, den Gleichheitsoperator <code>==</code> von Werten auch für Referenzen zu verwenden, da dies am Anfang verwirrend sein kann. Wichtig ist, dass der "Wert" einer Referenz die Referenz(-adresse) auf ein Objekt ist. Haben zwei Referenzvariablen den gleichen "Wert", dann zeigen sie auf dasselbe Objekt (und somit ist <code>==</code> <code>true</code>). Der Gleichheitsoperator <code>==</code> prüft <strong>nicht</strong> die Gleichheit von Objekten (z.B. beide <code>x</code>-variablen <code>3</code> und beide <code>y</code>-Variablen <code>4</code> - das erledigen wir später, indem wir die <code>equals()</code>-Methode überschreiben)!</p>
+<blockquote>
+<p>Wird der Vergleichsoperator <code>==</code> für Referenztypen verwendet, so wird nur die Gleichheit von Referenzen verglichen, nicht aber die Gleichheit von Objekten!</p>
+</blockquote>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben zwei Aspekte diskutiert, die beide sehr wichtig für das Verständnis der objektorientierten Programmierung sind. Einerseits den Unterschied zwischen Werte- und Referenztypen und andererseits, dass ein Objekt aufhört, zu existieren, sobald es keine Referenz mehr gibt, die auf dieses Objekt zeigt. Insbesondere das Verständnis über den Unterschied zwischen Werte- und Referenztypen ist wirklich wichtig, um die Konzepte der objektorientierten Programmierung gut verstehen zu können!</p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Ein <code>Point</code>-Objekt besteht z.B. aus zwei <code>int</code>-Variablen (<code>x</code> und <code>y</code>) und benötigt somit 2 x 32Bit, also 64Bit.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
 

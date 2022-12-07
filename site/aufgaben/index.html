@@ -601,6 +601,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aufgabe-6-abgabe-bis-03012023-2400-uhr" class="md-nav__link">
+    Aufgabe 6 (Abgabe bis 03.01.2023 24:00 Uhr)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -719,6 +726,13 @@
           <li class="md-nav__item">
   <a href="#aufgabe-5-abgabe-bis-20122022-2400-uhr" class="md-nav__link">
     Aufgabe 5 (Abgabe bis 20.12.2022 24:00 Uhr)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-6-abgabe-bis-03012023-2400-uhr" class="md-nav__link">
+    Aufgabe 6 (Abgabe bis 03.01.2023 24:00 Uhr)
   </a>
   
 </li>
@@ -1386,6 +1400,187 @@ _ <code>public String toString()</code> &rarr; gibt einen Bruch als <code>String
 <hr />
 <ul>
 <li>Laden Sie Ihre Lösung bis Dienstag, den <strong>20.12.2022 um 24.00 Uhr</strong> in Moodle hoch</li>
+<li>Viel Spaß und viel Erfolg!</li>
+</ul>
+</details>
+<h4 id="aufgabe-6-abgabe-bis-03012023-2400-uhr">Aufgabe 6 (Abgabe bis 03.01.2023 24:00 Uhr)<a class="headerlink" href="#aufgabe-6-abgabe-bis-03012023-2400-uhr" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Aufgabe 6 - Arrays ausgeben</summary>
+<ul>
+<li>
+<p>Wir geben Arrays in verschiedenen Arten auf der Konsole aus. </p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int[] createAndFillArray(int length, int fromInclusive, int toInclusive)</code>. Diese Methode soll genau so sein, wie die <code>createAndFillArray(int length, int bound)</code>-Methode in <a href="../arrays/#methoden-mit-array-als-ruckgabe">Methoden mit Array als Rückgabe</a> mit dem einzigen Unterschied, dass wir nicht den <code>bound</code> angeben (der sorgt ja dafür, dass wir Zufallswerte aus dem Bereich <code>[0, 1, ... , bound-1]</code> erzeugen), sondern <code>fromInclusive</code> und <code>toExclusive</code>, so dass wir Zufallswerte aus dem Wertebereich <code>[fromInclusive, ... , toInclusive]</code> erzeugen. Siehe dazu auch <a href="../hilfsklassen/#nextintint-bound"><code>nextInt(bound)</code></a>.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printArray(int[] a)</code> so, dass sie ein <code>int</code>-Array in der Form <code>[ 27, 30, 25, 26, 23, 20, 30, 30, 22, 21, 29, 29, 21, 20 ]</code> (also Werte durch Komma getrennt in eckigen Klammern) ausgibt. Siehe dazu <a href="../arrays/#ausgabe-der-werte-auf-die-konsole">Ausgabe von Arrays</a>.  </p>
+</li>
+<li>
+<p>Rufen Sie in der <code>main()</code> die beiden Methoden wie folgt auf:
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createAndFillArray</span><span class="p">(</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n%n----------- printArray -----------------%n%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printArray</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printTable(int[] a)</code>. Diese gibt das Array <code>a</code> als Tabelle in folgender Form aus:
+    <div class="highlight"><pre><span></span><code><span class="p">|</span> Index :    <span class="p">|</span>   <span class="m">0</span>  <span class="p">|</span>   <span class="m">1</span>  <span class="p">|</span>   <span class="m">2</span>  <span class="p">|</span>   <span class="m">3</span>  <span class="p">|</span>   <span class="m">4</span>  <span class="p">|</span>   <span class="m">5</span>  <span class="p">|</span>   <span class="m">6</span>  <span class="p">|</span>   <span class="m">7</span>  <span class="p">|</span>   <span class="m">8</span>  <span class="p">|</span>   <span class="m">9</span>  <span class="p">|</span>  <span class="m">10</span>  <span class="p">|</span>  <span class="m">11</span>  <span class="p">|</span>  <span class="m">12</span>  <span class="p">|</span>  <span class="m">13</span>  <span class="p">|</span>
+<span class="p">|</span>------------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>------<span class="p">|</span>
+<span class="p">|</span> Wert :     <span class="p">|</span>  <span class="m">27</span>  <span class="p">|</span>  <span class="m">30</span>  <span class="p">|</span>  <span class="m">25</span>  <span class="p">|</span>  <span class="m">26</span>  <span class="p">|</span>  <span class="m">23</span>  <span class="p">|</span>  <span class="m">20</span>  <span class="p">|</span>  <span class="m">30</span>  <span class="p">|</span>  <span class="m">30</span>  <span class="p">|</span>  <span class="m">22</span>  <span class="p">|</span>  <span class="m">21</span>  <span class="p">|</span>  <span class="m">29</span>  <span class="p">|</span>  <span class="m">29</span>  <span class="p">|</span>  <span class="m">21</span>  <span class="p">|</span>  <span class="m">20</span>  <span class="p">|</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Rufen Sie in der <code>main()</code> die Methode <code>printTable()</code> wie folgt auf:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n%n----------- printTable -----------------%n%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printTable</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printHorizontal(int[] a)</code>. Diese gibt das Array <code>a</code> in folgender Form aus:
+    <div class="highlight"><pre><span></span><code>    <span class="p">|</span> 
+  <span class="m">0</span> <span class="p">|</span> ***************************
+    <span class="p">|</span> 
+  <span class="m">1</span> <span class="p">|</span> ******************************
+    <span class="p">|</span> 
+  <span class="m">2</span> <span class="p">|</span> *************************
+    <span class="p">|</span> 
+  <span class="m">3</span> <span class="p">|</span> **************************
+    <span class="p">|</span> 
+  <span class="m">4</span> <span class="p">|</span> ***********************
+    <span class="p">|</span> 
+  <span class="m">5</span> <span class="p">|</span> ********************
+    <span class="p">|</span> 
+  <span class="m">6</span> <span class="p">|</span> ******************************
+    <span class="p">|</span> 
+  <span class="m">7</span> <span class="p">|</span> ******************************
+    <span class="p">|</span> 
+  <span class="m">8</span> <span class="p">|</span> **********************
+    <span class="p">|</span> 
+  <span class="m">9</span> <span class="p">|</span> *********************
+    <span class="p">|</span> 
+ <span class="m">10</span> <span class="p">|</span> *****************************
+    <span class="p">|</span> 
+ <span class="m">11</span> <span class="p">|</span> *****************************
+    <span class="p">|</span> 
+ <span class="m">12</span> <span class="p">|</span> *********************
+    <span class="p">|</span> 
+ <span class="m">13</span> <span class="p">|</span> ********************
+    <span class="p">|</span> 
+</code></pre></div>
+    Das heißt, für jeden Wert im Array wird die entsprechende Anzahl von Sternen ausgegeben. Ganz links steht jeweils der Index, unter dem der Wert im Array gespeichert wird. </p>
+</li>
+<li>
+<p>Rufen Sie in der <code>main()</code> die Methode <code>printTable()</code> wie folgt auf:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n%n----------- printHorizontal ------------%n%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printHorizontal</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Wenn Sie das geschafft haben, dann haben Sie die Aufgabe erfüllt! Herzlichen Glückwunsch! Die folgende(n) Aufgabe(n) sind optional :</strong></li>
+</ul>
+<hr />
+<ul>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printUpsideDown(int[] a)</code> oder eine Methode <code>public static void printVertical(int[] a)</code> (beide gleicher Aufwand). Diese geben das Array <code>a</code> in folgender Form aus:
+<div class="highlight"><pre><span></span><code>----------- printUpsideDown ------------
+
+
+    <span class="p">|</span>   <span class="m">0</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>    <span class="m">9</span>   <span class="m">10</span>   <span class="m">11</span>   <span class="m">12</span>   <span class="m">13</span>  
+----+----------------------------------------------------------------------
+  <span class="m">1</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">2</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">3</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">4</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">5</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">6</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">7</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">8</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">9</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">10</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">11</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">12</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">13</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">14</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">15</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">16</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">17</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">18</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">19</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">20</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">21</span> <span class="p">|</span>   *    *    *    *    *         *    *    *    *    *    *    *       
+ <span class="m">22</span> <span class="p">|</span>   *    *    *    *    *         *    *    *         *    *            
+ <span class="m">23</span> <span class="p">|</span>   *    *    *    *    *         *    *              *    *            
+ <span class="m">24</span> <span class="p">|</span>   *    *    *    *              *    *              *    *            
+ <span class="m">25</span> <span class="p">|</span>   *    *    *    *              *    *              *    *            
+ <span class="m">26</span> <span class="p">|</span>   *    *         *              *    *              *    *            
+ <span class="m">27</span> <span class="p">|</span>   *    *                        *    *              *    *            
+ <span class="m">28</span> <span class="p">|</span>        *                        *    *              *    *            
+ <span class="m">29</span> <span class="p">|</span>        *                        *    *              *    *            
+ <span class="m">30</span> <span class="p">|</span>        *                        *    *                                
+
+
+
+
+----------- printVertical --------------
+
+
+ <span class="m">30</span> <span class="p">|</span>        *                        *    *                                
+ <span class="m">29</span> <span class="p">|</span>        *                        *    *              *    *            
+ <span class="m">28</span> <span class="p">|</span>        *                        *    *              *    *            
+ <span class="m">27</span> <span class="p">|</span>   *    *                        *    *              *    *            
+ <span class="m">26</span> <span class="p">|</span>   *    *         *              *    *              *    *            
+ <span class="m">25</span> <span class="p">|</span>   *    *    *    *              *    *              *    *            
+ <span class="m">24</span> <span class="p">|</span>   *    *    *    *              *    *              *    *            
+ <span class="m">23</span> <span class="p">|</span>   *    *    *    *    *         *    *              *    *            
+ <span class="m">22</span> <span class="p">|</span>   *    *    *    *    *         *    *    *         *    *            
+ <span class="m">21</span> <span class="p">|</span>   *    *    *    *    *         *    *    *    *    *    *    *       
+ <span class="m">20</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">19</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">18</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">17</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">16</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">15</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">14</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">13</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">12</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">11</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+ <span class="m">10</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">9</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">8</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">7</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">6</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">5</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">4</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">3</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">2</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+  <span class="m">1</span> <span class="p">|</span>   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+----+----------------------------------------------------------------------
+    <span class="p">|</span>   <span class="m">0</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>    <span class="m">4</span>    <span class="m">5</span>    <span class="m">6</span>    <span class="m">7</span>    <span class="m">8</span>    <span class="m">9</span>   <span class="m">10</span>   <span class="m">11</span>   <span class="m">12</span>   <span class="m">13</span>  
+</code></pre></div></p>
+</li>
+<li>
+<p>Rufen Sie in der <code>main()</code> die beiden Methoden (oder die, die Sie implememntiert haben) wie folgt auf:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n%n----------- printUpsideDown ------------%n%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printUpsideDown</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n%n----------- printVertical --------------%n%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printVertical</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Tipps zum Lösen der Zusatzaufgabe:</strong> </p>
+<ul>
+<li>Sie müssen zunächst ermitteln, welcher der größte Wert innerhalb des Arrays ist, denn dieser gibt Ihnen die Anzahl der Zeilen im Diagramm vor.</li>
+<li>Stellen Sie sich das Problem als eine Matrix aus Zeilen und Spalten vor. Die Spalten lassen sich auf den Index des Arrays mappen und die Zeilen auf die Werte im Array. </li>
+</ul>
+</li>
+<li>
+<p>Laden Sie Ihre Lösung bis Dienstag, den <strong>03.01.2023 um 24.00 Uhr</strong> in Moodle hoch</p>
+</li>
 <li>Viel Spaß und viel Erfolg!</li>
 </ul>
 </details>

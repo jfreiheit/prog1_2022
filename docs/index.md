@@ -49,14 +49,14 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 4. | 07.-11.11.2022 | [Selektion (if)](./selektion/#selektion) und [Iteration (for)](./iteration/#die-for-schleife)| - | - | 
 | 5. | 14.-18.11.2022 | [Iteration (while)](./iteration/#die-while-schleife) und [Methodenstack](./methodenstack/#methodenstack) | [Aufgabe 1](./aufgaben/#aufgabe-1-abgabe-bis-22112022-2400-uhr) | 22.11.2022 | 
 | 6. | 21.-25.11.2022 | [Klassen und Objekte](./objekte1/#klassen-und-objekte) | [Aufgabe 2](./aufgaben/#aufgabe-2-abgabe-bis-29112022-2400-uhr)  | 29.11.2022 | 
-| 7. | 28.-02.12.2022 | Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten | [Aufgabe 3](./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr) | 06.12.2022 | 
-| 8. | 05.-09.12.2022 | Eigene Datentypen in Datentypen verwenden | [Aufgabe 4](./aufgaben/#aufgabe-4-abgabe-bis-13122022-2400-uhr)  | 13.12.2022 |
-| 9. | 12.-16.12.2022 | Vererbung, Object und Polymorphie | Aufgabe 5  | 20.12.2022 |
-| 10. | 19.-23.12.2022 | Arrays | Aufgabe 6 | 03.01.2023 |
+| 7. | 28.-02.12.2022 | [Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten](./objekte2/#klassen-und-objekte-ii) | [Aufgabe 3](./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr) | 06.12.2022 | 
+| 8. | 05.-09.12.2022 | [Vererbung,](./vererbung/#vererbung) [Object und Polymorphie](./object/#die-klasse-object) | [Aufgabe 4](./aufgaben/#aufgabe-4-abgabe-bis-13122022-2400-uhr)  | 13.12.2022 |
+| 9. | 12.-16.12.2022 | [Arrays](./arrays/#arrays) | [Aufgabe 5](./aufgaben/#aufgabe-5-abgabe-bis-20122022-2400-uhr)  | 20.12.2022 |
+| 10. | 19.-23.12.2022 | Algorithmen über Arrays | [Aufgabe 6](./aufgaben/#aufgabe-6-abgabe-bis-03012023-2400-uhr) | 03.01.2023 |
 | | | | | | | |
-| 11. | 02.-06.01.2023 | Algorithmen über Arrays  | Aufgabe 7  | 10.01.2023 |
-| 12. | 09.-13.01.2023 | Sortieren von Arrays | Aufgabe 8  | 17.01.2023 |
-| 13. | 16.-20.01.2023 | Suchen in Arrays | Aufgabe 9 | 24.01.2023 |
+| 11. | 02.-06.01.2023 | Sortieren von Arrays  | Aufgabe 7  | 10.01.2023 |
+| 12. | 09.-13.01.2023 | Suchen in Arrays | Aufgabe 8  | 17.01.2023 |
+| 13. | 16.-20.01.2023 | JUnit-Testen | Aufgabe 9 | 24.01.2023 |
 | 14. | 23.-27.01.2023 | Wiederholung, Klausurvorbereitung  | -  | - |
 | 15. | 30.-03.02.2023 | Wiederholung, Klausurvorbereitung | - | - |
 | 16. | 07.02.2023 12-14 Uhr| Klausur 1.PZ | -  | - |
@@ -928,6 +928,192 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		}
 
 	}
+	```
+
+
+??? note "Datentyp Viereck"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_06;
+
+	public class Viereck
+	{
+		protected int a;
+		protected int b;
+		protected int c;
+		protected int d;
+		
+		public Viereck(int a, int b, int c, int d)
+		{
+			this.a = a;
+			this.b = b;
+			this.c = c;
+			this.d = d;
+		}
+		
+		public Viereck()
+		{
+			this.a = 1;
+			this.b = 2;
+			this.c = 3;
+			this.d = 4;
+		}
+		
+		public int umfang()
+		{
+			return this.a + this.b + this.c + this.d;
+		}
+		
+		public void print()
+		{
+			System.out.println(this.toString());
+		}
+		
+		@Override
+		public String toString()
+		{
+			return String.format("[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Vierecks betraegt : %3dcm%n", 
+					this.a, this.b, this.c, this.d, this.umfang() );
+		}
+	}
+	```
+
+
+??? note "Datentyp Rechteck"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_06;
+
+	public class Rechteck extends Viereck
+	{
+		public Rechteck(int laenge, int breite)
+		{
+			super(laenge, breite, laenge, breite);	// ruft den Konstruktor von Viereck auf
+		}
+		
+		public int flaecheninhalt()
+		{
+			return this.a * this.b;
+		}
+		
+		@Override
+		public void print()
+		{
+			System.out.printf("[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Rechtecks betraegt : %3dcm%n"
+					+ "Der Flaecheninhalt des Rechtecks betraegt : %3dcm%n", 
+					this.a, this.b, this.c, this.d, this.umfang(), this.flaecheninhalt() );
+		}
+	}
+	```
+
+
+??? note "Datentyp Quadrat"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_06;
+
+	public class Quadrat extends Rechteck
+	{
+		public Quadrat(int seitenlaenge)
+		{
+			super(seitenlaenge, seitenlaenge);
+		}
+		
+		@Override
+		public void print()
+		{
+			System.out.printf("[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Quadrats betraegt : %3dcm%n"
+					+ "Der Flaecheninhalt des Quadrats betraegt : %3dcm%n", 
+					this.a, this.b, this.c, this.d, this.umfang(), this.flaecheninhalt() );
+		}
+	}
+
+	```
+
+
+??? note "Programmklasse für Viereck, Rechteck und Quadrat"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_06;
+
+	public class Programmklasse
+	{
+
+		public static void main(String[] args)
+		{
+			System.out.printf("%n%n------------------ Viereck -----------------%n%n");
+			Viereck v1 = new Viereck(10,20,15,25);
+			v1.print();
+			
+			Viereck v2 = new Viereck();
+			v2.print();
+			// System.out.println(v2.flaecheninhalt());    // existiert nicht fuer Viereck
+			
+			System.out.printf("%n%n------------------ Rechteck -----------------%n%n");
+			
+			Rechteck r1 = new Rechteck(16, 26);
+			r1.print();
+			System.out.println(r1.umfang());
+			System.out.println(r1.flaecheninhalt());
+			
+			System.out.printf("%n%n------------------ Quadrat -----------------%n%n");
+			
+			Quadrat q1 = new Quadrat(35);
+			q1.print();
+			System.out.println(q1.umfang());
+			System.out.println(q1.flaecheninhalt());
+			
+			System.out.printf("%n%n------------------ Deklaration Viereck -----------------%n%n");
+			
+			Viereck v3 = new Viereck(12,13,14,15);
+			Viereck v4 = new Rechteck(22, 23);
+			Viereck v5 = new Quadrat(31);
+			// System.out.println(v4.flaecheninhalt());
+			v3.print();
+			v4.print();
+			v5.print();
+			
+			Viereck v6 = v5;
+			v6.print();
+			
+			
+			if(v5 instanceof Quadrat)
+			{
+				Quadrat q2 = (Quadrat)v5;
+				//v5.flaecheninhalt(); 	// v5 ist Compilertyp Viereck
+				q2.flaecheninhalt();  	// 
+			}
+			
+			if(v4 instanceof Quadrat)
+			{
+				System.out.println("v4 Quadrat");
+			}
+			else
+			{
+				System.out.println("v4 kein Quadrat");
+			}
+			
+			int i = 1;
+			double d = 5.9;
+			int i2 = (int)d;
+			
+			//Quadrat q3 = (Quadrat)v3;
+			// q3.flaecheninhalt();		// ClassCastException
+			
+			Viereck q4 = new Quadrat(30);
+			
+			System.out.println(q4.getClass());
+
+			System.out.printf("%n%n------------------ toString() -----------------%n%n");
+			
+			
+			System.out.println(q4);
+			
+			Rechteck r2 = new Rechteck(30, 40);
+			Quadrat q3 = new Quadrat(35);
+			
+			System.out.println(r2);
+			System.out.println(q3);
+		}
+
+	}
+
 	```
 
 

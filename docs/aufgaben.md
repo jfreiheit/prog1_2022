@@ -582,3 +582,180 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
+
+#### Aufgabe 6 (Abgabe bis 03.01.2023 24:00 Uhr)
+
+
+??? "Aufgabe 6 - Arrays ausgeben"
+	- Wir geben Arrays in verschiedenen Arten auf der Konsole aus. 
+
+	- Implementieren Sie eine Methode `public static int[] createAndFillArray(int length, int fromInclusive, int toInclusive)`. Diese Methode soll genau so sein, wie die `createAndFillArray(int length, int bound)`-Methode in [Methoden mit Array als Rückgabe](../arrays/#methoden-mit-array-als-ruckgabe) mit dem einzigen Unterschied, dass wir nicht den `bound` angeben (der sorgt ja dafür, dass wir Zufallswerte aus dem Bereich `[0, 1, ... , bound-1]` erzeugen), sondern `fromInclusive` und `toExclusive`, so dass wir Zufallswerte aus dem Wertebereich `[fromInclusive, ... , toInclusive]` erzeugen. Siehe dazu auch [`nextInt(bound)`](../hilfsklassen/#nextintint-bound).
+
+	- Implementieren Sie eine Methode `public static void printArray(int[] a)` so, dass sie ein `int`-Array in der Form `[ 27, 30, 25, 26, 23, 20, 30, 30, 22, 21, 29, 29, 21, 20 ]` (also Werte durch Komma getrennt in eckigen Klammern) ausgibt. Siehe dazu [Ausgabe von Arrays](../arrays/#ausgabe-der-werte-auf-die-konsole).  
+
+	- Rufen Sie in der `main()` die beiden Methoden wie folgt auf:
+		```java
+		int length = r.nextInt(10)+10;
+		int[] arr1 = createAndFillArray(length, 20, 30);
+		
+		System.out.printf("%n%n%n----------- printArray -----------------%n%n%n");
+		printArray(arr1);
+		```
+
+	- Implementieren Sie eine Methode `public static void printTable(int[] a)`. Diese gibt das Array `a` als Tabelle in folgender Form aus:
+		```bash
+		| Index :    |   0  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |  10  |  11  |  12  |  13  |
+		|------------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+		| Wert :     |  27  |  30  |  25  |  26  |  23  |  20  |  30  |  30  |  22  |  21  |  29  |  29  |  21  |  20  |
+		```
+	
+	- Rufen Sie in der `main()` die Methode `printTable()` wie folgt auf:
+		```java
+		System.out.printf("%n%n%n----------- printTable -----------------%n%n%n");
+		printTable(arr1);
+		```		
+
+	- Implementieren Sie eine Methode `public static void printHorizontal(int[] a)`. Diese gibt das Array `a` in folgender Form aus:
+		```bash
+		    | 
+		  0 | ***************************
+		    | 
+		  1 | ******************************
+		    | 
+		  2 | *************************
+		    | 
+		  3 | **************************
+		    | 
+		  4 | ***********************
+		    | 
+		  5 | ********************
+		    | 
+		  6 | ******************************
+		    | 
+		  7 | ******************************
+		    | 
+		  8 | **********************
+		    | 
+		  9 | *********************
+		    | 
+		 10 | *****************************
+		    | 
+		 11 | *****************************
+		    | 
+		 12 | *********************
+		    | 
+		 13 | ********************
+		    | 
+		```
+		Das heißt, für jeden Wert im Array wird die entsprechende Anzahl von Sternen ausgegeben. Ganz links steht jeweils der Index, unter dem der Wert im Array gespeichert wird. 
+		
+	- Rufen Sie in der `main()` die Methode `printTable()` wie folgt auf:
+		```java
+		System.out.printf("%n%n%n----------- printHorizontal ------------%n%n%n");
+		printHorizontal(arr1);
+		```	
+
+	- ---
+
+	- **Wenn Sie das geschafft haben, dann haben Sie die Aufgabe erfüllt! Herzlichen Glückwunsch! Die folgende(n) Aufgabe(n) sind optional :**
+
+	- ---
+
+	- Implementieren Sie eine Methode `public static void printUpsideDown(int[] a)` oder eine Methode `public static void printVertical(int[] a)` (beide gleicher Aufwand). Diese geben das Array `a` in folgender Form aus:
+	```bash
+
+	----------- printUpsideDown ------------
+
+
+	    |   0    1    2    3    4    5    6    7    8    9   10   11   12   13  
+	----+----------------------------------------------------------------------
+	  1 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  2 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  3 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  4 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  5 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  6 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  7 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  8 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  9 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 10 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 11 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 12 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 13 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 14 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 15 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 16 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 17 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 18 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 19 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 20 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 21 |   *    *    *    *    *         *    *    *    *    *    *    *       
+	 22 |   *    *    *    *    *         *    *    *         *    *            
+	 23 |   *    *    *    *    *         *    *              *    *            
+	 24 |   *    *    *    *              *    *              *    *            
+	 25 |   *    *    *    *              *    *              *    *            
+	 26 |   *    *         *              *    *              *    *            
+	 27 |   *    *                        *    *              *    *            
+	 28 |        *                        *    *              *    *            
+	 29 |        *                        *    *              *    *            
+	 30 |        *                        *    *                                
+
+
+
+
+	----------- printVertical --------------
+
+
+	 30 |        *                        *    *                                
+	 29 |        *                        *    *              *    *            
+	 28 |        *                        *    *              *    *            
+	 27 |   *    *                        *    *              *    *            
+	 26 |   *    *         *              *    *              *    *            
+	 25 |   *    *    *    *              *    *              *    *            
+	 24 |   *    *    *    *              *    *              *    *            
+	 23 |   *    *    *    *    *         *    *              *    *            
+	 22 |   *    *    *    *    *         *    *    *         *    *            
+	 21 |   *    *    *    *    *         *    *    *    *    *    *    *       
+	 20 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 19 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 18 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 17 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 16 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 15 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 14 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 13 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 12 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 11 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	 10 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  9 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  8 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  7 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  6 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  5 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  4 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  3 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  2 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	  1 |   *    *    *    *    *    *    *    *    *    *    *    *    *    *  
+	----+----------------------------------------------------------------------
+	    |   0    1    2    3    4    5    6    7    8    9   10   11   12   13  
+
+	```
+
+	- Rufen Sie in der `main()` die beiden Methoden (oder die, die Sie implememntiert haben) wie folgt auf:
+		```java
+		System.out.printf("%n%n%n----------- printUpsideDown ------------%n%n%n");
+		printUpsideDown(arr1);
+		System.out.printf("%n%n%n----------- printVertical --------------%n%n%n");
+		printVertical(arr1);
+		```	
+
+	- **Tipps zum Lösen der Zusatzaufgabe:** 
+		- Sie müssen zunächst ermitteln, welcher der größte Wert innerhalb des Arrays ist, denn dieser gibt Ihnen die Anzahl der Zeilen im Diagramm vor.
+		- Stellen Sie sich das Problem als eine Matrix aus Zeilen und Spalten vor. Die Spalten lassen sich auf den Index des Arrays mappen und die Zeilen auf die Werte im Array. 
+
+	- Laden Sie Ihre Lösung bis Dienstag, den **03.01.2023 um 24.00 Uhr** in Moodle hoch
+	- Viel Spaß und viel Erfolg!
+
+
+
+
