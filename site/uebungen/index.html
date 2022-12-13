@@ -2353,10 +2353,6 @@ und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzlich
     Bsp.: <code>stringToCharArray("hallo!")</code> &rarr; <code>['h','a','l','l','o','!']</code> </p>
 </li>
 <li>
-<p>Implementieren Sie eine Methode <code>public static char[] filter(char[] carr, char filter)</code>, der als Parameter ein <code>char</code>-Array und ein <code>char</code> übergeben wird. Die Methode soll ein <code>char</code>-Array zurückgeben, das dem als Parameter übergeben Array entspricht, außer dass jedes Vorkommen des als Parameter übergeben <code>carr</code> entfernt wurde <br/>
-    Bsp: <code>filter(['a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'], 'c')</code> &rarr; <code>['a', 'b', 'a', 'a', 'b']</code></p>
-</li>
-<li>
 <p>Implementieren Sie eine Methode <code>public static int[] minAndMax(int[] iarr)</code>, der ein <code>int</code>-Array als Parameter übergeben wird und die ein zweielementiges Array zurückgibt. Das erste Element des zurückgegeben Arrays ist das Minimum des als Parameter übergebenen Arrays und das zweite Element ist das Maximum. <br/>
     Bsp.:   <code>minAndMax([4,2,8,1,6,2,4,1,8])</code> &rarr; <code>[1,8]</code> <br/>
             <code>minAndMax([4])</code> &rarr; <code>[4,4]</code></p>
@@ -2367,7 +2363,12 @@ und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzlich
           <code>reverse([4])</code> &rarr; <code>[4]</code></p>
 </li>
 <li>
-<p><strong>Zusatz:</strong> Implementieren Sie eine Methode <code>public static boolean containsDoublets(char[] ca)</code> die ein <code>true</code> zurückgibt, wenn <em>mindestens</em> ein Wert in <code>ca</code> <em>mindestens</em> zwei Mal vorkommt (wenn Sie schon dabei sind, können Sie sich auch überlegen, wenn <em>genau</em> ein Wert <em>genau</em> zwei Mal vorkommt - oder <em>mindestens</em> ein Wert <em>genau</em> zwei Mal - oder <em>genau</em> ein Wert <em>mindestens</em> zwei Mal) und <code>false</code> sonst.</p>
+<p><strong>Zusatz:</strong> </p>
+<ul>
+<li>Implementieren Sie eine Methode <code>public static char[] filter(char[] carr, char filter)</code>, der als Parameter ein <code>char</code>-Array und ein <code>char</code> übergeben wird. Die Methode soll ein <code>char</code>-Array zurückgeben, das dem als Parameter übergeben Array entspricht, außer dass jedes Vorkommen des als Parameter übergeben <code>carr</code> entfernt wurde <br/>
+Bsp: <code>filter(['a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'], 'c')</code> &rarr; <code>['a', 'b', 'a', 'a', 'b']</code></li>
+<li>Implementieren Sie eine Methode <code>public static boolean containsDoublets(char[] ca)</code> die ein <code>true</code> zurückgibt, wenn <em>mindestens</em> ein Wert in <code>ca</code> <em>mindestens</em> zwei Mal vorkommt (wenn Sie schon dabei sind, können Sie sich auch überlegen, wenn <em>genau</em> ein Wert <em>genau</em> zwei Mal vorkommt - oder <em>mindestens</em> ein Wert <em>genau</em> zwei Mal - oder <em>genau</em> ein Wert <em>mindestens</em> zwei Mal) und <code>false</code> sonst.</li>
+</ul>
 </li>
 </ol>
 </details>
