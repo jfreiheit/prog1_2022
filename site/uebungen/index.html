@@ -2371,6 +2371,171 @@ und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzlich
 </li>
 </ol>
 </details>
+<details class="note">
+<summary>Übung 9</summary>
+<ol>
+<li>Übung 9 vertieft das Verständnis von Programmabläufen, Methodenaufrufen und Algorithmen. </li>
+<li>Walk-throughs und Multiple-choice-Aufgaben.</li>
+</ol>
+</details>
+<details class="note">
+<summary>Übung 10</summary>
+<ol>
+<li>Erstellen Sie ein package <code>uebungen.uebung10</code>. </li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Uebung10</code> mit <code>main()</code>-Methode.</li>
+<li>
+<p><strong>Vorabinformation</strong>: </p>
+<ul>
+<li>
+<p>Wir implementieren Würfe eines Würfels. Alle Würfe werden in einem Array <code>statistics</code> gespeichert. Das Array hat die Länge 6 und beschreibt, wie oft eine 1, wie oft eine 2, ..., wie oft eine 6 gewürfelt wurde. </p>
+<p><img alt="statistics" src="../files/50_statistics.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie sich in der <code>main()</code>-Methode zunächst das <code>statistics</code>-Array. Alle Elemente des Arrays sind vom Typ <code>int</code> und es hat die Länge <code>6</code>. </p>
+</li>
+<li>
+<p>Implementieren Sie folgende Methoden: </p>
+<ul>
+<li>
+<p>Implementieren Sie eine <code>public static int throwDice()</code>-Methode, die eine Zufallszahl aus dem Wertebereich <code>[1, ... , 6]</code> erzeugt und zurückgibt.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printThrow(int cast)</code>, die den Wert des übergebenen Wurfes (<code>cast</code>) wie folgt ausgibt (Beispiel <code>cast==5</code>):
+    <div class="highlight"><pre><span></span><code>Es wurde eine <span class="m">5</span> gewuerfelt
+</code></pre></div></p>
+</li>
+<li>
+<p>Testen Sie beide Methoden, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------- Test throwDice and printThrow -------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDice</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">printThrow</span><span class="p">(</span><span class="n">cast</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<p>Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>------------------- Test throwDice and printThrow -------------------
+
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int[] insertIntoStatistics(int[] statistics, int cast)</code>. Das <code>statistics</code>-Array wird als Parameter übergeben und das <code>statistics</code>-Array selbst wird auch wieder zurückgegeben! Im <code>statistics</code>-Array wird der Wert an der Stelle um <code>1</code> erhöht, der dem Wurf <code>cast</code> entspricht. D.h. wurde eine <code>1</code> gewürfelt, wird der Wert im Index <code>0</code> um <code>1</code> erhöht, wurde eine <code>2</code> gewürfelt, der Wert im Index <code>1</code> usw. (siehe auch oben die Abbildung zu <code>statistics</code>)</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printStatistics(int[] statistics)</code>, die das <code>statistics</code>-Array wie folgt auf die Konsole ausgibt. <br/></p>
+<p>Angenommen, das <code>statistics</code>-Array ist so befüllt: <code>[ 3,8,4,5,8,2 ]</code>, dann ist die Ausgabe auf der Konsole:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span> <span class="o">(</span><span class="m">3</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">8</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">5</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">8</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">2</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+</code></pre></div>
+</li>
+<li>
+<p>Testen Sie beide Methoden, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ Test insert- and printStatistics -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDice</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">statistics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertIntoStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span><span class="w"> </span><span class="n">cast</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w">    </span>
+</code></pre></div></p>
+<p>Es wird angenommen, dass Sie das <code>statistics</code>-Array bereits gleich am Anfang in der <code>main()</code> erzeugt haben - wenn nicht, können Sie das auch hier machen. Beachten Sie den Aufruf von <code>statistics = insertIntoStatistics(statistics, cast);</code>. Die <code>insertIntoStatistics()</code>-Methode bekommt das <code>statistics</code>-Array als Parameter übergeben, gibt es selbst wieder zurück und in der <code>main()</code>-Methode speichern wir die Rückgabe wieder in der <code>statistics</code>-Referenz. Das ist zwar so gar nicht nötig, aber das lernen wir erst, wenn es um Objekte geht. Jetzt ist es völlig in Ordnung, das so zu machen. </p>
+<p>Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>------------------ Test insert- and printStatistics -----------------
+
+<span class="o">[</span>  <span class="o">(</span><span class="m">20</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">13</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">16</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">15</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">19</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">17</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int sumOfStatistics(int[] statistics)</code>, die eine Summe über alle Werte im <code>statistics</code>-Array wie folgt berechnet: <br/></p>
+<p><strong>Beispiel</strong>: Angenommen, das Array ist so befüllt: <code>[ 3,8,4,5,8,2 ]</code>, dann ist die Summe: <code>3x1 + 8x2 + 4x3 + 5x4 + 8x5 + 2x6 = 3 + 16 + 12 + 20 + 40 + 12 = 103</code>. Die Summe <code>103</code> wird zurückgegeben.  </p>
+</li>
+<li>
+<p>Testen Sie die Methode, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n--------------------- Test sumOfStatistics --------------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sumTest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumOfStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Summe = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sumTest</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<p>Das <code>statistics</code>-Array ist ja bereits oben befüllt worden, das müssen wir hier also nicht mehr machen. Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>--------------------- Test sumOfStatistics --------------------------
+
+<span class="o">[</span>  <span class="o">(</span><span class="m">14</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">15</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">11</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">16</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">27</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">17</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+<span class="nv">Summe</span> <span class="o">=</span> <span class="m">378</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Zusatz:</strong> Implementieren Sie eine Methode <code>public static int throwDiceUntilTarget(int target, int[] statistics)</code>, die so lange einen Würfel würfelt, bis als Summe der Augen das <code>target</code> erreicht ist. Die Anzahl der Würfe wird zurückgegeben. In dieser Methode erfolgen folgende Aufrufe:</p>
+<ul>
+<li>nach jedem Wurf (<code>throwDice()</code>) wird der Wurf ausgegeben (<code>printThrow()</code>) </li>
+<li>jeder Wurf wird in das <code>statistics</code>-Array eingetragen (<code>insertIntoStatistics()</code>)</li>
+<li>nach jedem Wurf wird die Summme aller Augen aller bisherigen Würfe ermittelt (<code>sumOfStatistics()</code>). </li>
+<li>so lange die Summe kleiner ist als das <code>target</code>, wird weiter gewürfelt</li>
+</ul>
+</li>
+<li>
+<p>Testen Sie die Methode, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------- Test throwDiceUntilTarget -----------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">statistics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span><span class="w">    </span><span class="c1">// altes Array war schon befuellt </span><span class="w"></span>
+<span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TARGET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDiceUntilTarget</span><span class="p">(</span><span class="n">TARGET</span><span class="p">,</span><span class="w"> </span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumOfStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Es wurden &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Versuche benötigt, um &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Punkte zu erzielen.&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<p>Da das <code>statistics</code>-Array zuvor bereits befüllt war, erstellen wir es für das Testen dieser Methode nochmal neu. Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>------------------- Test throwDiceUntilTarget -----------------------
+
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+<span class="o">[</span>  <span class="o">(</span><span class="m">5</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">11</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">3</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+Es wurden <span class="m">31</span> Versuche benötigt, um <span class="m">100</span> Punkte zu erzielen.
+</code></pre></div></p>
+<p>Es muss das <code>target</code> nicht exakt getroffen werden, das ist Zufall. Es stoppt, sobald <code>100</code> oder mehr Punkte erreicht wurden. </p>
+</li>
+</ul>
+</li>
+</ol>
+</details>
 <h2 id="zusatzliche-ubungen">Zusätzliche Übungen<a class="headerlink" href="#zusatzliche-ubungen" title="Permanent link">&para;</a></h2>
 <details>
 <summary>Binäre Bäume</summary>

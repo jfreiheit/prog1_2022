@@ -757,5 +757,113 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
+#### Aufgabe 7 (Abgabe bis 10.01.2023 24:00 Uhr)
+
+
+??? "Aufgabe 7 - Arrays befüllen"
+	- Wir befüllen ein `char`-Array, aber das ist leider gar nicht so einfach ;-)
+
+	- **einleitende Vorbetrachtung:** angenommen, wir haben die folgende Schleife: 
+
+		```java linenums="3"
+		for(int asciiValue = 97; asciiValue<123; asciiValue++)
+		{
+			char c = (char) asciiValue;
+			System.out.print(c + " ");
+		}
+		```
+
+	-  Durch diese wird uns das gesamte Alphabet in Kleinbuchstaben ausgegeben:
+
+	  	```bash
+	  	a b c d e f g h i j k l m n o p q r s t u v w x y z 
+	  	```
+
+	-  Kopieren Sie die Schleife einfach in Ihre `main()`-Methode und führen Sie sie aus, dann erhalten Sie obige Ausgabe. Dahinter steckt, dass wir der `int`-Variablen `asciiValue` den ASCII-Code der Kleinbuchstaben zuweisen (beginnend bei `97` - das ist ein `a`). Siehe z.B. [hier](../variablen/#char). Der letzte kleine Buchstabe `z` hat den ASCII-Wert `122`, deshalb läuft die Schleife auch bis `<123`. In Zeile `3` der Schleife findet eine [Typkonvertierung](../variablen/#typkonvertierung-type-cast) statt. Aus dem `int` wird ein `char`. Dies geschieht durch den Typkonvertierungsoperator `(char)`. In Zeile `4` wird das Zeichen `c` vom Typ `char` ausgegeben. 
+
+	- **Aufgabe** Die Aufgabe ist es nun, ein `char`-Array zu befüllen. Es gelten folgende Bedingungen:
+	 	- das Array hat (nur) die Länge `25`
+	 	- in dem Array darf es keine Doppelungen geben (also kein Zeichen darf doppelt enthalten sein)
+	 	- die Zeichen werden zufällig erzeugt, d.h. mithilfe der Klasse `Random` und der Methode `nextInt(bound)`, die Werte zwischen `97` und einschließlich `122` erzeugen soll
+
+	- Schreiben Sie dafür eine Methode `public static char[] createAndFillCharArray()`
+	 	- in dieser Methode erzeugen Sie das `char[]`der Länge `25`,
+	 	- ein `Random`-Objekt, mit dem Sie unter Verwendung der `nextInt(bound)`-Methode zufällig Zahlen zwischen `97` und einschließlich `122`erzeugen,
+	 	- die erzeugten `int`-Werte konvertieren Sie mithilfe des `(char)`-Typecast-Operators nach `char`,
+	 	- dann befüllen Sie das `char[]` --> passen Sie aber auf, dass Sie kein Zeichen hinzufügen, das bereits im Array enthalten ist --> dazu benötigen Sie die `contains()`-Methode:
+
+	- Schreiben Sie eine Methode `public static boolean contains(char[] ca, char c)`. Diese gibt ein `true` zurück, wenn `c` in `ca` enthalten ist und ein `false`, wenn nicht.
+
+	- Schreiben Sie eine Methode `public static char[] sort(char[] a)`. Diese gibt ein `char[]` zurück, welches sortiert ist. Das übergebene Array `a` ist unsortiert. Siehe dazu [Sortieren von Arrays](../sortieren/#sortieren-von-arrays).
+
+	- Schreiben Sie eine Methode `public static void print(char[] a)`, die ein übergebenes `char[]` in der Form
+
+	 	```bash
+	 	[ o, g, f, p, a, c, s, i, e, q, h, l, t, r, w, z, v, x, y, u, b, j, k, m, n ]
+	 	```
+
+	 	ausgibt. Kennen wir aus Übung 8, aber gute Übung, es nochmal zu machen.
+
+	- Geben Sie in Ihre `main()`-Methode folgende Anweisungen ein:
+
+	 	```java			
+		System.out.printf("%n%n----------------- Erzeugen ------------------%n%n");
+		char[] ca1 = createAndFillCharArray();
+		print(ca1);
+		
+		System.out.printf("%n%n----------------- Sortieren ------------------%n%n");		
+		char[] ca2 = sort(ca1);
+		print(ca2); 
+		```
+
+		Es sollten Ausgaben in der Form:
+
+		```bash
+
+		----------------- Erzeugen ------------------
+
+		[ o, g, f, p, a, c, s, i, e, q, h, l, t, r, w, z, v, x, y, u, b, j, k, m, n ]
+
+
+		----------------- Sortieren ------------------
+
+		[ a, b, c, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z ]
+
+		```
+
+		erscheinen. Beachten Sie, dass die Einträge im Array zufällig erzeugt wurden. Beachten Sie außerdem, dass ein Buchstabe aus dem Alphabet fehlt, hier z.B. `d` (das Array hat die Länge `25`, das Alphabet hat `26` Buchstaben). 
+
+	- ---
+
+	- **Wenn Sie das geschafft haben, dann haben Sie die Aufgabe erfüllt! Herzlichen Glückwunsch! Die folgende(n) Aufgabe(n) sind optional :**
+
+	- ---
+
+	- Schreiben Sie eine Methode `public static char getMissingLetter(char[] a)`. Dieser Methode wird ein durch die obige Methode `createAndFillCharArray()` erstelltes `char`-Array übergeben. Das Array hat also die Länge `25` hat und aus dem Alphabet fehlt genau ein kleiner Buchstabe. Finden Sie den Buchstaben und geben ihn zurück. 
+
+	- Schreiben Sie eine Methode `public static void findWord(String word)`. Dieser Methode wird eine Zeichenkette übergeben, die nur aus Buchstaben besteht. Sie können annehmen, dass es nur kleine Buchstaben sind, Sie können aber erstmal die `toLowerCase()`-Methode anwenden (siehe [String](../hilfsklassen/#die-klasse-string)). Rufen Sie für jedes Zeichen aus dem String die beiden Methoden `createAndFillCharArray()` und `getMissingLetter()` auf, bis das von der `getMissingLetter()`-Methode zurückgegebene Zeichen dem Zeichen des Strings entspricht, das Sie gerade betrachten. Eine Ausgabe als Beispiel:
+
+		```bash
+		P..........p (11)
+		r.r (2)
+		o..o (3)
+		g............g (13)
+		r..............................r (31)
+		a........a (9)
+		m..m (3)
+		m...........................................................m (60)
+		i....i (5)
+		e.....e (6)
+		rr (1)
+		e......e (7)
+		n............n (13)
+		```
+
+		Die Ausgabe erfolgte durch den Aufruf von `findWord("Programmieren");`. Ganz links in der Zeile steht immer das Zeichen des Strings, das gerade betrachtet wird. Dann kommen für jeden fehlgeschlagenen Versuch, durch `getMissingLetter()` das `'p' zurück zu bekommen, die Ausgabe eines Punktes. Sollte `getMissingLetter()` das `'p'` zurückgeben, wird es ausgegeben und außerdem noch in Klammern die Anzahl der Versuche. Der Cursor wechselt in die nächste Zeile und das nächste Zeichen des Strings ist dran. 
+
+	- Viel Spaß und viel Erfolg!
+
+
+
 
 

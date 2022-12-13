@@ -930,6 +930,9 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	}
 	```
 
+??? success "Video zur Vorlesung Vererbung"
+
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=bb4c96c32600da9138164a6a6e455069&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=bb4c96c32600da9138164a6a6e455069&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="450" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 ??? note "Datentyp Viereck"
 	```java linenums="1"

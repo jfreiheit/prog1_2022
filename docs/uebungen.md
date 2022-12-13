@@ -1737,6 +1737,167 @@
     9. **Zusatz:** Implementieren Sie eine Methode `public static boolean containsDoublets(char[] ca)` die ein `true` zurückgibt, wenn *mindestens* ein Wert in `ca` *mindestens* zwei Mal vorkommt (wenn Sie schon dabei sind, können Sie sich auch überlegen, wenn *genau* ein Wert *genau* zwei Mal vorkommt - oder *mindestens* ein Wert *genau* zwei Mal - oder *genau* ein Wert *mindestens* zwei Mal) und `false` sonst.
 
 
+	
+??? note "Übung 9"
+	
+	1. Übung 9 vertieft das Verständnis von Programmabläufen, Methodenaufrufen und Algorithmen. 
+	2. Walk-throughs und Multiple-choice-Aufgaben.
+
+	
+??? note "Übung 10"
+	
+	1. Erstellen Sie ein package `uebungen.uebung10`. 
+	2. Erstellen Sie in diesem package eine Klasse `Uebung10` mit `main()`-Methode.
+	3. **Vorabinformation**: 
+		- Wir implementieren Würfe eines Würfels. Alle Würfe werden in einem Array `statistics` gespeichert. Das Array hat die Länge 6 und beschreibt, wie oft eine 1, wie oft eine 2, ..., wie oft eine 6 gewürfelt wurde.	
+
+			![statistics](./files/50_statistics.png)
+
+	4. Erstellen Sie sich in der `main()`-Methode zunächst das `statistics`-Array. Alle Elemente des Arrays sind vom Typ `int` und es hat die Länge `6`. 
+
+	5. Implementieren Sie folgende Methoden: 
+
+		- Implementieren Sie eine `public static int throwDice()`-Methode, die eine Zufallszahl aus dem Wertebereich `[1, ... , 6]` erzeugt und zurückgibt.
+		
+		- Implementieren Sie eine Methode `public static void printThrow(int cast)`, die den Wert des übergebenen Wurfes (`cast`) wie folgt ausgibt (Beispiel `cast==5`):
+			```bash
+			Es wurde eine 5 gewuerfelt
+			```
+		
+		- Testen Sie beide Methoden, indem Sie in der `main()`-Methode eingeben:
+			```java
+			System.out.printf("%n%n------------------- Test throwDice and printThrow -------------------%n%n");
+			for(int index=0; index<10; index++)
+			{
+				int cast = throwDice();
+				printThrow(cast);
+			}
+			```
+
+			Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+			```bash		
+			------------------- Test throwDice and printThrow -------------------
+
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 4 gewuerfelt
+			Es wurde eine 6 gewuerfelt
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 4 gewuerfelt
+			Es wurde eine 1 gewuerfelt
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 6 gewuerfelt
+			Es wurde eine 6 gewuerfelt
+			```
+
+		- Implementieren Sie eine Methode `public static int[] insertIntoStatistics(int[] statistics, int cast)`. Das `statistics`-Array wird als Parameter übergeben und das `statistics`-Array selbst wird auch wieder zurückgegeben! Im `statistics`-Array wird der Wert an der Stelle um `1` erhöht, der dem Wurf `cast` entspricht. D.h. wurde eine `1` gewürfelt, wird der Wert im Index `0` um `1` erhöht, wurde eine `2` gewürfelt, der Wert im Index `1` usw. (siehe auch oben die Abbildung zu `statistics`)
+
+		- Implementieren Sie eine Methode `public static void printStatistics(int[] statistics)`, die das `statistics`-Array wie folgt auf die Konsole ausgibt. <br/>
+
+			Angenommen, das `statistics`-Array ist so befüllt: `[ 3,8,4,5,8,2 ]`, dann ist die Ausgabe auf der Konsole:
+
+			```bash
+			[ (3 x 1), (8 x 2), (4 x 3), (5 x 4), (8 x 5), (2 x 6) ]
+			```
+
+		- Testen Sie beide Methoden, indem Sie in der `main()`-Methode eingeben:
+			```java			
+			System.out.printf("%n%n------------------ Test insert- and printStatistics -----------------%n%n");
+			for(int index=0; index<100; index++)
+			{
+				int cast = throwDice();
+				statistics = insertIntoStatistics(statistics, cast);
+			}
+			printStatistics(statistics);	
+			```
+
+			Es wird angenommen, dass Sie das `statistics`-Array bereits gleich am Anfang in der `main()` erzeugt haben - wenn nicht, können Sie das auch hier machen. Beachten Sie den Aufruf von `statistics = insertIntoStatistics(statistics, cast);`. Die `insertIntoStatistics()`-Methode bekommt das `statistics`-Array als Parameter übergeben, gibt es selbst wieder zurück und in der `main()`-Methode speichern wir die Rückgabe wieder in der `statistics`-Referenz. Das ist zwar so gar nicht nötig, aber das lernen wir erst, wenn es um Objekte geht. Jetzt ist es völlig in Ordnung, das so zu machen. 
+
+			Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+			```bash		
+			------------------ Test insert- and printStatistics -----------------
+
+			[  (20 x 1), (13 x 2), (16 x 3), (15 x 4), (19 x 5), (17 x 6) ]
+			```
+
+		- Implementieren Sie eine Methode `public static int sumOfStatistics(int[] statistics)`, die eine Summe über alle Werte im `statistics`-Array wie folgt berechnet: <br/>
+
+			**Beispiel**: Angenommen, das Array ist so befüllt: `[ 3,8,4,5,8,2 ]`, dann ist die Summe: `3x1 + 8x2 + 4x3 + 5x4 + 8x5 + 2x6 = 3 + 16 + 12 + 20 + 40 + 12 = 103`. Die Summe `103` wird zurückgegeben.  
+
+		- Testen Sie die Methode, indem Sie in der `main()`-Methode eingeben:
+			```java			
+			System.out.printf("%n%n--------------------- Test sumOfStatistics --------------------------%n%n");
+			printStatistics(statistics);
+			int sumTest = sumOfStatistics(statistics);
+			System.out.println("Summe = " + sumTest);
+			```
+
+			Das `statistics`-Array ist ja bereits oben befüllt worden, das müssen wir hier also nicht mehr machen. Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+			```bash		
+			--------------------- Test sumOfStatistics --------------------------
+
+			[  (14 x 1), (15 x 2), (11 x 3), (16 x 4), (27 x 5), (17 x 6) ]
+			Summe = 378
+			```
+
+		- **Zusatz:** Implementieren Sie eine Methode `public static int throwDiceUntilTarget(int target, int[] statistics)`, die so lange einen Würfel würfelt, bis als Summe der Augen das `target` erreicht ist. Die Anzahl der Würfe wird zurückgegeben. In dieser Methode erfolgen folgende Aufrufe:
+			- nach jedem Wurf (`throwDice()`) wird der Wurf ausgegeben (`printThrow()`) 
+			- jeder Wurf wird in das `statistics`-Array eingetragen (`insertIntoStatistics()`)
+			- nach jedem Wurf wird die Summme aller Augen aller bisherigen Würfe ermittelt (`sumOfStatistics()`). 
+			- so lange die Summe kleiner ist als das `target`, wird weiter gewürfelt
+
+		- Testen Sie die Methode, indem Sie in der `main()`-Methode eingeben:
+			```java				
+			System.out.printf("%n%n------------------- Test throwDiceUntilTarget -----------------------%n%n");
+			statistics = new int[6];	// altes Array war schon befuellt 
+			final int TARGET = 100;
+			int tries = throwDiceUntilTarget(TARGET, statistics);
+			printStatistics(statistics);
+			int sum = sumOfStatistics(statistics);
+			System.out.println("Es wurden " + tries + " Versuche benötigt, um " + sum + " Punkte zu erzielen.");
+			```
+
+			Da das `statistics`-Array zuvor bereits befüllt war, erstellen wir es für das Testen dieser Methode nochmal neu. Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+			```bash		
+			------------------- Test throwDiceUntilTarget -----------------------
+
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 1 gewuerfelt
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 2 gewuerfelt
+			Es wurde eine 5 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 4 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 1 gewuerfelt
+			Es wurde eine 1 gewuerfelt
+			Es wurde eine 2 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 6 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 2 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 2 gewuerfelt
+			Es wurde eine 6 gewuerfelt
+			Es wurde eine 4 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 1 gewuerfelt
+			Es wurde eine 4 gewuerfelt
+			Es wurde eine 3 gewuerfelt
+			Es wurde eine 4 gewuerfelt
+			Es wurde eine 1 gewuerfelt
+			Es wurde eine 6 gewuerfelt
+			[  (5 x 1), (4 x 2), (11 x 3), (4 x 4), (4 x 5), (3 x 6) ]
+			Es wurden 31 Versuche benötigt, um 100 Punkte zu erzielen.
+			```
+
+			Es muss das `target` nicht exakt getroffen werden, das ist Zufall. Es stoppt, sobald `100` oder mehr Punkte erreicht wurden. 
+
 
 
 ## Zusätzliche Übungen
