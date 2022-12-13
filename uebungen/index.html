@@ -510,6 +510,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#zusatzliche-ubungen" class="md-nav__link">
+    Zusätzliche Übungen
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -562,6 +569,13 @@
         <li class="md-nav__item">
   <a href="#ubungsblatter-wochenweise" class="md-nav__link">
     Übungsblätter (wochenweise)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusatzliche-ubungen" class="md-nav__link">
+    Zusätzliche Übungen
   </a>
   
 </li>
@@ -2114,7 +2128,7 @@ und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzlich
 </details>
 </li>
 <li>
-<p>Erstellen Sie im package eine weitere Klasse <code>Clock</code>. In der Klasse <code>Clock</code> verwenden Sie zwei <code>Counter</code>. Der eine <code>Counter</code> zählt die <code>minutes</code> und hat das <code>limit</code> <code>60</code> und der andere <code>Counter</code> zählt die <code>hours</code> udn hat das <code>limit</code> <code>24</code>.  </p>
+<p>Erstellen Sie im package eine weitere Klasse <code>Clock</code>. In der Klasse <code>Clock</code> verwenden Sie zwei <code>Counter</code>. Der eine <code>Counter</code> zählt die <code>minutes</code> und hat das <code>limit</code> <code>60</code> und der andere <code>Counter</code> zählt die <code>hours</code> und hat das <code>limit</code> <code>24</code>.  </p>
 </li>
 <li>
 <p>In der Klasse <code>Clock</code> erstellen Sie zwei Objektvariablen <code>minutes</code> und <code>hours</code>, jeweils vom Typ <code>Counter</code> (beide nur in der Klasse sichtbar). </p>
@@ -2187,6 +2201,532 @@ und führen Sie die <code>Testklasse</code> aus. Es sollten folgende zusätzlich
 </details>
 </li>
 </ol>
+</details>
+<details class="question">
+<summary>Eine mögliche Lösung für Übung 7</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Counter.java</label><label for="__tabbed_4_2">Clock.java</label><label for="__tabbed_4_3">Programmklasse.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung7</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Counter</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Counter</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">increase</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">increased</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">counter</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">limit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">counter</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">increased</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">increased</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="c1">//      String s = &quot;&quot;;</span><span class="w"></span>
+<span class="c1">//      if(this.counter &lt; 10)</span><span class="w"></span>
+<span class="c1">//      {</span><span class="w"></span>
+<span class="c1">//          s += &quot;0&quot; + this.counter;    // s = s + &quot;0&quot; + this.counter</span><span class="w"></span>
+<span class="c1">//      }</span><span class="w"></span>
+<span class="c1">//      else</span><span class="w"></span>
+<span class="c1">//      {</span><span class="w"></span>
+<span class="c1">//          s += this.counter;          // s = s + this.counter</span><span class="w"></span>
+<span class="c1">//      }</span><span class="w"></span>
+<span class="c1">//      return s;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%02d&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">counter</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung7</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Clock</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">minutes</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">hours</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Clock</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increase</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">increased</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">minutes</span><span class="p">.</span><span class="na">increase</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">increased</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">hours</span><span class="p">.</span><span class="na">increase</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">hours</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">minutes</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">uebungen.uebung7</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Programmklasse</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n---------------- Test Counter -----------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Counter</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">120</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">counter</span><span class="p">.</span><span class="na">increase</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%3d : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="n">counter</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n----------------- Test Clock ------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Clock</span><span class="w"> </span><span class="n">clock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Clock</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">1600</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">clock</span><span class="p">.</span><span class="na">increase</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">50</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%4d : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">clock</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="note">
+<summary>Übung 8</summary>
+<ol>
+<li>Erstellen Sie ein package <code>uebungen.uebung8</code>. </li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Uebung8</code> mit <code>main()</code>-Methode.</li>
+<li>
+<p>Implementieren Sie eine <code>public static void print(char[] ca)</code>-Methode, so dass das <code>char[] ca</code> auf die Konsole ausgegeben wird. Achten Sie darauf, dass hinter dem letzten Element kein Komma steht. Testen Sie Ihre Methode auch für ein leeres Array.<br/>
+    Bsp:  <code>print(['a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'])</code> <br/>
+    Ausgabe auf Konsole: <code>[a, b, c, a, c, a, b, c]</code></p>
+</li>
+<li>
+<p>Kopieren Sie die <code>print</code>-Methode vollständig und ändern Sie den Typ des Parameters von <code>char[]</code> in <code>int[]</code>. (Die Methode ist jetzt <em>überladen</em> und <code>print()</code> kann jetzt entweder ein <code>char[]</code> oder ein <code>int[]</code> übergeben werden, welches auf die Konsole ausgegeben wird.)</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static char[] stringToCharArray(String s)</code>. Diese Methode wandelt einen <code>String</code> in ein <code>char[]</code> um, so dass jedes Zeichen des Strings im <code>char[]</code> enthalten ist. Das <code>char[]</code> wird zurückgegeben. 
+    Tipps: die Länge eines Strings wird mit der Objektmethode <code>length()</code> ermittelt. Die einzelnen Zeichen eines Strings können mithilfe der <code>charAt(index)</code>-Objektmethode von Strings ermittelt werden. Siehe <a href="../hilfsklassen/#die-klasse-string">String</a> <br/>
+    Bsp.: <code>stringToCharArray("hallo!")</code> &rarr; <code>['h','a','l','l','o','!']</code> </p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int[] minAndMax(int[] iarr)</code>, der ein <code>int</code>-Array als Parameter übergeben wird und die ein zweielementiges Array zurückgibt. Das erste Element des zurückgegeben Arrays ist das Minimum des als Parameter übergebenen Arrays und das zweite Element ist das Maximum. <br/>
+    Bsp.:   <code>minAndMax([4,2,8,1,6,2,4,1,8])</code> &rarr; <code>[1,8]</code> <br/>
+            <code>minAndMax([4])</code> &rarr; <code>[4,4]</code></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int[] reverse(int[] iarr)</code>, der ein <code>int</code>-Array übergeben wird und die die Reihenfolge der Elemente des Arrays umdreht (das letzte zuerst usw.) Das neuerstellte Array wird zurückgegeben. <br/>
+    Bsp.: <code>reverse([4,2,8,1,6,2,4,1,8])</code> &rarr; <code>[8,1,4,2,6,1,8,2,4]</code>  <br/>
+          <code>reverse([4])</code> &rarr; <code>[4]</code></p>
+</li>
+<li>
+<p><strong>Zusatz:</strong> </p>
+<ul>
+<li>Implementieren Sie eine Methode <code>public static char[] filter(char[] carr, char filter)</code>, der als Parameter ein <code>char</code>-Array und ein <code>char</code> übergeben wird. Die Methode soll ein <code>char</code>-Array zurückgeben, das dem als Parameter übergeben Array entspricht, außer dass jedes Vorkommen des als Parameter übergeben <code>carr</code> entfernt wurde <br/>
+Bsp: <code>filter(['a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'], 'c')</code> &rarr; <code>['a', 'b', 'a', 'a', 'b']</code></li>
+<li>Implementieren Sie eine Methode <code>public static boolean containsDoublets(char[] ca)</code> die ein <code>true</code> zurückgibt, wenn <em>mindestens</em> ein Wert in <code>ca</code> <em>mindestens</em> zwei Mal vorkommt (wenn Sie schon dabei sind, können Sie sich auch überlegen, wenn <em>genau</em> ein Wert <em>genau</em> zwei Mal vorkommt - oder <em>mindestens</em> ein Wert <em>genau</em> zwei Mal - oder <em>genau</em> ein Wert <em>mindestens</em> zwei Mal) und <code>false</code> sonst.</li>
+</ul>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>Übung 9</summary>
+<ol>
+<li>Übung 9 vertieft das Verständnis von Programmabläufen, Methodenaufrufen und Algorithmen. </li>
+<li>Walk-throughs und Multiple-choice-Aufgaben.</li>
+</ol>
+</details>
+<details class="note">
+<summary>Übung 10</summary>
+<ol>
+<li>Erstellen Sie ein package <code>uebungen.uebung10</code>. </li>
+<li>Erstellen Sie in diesem package eine Klasse <code>Uebung10</code> mit <code>main()</code>-Methode.</li>
+<li>
+<p><strong>Vorabinformation</strong>: </p>
+<ul>
+<li>
+<p>Wir implementieren Würfe eines Würfels. Alle Würfe werden in einem Array <code>statistics</code> gespeichert. Das Array hat die Länge 6 und beschreibt, wie oft eine 1, wie oft eine 2, ..., wie oft eine 6 gewürfelt wurde. </p>
+<p><img alt="statistics" src="../files/50_statistics.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie sich in der <code>main()</code>-Methode zunächst das <code>statistics</code>-Array. Alle Elemente des Arrays sind vom Typ <code>int</code> und es hat die Länge <code>6</code>. </p>
+</li>
+<li>
+<p>Implementieren Sie folgende Methoden: </p>
+<ul>
+<li>
+<p>Implementieren Sie eine <code>public static int throwDice()</code>-Methode, die eine Zufallszahl aus dem Wertebereich <code>[1, ... , 6]</code> erzeugt und zurückgibt.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printThrow(int cast)</code>, die den Wert des übergebenen Wurfes (<code>cast</code>) wie folgt ausgibt (Beispiel <code>cast==5</code>):
+    <div class="highlight"><pre><span></span><code>Es wurde eine <span class="m">5</span> gewuerfelt
+</code></pre></div></p>
+</li>
+<li>
+<p>Testen Sie beide Methoden, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------- Test throwDice and printThrow -------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDice</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">printThrow</span><span class="p">(</span><span class="n">cast</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<p>Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>------------------- Test throwDice and printThrow -------------------
+
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int[] insertIntoStatistics(int[] statistics, int cast)</code>. Das <code>statistics</code>-Array wird als Parameter übergeben und das <code>statistics</code>-Array selbst wird auch wieder zurückgegeben! Im <code>statistics</code>-Array wird der Wert an der Stelle um <code>1</code> erhöht, der dem Wurf <code>cast</code> entspricht. D.h. wurde eine <code>1</code> gewürfelt, wird der Wert im Index <code>0</code> um <code>1</code> erhöht, wurde eine <code>2</code> gewürfelt, der Wert im Index <code>1</code> usw. (siehe auch oben die Abbildung zu <code>statistics</code>)</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static void printStatistics(int[] statistics)</code>, die das <code>statistics</code>-Array wie folgt auf die Konsole ausgibt. <br/></p>
+<p>Angenommen, das <code>statistics</code>-Array ist so befüllt: <code>[ 3,8,4,5,8,2 ]</code>, dann ist die Ausgabe auf der Konsole:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span> <span class="o">(</span><span class="m">3</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">8</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">5</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">8</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">2</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+</code></pre></div>
+</li>
+<li>
+<p>Testen Sie beide Methoden, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ Test insert- and printStatistics -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDice</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">statistics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertIntoStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span><span class="w"> </span><span class="n">cast</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w">    </span>
+</code></pre></div></p>
+<p>Es wird angenommen, dass Sie das <code>statistics</code>-Array bereits gleich am Anfang in der <code>main()</code> erzeugt haben - wenn nicht, können Sie das auch hier machen. Beachten Sie den Aufruf von <code>statistics = insertIntoStatistics(statistics, cast);</code>. Die <code>insertIntoStatistics()</code>-Methode bekommt das <code>statistics</code>-Array als Parameter übergeben, gibt es selbst wieder zurück und in der <code>main()</code>-Methode speichern wir die Rückgabe wieder in der <code>statistics</code>-Referenz. Das ist zwar so gar nicht nötig, aber das lernen wir erst, wenn es um Objekte geht. Jetzt ist es völlig in Ordnung, das so zu machen. </p>
+<p>Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>------------------ Test insert- and printStatistics -----------------
+
+<span class="o">[</span>  <span class="o">(</span><span class="m">20</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">13</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">16</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">15</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">19</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">17</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public static int sumOfStatistics(int[] statistics)</code>, die eine Summe über alle Werte im <code>statistics</code>-Array wie folgt berechnet: <br/></p>
+<p><strong>Beispiel</strong>: Angenommen, das Array ist so befüllt: <code>[ 3,8,4,5,8,2 ]</code>, dann ist die Summe: <code>3x1 + 8x2 + 4x3 + 5x4 + 8x5 + 2x6 = 3 + 16 + 12 + 20 + 40 + 12 = 103</code>. Die Summe <code>103</code> wird zurückgegeben.  </p>
+</li>
+<li>
+<p>Testen Sie die Methode, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n--------------------- Test sumOfStatistics --------------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sumTest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumOfStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Summe = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sumTest</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<p>Das <code>statistics</code>-Array ist ja bereits oben befüllt worden, das müssen wir hier also nicht mehr machen. Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>--------------------- Test sumOfStatistics --------------------------
+
+<span class="o">[</span>  <span class="o">(</span><span class="m">14</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">15</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">11</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">16</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">27</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">17</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+<span class="nv">Summe</span> <span class="o">=</span> <span class="m">378</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Zusatz:</strong> Implementieren Sie eine Methode <code>public static int throwDiceUntilTarget(int target, int[] statistics)</code>, die so lange einen Würfel würfelt, bis als Summe der Augen das <code>target</code> erreicht ist. Die Anzahl der Würfe wird zurückgegeben. In dieser Methode erfolgen folgende Aufrufe:</p>
+<ul>
+<li>nach jedem Wurf (<code>throwDice()</code>) wird der Wurf ausgegeben (<code>printThrow()</code>) </li>
+<li>jeder Wurf wird in das <code>statistics</code>-Array eingetragen (<code>insertIntoStatistics()</code>)</li>
+<li>nach jedem Wurf wird die Summme aller Augen aller bisherigen Würfe ermittelt (<code>sumOfStatistics()</code>). </li>
+<li>so lange die Summe kleiner ist als das <code>target</code>, wird weiter gewürfelt</li>
+</ul>
+</li>
+<li>
+<p>Testen Sie die Methode, indem Sie in der <code>main()</code>-Methode eingeben:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------- Test throwDiceUntilTarget -----------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">statistics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span><span class="w">    </span><span class="c1">// altes Array war schon befuellt </span><span class="w"></span>
+<span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TARGET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDiceUntilTarget</span><span class="p">(</span><span class="n">TARGET</span><span class="p">,</span><span class="w"> </span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumOfStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w"></span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Es wurden &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Versuche benötigt, um &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Punkte zu erzielen.&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<p>Da das <code>statistics</code>-Array zuvor bereits befüllt war, erstellen wir es für das Testen dieser Methode nochmal neu. Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
+<div class="highlight"><pre><span></span><code>------------------- Test throwDiceUntilTarget -----------------------
+
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">5</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">2</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">3</span> gewuerfelt
+Es wurde eine <span class="m">4</span> gewuerfelt
+Es wurde eine <span class="m">1</span> gewuerfelt
+Es wurde eine <span class="m">6</span> gewuerfelt
+<span class="o">[</span>  <span class="o">(</span><span class="m">5</span> x <span class="m">1</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">2</span><span class="o">)</span>, <span class="o">(</span><span class="m">11</span> x <span class="m">3</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">4</span><span class="o">)</span>, <span class="o">(</span><span class="m">4</span> x <span class="m">5</span><span class="o">)</span>, <span class="o">(</span><span class="m">3</span> x <span class="m">6</span><span class="o">)</span> <span class="o">]</span>
+Es wurden <span class="m">31</span> Versuche benötigt, um <span class="m">100</span> Punkte zu erzielen.
+</code></pre></div></p>
+<p>Es muss das <code>target</code> nicht exakt getroffen werden, das ist Zufall. Es stoppt, sobald <code>100</code> oder mehr Punkte erreicht wurden. </p>
+</li>
+</ul>
+</li>
+</ol>
+</details>
+<h2 id="zusatzliche-ubungen">Zusätzliche Übungen<a class="headerlink" href="#zusatzliche-ubungen" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Binäre Bäume</summary>
+<hr />
+<p><strong>Info:</strong> Wir erstellen uns einen Datentyp <code>BinaryTreeNode</code>, der einen Knoten in einem Binärbaum repräsentiert. Hier wird die Verwendung von <code>null</code> und Rekursion geübt.</p>
+<hr />
+<ol>
+<li>Erstellen Sie eine Klasse <code>BinaryTreeNode</code>.</li>
+<li>
+<p>Objektvariablen (alle <code>private</code>) dieser Klasse sind</p>
+<ul>
+<li><code>value</code> vom Typ <code>int</code>,</li>
+<li><code>left</code> vom Typ <code>BinaryTreeNode</code> und</li>
+<li><code>right</code> vom Typ <code>BinaryTreeNode</code>.</li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie einen parametrisierten Konstruktor <code>public BinaryTreeNode(int value)</code>, in dem der linke und rechte Teilbaum jeweils auf <code>null</code> gesetzt und die Objektvariable <code>value</code> mit dem Parameterwert initialisiert werden. </p>
+</li>
+<li>
+<p>Implementieren Sie die Methoden <code>public boolean hasLeft()</code> und <code>public boolean hasRight()</code>, die ein <code>true</code> zurückgeben, wenn der linke bzw. rechte Teilbaum ein Objekt ist und <code>false</code>, wenn <code>left</code> bzw. <code>right</code> den Wert <code>null</code> haben. </p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public void insert(int value)</code>, die die folgende private Methode <code>private void insert(BinaryTreeNode root, int value)</code> aufruft.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>private void insert(BinaryTreeNode root, int value)</code>, die ein <code>BinaryTreeNode</code>-Objekt in den Binärbaum einfügt. Beachten Sie:</p>
+<ul>
+<li>wenn <code>value</code> kleiner ist, als der <code>value</code>, von dem Knoten, den Sie gerade betrachten, dann fügen Sie den Wert in den linken Teilbaum ein,</li>
+<li>wenn <code>value</code> größer ist, als der <code>value</code>, von dem Knoten, den Sie gerade betrachten, dann fügen Sie den Wert in den rechten Teilbaum ein,</li>
+<li>wenn im Baum bereits ein Knoten mit <code>value</code> existiert, dann wird kein Knoten hinzugefügt. </li>
+</ul>
+<p><strong>Tipp:</strong> Sie sollten die Methode am besten rekursiv implementieren.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>public void print()</code>, die die folgende private Methode <code>private void print(int indent)</code> aufruft.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>private void print(int indent)</code>. Diese Methode gibt den <code>value</code> des aufrufenden Knotens auf die Konsole aus und ruft dann sowohl die <code>print(indent)</code>-Methode des linken Teilbaums als auch die <code>print(indent)</code>-Methode des rechten Teilbaums auf, falls sie jeweils existieren. Der <code>indent</code>-Parameter ist dazu da, damit für jede Verzweigungstiefe der Wert weiter eingerückt auf der Konsole ausgegeben wird, also z.B. so:</p>
+<div class="highlight"><pre><span></span><code><span class="m">10</span>
+l--------5
+         l--------3
+                  r--------4
+         r--------8
+                  r--------9
+r--------15
+         l--------13
+                  l--------12
+                  r--------14
+         r--------18
+                  l--------17
+</code></pre></div>
+<p><strong>Tipp:</strong> Sie sollten die Methode am besten rekursiv implementieren.</p>
+</li>
+<li>
+<p>Die <code>main()</code>-methode der <code>Programmklasse</code> könnte z.B. so aussehen:</p>
+<div class="highlight"><pre><span></span><code><span class="n">BinaryTreeNode</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryTreeNode</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span><span class="w"></span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span><span class="w"> </span>
+<span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+<span class="n">btn</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</li>
+</ol>
+</details>
+<details class="question">
+<summary>Eine mögliche Lösung für Binäre Bäume</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">BinaryTreeNode.java</label><label for="__tabbed_5_2">Programmklasse.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BinaryTreeNode</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BinaryTreeNode</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BinaryTreeNode</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">BinaryTreeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">hasLeft</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">hasRight</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w">   </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">BinaryTreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">.</span><span class="na">hasLeft</span><span class="p">())</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">root</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryTreeNode</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">.</span><span class="na">hasRight</span><span class="p">())</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryTreeNode</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">insert</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">indent</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">hasLeft</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">indent</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">indent</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;l--------&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                </span><span class="k">else</span><span class="w">              </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;         &quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">left</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">indent</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">hasRight</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">indent</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">indent</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;r--------&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">                </span><span class="k">else</span><span class="w">              </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;         &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">right</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">indent</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Programmklasse</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">BinaryTreeNode</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryTreeNode</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">btn</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
 </details>
 
 

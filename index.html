@@ -699,29 +699,29 @@
 <tr>
 <td>7.</td>
 <td>28.-02.12.2022</td>
-<td>Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten</td>
+<td><a href="./objekte2/#klassen-und-objekte-ii">Konstruktoren, this, eigene Datentypen, Rückgabe von Objekten</a></td>
 <td><a href="./aufgaben/#aufgabe-3-abgabe-bis-06112022-2400-uhr">Aufgabe 3</a></td>
 <td>06.12.2022</td>
 </tr>
 <tr>
 <td>8.</td>
 <td>05.-09.12.2022</td>
-<td>Eigene Datentypen in Datentypen verwenden</td>
+<td><a href="./vererbung/#vererbung">Vererbung,</a> <a href="./object/#die-klasse-object">Object und Polymorphie</a></td>
 <td><a href="./aufgaben/#aufgabe-4-abgabe-bis-13122022-2400-uhr">Aufgabe 4</a></td>
 <td>13.12.2022</td>
 </tr>
 <tr>
 <td>9.</td>
 <td>12.-16.12.2022</td>
-<td>Vererbung, Object und Polymorphie</td>
-<td>Aufgabe 5</td>
+<td><a href="./arrays/#arrays">Arrays</a></td>
+<td><a href="./aufgaben/#aufgabe-5-abgabe-bis-20122022-2400-uhr">Aufgabe 5</a></td>
 <td>20.12.2022</td>
 </tr>
 <tr>
 <td>10.</td>
 <td>19.-23.12.2022</td>
-<td>Arrays</td>
-<td>Aufgabe 6</td>
+<td>Algorithmen über Arrays</td>
+<td><a href="./aufgaben/#aufgabe-6-abgabe-bis-03012023-2400-uhr">Aufgabe 6</a></td>
 <td>03.01.2023</td>
 </tr>
 <tr>
@@ -734,21 +734,21 @@
 <tr>
 <td>11.</td>
 <td>02.-06.01.2023</td>
-<td>Algorithmen über Arrays</td>
+<td>Sortieren von Arrays</td>
 <td>Aufgabe 7</td>
 <td>10.01.2023</td>
 </tr>
 <tr>
 <td>12.</td>
 <td>09.-13.01.2023</td>
-<td>Sortieren von Arrays</td>
+<td>Suchen in Arrays</td>
 <td>Aufgabe 8</td>
 <td>17.01.2023</td>
 </tr>
 <tr>
 <td>13.</td>
 <td>16.-20.01.2023</td>
-<td>Suchen in Arrays</td>
+<td>JUnit-Testen</td>
 <td>Aufgabe 9</td>
 <td>24.01.2023</td>
 </tr>
@@ -2427,6 +2427,350 @@
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ich</span><span class="p">.</span><span class="na">getAdresse</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
 
 
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="success">
+<summary>Video zur Vorlesung Vererbung</summary>
+<p><iframe src="https://mediathek.htw-berlin.de/media/embed?key=bb4c96c32600da9138164a6a6e455069&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=bb4c96c32600da9138164a6a6e455069&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="450" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe></p>
+</details>
+<details class="note">
+<summary>Datentyp Viereck</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">vorlesungen.vorl_2022_12_06</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Viereck</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Viereck</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Viereck</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">umfang</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Vierecks betraegt : %3dcm%n&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">d</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">umfang</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="note">
+<summary>Datentyp Rechteck</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">vorlesungen.vorl_2022_12_06</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Rechteck</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Viereck</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Rechteck</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">laenge</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">breite</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">laenge</span><span class="p">,</span><span class="w"> </span><span class="n">breite</span><span class="p">,</span><span class="w"> </span><span class="n">laenge</span><span class="p">,</span><span class="w"> </span><span class="n">breite</span><span class="p">);</span><span class="w">  </span><span class="c1">// ruft den Konstruktor von Viereck auf</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">flaecheninhalt</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Rechtecks betraegt : %3dcm%n&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Der Flaecheninhalt des Rechtecks betraegt : %3dcm%n&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">d</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">umfang</span><span class="p">(),</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">flaecheninhalt</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="note">
+<summary>Datentyp Quadrat</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">vorlesungen.vorl_2022_12_06</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Quadrat</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Rechteck</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Quadrat</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">seitenlaenge</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">seitenlaenge</span><span class="p">,</span><span class="w"> </span><span class="n">seitenlaenge</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Quadrats betraegt : %3dcm%n&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Der Flaecheninhalt des Quadrats betraegt : %3dcm%n&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">a</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">b</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">d</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">umfang</span><span class="p">(),</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">flaecheninhalt</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="note">
+<summary>Programmklasse für Viereck, Rechteck und Quadrat</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">vorlesungen.vorl_2022_12_06</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Programmklasse</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ Viereck -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Viereck</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">25</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">v1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Viereck</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">v2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// System.out.println(v2.flaecheninhalt());    // existiert nicht fuer Viereck</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ Rechteck -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Rechteck</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rechteck</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">26</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">r1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r1</span><span class="p">.</span><span class="na">umfang</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r1</span><span class="p">.</span><span class="na">flaecheninhalt</span><span class="p">());</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ Quadrat -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Quadrat</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Quadrat</span><span class="p">(</span><span class="mi">35</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">q1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">q1</span><span class="p">.</span><span class="na">umfang</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">q1</span><span class="p">.</span><span class="na">flaecheninhalt</span><span class="p">());</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ Deklaration Viereck -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Viereck</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rechteck</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">v5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Quadrat</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// System.out.println(v4.flaecheninhalt());</span><span class="w"></span>
+<span class="w">        </span><span class="n">v3</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">v4</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">v5</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">v6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v5</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">v6</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">v5</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Quadrat</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Quadrat</span><span class="w"> </span><span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Quadrat</span><span class="p">)</span><span class="n">v5</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="c1">//v5.flaecheninhalt();  // v5 ist Compilertyp Viereck</span><span class="w"></span>
+<span class="w">            </span><span class="n">q2</span><span class="p">.</span><span class="na">flaecheninhalt</span><span class="p">();</span><span class="w">    </span><span class="c1">// </span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">v4</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Quadrat</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;v4 Quadrat&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;v4 kein Quadrat&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.9</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">//Quadrat q3 = (Quadrat)v3;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// q3.flaecheninhalt();     // ClassCastException</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Viereck</span><span class="w"> </span><span class="n">q4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Quadrat</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">q4</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------ toString() -----------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">q4</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Rechteck</span><span class="w"> </span><span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rechteck</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">Quadrat</span><span class="w"> </span><span class="n">q3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Quadrat</span><span class="p">(</span><span class="mi">35</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">q3</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="p">}</span><span class="w"></span>
