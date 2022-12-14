@@ -1120,6 +1120,262 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	```
 
 
+??? success "Video zur Vorlesung equals() und Arrays"
+
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=180282e059c6ba1d903a6f40460e412a&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=180282e059c6ba1d903a6f40460e412a&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="450" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
+
+??? note "Datentyp Viereck mit equals(Object o)"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_06;
+
+	public class Viereck
+	{
+		protected int a;
+		protected int b;
+		protected int c;
+		protected int d;
+		
+		public Viereck(int a, int b, int c, int d)
+		{
+			this.a = a;
+			this.b = b;
+			this.c = c;
+			this.d = d;
+		}
+		
+		public Viereck()
+		{
+			this.a = 1;
+			this.b = 2;
+			this.c = 3;
+			this.d = 4;
+		}
+		
+		public int umfang()
+		{
+			return this.a + this.b + this.c + this.d;
+		}
+		
+		public void print()
+		{
+			System.out.println(this.toString());
+		}
+		
+		@Override
+		public String toString()
+		{
+			return String.format("[ a = %2d, b = %2d, c = %2d, d = %2d ] %nDer Umfang des Vierecks betraegt : %3dcm%n", 
+					this.a, this.b, this.c, this.d, this.umfang() );
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+			if(o == null) return false;		// null-Akzeptant
+			if(o == this) return true;		// Reflexivitaet 
+			if(this.getClass() != o.getClass()) return false;
+			
+			// jetzt wissen wir, dass 
+			// - o nicht null und
+			// - o nicht this und
+			// - o ein Viereck ist
+			Viereck vOther = (Viereck)o;		// vOther und o zeigen auf dasselbe Objekt
+			
+			return this.a == vOther.a && this.b == vOther.b && this.c == vOther.c && this.d == vOther.d;
+		}
+	}
+	```
+
+
+??? note "Programmklasse für Viereck und Arrays"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_13;
+
+	import vorlesungen.vorl_2022_11_29.Circle;
+	import vorlesungen.vorl_2022_12_06.Rechteck;
+	import vorlesungen.vorl_2022_12_06.Viereck;
+
+	public class Programmklasse
+	{
+		public static void printArray(int[] a)
+		{
+			System.out.print("[ ");
+			for(int index = 0; index < a.length; index++)
+			{
+				if(index == a.length-1)
+				{
+					System.out.print(a[index]);
+				}
+				else
+				{
+					System.out.print(a[index] + ", ");
+				}
+			}
+			System.out.println(" ]");
+		}
+		
+		public static int getMaximum(int[] a)
+		{
+			if(a.length > 0)
+			{
+				int aktuellesMaximum = a[0];
+				for (int index = 1; index < a.length; index++)
+				{
+					if(a[index] > aktuellesMaximum)
+					{
+						aktuellesMaximum = a[index];
+					}
+				}
+				return aktuellesMaximum;
+			}
+			else
+			{
+				return 0;		// gibt kein richtig!!! 
+			}
+		}
+		
+		public static int getIndexOfMaximum(int[] a)
+		{
+			if(!isEmpty(a))
+			{
+				int indexAktuellesMaximum = 0;
+				for (int index = 0; index < a.length; index++)
+				{
+					if(a[index] > a[indexAktuellesMaximum])
+					{
+						indexAktuellesMaximum = index;
+					}
+				}
+				return indexAktuellesMaximum;
+			}
+			else
+			{
+				final int NOT_FOUND = -1;
+				return NOT_FOUND;
+			}
+		}
+		
+		public static boolean isEmpty(int[] a)
+		{
+			return (a.length == 0);
+		}
+
+		public static void main(String[] args)
+		{
+			
+			System.out.printf("%n%n--------------------- equals() --------------------------%n%n");
+			Viereck v1 = new Viereck(10,20,30,40);
+			Viereck v2 = new Viereck(10,20,30,40);
+			Viereck v3 = v2;
+			v1.print();
+			v2.print();
+			
+			System.out.println(v1 == v2);		// Referenzvergleich!	false
+			System.out.println(v3 == v2);		// Referenzvergleich!	true
+			
+			System.out.println(v1.equals(v2));		// true
+			System.out.println(v3.equals(v2));		// true
+			
+			Circle c1 = new Circle(5.0);
+			System.out.println(v1.equals(c1));		// false
+			System.out.println(v1.equals(null));	// false
+			
+			Viereck v4 = null;
+			System.out.println(v1.equals(v4));		// false
+			System.out.println(v1.equals(v1));		// true
+
+			Viereck v5 = new Viereck(1,2,3,4);
+			Viereck v6 = v5;						// v6 und v5 zeigen auf dasselbe Objekt
+			
+			Viereck v7 = new Rechteck(11,12);
+			// v7.flaecheninhalt();					// Fehler
+			Rechteck r8 = (Rechteck)v7;				// v7 und r8 zeigen auf dasselbe Objekt
+			r8.flaecheninhalt();
+			
+			System.out.printf("%n%n--------------------- Arrays --------------------------%n%n");
+			Viereck v001 = new Viereck(1,2,3,4);
+			Viereck v002 = new Viereck(10, 20, 30, 40);
+			Viereck v003 = new Viereck(11,12,13,14);
+			Viereck v004 = new Viereck(11, 21, 31, 41);
+			
+			Viereck[] vierecke = new Viereck[4];
+			vierecke[0] = new Viereck(1,2,3,4);
+			vierecke[0].print();
+			vierecke[1] = new Viereck(10, 20, 30, 40);
+			vierecke[1].print();
+			vierecke[2] = new Viereck(11,12,13,14);
+			vierecke[2].print();
+			vierecke[3] = new Viereck(11, 21, 31, 41);
+			vierecke[3].print();
+			
+			for(int index = 0; index < vierecke.length; index++)
+			{
+				vierecke[index].print();
+			}
+			
+			double[] noten = new double[10];	// alle Elemente vom Typ double, Laenge ist 10
+			String[] satz = new String[5];		// alle Elemente vom Typ String, Laenge ist 5
+			satz[0] = "Das";
+			satz[1] = "ist";
+			satz[2] = "ein";
+			satz[3] = "Satz";
+			satz[4] = "!";
+			// satz[5] Index 5 gibt es nicht!! ArrayIndexOutOfBoundsException
+			for(int index = 0; index < satz.length; index++)
+			{
+				System.out.print(satz[index] + " ");
+			}
+			System.out.println();
+			
+			int[] quadratzahlen = new int[10];
+			for(int index = 0; index < quadratzahlen.length; index++)
+			{
+				quadratzahlen[index] = index * index;
+			}
+			
+			int summe = 0;
+			System.out.print("[ ");
+			for(int index = 0; index < quadratzahlen.length; index++)
+			{
+				summe = summe + quadratzahlen[index];
+				if(index == quadratzahlen.length-1)
+				{
+					System.out.println(quadratzahlen[index] + " ]");
+				}
+				else
+				{
+					System.out.print(quadratzahlen[index] + ", ");
+				}
+			}
+
+			System.out.println("Summe = " + summe);
+			
+			printArray(quadratzahlen);
+			
+			//[0,1,4,9, 81]
+			
+			int[] testArray1 = { 2, 6, 1, 7, 11, 12, 6, 3, 5, 1, 13, 3, 21, 4, 8, 5 };
+			printArray(testArray1);
+			System.out.println("Max: " + getMaximum(testArray1));
+			System.out.println("MaxIndex: " + getIndexOfMaximum(testArray1));
+			
+			int[] testArray2 = { -2, -6, -1, -7, -11, -12, -6, -3, -5, -1, -13, -3, -21, -4, -8, -5 };
+			printArray(testArray2);
+			System.out.println("Max: " + getMaximum(testArray2));
+			System.out.println("MaxIndex: " + getIndexOfMaximum(testArray2));
+			
+			int[] testArray3 = new int[0];
+			printArray(testArray3);
+			if(!isEmpty(testArray3))
+			{
+				System.out.println("Max: " + getMaximum(testArray3));
+			}
+		}
+
+	}
+	```
+
 
 
 
