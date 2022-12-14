@@ -1737,6 +1737,233 @@
     	- Implementieren Sie eine Methode `public static boolean containsDoublets(char[] ca)` die ein `true` zurückgibt, wenn *mindestens* ein Wert in `ca` *mindestens* zwei Mal vorkommt (wenn Sie schon dabei sind, können Sie sich auch überlegen, wenn *genau* ein Wert *genau* zwei Mal vorkommt - oder *mindestens* ein Wert *genau* zwei Mal - oder *genau* ein Wert *mindestens* zwei Mal) und `false` sonst.
 
 
+??? question "Eine mögliche Lösung für Übung 8"
+
+	```java
+	package uebungen.uebung8;
+
+	public class Uebung8 {
+
+		public static void print(char[] ca)
+	    {
+	        String s = "[ ";
+	        if(ca.length == 0)
+	        {
+	            s = s + "]";
+	        }
+	        else
+	        {
+	            for (int index = 0; index < ca.length - 1; index++) 
+	            {
+	                s = s + ca[index] + ", ";
+	            }   
+	            s = s + ca[ca.length - 1] + " ]";
+	        }
+	        System.out.println(s);
+	    }
+		
+		public static void print(int[] ia)
+	    {
+	        String s = "[ ";
+	        if(ia.length == 0)
+	        {
+	            s = s + "]";
+	        }
+	        else
+	        {
+	            for (int index = 0; index < ia.length - 1; index++) 
+	            {
+	                s = s + ia[index] + ", ";
+	            }   
+	            s = s + ia[ia.length - 1] + " ]";
+	        }
+	        System.out.println(s);
+	    }
+		
+		public static char[] stringToCharArray(String s)
+		{
+			/*
+			 * ca hat dieselbe Laenge wie der String
+			 * (gleichviele Zeichen)
+			 */
+			char[] ca = new char[s.length()];
+			for (int index = 0; index < ca.length; index++)
+			{
+				ca[index] = s.charAt(index);
+			}
+			
+			return ca;
+		}
+		
+		public static int[] reverse(int[] iarr)
+		{
+			int[] ia = new int[iarr.length];
+			
+			/*
+			 * ia wird von links nach rechts durchlaufen
+			 * iarr von rechts nach links
+			 */
+			for (int index = 0; index < ia.length; index++)
+			{
+				ia[index] = iarr[iarr.length-1 - index];
+			}
+			return ia;
+		}
+
+		public static char[] filter(char[] carr, char filter)
+		{
+			/*
+			 * neues Array erzeugen -- Idee:
+			 * 		1. neues Array erzeugen (char[])
+			 * 		2. aber wie lang ist das neue Array?
+			 * 		3. Laenge von neuen Array ist (Laenge von carr - Anzahl des Vorkommens von filter in carr)
+			 */
+			
+			// wie oft kommt filter in carr vor?
+			int counter = 0;
+			for (int index = 0; index < carr.length; index++)
+			{
+				if(carr[index] == filter)
+				{
+					counter++;
+				}
+			}
+			
+			// jetzt wissen wir, wie oft filter in carr vorkommt: counter
+			int laengeVomNeuenArray = carr.length - counter;
+			
+			// jetzt kann das neue Array erzeugt werden (jetzt kennen wir die Laenge)
+			char[] filterArray = new char[laengeVomNeuenArray];
+			
+			/*
+			 * neues Array befuellen -- Idee:
+			 * 		1. wir laufen durch das komplette carr (for-Schleife)
+			 * 		2. fuer jedes Element aus carr pruefen, ob es dem filter entspricht
+			 * 			2a. wenn es nicht filter entspricht, dann kopieren
+			 * 			2b. wenn es filter entspricht, dann wird es nicht kopiert
+			 * 		3. wichtig: unterschiedlich indexCarr und indexNeuesArray (haben ja auch unter-
+			 * 			schiedliche Laengen)
+			 */
+			
+			// jetzt befuellen - zunaechst for-Schleife fuer carr
+			int indexFilterArray = 0;
+			for (int indexCarr = 0; indexCarr < carr.length; indexCarr++)
+			{
+				if(carr[indexCarr] != filter)
+				{
+					// dann kopieren (sonst nicht)
+					// das geht nicht: --> filterArray[indexCarr] = carr[indexCarr];
+					filterArray[indexFilterArray] = carr[indexCarr];
+					indexFilterArray++;
+				}
+			}
+			return filterArray;
+		}
+
+		public static int[] minAndMax(int[] iarr)
+		{
+			// wir koennen davon ausgehen, dass iarr.length mind. 1 ist
+			int curMin = iarr[0];
+			int curMax = iarr[0];
+			for (int index = 0; index < iarr.length; index++)
+			{
+				if(iarr[index] < curMin)
+				{
+					curMin = iarr[index];	// iarr[index] ist nun mein neues aktuelles Minimum
+				}
+				if(iarr[index] > curMax)
+				{
+					curMax = iarr[index];	// iarr[index] ist nun mein neues aktuelles Maximum
+				}
+			}
+			// entweder so:
+			/*
+			 * int[] minAndMax = new int[2]; 
+			 * minAndMax[0] = curMin; 
+			 * minAndMax[1] = curMax;
+			 * return minAndMax;
+			 */
+			
+			// oder so:
+			/*
+			 * int[] minAndMax = { curMin, curMax }; 
+			 * return minAndMax;
+			 */
+			
+			// oder so:
+			return new int[]{ curMin, curMax };
+		}
+
+		public static void main(String[] args) 
+		{
+			char[] ca1 = {'a', 'b', 'c', 'a', 'c', 'a', 'b', 'c'};
+			char[] ca2 = new char[0];
+			
+			int[] ia1 = {4,2,8,1,6,2,4,1,8};
+			int[] ia2 = { 4 };
+			
+			System.out.printf("%n%n------------------ print() --------------------%n%n");
+
+			print(ca1);
+			print(ca2);
+			print(ia1);
+			print(ia2);
+			
+			System.out.printf("%n%n------------ stringToCharArray()---------------%n%n");
+
+			char[] ca3 = stringToCharArray("Hallo FIW!");
+			print(ca3);
+			
+			System.out.printf("%n%n----------------- reverse() -------------------%n%n");
+
+			int[] ia3 = reverse(ia1);
+			print(ia1);
+			print(ia3);
+
+			System.out.printf("%n%n------------------ filter() -------------------%n%n");
+
+			print(ca1);
+			
+			char[] ca4 = filter(ca1, 'c');
+			print(ca4);
+			
+			char[] ca5 = filter(ca1, 'a');
+			print(ca5);
+				
+			char[] ca6 = filter(ca1, 'b');
+			print(ca6);
+			
+			char[] ca7 = filter(ca1, 'd');
+			print(ca7);
+			
+			System.out.println();
+			
+			print(ca3);
+			
+			char[] ca8 = filter(ca3, 'l');
+			print(ca8);
+			
+			char[] ca9 = stringToCharArray("superlangerTeststringzumFiltern kann auch Leerzeichen enthalten oder alle möglichen Zeichen ?%$§!*");
+			print(ca9);
+			print(u1.filter(ca9, 'e'));
+			
+			System.out.printf("%n%n----------------- minAndMax() ----------------%n%n");
+
+			print(ia1);
+			int[] mm1 = minAndMax(ia1);
+			print(mm1);
+
+			System.out.println();
+			
+			print(ia2);
+			int[] mm2 = minAndMax(ia2);
+			print(mm2);
+		}
+	}
+	```		
+	
+	
+
 	
 ??? note "Übung 9"
 	
@@ -1897,6 +2124,2189 @@
 			```
 
 			Es muss das `target` nicht exakt getroffen werden, das ist Zufall. Es stoppt, sobald `100` oder mehr Punkte erreicht wurden. 
+
+
+
+## Probeklausuren
+
+	
+??? note "Akku"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.akku`. 
+	2. (**Teil 1**) Erstellen Sie in diesem package eine Klasse `Akku` mit 
+
+		- den privaten Objektvariablen `typ` vom Typ `String` (*Typ des Akkus*), `kapazitaet` vom Typ `int` (*Akku-Kapazität*) und `anzahlLadungen` vom Typ `int` (*Anzahl der bisherigen Ladungen des Akkus*). 
+
+		- Erstellen Sie für die Klasse `Akku` einen parametrisierten Konstruktor, dem die Parameter `String typ` und `int kapazitaet` übergeben werden. Mit den Parameterwerten werden die entsprechenden Objektvariablen initialisiert. Die Objektvariable `anzahlLadungen` wird mit dem Wert `0` initialisiert.
+
+		- Erstellen Sie eine Methode `laden()`, die den Wert der Objektvariablen `anzahlLadungen` um `1` erhöht. 
+
+		- Erstellen Sie eine Methode `getZustand()`, die ein `int` zurückgibt. Der Zustand berechnet sich wie folgt:
+
+			- Ist der Akku neu, ist der Zustand bei 100%.
+			- Durch alle 100 Ladungen verringert sich der Zustand um 1%. 
+			- Der Zustand kann nicht kleiner als 0% werden.
+
+			Sie müssen also die `anzahlLadungen` betrachten und durch alle 100 Ladungen reduziert sich der Zustands-Wert `100` um 1. <br/ >
+			Beispiele: <br/>
+			
+			-	`anzahlLadungen`: 99 --> Zustand 100
+			-	`anzahlLadungen`: 199 --> Zustand 99
+			-	`anzahlLadungen`: 1099 --> Zustand 90
+			-	`anzahlLadungen`: 10099 --> Zustand 0
+
+			**Tipps:**<br/> 
+
+			-	Nutzen Sie die Integer-Division durch 100, um zu ermitteln, welchen Wert Sie von 100 abziehen müssen.
+			-	Prüfen Sie, ob das Ergebnis unter 0 ist, dann geben Sie 0 zurück.
+
+
+		- Überschreiben Sie die Methode `toString()` so, dass ein formatierter String in der folgenden Form zurückgegeben wird (Beispielwerte): 
+
+			```bash
+			A1  : 10000mAh   984 Ladungen. Zustand  91%
+			```
+
+			Beachten Sie: `A1` ist der Typ des Akkus.  <br/>
+			
+			- reservieren Sie für den Typ **4** Zeichen (dann kommt ein Doppelpunkt `:`),
+			- reservieren Sie für die Kapazität **5** Zeichen (dann kommt `mAh`),
+			- reservieren Sie für die Anzahl der Ladungen **5** Zeichen (dann kommt ` Ladungen. Zustand `),
+			- reservieren Sie für den Zustand **3** Zeichen (dann kommt `%` --> siehe **Tipp**). 
+
+
+			**Tipp:**<br/> 
+
+			-	das `%`-Zeichen in einem formatierten String wird durch `%%` erzeugt.
+
+		- Erstellen Sie eine `print()`-Methode, die den von `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+		- Überschreiben Sie die Methode `equals(Object o)` so, dass zwei Akkus gleich sind, wenn sie denselben Typ haben. 
+
+		- Erstellen Sie eine `Testklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode vier `Akku`-Objekte mit den folgenden Werten für die Objektvariablen:
+			
+			```bash
+			"A1", 10000
+			"A2", 20000
+			"A3", 30000
+			"A4", 40000
+			```
+
+			Geben Sie alle vier `Akku`-Objekte auf die Konsole unter Verwendung der `print()`-Methode aus. Es entsteht folgende Ausgabe:
+
+			```bash
+			A1  : 10000mAh     0 Ladungen. Zustand 100% 
+			A2  : 20000mAh     0 Ladungen. Zustand 100% 
+			A3  : 30000mAh     0 Ladungen. Zustand 100% 
+			A4  : 40000mAh     0 Ladungen. Zustand 100%
+			```
+
+		- Erweitern Sie die `main()`-Methode der `Testklasse` um eine Schleife, um `4000` Ladungen durchzuführen. Innerhalb dieser Schleife wird eine Zufallszahl aus dem Bereich `[0, …, 3]` ( `3` inkl.) erzeugt. Nutzen Sie dazu die Klasse `Random` aus dem `java.util`-Paket. 
+
+			-	Ist die Zufallszahl `0`, wird der erste Akku (`A1`) geladen. 
+			-	Ist die Zufallszahl `1`, wird der zweite Akku (`A2`) geladen.
+			-	Ist die Zufallszahl `2`, wird der dritte Akku (`A3`) geladen.
+			-	Ist die Zufallszahl `3`, wird der vierte Akku (`A4`) geladen
+
+			Rufen Sie für die vier Akkus jeweils die `print()`-Methode auf. Es entsteht folgende Ausgabe (Zufallswerte):
+
+			```bash
+			A1  : 10000mAh   984 Ladungen. Zustand  91% 
+			A2  : 20000mAh   945 Ladungen. Zustand  91% 
+			A3  : 30000mAh  1032 Ladungen. Zustand  90% 
+			A4  : 40000mAh  1039 Ladungen. Zustand  90%
+			```
+
+	3. (**Teil 2**) Erstellen Sie eine Klasse `AkkuBestand` mit 
+
+		- der privaten Objektvariable `akkus` vom Typ `Akku[]`. 
+
+		- Erstellen Sie einen parameterlosen Konstruktor. In dem Konstruktor wird das `akkus`-Array mit der Länge `0` erzeugt. 
+
+		- Erstellen Sie eine Methode `akkuBereitsImBestand(Akku a)`. Diese Methode gibt ein `true` zurück, wenn `a` bereits in `akkus` enthalten ist und `false` sonst.
+
+		- Erstellen Sie eine Methode `akkuHinzufuegen(Akku a)`. Diese Methode fügt den Akku `a` dem `akkus`-Array hinzu. <br/>
+		Die Methode gibt ein `true` zurück, wenn `a` dem `akkus`-Array hinzugefügt wurde und ein `false`, wenn nicht. 
+		Der Akku `a` wird genau dann nicht dem `akkus`-Array hinzugefügt, wenn er bereits im `akkus`-Array enthalten ist! 
+
+			**Tipps:**<br/> 
+
+			- Nutzen Sie die Methode `akkuBereitsImBestand(Akku a)`, um zu ermitteln, ob `a` bereits in `akkus` enthalten ist.
+			- Wenn `a` hinzugefügt wird, muss das `akkus`-Array um `1` größer werden.
+
+		- Erstellen Sie eine Methode `akkuEntfernen(Akku a)`. Diese Methode entfernt den Akku `a` aus dem `akkus`-Array. <br/>
+		Die Methode gibt ein `true` zurück, wenn `a` aus dem `akkus`-Array entfernt wurde und ein `false`, wenn nicht. 
+		Der Akku `a` wird genau dann **nicht** aus dem `akkus`-Array entfernt, wenn er gar nicht im `akkus`-Array enthalten ist! 
+
+			**Tipps:**<br/> 
+
+			- Nutzen Sie die Methode `akkuBereitsImBestand(Akku a)`, um zu ermitteln, ob `a` überhaupt in `akkus` enthalten ist.
+			- Wenn `a` entfernt wurde, muss das `akkus`-Array danach um `1` kleiner sein.
+
+		- Erstellen Sie eine Methode `getLength()`, die die Länge des `akkus`-Arrays zurückgibt.
+
+		- Überschreiben Sie die Methode `toString()` so, dass ein `String` in der folgenden Form zurückgegeben wird (Beispielwerte): 
+
+			```bash
+			Bestand (3): 
+
+			A1  : 10000mAh   984 Ladungen. Zustand  91% 
+			A2  : 20000mAh   945 Ladungen. Zustand  91% 
+			A3  : 30000mAh  1032 Ladungen. Zustand  90%
+			```
+
+			Die Zahl in Klammern rechts von `Bestand` gibt die Länge des `akkus`-Arrays an (hier `(3)`).
+
+			Beachten Sie! Enthält das `akkus`-Array **keine** Akkus, dann soll folgender String zurückgegeben werden: 
+			
+			```bash
+			Derzeit sind keine Akkus im Bestand.
+			```
+
+		- Erstellen Sie eine `print()`-Methode, die den von `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+		- Erzeugen Sie in der `main()`-Methode der `Testklasse` ein Objekt von `AkkuBestand`. Geben Sie das `AkkuBestand`-Objekt unter Verwendung der `print()`-Methode auf die Konsole aus. Es entsteht folgende Ausgabe:
+		
+			```bash
+			Derzeit sind keine Akkus im Bestand.
+			```
+
+			1.	Fügen Sie den Akku `A1` aus **Teil 1** dem `AkkuBestand`-Objekt hinzu. Beachten Sie dabei die Rückgabe der `akkuHinzufuegen()`-Methode. Wird der Akku hinzugefügt, soll die Ausgabe 
+
+				```bash
+				Akku hinzugefuegt!
+				```
+
+				auf der Konsole erscheinen. Wird er nicht hinzugefügt, erscheint
+
+				```bash
+				Akku nicht hinzugefuegt!
+				```
+
+			2.	Rufen Sie die `print()`-Methode für das `AkkuBestand`-Objekt auf. Es erscheint:
+
+				```bash
+				Bestand (1): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91%
+				```
+
+			3.	Wiederholen Sie die Schritte `a` und `b` für 
+
+				- Akku `A2` aus **Teil 1** (wird tatsächlich hinzugefügt),
+				- Akku `A3` aus **Teil 1** (wird tatsächlich hinzugefügt) und
+				- nochmal Akku `A3` aus **Teil 1** (wird nicht hinzugefügt)
+
+				Insgesamt entsteht folgende Ausgabe:
+
+				```bash
+				Akku hinzugefuegt!
+				Bestand (1): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91% 
+
+				Akku hinzugefuegt!
+				Bestand (2): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91% 
+				A2  : 20000mAh   945 Ladungen. Zustand  91% 
+
+				Akku hinzugefuegt!
+				Bestand (3): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91% 
+				A2  : 20000mAh   945 Ladungen. Zustand  91% 
+				A3  : 30000mAh  1032 Ladungen. Zustand  90% 
+
+				Akku nicht hinzugefuegt!
+				Bestand (3): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91% 
+				A2  : 20000mAh   945 Ladungen. Zustand  91% 
+				A3  : 30000mAh  1032 Ladungen. Zustand  90%
+				```
+
+			4. Entfernen Sie mithilfe der `akkuEntfernen()`-Methode den Akku `A2` zwei Mal (einmal wird er tatsächlich entfernt und einmal nicht) und berücksichtigen Sie die Rückgabe der Methode, so dass folgende Ausgaben entstehen (jeweils auch `print()`-Methode von `AkkuBestand` aufrufen) :
+
+				```bash
+				Akku entfernt!
+				Bestand (2): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91% 
+				A3  : 30000mAh  1032 Ladungen. Zustand  90% 
+
+				Akku nicht entfernt!
+				Bestand (2): 
+
+				A1  : 10000mAh   984 Ladungen. Zustand  91% 
+				A3  : 30000mAh  1032 Ladungen. Zustand  90%
+				```
+
+	4. (**Teil 3**) `AkkuBestand` - Teil 2 
+
+		- Erstellen Sie einen weiteren Konstruktor in der `AkkuBestand`-Klasse. Diesem Konstruktor soll ein `AkkuBestand`-Objekt als Parameter übergeben werden. Das `akkus`-Array des neu zu erstellenden Objektes soll alle `Akku`-Objekte des als Parameter übergebenen `AkkuBestand`-Objektes aufnehmen.
+
+		- Testen Sie in der `main()`-Methode der `Testklasse` den neuen Konstruktor, indem Sie ein neues `AkkuBestand`-Objekt erzeugen und dem Konstruktor den *alten* `AkkuBestand` aus **Teil 2** übergeben. Rufen Sie für das neue `AkkuBestand`-Objekt die `print()`-Methode auf. Es sollte erscheinen (Zufallswerte):
+
+			```bash
+			Bestand (2): 
+
+			A1  : 10000mAh   984 Ladungen. Zustand  91% 
+			A3  : 30000mAh  1032 Ladungen. Zustand  90%
+			```
+
+		- Fügen Sie nun dem neuen `AkkuBestand`-Objekt auch noch die `Akku`-Objekte  `A2` und `A4` hinzu und rufen Sie die `print()`-Methode erneut auf. Es sollte erscheinen (Zufallswerte):
+
+			```bash
+			Bestand (4): 
+
+			A1  : 10000mAh   984 Ladungen. Zustand  91% 
+			A3  : 30000mAh  1032 Ladungen. Zustand  90% 
+			A2  : 20000mAh   945 Ladungen. Zustand  91% 
+			A4  : 40000mAh  1039 Ladungen. Zustand  90%
+			```
+
+		- Erstellen Sie in der Klasse `AkkuBestand` eine Methode `fehlendeAkkus(AkkuBestand ab)`. Diese Methode gibt ein `Akku`-Array zurück. Das zurückgegebene `Akku`-Array enthält alle `Akku`-Objekte, die im `akkus`-Array von `ab`, nicht aber im `akkus`-Array des aufrufenden `AkkuBestand`-Objektes enthalten sind. 
+
+		- Testen Sie die `fehlendeAkkus()`-Methode in der `main()`-Methode der `Testklasse`, indem Sie sie für das `AkkuBestand`-Objekt aus **Teil 2** aufrufen und das neue `AkkuBestand`-Objekt als Parameter übergeben, welches alle `Akku`-Typen enthält. Geben Sie die Akkus des zurückgegebenen `Akku`-Arrays aus  (direkt in der `main()`-Methode). Es entsteht folgende Ausgabe (Zufallswerte):
+
+			```bash
+			Fehlende : 
+
+			A2  : 20000mAh   945 Ladungen. Zustand  91% 
+			A4  : 40000mAh  1039 Ladungen. Zustand  90%
+			```
+
+		- Erstellen Sie in der Klasse `AkkuBestand` eine Methode `schlechtesterZustand()`. Diese Methode gibt das (erste) `Akku`-Objekt zurück, das im `akkus`-Array den kleinsten `Zustands`-Wert hat. Sie können davon ausgehen, dass mindestens ein Akku im `akkus`-Array ist.
+
+			Testen Sie die Methode in der `main()`-Methode, z.B. 
+
+			```bash
+			Akku mit schlechtestem Zustand : 
+			A3  : 30000mAh  1032 Ladungen. Zustand  90% 
+			```
+
+		- Erstellen Sie in der Klasse `AkkuBestand` eine Methode `getAkkuAtIndex(int index)`. Diese Methode gibt den `Akku` zurück, der im `akkus`-Array unter dem Index `index` gespeichert ist. Ist `index` kein gültiger Index (zu klein oder zu groß) aus dem `akkus`-Array, dann geben Sie `null` zurück.
+
+		- Testen Sie die `getAkkuAtIndex(int index)` wie folgt:
+
+			- Falls Sie einen ungültigen Index übergeben, dann soll die Ausgabe so sein:
+
+				```bash
+				Kein gueltiger Index!
+				```
+
+			- Falls Sie einen korrekten Index übergeben, wird das zurückgegebene Akku ausgegeben, z.B. 
+
+				```bash
+				A2  : 20000mAh   995 Ladungen. Zustand  91%
+				```
+
+		- Erstellen Sie in der Klasse `AkkuBestand` eine Methode `akkusMitSchlechtemZustand()`. Diese Methode gibt ein `Akku`-Array zurück. Das zurückgegebene `Akku`-Array enthält alle `Akku`-Objekte des `akkus`-Arrays, deren Zustand unter **10%** ist.
+
+		- Testen Sie in der `main()`-Methode der `Testklasse` die `akkusMitSchlechtemZustand()`-Methode wie folgt:
+
+			- in einer Schleife laden Sie alle Akkus aus dem `AkkuBestand`-Objekt, welches alle `Akku`-Typen enthält (haben Sie hier in **Teil 3** erstellt)
+
+			- Sie laden alle Akkus solange, bis alle Akkus in dem zurückgegebenen Array der `akkusMitSchlechtemZustand()` enthalten sind (reicht zu prüfen, dass das zurückgegebene Array die Länge `4` hat). Geben Sie dann dieses Array aus. Es erscheint z.B. (Zufallswerte):
+
+				```bash
+				Bestand (4): 
+
+				A1  : 10000mAh  9143 Ladungen. Zustand   9% 
+				A3  : 30000mAh  9158 Ladungen. Zustand   9% 
+				A2  : 20000mAh  9127 Ladungen. Zustand   9% 
+				A4  : 40000mAh  9100 Ladungen. Zustand   9%
+				```
+
+	4. Zur Kontrolle: Die möglichen Ausgaben (Beispielwerte) könnten sein:
+
+		```bash
+		----------- Teil 1 - Akku: Objekte erzeugen -----------
+
+		A1  : 10000mAh     0 Ladungen. Zustand 100% 
+		A2  : 20000mAh     0 Ladungen. Zustand 100% 
+		A3  : 30000mAh     0 Ladungen. Zustand 100% 
+		A4  : 40000mAh     0 Ladungen. Zustand 100% 
+
+
+		------------ Teil 2 - Akku: 4000 Ladungen ------------
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+		A4  : 40000mAh   968 Ladungen. Zustand  91% 
+
+
+		------------ Teil 3 - AkkuBestand ------------
+
+		Derzeit sind keine Akkus im Bestand.
+
+		Akku hinzugefuegt!
+		Bestand (1): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+
+		Akku hinzugefuegt!
+		Bestand (2): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+
+		Akku hinzugefuegt!
+		Bestand (3): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+
+		Akku nicht hinzugefuegt!
+		Bestand (3): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+
+		Akku entfernt!
+		Bestand (2): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+
+		Akku nicht entfernt!
+		Bestand (2): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+
+
+		------------ Teil 4 - AkkuBestand ------------
+
+		Bestand (2): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+
+		Bestand (4): 
+
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+		A3  : 30000mAh  1026 Ladungen. Zustand  90% 
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+		A4  : 40000mAh   968 Ladungen. Zustand  91% 
+
+		Fehlende : 
+
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+		A4  : 40000mAh   968 Ladungen. Zustand  91% 
+
+		Kein gueltiger Index!
+		A2  : 20000mAh   995 Ladungen. Zustand  91% 
+
+		Akku mit schlechtestem Zustand :
+		A1  : 10000mAh  1011 Ladungen. Zustand  90% 
+
+		Bestand (4): 
+
+		A1  : 10000mAh  9143 Ladungen. Zustand   9% 
+		A3  : 30000mAh  9158 Ladungen. Zustand   9% 
+		A2  : 20000mAh  9127 Ladungen. Zustand   9% 
+		A4  : 40000mAh  9100 Ladungen. Zustand   9%
+
+		```
+
+
+??? note "Buch"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.buch`. 
+	2. (**Teil 1**) Erstellen Sie in diesem package eine Klasse `Buch` mit 
+
+		- den privaten Objektvariablen `titel` vom Typ `String` (*Titel des Buches*), `seiten` vom Typ `int` (*Anzahl der Seiten des Buches*) und `jahr` vom Typ `int` (*Erscheinungsjahr des Buches*). 
+
+		- Erstellen Sie für die Klasse `Buch` einen parametrisierten Konstruktor, dem für jede der drei Objektvariablen ein Wert als Parameter übergeben wird. Mit den Parameterwerten werden die Objektvariablen initialisiert. 
+
+		- Erstellen Sie eine Methode `getJahr()`, die den Wert der Objektvariablen `jahr` zurückgibt. 
+
+		- Erstellen Sie eine Methode `istDicker(Buch b)`, die ein `true` zurückgibt, wenn das aufrufende `Buch`-Objekt mehr `seiten` hat, als `b`. Ansonsten wird `false` zurückgegeben.
+
+		- Überschreiben Sie die Objektmethode `toString()`, so, dass ein String in der folgenden Form zurückgegeben wird (Beispielwerte): 
+			```bash
+			Titel Z   : 133 Seiten, von 1958
+			```
+			**Beachten Sie**: `Titel Z` ist der Titel des Buches. Reservieren Sie für den Titel `10` Zeichen (dann kommt ein Doppelpunkt `:`, reservieren Sie für die Seitenzahl `3` Zeichen und für die Jahreszahl `4` Zeichen. 
+
+		- Überschreiben Sie die Objektmethode `equals(Object o)` so, dass zwei Bücher gleich sind, wenn sie denselben Titel haben.    
+
+	3. Erstellen Sie im gleichen package eine Klasse `Testklasse` mit `main()`-Methode. 
+
+		- Erzeugen Sie in der `main()`-Methode in einer Schleife `10` Objekte der Klasse `Lottery` und rufen (auch in der Schleife) jeweils die `drawing()` und die `print()`-Methode auf. Erzeugen Sie in der `main()`-Methode drei `Buch`-Objekte mit den folgenden Werten für die Objektvariablen:
+			```bash
+			"Titel A", 55, 1999
+			"Titel B", 66, 2000
+			"Titel C", 77, 2001 
+			```
+
+		- Geben Sie alle drei `Buch`-Objekte auf die Konsole unter Verwendung der `toString()`-Methode aus. Es entsteht folgende Ausgabe:
+			```bash
+			Titel A   :  55 Seiten, von 1999
+			Titel B   :  66 Seiten, von 2000
+			Titel C   :  77 Seiten, von 2001
+			```
+
+	4. (**Teil 2**) Erweitern Sie die Klasse `Buch` um einen parameterlosen Konstruktor. In diesem Konstruktor werden die Werte für die Objektvariablen zufällig erzeugt. Nutzen Sie dazu die Klasse `Random` aus dem `java.util`-Paket. <br/> **Beachten Sie:**
+
+		- Nutzen Sie immer die `nextInt(bound)`-Methode aus der `Random`-Klasse.
+
+		- Der Wert für `jahr` soll im Bereich von `1900` (inkl.) bis `2021` (inkl.) liegen (`122` verschiedene Jahreszahlen möglich).
+
+		- Der Wert für `seiten` soll im Bereich `20` (inkl.) bis `199` (inkl.) liegen (`180` verschiedene Seitenzahlen möglich).
+
+		- Der Wert für `title` ergibt sich aus `Titel ` gefolgt von einem Großbuchstaben. Der Großbuchstabe soll zufällig erzeugt werden. **Tipp:** Der Ascii-Wert von `A` ist `65`, der von `B` ist `66` usw. und das Alphabet hat `26` Buchstaben. Mögliche Titel können also z.B. sein:
+			```bash
+			Titel A
+			Titel B
+			Titel C
+			…
+			```
+
+	5. Erzeugen Sie in der `main()`-Methode der `Testklasse` ein Array von `Buch`-Objekten. 
+
+		- Das Array hat die Länge `10`.
+
+		- Befüllen Sie in einer Schleife das Array mit `Buch`-Objekten unter Verwendung des parameterlosen Konstruktors. 
+
+		- Berechnen Sie für alle erzeugten `Buch`-Objekte das Alter (ausgehend von aktuellen Jahr `2022` – ein Buch von `2021` ist also `1` Jahr alt, ein Buch von `1950` ist `72` Jahre alt).
+
+		- Geben Sie alle Bücher des Arrays und deren Alter auf der Konsole aus, so dass folgende Ausgabe entsteht (Beispielwerte):
+
+			```bash
+			Titel E   :  84 Seiten, von 1944 -->  78 Jahre alt 
+			Titel G   :  55 Seiten, von 1964 -->  58 Jahre alt 
+			Titel Z   :  52 Seiten, von 1975 -->  47 Jahre alt 
+			Titel T   :  28 Seiten, von 1937 -->  85 Jahre alt 
+			Titel H   : 190 Seiten, von 1964 -->  58 Jahre alt 
+			Titel F   : 145 Seiten, von 1935 -->  87 Jahre alt 
+			Titel V   :  77 Seiten, von 1989 -->  33 Jahre alt 
+			Titel O   : 122 Seiten, von 2008 -->  14 Jahre alt 
+			Titel P   : 143 Seiten, von 2011 -->  11 Jahre alt 
+			Titel A   : 112 Seiten, von 2010 -->  12 Jahre alt
+			```
+
+	6. (**Teil 3**) Erstellen Sie eine Klasse `Bibliothek`. Objektvariable ist `buecher` vom Typ `Buch[]`. Die Objektvariable ist nur innerhalb der Klasse sichtbar!
+
+		- Erstellen Sie einen parametrisierten Konstruktor, dem als Parameter eine `anzBuecher` übergeben wird. Der Wert von `anzBuecher` entspricht der Länge des `buecher`-Arrays. Erzeugen Sie das Array im Konstruktor und befüllen Sie es mit `Buch`-Objekten unter Verwendung des parameterlosen Konstruktors von `Buch`. 
+
+		- Erstellen Sie eine Methode `sort(boolean vonDuennZuDick)`. In dieser Methode wird das `buecher`-Array sortiert. 
+
+			- Ist der Parameterwert `true`, dann werden die Bücher *aufsteigend* vom Buch mit den wenigsten Seiten bis hoch zum Buch mit den meisten Seiten sortiert.
+
+			- Ist der Parameterwert `false`, dann werden die Bücher *absteigend* vom Buch mit den meisten Seiten bis hoch zum Buch mit den wenigsten Seiten sortiert.
+
+		- Überschreiben Sie die Methode `toString()` so, dass ein `String` in der folgenden Form zurückgegeben wird (Beispielwerte): 
+			```bash
+			Bibliothek mit  10 Buechern 
+
+			 1. Titel Q   :  77 Seiten, von 1963 
+			 2. Titel N   :  55 Seiten, von 1982 
+			 3. Titel W   : 112 Seiten, von 2017 
+			 4. Titel R   :  26 Seiten, von 1989 
+			 5. Titel W   : 161 Seiten, von 2002 
+			 6. Titel N   : 147 Seiten, von 1949 
+			 7. Titel U   :  80 Seiten, von 1955 
+			 8. Titel S   : 148 Seiten, von 1948 
+			 9. Titel A   :  96 Seiten, von 1980 
+			10. Titel S   :  77 Seiten, von 1920 
+			```
+
+
+	7. Erzeugen Sie in der `main()`-Methode der `Testklasse` ein Objekt von `Bibliothek`. Übergeben Sie als Parameterwert die `10`.   
+
+		- Geben Sie das `Bibliothek`-Objekt unter Verwendung der `toString()`-Methode auf die Konsole aus.
+
+		- Rufen Sie für das `Bibliothek`-Objekt die Methode `sort(true)` auf und geben Sie danach das `Bibliothek`-Objekt erneut auf die Konsole aus. 
+
+		- Rufen Sie für das `Bibliothek`-Objekt die Methode `sort(false)` auf und geben Sie danach das `Bibliothek`-Objekt erneut auf die Konsole aus. 
+
+		- Es entstehen folgende Ausgaben (Beispielwerte):
+
+			```bash
+			Bibliothek mit  10 Buechern 
+
+			 1. Titel Q   :  77 Seiten, von 1963 
+			 2. Titel N   :  55 Seiten, von 1982 
+			 3. Titel W   : 112 Seiten, von 2017 
+			 4. Titel R   :  26 Seiten, von 1989 
+			 5. Titel W   : 161 Seiten, von 2002 
+			 6. Titel N   : 147 Seiten, von 1949 
+			 7. Titel U   :  80 Seiten, von 1955 
+			 8. Titel S   : 148 Seiten, von 1948 
+			 9. Titel A   :  96 Seiten, von 1980 
+			10. Titel S   :  77 Seiten, von 1920 
+
+
+			Bibliothek mit  10 Buechern 
+
+			 1. Titel R   :  26 Seiten, von 1989 
+			 2. Titel N   :  55 Seiten, von 1982 
+			 3. Titel Q   :  77 Seiten, von 1963 
+			 4. Titel S   :  77 Seiten, von 1920 
+			 5. Titel U   :  80 Seiten, von 1955 
+			 6. Titel A   :  96 Seiten, von 1980 
+			 7. Titel W   : 112 Seiten, von 2017 
+			 8. Titel N   : 147 Seiten, von 1949 
+			 9. Titel S   : 148 Seiten, von 1948 
+			10. Titel W   : 161 Seiten, von 2002 
+
+
+			Bibliothek mit  10 Buechern 
+
+			 1. Titel W   : 161 Seiten, von 2002 
+			 2. Titel S   : 148 Seiten, von 1948 
+			 3. Titel N   : 147 Seiten, von 1949 
+			 4. Titel W   : 112 Seiten, von 2017 
+			 5. Titel A   :  96 Seiten, von 1980 
+			 6. Titel U   :  80 Seiten, von 1955 
+			 7. Titel Q   :  77 Seiten, von 1963 
+			 8. Titel S   :  77 Seiten, von 1920 
+			 9. Titel N   :  55 Seiten, von 1982 
+			10. Titel R   :  26 Seiten, von 1989 
+			```
+
+	8. (**Teil 4**) Erstellen Sie in der Klasse `Bibliothek` eine Methode `enthaeltDoppelungen()`. Diese Methode gibt ein `true` zurück, wenn das `buecher`-Array Bücher mit demselben Titel enthält (also die `equals()`-Methode aus Buch für zwei Bücher `true` ergibt). Ansonsten `false`.
+
+		- Ändern Sie die `toString()`-Methode von `Bibliothek` so, dass mit ausgegeben wird, ob das `buecher`-Array Doppelungen enthält oder nicht. Der zurückgegebene String sieht dann so aus (Beispielwerte):
+			```bash
+			Bibliothek mit   4 Buechern 
+
+			 1. Titel B   : 151 Seiten, von 1940 
+			 2. Titel H   : 126 Seiten, von 1977 
+			 3. Titel Z   :  94 Seiten, von 1991 
+			 4. Titel H   :  65 Seiten, von 1925 
+
+			enthaelt doppelte Eintraege 
+			```
+
+			oder so (Beispielwerte):
+			```bash
+			Bibliothek mit   4 Buechern 
+
+			 1. Titel M   : 131 Seiten, von 1956 
+			 2. Titel L   : 192 Seiten, von 1996 
+			 3. Titel G   :  39 Seiten, von 2019 
+			 4. Titel A   :  81 Seiten, von 1953 
+
+			enthaelt keine doppelten Eintraege 
+			```
+
+
+		- Erstellen Sie in der Klasse `Bibliothek` eine Methode `buecherVonBis(int vonJahr, int bisJahr)`. Diese Methode gibt ein `Buch`-Array zurück. Das zurückgegebene `Buch`-Array enthält alle Bücher aus dem `buecher`-Array, die in der Zeit `vonJahr` (inkl.) – `bisJahr` (inkl.) erschienen sind. 
+
+			Angenommen, das `buecher`-Array sieht so aus:
+
+			```bash
+			Bibliothek mit   4 Buechern 
+
+			 1. Titel B   : 151 Seiten, von 1940 
+			 2. Titel H   : 126 Seiten, von 1977 
+			 3. Titel Z   :  94 Seiten, von 1991 
+			 4. Titel H   :  65 Seiten, von 1925
+			```
+
+			und es werden alle Bücher aus dem Zeitraum `1950 – 1999` gesucht. Dann sieht das zurückgegebene `Buch`-Array so aus:
+
+			```bash
+			Titel H   : 126 Seiten, von 1977
+			Titel Z   :  94 Seiten, von 1991
+			```
+
+		- Rufen Sie die Methode `buecherVonBis(1950,1999)` in der `main()`-Methode für das unter `7.` erstellte `Bibliothek`sobjekt auf. Geben Sie das zurückgegebene `Buch`-Array unter Verwendung der `toString()`-Methode von `Buch` auf die Konsole aus.
+
+		- Erstellen Sie in der Klasse `Bibliothek` eine Methode `duennstesBuch()`. Diese Methode gibt das `Buch` mit den wenigsten `seiten` aus dem `buecher`-Array zurück. Sie können davon ausgehen, dass das `buecher`-Array mindestens ein Buch enthält.
+
+			Rufen Sie die Methode in der `main()`-Methode auf und geben Sie das dünnste Buch in der folgenden Form auf der Konsole aus (Beispielwerte):
+
+			```bash
+			Das duennste Buch ist [ Titel P   :  37 Seiten, von 1990 ]
+			```
+
+		- Erstellen Sie in der Klasse `Bibliothek` eine Methode `aeltestesBuch()`. Diese Methode gibt das `Buch` mit dem frühesten Erscheinungsjahr (`jahr`) aus dem  `buecher`-Array zurück. Sie können davon ausgehen, dass das `buecher`-Array mindestens ein Buch enthält.
+
+			Rufen Sie die Methode in der `main()`-Methode auf und geben Sie das älteste Buch in der folgenden Form auf der Konsole aus (Beispielwerte):
+
+			```bash
+			Das aelteste Buch ist [ Titel D   : 195 Seiten, von 1910 ]
+			```
+
+		- Erstellen Sie in der Klasse `Bibliothek` eine Methode `durchschnittsalter()`. Diese Methode berechnet das Durchschnittsalter aller Bücher aus dem `buecher`-Array und gibt dieses als `double` zurück. Das Alter eines Buches wird berechnet, indem Sie vom aktuellen Jahr `2022` das Erscheinungsjahr des Buches abziehen.
+
+			Rufen Sie die Methode in der `main()`-Methode auf und geben Sie das Durchschnittsalter in der folgenden Form auf der Konsole aus (Beispielwerte):
+
+			```bash
+			Das Durchschnittsalter betraegt 62.2 Jahre.
+			```
+
+	9. Zur Kontrolle: Die möglichen Ausgaben (Beispielwerte) könnten sein:
+
+		```bash
+		----------- Teil 1 -----------------
+
+		Titel A   :  55 Seiten, von 1999
+		Titel B   :  66 Seiten, von 2000
+		Titel C   :  77 Seiten, von 2001
+
+		----------- Teil 2 -----------------
+
+		Titel V   :  29 Seiten, von 2012 -->  10 Jahre alt 
+		Titel B   : 129 Seiten, von 2003 -->  19 Jahre alt 
+		Titel E   :  37 Seiten, von 1940 -->  82 Jahre alt 
+		Titel F   : 141 Seiten, von 1904 --> 118 Jahre alt 
+		Titel L   : 118 Seiten, von 1983 -->  39 Jahre alt 
+		Titel O   : 174 Seiten, von 1998 -->  24 Jahre alt 
+		Titel U   : 162 Seiten, von 2001 -->  21 Jahre alt 
+		Titel I   :  29 Seiten, von 1909 --> 113 Jahre alt 
+		Titel V   : 141 Seiten, von 1944 -->  78 Jahre alt 
+		Titel O   :  38 Seiten, von 1942 -->  80 Jahre alt 
+
+		----------- Teil 3 -----------------
+
+		Bibliothek mit  10 Buechern 
+
+		 1. Titel P   :  79 Seiten, von 1948 
+		 2. Titel U   :  91 Seiten, von 1941 
+		 3. Titel J   :  88 Seiten, von 1956 
+		 4. Titel H   :  76 Seiten, von 1959 
+		 5. Titel Y   :  35 Seiten, von 2002 
+		 6. Titel A   :  83 Seiten, von 2020 
+		 7. Titel T   :  29 Seiten, von 2010 
+		 8. Titel N   : 150 Seiten, von 1936 
+		 9. Titel T   :  56 Seiten, von 1956 
+		10. Titel W   :  70 Seiten, von 1907 
+
+
+		Bibliothek mit  10 Buechern 
+
+		 1. Titel T   :  29 Seiten, von 2010 
+		 2. Titel Y   :  35 Seiten, von 2002 
+		 3. Titel T   :  56 Seiten, von 1956 
+		 4. Titel W   :  70 Seiten, von 1907 
+		 5. Titel H   :  76 Seiten, von 1959 
+		 6. Titel P   :  79 Seiten, von 1948 
+		 7. Titel A   :  83 Seiten, von 2020 
+		 8. Titel J   :  88 Seiten, von 1956 
+		 9. Titel U   :  91 Seiten, von 1941 
+		10. Titel N   : 150 Seiten, von 1936 
+
+
+		Bibliothek mit  10 Buechern 
+
+		 1. Titel N   : 150 Seiten, von 1936 
+		 2. Titel U   :  91 Seiten, von 1941 
+		 3. Titel J   :  88 Seiten, von 1956 
+		 4. Titel A   :  83 Seiten, von 2020 
+		 5. Titel P   :  79 Seiten, von 1948 
+		 6. Titel H   :  76 Seiten, von 1959 
+		 7. Titel W   :  70 Seiten, von 1907 
+		 8. Titel T   :  56 Seiten, von 1956 
+		 9. Titel Y   :  35 Seiten, von 2002 
+		10. Titel T   :  29 Seiten, von 2010 
+
+
+		----------- Teil 4 -----------------
+
+		Bibliothek mit  10 Buechern 
+
+		 1. Titel N   : 150 Seiten, von 1936 
+		 2. Titel U   :  91 Seiten, von 1941 
+		 3. Titel J   :  88 Seiten, von 1956 
+		 4. Titel A   :  83 Seiten, von 2020 
+		 5. Titel P   :  79 Seiten, von 1948 
+		 6. Titel H   :  76 Seiten, von 1959 
+		 7. Titel W   :  70 Seiten, von 1907 
+		 8. Titel T   :  56 Seiten, von 1956 
+		 9. Titel Y   :  35 Seiten, von 2002 
+		10. Titel T   :  29 Seiten, von 2010 
+
+		enthaelt doppelte Eintraege 
+
+
+		Titel J   :  88 Seiten, von 1956
+		Titel H   :  76 Seiten, von 1959
+		Titel T   :  56 Seiten, von 1956
+
+
+
+		Das duennste Buch ist [ Titel T   :  29 Seiten, von 2010 ]
+		Das aelteste Buch ist [ Titel W   :  70 Seiten, von 1907 ]
+		Das Durchschnittsalter betraegt 58.5 Jahre.
+
+		``` 
+
+
+??? note "Punkt2D und Punkt3D"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.punkt`. 
+	2. Erstellen Sie in diesem package eine Klasse `Punkt3D` mit 
+
+		- drei privaten Objektvariablen `x`, `y` und `z`, jeweils vom Typ `int`,
+		- einem parametrisierten Konstruktor `Punkt3D(int x, int y, int z)`. Mit den Parameterwerten werden die Objektvariablen initialisiert. 
+		- Getter für die drei Objektvariablen (`getX()`, `getY()` und `getZ()`). 
+		- Überschreiben Sie die Methode `toString()`, so dass folgende textuelle Reräsentation als `String` erzeugt wird (Beispielwerte):
+			```bash
+			(5,2,3)
+			```
+			also in runden Klammern die Werte von `x`, `y` und `z` durch Komma getrennt.
+		- Schreiben Sie eine Objektmethode `print()`, die den durch `toString()` erzeugten `String` auf die Konsole ausgibt.
+		- Überschreiben Sie die Methode `equals(Object o)` so, dass zwei `Punkt3D`-Objekte gleich sind, wenn ihre Objektvariablen `x`, `y` und `z` jeweils paarweise den gleichen Wert besitzen. 
+		- Schreiben Sie eine Objektmethode `xIsSmaller(Punkt3D p)`, die ein `true` zurückgibt, wenn das aufrufende Objekt einen kleineren `x`-Wert hat als `p`; `false` sonst.
+		- Schreiben Sie eine Objektmethode `yIsSmaller(Punkt3D p)`, die ein `true` zurückgibt, wenn das aufrufende Objekt einen kleineren `y`-Wert hat als `p`; `false` sonst.
+		- Schreiben Sie eine Objektmethode `zIsSmaller(Punkt3D p)`, die ein `true` zurückgibt, wenn das aufrufende Objekt einen kleineren `z`-Wert hat als `p`; `false` sonst.
+
+	3. Erstellen Sie im gleichen package eine Klasse `Punkt2D`. Diese Klasse erbt von `Punkt3D`. Bei einem Objekt vom Typ `Punkt2D` ist der Wert von `z` stets `0`! 
+
+		- Schreiben Sie einen parametrisierten Konstruktor `Punkt2D(int x, int y)`. Verwenden Sie die Parameterwerte, um den entsprechenden Objektvariablen Werte zuzuweisen und setzen Sie den Wert von `z` auf `0`.
+		- Überschreiben Sie die Methode `toString()`, so dass folgende textuelle Reräsentation als `String` erzeugt wird (Beispielwerte):
+			```bash
+			(5,2)
+			```
+			also in runden Klammern die Werte von `x` und `y` durch Komma getrennt. ( der Wert von `z` wird nicht mehr ausgewertet, er ist ja immer `0`). 
+
+	4. Testen Sie die Klassen `Punkt3D` und `Punkt2D` in einer `Testklasse` mit `main()`-Methode wie folgt:
+
+		- Erstellen Sie ein Array vom Typ `Punkt2D`. Es hat die Länge `3`. 
+		- Erzeugen Sie ein `Random`-Objekt. Sie müssen dazu die Klasse `Random` aus dem `java.util`-Paket importieren. 
+		- innerhalb einer Schleife soll nun Folgendes passieren:
+
+			- Sie erzeugen sich für `x`, `y` und `z` jeweils Zufallszahlen aus dem Bereich `[0, ... ,9]` (`0` und `9` inklusive, also `10` mögliche Zufallszahlen). 
+			- wenn `z` den Wert `0` hat, dann erzeugen Sie mit den zufällig erzeugten Werten von `x` und `y` ein Objekt vom Typ `Punkt2D` und speichern dieses im Array. Rufen Sie dafür die `print()`-Methode auf. 
+			- wenn `z` einen Wert ungleich `0` hat, dann erzeugen Sie mit den zufällig erzeugten Werten von `x`, `y` und `z` ein Objekt vom Typ `Punkt3D` und rufen dafür die `print()`-Methode auf. Ein solches Objekt wird nicht weiter gespeichert. 
+			- diesen Prozess wiederholen Sie so lange, bis das `Punkt2D[]`-Array befüllt ist, bis Sie also *drei*  `Punkt2D`-Objekte erzeugt und im Array gespeichert haben.  
+
+		- Eine mögliche Ausgabe könnte so sein (Zufallswerte):
+			```bash
+			---------------- Punkt2D und Punkt3D ---------------
+
+			(3,8,9)
+			(3,3,4)
+			(1,2,3)
+			(7,6,7)
+			(0,4,7)
+			(9,0,8)
+			(0,3,8)
+			(3,3,9)
+			(7,2,1)
+			(2,4)
+			(1,8)
+			(6,4,7)
+			(2,1,2)
+			(7,4,1)
+			(7,1,1)
+			(0,2,2)
+			(6,4,9)
+			(1,2,7)
+			(3,9,8)
+			(2,3)
+			```
+			das letzte Objekt ist immer ein `Punkt2D`-Objekt, denn nach dem dritten `Punkt2D`-Objekt hören Sie ja auf, Objekte zu erzeugen (Schleifenende).
+
+	5. Erstellen Sie im gleichen package eine Klasse `Strecke` mit 
+
+		- den privaten Objektvariablen `start` und `ende`, jeweils vom Typ `Punkt2D`,
+		- einem parametrisierten Konstruktor `Strecke(Punkt2D start, Punkt2D ende)`. Mit den Parameterwerten werden die Objektvariablen initialisiert. 
+		- einem weiteren parametrisierten Konstruktor `Strecke(int x1, int y1, int x2, int y2)`. Mit den Parameterwerten `x1` und `y1` erzeugen Sie sich ein `Punkt2D`-Objekt, das den `start`-Punkt bildet und mit den Parameterwerten `x2` und `y2` erzeugen Sie sich ein `Punkt2D`-Objekt, das den `ende`-Punkt bildet. 
+		- Schreiben Sie eine Objektmethode `laenge()`, die die Länge der `Strecke` als `double` zurückgibt. Sie können dazu die Methoden `Math.abs(number)` für den absoluten Betrag von `number` und `Math.sqrt(number)` für die Quadratwurzel von `number` (als `double`) verwenden. **Tipp:**
+			![strecke](./files/88_strecke.png)
+
+		- Überschreiben Sie die Methode `toString()`, so dass folgende textuelle Reräsentation der `Strecke` als `String` erzeugt wird (Beispielwerte):
+			```bash
+			Strecke [start=(2,4), ende=(1,8), Laenge= 4,1231cm]
+			```
+			also die Start- und Endpunkte ausgegeben werden und die Länge der Strecke in eckigen Klammern nach dem Wort `Strecke`.  
+		- Schreiben Sie eine Objektmethode `print()`, die den durch `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+	6. Testen Sie die Klasse `Strecke` in der `Testklasse` mit `main()`-Methode wie folgt:
+
+		- Erzeugen Sie `3` Objekte der Klasse `Strecke`. Wählen Sie 
+
+			- als `start`-Punkt der *ersten* Strecke, den *ersten* Punkt aus dem `Punkt2D`-Array aus dem ersten Teil der Aufgabe, als `ende`-Punkt den *zweiten* Punkt aus dem `Punkt2D`-Array aus dem ersten Teil, 
+			- als `start`-Punkt der *zweiten* Strecke, den *zweiten* Punkt aus dem `Punkt2D`-Array aus dem ersten Teil der Aufgabe, als `ende`-Punkt den *dritten* Punkt aus dem `Punkt2D`-Array aus dem ersten Teil, 
+			- als `start`-Punkt der *dritten* Strecke, den *dritten* Punkt aus dem `Punkt2D`-Array aus dem ersten Teil der Aufgabe, als `ende`-Punkt den *ersten* Punkt aus dem `Punkt2D`-Array aus dem ersten Teil.
+		- Wenden Sie für alle drei `Strecke`-Objekte die `print()`-Methode an. Es sollte folgende Ausgabe erzeugt werden (Beispielwerte):
+			```bash
+			-------------------- Strecke -----------------------
+
+			Strecke [start=(7,1), ende=(6,4), Laenge= 3,1623cm]
+			Strecke [start=(6,4), ende=(4,6), Laenge= 2,8284cm]
+			Strecke [start=(4,6), ende=(7,1), Laenge= 5,8310cm]
+			```
+
+	7. Erstellen Sie im gleichen package eine Klasse `PunkteArray` mit 
+
+		- der privaten Objektvariablen `punkte` vom Typ `Punkt2D[]`,
+		- dem parametrisierten Konstruktor `PunkteArray(int anzahl)`, dem die Anzahl der Punkte, also die Länge des `punkte`-Arrays übergeben wird. Erzeugen Sie unter Verwendung dieser `anzahl` das `punkte`-Array.
+		- Schreiben Sie eine Objektmethode `contains(Punkt2D p)`. Diese Methode gibt ein `true` zurück, wenn `p` im `punkte`-Array enthalten ist und `false` sonst. **Tipp:** Beachten Sie, dass es sein kann, dass nicht alle Elemente im `punkte`-Array tatsächlich ein Objekt enthalten. Es kann also sein, dass manche Referenzvariablen `this.punkte[index]` den Wert `null` haben. Mithilfe von `this.punkte[index] != null` können Sie prüfen, ob `this.punkte[index]` **nicht** auf `null` zeigt. 
+		- Schreiben Sie eine Objektmethode `fillArray()`. Diese Methode befüllt das `punkte`-Array vollständig mit `Punkte2D`-Objekten. Beachten Sie:
+
+			- die Werte für `x` und `y` aller Objekte sollen jeweils zufällig mithilfe von `Random` erzeugt werden. Der Wertebereich ist dabei jeweils `[0, ... ,9]` (also `0` und `9` inklusive, insgesamt `10` verschiedene Zufallszahlen),
+			- `Punkt2D`-Objekte dürfen nicht doppelt im `punkte`-Array vorkommen, d.h. es gibt keine zwei Punkte `p1` und `p2` im `punkte`-Array für die `p1.equals(p2)` den Wert `true` hat. 
+
+		- Überschreiben Sie die Methode `toString()`, so dass folgende textuelle Reräsentation des `PunkteArray` als `String` erzeugt wird (Beispielwerte):
+			```bash
+			[ (6,7), (3,2), (1,4), (5,0), (4,6), (9,5), (1,5), (0,3), (4,9), (6,9), (5,2), (1,9), (7,6), (2,3), (4,4) ]
+			```
+			also alle Punkte in eckigen Klammern durch Komma getrennt.  
+		- Schreiben Sie eine Objektmethode `print()`, die den durch `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+		- **Hinweis:** (für die folgenden Methoden) Ein *Polygon* ist ein geschlossener Linienezug aus Strecken. Die folgende Abbildung zeigt ein Polygon, das aus den Strecken `(p1, p2)`, `(p2, p3)`, `(p3, p4)`, `(p4, p5)` und `(p5, p1)` besteht. Es gibt darin also `5` Punkte und `5`Strecken:
+			![strecke](./files/91_polygon.png)
+
+		- Schreiben Sie eine Objektmethode `createPolygon()`, die ein `Strecke[]` zurückgibt. Das `Strecke[]` ist genau so lang wie das `punkte`-Array. Das `Strecke[]` wird mit Objekten vom Typ `Strecke` vollständig befüllt. Dabei sind die `start`- und `ende`-Punkte immer die Nachbarpunkte aus dem `punkte`-Array. Jeder Punkt aus dem `punkte`-Array wird also zwei Mal verwendet, einmal als `ende`-Punkt einer Strecke und einmal als `start`-Punkt der nächsten Strecke im `Strecke[]`. Beachten Sie, dass der `start`-Punkt der letzten Strecke im `Strecke[]` der letzte Punkte im `punkte`-Array und der `ende`-Punkt dieser Strecke der erste Punkt im `punkte`-Array ist - siehe Skizze:
+			![strecke](./files/90_punktearray.png)
+
+		- Schreiben Sie eine Objektmethode `gesamtLaenge()`, die die Gesamtlänge aller Strecken im Polygon ermittelt und diese als `double` zurückgibt. **Tipp:** Sie müssen sich in der Methode erst mithilfe der `createPolygon()`-Methode das Polygon erzeugen. 
+		- Schreiben Sie eine Objektmethode `amWeitestenLinks()`, die den `Punkt2D` aus dem `punkte`-Array zurückgibt, der am weitesten links von allen ist (den kleinsten `x`-Wert von allen hat). Geben Sie diesen Punkt zurück.  
+		- Schreiben Sie eine Objektmethode `amWeitestenOben()`, die den `Punkt2D` aus dem `punkte`-Array zurückgibt, der am weitesten oben von allen ist (den kleinsten `y`-Wert von allen hat). Geben Sie diesen Punkt zurück. 
+		- Schreiben Sie eine Objektmethode `laengsteStrecke()`, die die längste `Strecke` aller Strecken im Polygon ermittelt und diese zurückgibt. **Tipp:** Sie müssen sich in der Methode erst mithilfe der `createPolygon()`-Methode das Polygon erzeugen.  
+		- Schreiben Sie eine Objektmethode `printStrecken()`. Diese Methode gibt alle Strecken aus dem Polygon auf die Konsole aus. Außerdem wird die Gesamtlänge aller Strecken aus dem Polygon, der am weitesten links stehende Punkt aus dem `punkte`-Array und der am weitesten oben stehende Punkt aus dem `punkte`-Array ausgegeben. **Tipp:** Sie müssen sich in der Methode erst mithilfe der `createPolygon()`-Methode das Polygon erzeugen. Es sollte folgende Ausgabe erfolgen (Beispielwerte):
+			```bash
+			Strecke [start=(0,1), ende=(2,1), Laenge= 2,0000cm]
+			Strecke [start=(2,1), ende=(5,7), Laenge= 6,7082cm]
+			Strecke [start=(5,7), ende=(8,7), Laenge= 3,0000cm]
+			Strecke [start=(8,7), ende=(7,4), Laenge= 3,1623cm]
+			Strecke [start=(7,4), ende=(8,1), Laenge= 3,1623cm]
+			Strecke [start=(8,1), ende=(1,1), Laenge= 7,0000cm]
+			Strecke [start=(1,1), ende=(4,6), Laenge= 5,8310cm]
+			Strecke [start=(4,6), ende=(2,9), Laenge= 3,6056cm]
+			Strecke [start=(2,9), ende=(9,4), Laenge= 8,6023cm]
+			Strecke [start=(9,4), ende=(6,8), Laenge= 5,0000cm]
+			Strecke [start=(6,8), ende=(9,8), Laenge= 3,0000cm]
+			Strecke [start=(9,8), ende=(5,6), Laenge= 4,4721cm]
+			Strecke [start=(5,6), ende=(8,4), Laenge= 3,6056cm]
+			Strecke [start=(8,4), ende=(6,5), Laenge= 2,2361cm]
+			Strecke [start=(6,5), ende=(0,1), Laenge= 7,2111cm]
+			Gesamtlaenge der Strecken : 68,5964cm 
+			am weitesten links        : (0,1) 
+			am weitesten oben         : (0,1) 
+			laengste                  : Strecke [start=(2,9), ende=(9,4), Laenge= 8,6023cm] 
+			```
+
+	8. Testen Sie die Klasse `PunkteArray` in der `Testklasse` mit `main()`-Methode wie folgt:
+
+		- Erzeugen Sie ein Objekt der Klasse `PunkteArray` und übergeben Sie als Anzahl der `punkte` den Wert `15`.
+		- Rufen Sie für diese Objekt die Methoden `fillArray()`, `print()` und `printStrecken()` auf. 
+		- Es sollten folgende Ausgaben erzeugt werden (Beispielwerte):
+			```bash
+			------------------ PunkteArray ---------------------
+
+			[ (0,1), (2,1), (5,7), (8,7), (7,4), (8,1), (1,1), (4,6), (2,9), (9,4), (6,8), (9,8), (5,6), (8,4), (6,5) ]
+			Strecke [start=(0,1), ende=(2,1), Laenge= 2,0000cm]
+			Strecke [start=(2,1), ende=(5,7), Laenge= 6,7082cm]
+			Strecke [start=(5,7), ende=(8,7), Laenge= 3,0000cm]
+			Strecke [start=(8,7), ende=(7,4), Laenge= 3,1623cm]
+			Strecke [start=(7,4), ende=(8,1), Laenge= 3,1623cm]
+			Strecke [start=(8,1), ende=(1,1), Laenge= 7,0000cm]
+			Strecke [start=(1,1), ende=(4,6), Laenge= 5,8310cm]
+			Strecke [start=(4,6), ende=(2,9), Laenge= 3,6056cm]
+			Strecke [start=(2,9), ende=(9,4), Laenge= 8,6023cm]
+			Strecke [start=(9,4), ende=(6,8), Laenge= 5,0000cm]
+			Strecke [start=(6,8), ende=(9,8), Laenge= 3,0000cm]
+			Strecke [start=(9,8), ende=(5,6), Laenge= 4,4721cm]
+			Strecke [start=(5,6), ende=(8,4), Laenge= 3,6056cm]
+			Strecke [start=(8,4), ende=(6,5), Laenge= 2,2361cm]
+			Strecke [start=(6,5), ende=(0,1), Laenge= 7,2111cm]
+			Gesamtlaenge der Strecken : 68,5964cm 
+			am weitesten links        : (0,1) 
+			am weitesten oben         : (0,1) 
+			laengste                  : Strecke [start=(2,9), ende=(9,4), Laenge= 8,6023cm] 
+			```
+
+
+??? note "Wohnung"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.wohnung`. 
+	2. Erstellen Sie in diesem package eine Klasse `Wohnung` mit
+
+		- den privaten Objektvariablen 
+			- `qm` vom Typ `int`, (entspricht der Größe der Wohnung in m^2)
+			- `anzZimmer` vom Typ `int`,
+			- `etage` vom Typ `int` und 
+			- `qmMiete` vom Typ `double` (entspricht dem Mietpreis pro m^2). 
+		- einem parametrisierten Konstruktor Wohnung(int qm, int anzZimmer, int etage, double qmMiete). Die Werte der Parameter werden verwendet, um den Objektvariablen Werte zuzuweisen.
+		- Gettern für alle Objektvariablen (`getQm()`, `getAnzZimmer()`, `getEtage()`, `getQmMiete()`)
+		- einer Objektmethode `gesamtMiete()`, die die Gesamtmiete der Wohnung berechnet (`qm` * `qmMiete`) und diesen `double`-Wert zurückgibt. 
+		- einer Objektmethode `billiger(Wohnung w)`, die ein `true` zurückgibt, wenn die Gesamtmiete des aufrufenden Objektes kleiner ist als die Gesamtmiete von `w`; `false` sonst.
+		- einer Objektmethode `teurer(Wohnung w)`, die ein `true` zurückgibt, wenn die Gesamtmiete des aufrufenden Objektes größer ist als die Gesamtmiete von `w`; `false` sonst.
+		- einer Objektmethode `toString()` die Details der Wohnung in folgender Form (ab inkl. 1. Etage aufwärts) als `String` zurückgibt (Beispielwerte):
+			```bash
+			2-Zimmer Wohnung mit 40 qm in der 4. Etage. Monatliche Miete: 360.00 Euro
+			```
+			Achtung! Sollte sich die Wohnung in der 0.Etage befinden, geben Sie die Details bitte wie folgt zurück (Beispielwerte):
+			```bash
+			1-Zimmer Wohnung mit 60 qm im Erdgeschoss. Monatliche Miete: 750.00 Euro`
+			```
+
+		- und einer Objektmethode `print()`, die den von `toString()`zurückgegebenen `String` auf der Konsole ausgibt
+
+	2. Erstellen Sie im gleichen package eine Klasse `Testklasse` mit `main()`-Methode. Geben Sie in der `main()`-Methode Folgendes ein:
+		```java
+		System.out.printf("%n%n--------------------- Test Wohnung -------------------------%n%n");
+		Wohnung w1 = new Wohnung(70, 3, 4, 12.50);
+		Wohnung w2 = new Wohnung(40, 1, 0, 9.50);
+		Wohnung w3 = new Wohnung(90, 4, 2, 11.10);
+		Wohnung w4 = new Wohnung(60, 2, 0, 9.00);
+		
+		w1.print();
+		w2.print();
+		w3.print();
+		w4.print();
+		```	
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		--------------------- Test Wohnung -------------------------
+
+		3-Zimmer Wohnung mit 70qm in der 4. Etage. Monatliche Miete: 875,00 Euro
+		1-Zimmer Wohnung mit 40qm im Erdgeschoss. Monatliche Miete: 380,00 Euro
+		4-Zimmer Wohnung mit 90qm in der 2. Etage. Monatliche Miete: 999,00 Euro
+		2-Zimmer Wohnung mit 60qm im Erdgeschoss. Monatliche Miete: 540,00 Euro
+		```
+
+	2. Erstellen Sie im gleichen package eine Klasse `Dachgeschosswohnung`. Diese erbt von `Wohnung`. 
+
+		- Implementieren Sie einen parametrisierten Konstruktor `Dachgeschosswohnung(int qm, int anzZimmer, double qmMiete)`. Bei Aufruf des Konstruktors werden die entsprechenden Objektvariablen mit den Parameterwerten initialisiert. Die Objektvariable `etage` bekommt stets den Wert `5`. 
+		- Überschreiben Sie die Methode `toString()`, so dass eine Zeichenkette der Form (Beispielwerte)
+			```bash
+			4-Zimmer DG-Wohnung mit 100 qm in der 5. Etage. Monatliche Miete: 1250.00 Euro
+			```
+			zurückgegeben wird.  
+
+	3. Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n--------------- Test Dachgeschosswohnung -------------------%n%n");
+		Dachgeschosswohnung dg1 = new Dachgeschosswohnung(70, 3, 15.50);
+		Dachgeschosswohnung dg2 = new Dachgeschosswohnung(100, 4, 17.25);
+		
+		dg1.print();
+		dg2.print();
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		--------------- Test Dachgeschosswohnung -------------------
+
+		3-Zimmer DG-Wohnung mit 70qm in der 5. Etage. Monatliche Miete: 1085,00 Euro
+		4-Zimmer DG-Wohnung mit 100qm in der 5. Etage. Monatliche Miete: 1725,00 Euro
+		```
+
+	4. Erstellen Sie im gleichen package eine Klasse `Haus`.  
+
+		- Objektvariable ist `wohnungen` vom Typ `Wohnung[]` und nur in der Klasse sichtbar. 
+		- Implementieren Sie eine Objektmethode `neueWohnung()`. Diese Methode gibt ein Objekt vom Typ `Wohnung` zurück. In dieser Methode wird zunächst ein `Random`-Objekt erzeugt. Mithilfe dieses `Random`-Objektes und der Objektmethode `nextInt(int bound)` der Klasse `Random` sollen zunächst nacheinander folgende Werte zufällig erzeugt werden:
+			- Ein Wert für eine Quadratmeteranzahl `qm` aus dem Wertebereich `[20, 40, 60, 80, 100]` ( --> also zufällig eine dieser 5 Zahlen),
+			- Ein Wert für die Anzahl der Zimmer `anzZimmer` aus dem Wertebereich `[1, 2, 3, 4, 5]` ( --> also zufällig eine dieser 5 Zahlen),
+			- Ein Wert für die Etage `etage` aus dem Wertebereich `[0, 1, 2, 3, 4, 5]` ( --> also zufällig eine dieser 6 Zahlen),
+			- Ein Wert für den Mietpreis pro Quadratmeter `qmMiete` aus dem Wertebereich `[8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 12.5]` ( --> also zufällig eine dieser 10 Zahlen – Achtung hier `double`, Sie können aber trotzdem `nextInt(int bound)` verwenden, müssen dann aber geeignet multiplizieren und addieren).
+		Erzeugen Sie mit diesen Werten ein neues `Wohnung`-Objekt und geben Sie dieses Objekt zurück.
+
+		- Implementieren Sie einen parametrisierten Konstruktor `Haus(int anzWohnungen)`. Darin wird das `wohnungen`-Array erzeugt. Die Länge von `wohnungen` entspricht dem Wert von `anzWohnungen`.
+		Befüllen Sie das `wohnungen`-Array vollständig mit Objekten vom Typ `Wohnungen`. Rufen Sie dazu für jedes Element des `wohnungen`-Arrays die Objektmethode `neueWohnung()` auf.<br/>
+		**Tipp :** Jedes Element des `wohnungen`-Arrays ist nach dem Befüllen mit Objekten vom Typ `Wohnung` eine Referenzvariable auf ein `Wohnung`-Objekt, d.h. z.B. ist `this.wohnungen[0]` vom Typ `Wohnung` und zeigt auf ein `Wohnung`-Objekt. Die folgende Abbildung verdeutlicht das für den Fall, dass das `wohnungen`-Array die Länge `10` hat:
+			![wohnungen](./files/85_wohnungen.png)	
+
+		- Implementieren Sie eine Objektmethode `print()`. Bei Aufruf der Methode soll das `wohnungen`-Array wie folgt ausgegeben werden (Beispielwerte für Array-Länge `5`:)
+			```bash 
+			Das Haus besteht aus : 
+			  5-Zimmer Wohnung mit 80qm im Erdgeschoss. Monatliche Miete: 1000,00 Euro
+			  4-Zimmer Wohnung mit 60qm in der 5. Etage. Monatliche Miete: 480,00 Euro
+			  2-Zimmer Wohnung mit 80qm in der 5. Etage. Monatliche Miete: 880,00 Euro
+			  5-Zimmer Wohnung mit 100qm in der 2. Etage. Monatliche Miete: 1100,00 Euro
+			  3-Zimmer Wohnung mit 80qm im Erdgeschoss. Monatliche Miete: 920,00 Euro
+			```
+
+
+	5. Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n---------------------- Test Haus ---------------------------%n%n");
+		Haus h1 = new Haus(10);
+		h1.print();
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden (Zufallswerte!):
+		```bash
+		---------------------- Test Haus ---------------------------
+
+		Das Haus besteht aus : 
+		  1-Zimmer Wohnung mit 80qm in der 4. Etage. Monatliche Miete: 840,00 Euro
+		  3-Zimmer Wohnung mit 60qm in der 3. Etage. Monatliche Miete: 540,00 Euro
+		  4-Zimmer Wohnung mit 80qm in der 3. Etage. Monatliche Miete: 1000,00 Euro
+		  5-Zimmer Wohnung mit 60qm in der 3. Etage. Monatliche Miete: 540,00 Euro
+		  2-Zimmer Wohnung mit 60qm im Erdgeschoss. Monatliche Miete: 510,00 Euro
+		  3-Zimmer Wohnung mit 60qm in der 4. Etage. Monatliche Miete: 600,00 Euro
+		  4-Zimmer Wohnung mit 20qm in der 3. Etage. Monatliche Miete: 250,00 Euro
+		  4-Zimmer Wohnung mit 100qm in der 5. Etage. Monatliche Miete: 850,00 Euro
+		  5-Zimmer Wohnung mit 20qm in der 2. Etage. Monatliche Miete: 160,00 Euro
+		  2-Zimmer Wohnung mit 40qm in der 2. Etage. Monatliche Miete: 400,00 Euro
+		```
+
+	6. **Zusatz:** Erweitern Sie die Klasse `Haus` um folgende Objektmethoden:
+
+		- eine Objektmethode `wohnungenInEtage(int etage)`. Diese Methode gibt ein `Wohnung[]`-Array zurück. Das zurückgegebene `Wohnung[]`-Array soll alle Wohnungen aus dem `wohnungen`-Array enthalten, die in der Etage liegen, die der Methode als Parameter übergeben wird (`etage`). Befindet sich keine Wohnung in der als Parameter übergeben Etage, so wird ein `Wohnung[]`-Array der Länge `0` zurückgegeben.
+		- eine Objektmethode `print(Wohnung[] warr)`. Diese Methode gibt das als Parameter übergebene `warr`-Array auf der Konsole aus, in der Form (Bsp.:):
+			```bash
+			2-Zimmer Wohnung mit 100 qm in der 2. Etage. Monatliche Miete: 1250.00 Euro
+			5-Zimmer Wohnung mit 100 qm in der 2. Etage. Monatliche Miete: 1000.00 Euro
+			```
+		- Testen der beiden Methoden in `main()`:
+			```java
+			System.out.printf("%n%n----- Test wohnungenInEtage() und print(Wohnung[]) ---------%n%n");
+			for(int etage=0; etage<6; etage++)
+			{
+				System.out.println("Etage " + etage + " ---------------------------------------");
+				h1.print(h1.wohnungenInEtage(etage));
+				System.out.println();
+			}
+			```
+			sollte folgende Ausgbabe erzeugen (Zufallswerte):
+			```bash
+			----- Test wohnungenInEtage() und print(Wohnung[]) ---------
+
+			Etage 0 ---------------------------------------
+			2-Zimmer Wohnung mit 60qm im Erdgeschoss. Monatliche Miete: 510,00 Euro
+
+			Etage 1 ---------------------------------------
+
+			Etage 2 ---------------------------------------
+			5-Zimmer Wohnung mit 20qm in der 2. Etage. Monatliche Miete: 160,00 Euro
+			2-Zimmer Wohnung mit 40qm in der 2. Etage. Monatliche Miete: 400,00 Euro
+
+			Etage 3 ---------------------------------------
+			3-Zimmer Wohnung mit 60qm in der 3. Etage. Monatliche Miete: 540,00 Euro
+			4-Zimmer Wohnung mit 80qm in der 3. Etage. Monatliche Miete: 1000,00 Euro
+			5-Zimmer Wohnung mit 60qm in der 3. Etage. Monatliche Miete: 540,00 Euro
+			4-Zimmer Wohnung mit 20qm in der 3. Etage. Monatliche Miete: 250,00 Euro
+
+			Etage 4 ---------------------------------------
+			1-Zimmer Wohnung mit 80qm in der 4. Etage. Monatliche Miete: 840,00 Euro
+			3-Zimmer Wohnung mit 60qm in der 4. Etage. Monatliche Miete: 600,00 Euro
+
+			Etage 5 ---------------------------------------
+			4-Zimmer Wohnung mit 100qm in der 5. Etage. Monatliche Miete: 850,00 Euro
+			```
+
+		- eine Objektmethode `teuersteWohnung()`. Diese Methode gibt die Wohnung aus dem `wohnungen`-Array zurück, die die höchste Gesamtmiete von allen Wohnungen aus dem `wohnungen`-Array hat.
+		- Testen der Methode in `main()`:
+			```java
+			System.out.printf("%n%n--------------- Test teuersteWohnung() ---------------------%n%n");
+			Wohnung teuerste = h1.teuersteWohnung();
+			teuerste.print();
+			```
+			sollte folgende Ausgbabe erzeugen (Zufallswerte):
+			```bash
+			--------------- Test teuersteWohnung() ---------------------
+
+			4-Zimmer Wohnung mit 80qm in der 3. Etage. Monatliche Miete: 1000,00 Euro
+			```
+
+		- eine Objektmethode `gesamtMieteHaus()`. Diese Methode gibt die Summe der Mieten aller Wohnungen im `wohnungen`-Array als `double` zurück. 
+		- Testen der Methode in `main()`:
+			```java
+			System.out.printf("%n%n---------------- Test gesamtMieteHaus() --------------------%n%n");
+			System.out.printf("Die Gesamtmiete fuer das Haus betraegt %.2f Euro.%n", h1.gesamtMieteHaus());
+			```
+			sollte folgende Ausgbabe erzeugen (Zufallswerte):
+			```bash
+			---------------- Test gesamtMieteHaus() --------------------
+
+			Die Gesamtmiete fuer das Haus betraegt 5690,00 Euro.
+			```
+
+		- eine Objektmethode `sortieren()`. Diese Methode sortiert das `wohnungen`-Array nach Gesamtmieten aufsteigend (beginnend mit der billigsten Wohnung und endend mit der teuersten).
+		- Testen der Methode in `main()`:
+			```java
+			System.out.printf("%n%n------------------- Test sortieren() -----------------------%n%n");
+			h1.sortieren();
+			h1.print();
+			```
+			sollte folgende Ausgbabe erzeugen (Zufallswerte):
+			```bash
+			------------------- Test sortieren() -----------------------
+
+			Das Haus besteht aus : 
+			  5-Zimmer Wohnung mit 20qm in der 2. Etage. Monatliche Miete: 160,00 Euro
+			  4-Zimmer Wohnung mit 20qm in der 3. Etage. Monatliche Miete: 250,00 Euro
+			  2-Zimmer Wohnung mit 40qm in der 2. Etage. Monatliche Miete: 400,00 Euro
+			  2-Zimmer Wohnung mit 60qm im Erdgeschoss. Monatliche Miete: 510,00 Euro
+			  3-Zimmer Wohnung mit 60qm in der 3. Etage. Monatliche Miete: 540,00 Euro
+			  5-Zimmer Wohnung mit 60qm in der 3. Etage. Monatliche Miete: 540,00 Euro
+			  3-Zimmer Wohnung mit 60qm in der 4. Etage. Monatliche Miete: 600,00 Euro
+			  1-Zimmer Wohnung mit 80qm in der 4. Etage. Monatliche Miete: 840,00 Euro
+			  4-Zimmer Wohnung mit 100qm in der 5. Etage. Monatliche Miete: 850,00 Euro
+			  4-Zimmer Wohnung mit 80qm in der 3. Etage. Monatliche Miete: 1000,00 Euro
+			```
+
+
+??? note "Pizza"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.pizza`. 
+	2. Erstellen Sie in diesem package eine Klasse `Pizza` mit
+
+		- den privaten Objektvariablen 
+			- `name` vom Typ `String` und
+			- `preis` vom Typ `float`. 
+		- einem parametrisierten Konstruktor `Pizza(String name, float preis)`. Die Werte der Parameter werden verwendet, um den Objektvariablen Werte zuzuweisen.
+		- Gettern für die Objektvariablen (`getName()`, `getPreis()`)
+		- Überschreiben Sie die Objektmethode `toString()`, die Details der Pizza in folgender Form als `String` zurückgibt (Beispielwerte):
+			```bash
+			Die Pizza Salami kostet 6.90 Euro.
+			```
+		- und einer Objektmethode `print()`, die den von `toString()`zurückgegebenen `String` auf der Konsole ausgibt.
+		- Überschreiben Sie die Objektmethode `equals(Object o)`. Diese Methode gibt `true` zurück, wenn der Name `name` des aufrufenden Objektes gleich dem Namen `name` des als Parameter übergebenen Objektes ist; `false` sonst. **Tipp :** Die Gleichheit von zwei Strings `s1` und `s2` können Sie mithilfe von `s1.equals(s2)` ermitteln. (`hashCode()` muss nicht überschrieben werden).
+
+	3. Erstellen Sie im gleichen package eine Klasse `Testklasse` mit `main()`-Methode. Geben Sie in der `main()`-Methode Folgendes ein:
+		```java
+		System.out.printf("%n%n------------------------- Test Pizza ---------------------------%n%n");
+		Pizza p1 = new Pizza("Salami", 6.9f);
+		Pizza p2 = new Pizza("Margheritha", 5.9f);
+		Pizza p3 = new Pizza("Tonno", 6.9f);
+		Pizza p4 = new Pizza("Hawaii", 6.9f);
+		Pizza p5 = new Pizza("Calzone", 7.9f);
+		Pizza p6 = new Pizza("Salami", 6.9f);
+		
+		p1.print();
+		p2.print();
+		p3.print();
+		p4.print();
+		p5.print();
+		
+		System.out.println("p1 gleich p2 ? : " + p1.equals(p2));
+		System.out.println("p1 gleich p1 ? : " + p1.equals(p1));
+		System.out.println("p1 gleich p6 ? : " + p1.equals(p6));
+		```	
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		------------------------- Test Pizza ---------------------------
+
+		Die Pizza Salami kostet 6,90 Euro.
+		Die Pizza Margheritha kostet 5,90 Euro.
+		Die Pizza Tonno kostet 6,90 Euro.
+		Die Pizza Hawaii kostet 6,90 Euro.
+		Die Pizza Calzone kostet 7,90 Euro.
+
+		p1 gleich p2 ? : false
+		p1 gleich p1 ? : true
+		p1 gleich p6 ? : true
+		```
+	4. Erstellen Sie im gleichen package eine Klasse `Pizzaverkauf` mit
+
+		- den privaten Objektvariablen 
+			- `pizza` vom Typ `Pizza` und
+			- `anzVerkaeufe` vom Typ `int`. 
+		- einem parametrisierten Konstruktor `Pizzaverkauf(Pizza pizza)`. Mit dem Parameterwert `pizza` wird die Objektvariable `pizza` initialisiert. Der Wert der Objektvariablen `anzVerkaeufe` wird auf `0` gesetzt. 
+		- einer Objektmethode `verkaufen()`. Darin wird der Wert der Objektvariablen `anzVerkaeufe` um `1` erhöht.
+		- Gettern für die Objektvariablen, also `getAnzVerkaeufe()` und `getPizza()`.
+		- einer Objektmethode `umsatz()`. Diese Methode gibt ein `double` zurück. Der Wert berechnet sich aus der Anzahl der Verkäufe der Pizza (`anzVerkaeufe`) mal dem Preis der Pizza. 
+		- einer Objektmethode `toString()` die Details der Pizzaverkaeufe in folgender Form als `String` zurückgibt (Beispielwerte):
+			```bash
+			Pizza Salami wurde 0 mal zum Preis von 6.90 Euro verkauft.
+			```
+
+		- und einer Objektmethode `print()`, die den von `toString()`zurückgegebenen `String` auf der Konsole ausgibt
+
+	5. Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n--------------------- Test Pizzaverkauf ------------------------%n%n");
+		Pizzaverkauf pv1 = new Pizzaverkauf(p1);
+		pv1.print();
+		pv1.verkaufen();
+		pv1.print();
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		--------------------- Test Pizzaverkauf ------------------------
+
+		Pizza Salami wurde 0 mal zum Preis von 6,90 Euro verkauft.
+		Pizza Salami wurde 1 mal zum Preis von 6,90 Euro verkauft.
+		```
+
+	6. Erstellen Sie im gleichen package eine Klasse `Speisekarte` mit
+
+		- der privaten Objektvariablen 
+			- `angebot` vom Typ `Pizza[]`
+ 
+		- einem parameterlosen Konstruktor `Speisekarte()`. In diesem Konstruktor wird für `angebot` ein `Pizza`-Array der Länge `0` erzeugt. 
+		- einer Objektmethode `pizzaHinzufuegen(Pizza pizza)`. Diese Methode fügt die als Parameter übergebene `pizza` dem angebot-Array hinzu. <br/>
+		**Beachten Sie:**
+
+			- Um dem `angebot`-Array eine neue Pizza hinzuzufügen, muss die Länge des Arrays um 1 erhöht werden.
+			- Kopieren Sie sich dazu das alte `angebot`-Array.
+			- Erzeugen Sie dann ein neues `angebot`-Array, das um 1 länger ist als das alte.
+			- Kopieren Sie das bisherige Angebot zurück in das neue `angebot`-Array.
+			- Fügen Sie die neue Pizza (Parameter `pizza`) als letztes Element im neuen `angebot`-Array hinzu.
+
+		- einer Objektmethode `getLength()`. Diese Methode gibt die Länge des `angebot`-Arrays zurück. 
+		- einer Objektmethode `pizzaIstImAngebot(Pizza pizza)`. Diese Methode gibt ein `true` zurück, wenn die als Parameter übergebene `pizza` im `angebot`-Array enthalten ist. Prüfen Sie die Gleichheit mithilfe der `equals()`-Methode von `Pizza`. 
+		- einer Objektmethode `pizzaLoeschen(Pizza pizza)`. Diese Methode löscht die als Parameter übergebene `pizza` aus dem `angebot`-Array (wenn Sie darin enthalten ist). <br/>
+		**Beachten Sie:**
+ 
+			- Nach dem Löschen der Pizza aus dem `angebot`-Array soll das `angebot`-Array wieder um 1 kleiner sein als vorher (falls die zu löschende Pizza überhaupt im `angebot`-Array enthalten war).
+			- Kopieren Sie also das alte `angebot`-Array außer die zu löschende Pizza. 
+			- Ihre Kopie ist dann das neue `angebot`-Array. 
+ 
+ 		- einer Objektmethode `getPizzaAtIndex(int index)`. Diese Methode gibt die Pizza zurück, die im `angebot`-Array beim Index `index` eingetragen ist. Prüfen Sie, ob der übergebene Parameter ein gültiger Index aus dem `angebot`-Array ist. Wenn nicht, geben Sie `null` zurück.
+
+		- Überschreiben Sie die Objektmethode `toString()`, die die Details der Speisekarte in folgender Form als `String` zurückgibt (Beispielwerte):
+			```bash
+			====== Speisekarte ======
+			Salami          6,90 Euro 
+			Margheritha     5,90 Euro 
+			Tonno           6,90 Euro 
+			Hawaii          6,90 Euro 
+			Calzone         7,90 Euro
+			```
+
+		- und einer Objektmethode `print()`, die den von `toString()`zurückgegebenen `String` auf der Konsole ausgibt
+
+	7. Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n--------------------- Test Speisekarte -------------------------%n%n");
+		Speisekarte s1 = new Speisekarte();
+		s1.pizzaHinzufuegen(p1);
+		s1.pizzaHinzufuegen(p2);
+		s1.pizzaHinzufuegen(p3);
+		s1.pizzaHinzufuegen(p4);
+		s1.pizzaHinzufuegen(p5);
+		s1.print();
+		
+		s1.pizzaLoeschen(p3);
+		s1.print();
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden:
+		```bash
+		--------------------- Test Speisekarte -------------------------
+
+		====== Speisekarte ======
+		Salami          6,90 Euro 
+		Margheritha     5,90 Euro 
+		Tonno           6,90 Euro 
+		Hawaii          6,90 Euro 
+		Calzone         7,90 Euro 
+
+		====== Speisekarte ======
+		Salami          6,90 Euro 
+		Margheritha     5,90 Euro 
+		Hawaii          6,90 Euro 
+		Calzone         7,90 Euro 
+		```
+
+	8. **Zusatz** Erstellen Sie im gleichen package eine Klasse `Pizzaria` mit
+
+		- der privaten Objektvariablen 
+			- `verkaeufe` vom Typ `Pizzaverkauf[]`. 
+		- einem parametrisierten Konstruktor `Pizzeria(Speisekarte karte)`. In diesem Konstruktor wird 
+
+			- das `verkaeufe`-Array erzeugt und hat die gleiche Länge wie das `angebot`-Array der Speisekarte `karte` (siehe `getLength()`-Methode aus `Speisekarte`).
+			- jedes Element des `verkaeufe`-Arrays zeigt auf ein `Pizzaverkauf`-Objekt. Erzeugen Sie alle `Pizzaverkauf`-Objekte. Übergeben Sie dem `Pizzaverkauf`-Konstruktor dazu die jeweiligen `Pizza`-Objekte aus der Speisekarte `karte`.
+
+		- einer Objektmethode `bestellen()`. Diese Methode gibt ein `int` zurück. In dieser Methode soll zufällig ein Index aus dem `verkaeufe`-Array erzeugt werden. Nutzen Sie dazu die Klasse `Random` aus dem `java.util`-Paket. Verwenden Sie die Objektmethode `nextInt(int bound)` der Klasse `Random`. Wenden Sie `nextInt()` so an, dass auch tatsächlich ein gültiger Index des `verkaeufe`-Arrays erzeugt wird. Geben Sie diesen zufällig erzeugten Index zurück (das Bestellen entspricht also dem Nennen einer Nummer aus der Speisekarte). 
+		- einer Objektmethode `verkaufen(int index)`. Durch den Aufruf der Methode wird die Pizza verkauft, die im `verkaeufe`-Array am Index `index` steht. Nutzen Sie für den Verkauf die `verkaufen()`-Methode der Klasse Pizzaverkauf. Überprüfen Sie, ob der als Parameter übergebene Wert für `index` tatsächlich einem Index im `verkaeufe`-Array entspricht. 
+		- einer Objektmethode `tagesVerkauf(int anzVerkaeufe)`. In dieser Methode wird `anzVerkaeufe` oft eine Pizza verkauft (`verkaufen(int index)`). Welche Pizza verkauft wird (also welcher `index`), wird durch die Methode `bestellen()` jeweils zufällig ermittelt. 
+		- einer Objektmethode `print()`. Diese Methode erzeugt folgende Ausgabe (Beispielwerte):
+			```bash
+			Salami          : ***********************************
+			Margheritha     : ************************************
+			Hawaii          : *****************************************
+			Calzone         : ************************************** 
+			```
+			Das heißt, es wird am Anfang der Zeile der Name der Pizza aus dem `verkaeufe`-Array ausgegeben und danach für die Anzahl der Verkäufe jeweils ein `*`.
+		- einer Objektmethode `meistverkauftePizza()`. Diese Methode gibt die Pizza aus dem `verkaeufe`-Array zurück, die am meisten verkauft wurde.
+		- einer Objektmethode `gesamtEinnahmen()`. Diese Methode gibt die Summe aller Einnahmen als `double` zurück. Die Einnahmen ergeben sich aus der Summe der Umsätze aller Pizzen (Methode `umsatz()` von `Pizzaverkauf`) aus dem `verkaeufe`-Array.
+
+	9. Fügen Sie in der `main()`-Methode der `Testklasse` folgende Anweisungen hinzu:
+		```java	
+		System.out.printf("%n%n------------------------ Test Pizzaria -------------------------%n%n");
+		Pizzeria pz1 = new Pizzeria(s1);
+		pz1.tagesVerkauf(150);
+		pz1.print();
+		System.out.println();
+		System.out.print("Meistverkaufte Pizza : ");
+		pz1.meistverkauftePizza().print();
+		System.out.printf("Die Gesamteinnahmen betragen %.2f Euro", pz1.gesamtEinnahmen());
+		```
+		und führen Sie die `Testklasse` aus. Es sollten folgende zusätzliche Ausgaben erzeugt werden (Zufallswerte):
+		```bash
+		------------------------ Test Pizzaria -------------------------
+
+		Salami          : ******************************
+		Margheritha     : *******************************************
+		Hawaii          : *******************************************
+		Calzone         : **********************************
+
+		Meistverkaufte Pizza : Die Pizza Margheritha kostet 5,90 Euro.
+		Die Gesamteinnahmen betragen 1026,00 Euro
+		```
+
+
+??? note "Power"
+	- Implementieren Sie eine Klasse `Power`. 
+
+	- **Idee :** Die Klasse `Power` implementiert die *Potenz*. Eine *Potenz* besteht aus einer Basis (`base`) und dem Exponenten (`exp`): base^exp, z.B. `8^4 = 8 ∙ 8 ∙ 8 ∙ 8`
+
+	- Objektvariablen sind `base` und `exp` vom Typ `int`. Beide Objektvariablen sind nur innerhalb der Klasse sichtbar!
+	- Implementieren Sie getter für die Basis (`getBase()`) und für den Exponenten (`getExp()`) (Sichtbarkeit `public`). 
+	- Implementieren Sie für die Klasse `Power` einen parametrisierten Konstruktor `Power(int base, int exp)`. Die Werte der Parameter werden verwendet, um den Objektvariablen Werte zuzuweisen.
+	- Implementieren Sie eine Objektmethode `getValue()`, die ein `double` zurückgibt. Die Methode gibt den Wert der Potenz zurück, also z.B. für `8^4` den Wert `4096.0`. Beachten Sie: <br/>
+		![formel](./files/73_formel.png) <br/>
+		Die Verwendung der `Math`-Klasse ist nicht erlaubt!
+	- Überschreiben Sie die Methode `toString()`, so dass eine Potenz in der Form `(base, exp)` als `String` zurückgegeben wird, wobei `base` und `exp` die Werte der jeweiligen Objektvariablen sein sollen, also z.B. `(8, 4)`. 
+	- Implementieren Sie eine Objektmethode `print()`, die mithilfe von `toString()` eine Potenz auf der Konsole ausgibt. 
+	- Erstellen Sie eine Klasse `PowerTest` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode folgende fünf Objekte der Klasse `Power`: `3^4`, `-3^4`, `3^0`, `3^(-4)`, `-3^(-4)`. Wenden Sie jeweils die Methode `print()` an und geben Sie außerdem jeweils den Wert der Potenz auf die Konsole aus. Es sollte eine Ausgabe in ungefähr der folgenden Form erfolgen:
+	```bash
+	(3,4)
+	(3,4) = 81.0
+	(-3,4)
+	(-3,4) = 81.0
+	(3,0)
+	(3,0) = 1.0
+	(3,-4)
+	(3,-4) = 0.012345679012345678
+	(-3,-4)
+	(-3,-4) = 0.012345679012345678
+	```
+	---
+	- Erstellen Sie eine Klasse `PowerOfTwo`. Diese Klasse erbt von `Power`. 
+	- **Idee :** Ein Objekt der Klasse `PowerOfTwo` ist eine Potenz zur Basis `2`, also z.B. `2^4`.
+	- Implementieren Sie einen parametrisierten Konstruktor `PowerOfTwo(int exp)`. Beachten Sie, dass der Basis der Wert `2` zugewiesen wird. 
+	- Implementieren Sie eine Objektmethode `printBinary()`. Diese Methode gibt die Potenz als Binärzahl (bestehend aus Einsen und Nullen) auf die Konsole aus, z.B. `2^4`: `1 0 0 0 0`. **Tipp :** es kommt vorne immer eine `1` und danach kommen so viele Nullen, wie der Exponent groß ist. Wenn der Exponent kliner als `0` ist, dann geben Sie `Zahl ist kleiner als 1` auf die Konsole aus. Die Binärzahl für eine Potenz kleiner als `0` muss also **nicht** ermittelt werden. 
+	- Erzeugen Sie in der `main()`-Methode der Klasse `PowerTest` folgende drei Objekte der Klasse `PowerOfTwo`: `2^4`, `2^(-4)`, `2^0` und rufen Sie jeweils die Methoden `print()` und `printBinary()` auf. Es sollte eine Ausgabe in ungefähr der folgenden Form erfolgen:
+	```bash
+	(2,4)
+	1 0 0 0 0
+	(2,-4)
+	Zahl ist kleiner als 1
+	(2,0)
+	1
+	```
+	---
+	- Erstellen Sie eine Klasse `PowerArray`. Objektvariable ist `p` vom Typ `Power[]`. `p` ist nur innerhalb der Klasse sichtbar!
+	- Implementieren Sie einen parametrisierten Konstruktor `PowerArray(int length)`. Darin wird das `p`-Array erzeugt. Die Länge von `p` entspricht dem Wert von `length`.
+	- Implementieren Sie eine Objektmethode `fillArray()`. Bei Aufruf der Methode soll das Array `p` mit Objekten der Klasse `Power` gefüllt werden. Die Werte der Objektvariablen der `Power`-Objekte werden zufällig mit Hilfe der `Random`-Klasse erzeugt (um die `Random`-Klasse verwenden zu können, müssen Sie diese aus dem `java.util`-Paket importieren). Beachten Sie folgende Anforderungen:
+		1. Sowohl die Basis als auch der Exponent können Werte aus dem Wertebereich `1..5` (jeweils inklusive) annehmen
+		2. Die Basis soll nie einen größeren Wert als der Exponent haben (aber es können beide gleich sein).
+	- Implementieren Sie eine Objektmethode `createArrayOfValues()`. Diese Methode liefert ein `double[]`-Array zurück, das alle Werte der Potenzen aus dem `p`-Array enthält. 
+	- Implementieren Sie eine Objektmethode `getIndexExponent(int exponent)`, die den Index des (ersten) Elementes zurückliefert, bei dem das `Power`-Objekt den Exponenten hat, der als Parameter der Methode übergeben wird. Existiert ein solches Objekt nicht im Array, wird `-1` zurückgegeben. 
+	- Überschreiben Sie die Methode `toString()`, so dass das `p`-Array in der Form (Beispiel)
+		```bash
+		[ (2,5), (2,3), (3,3), (1,5), (2,3), (1,3), (1,3), (1,2), (3,5), (2,3) ]
+		```
+		als `String` zurückgegeben wird. Implementieren Sie eine Methode `print()`, die mithilfe von `toString()` das `p`-Array auf die Konsole ausgibt.
+	- Implementieren Sie eine Methode `sort()`, die das `p`-Array nach den Größen der Werte der Potenzen ordnet – vom kleinsten Wert zum größten Wert. Die Verwendung der `Arrays`-Klasse aus dem `java.util`-Paket ist nicht gestattet. Sollten 2 Potenzen den gleichen Wert haben, z.B. `1^2` und `1^4`, dann soll die Potenz mit dem höheren Exponent größer sein als die Potenz mit dem kleineren Exponenten.
+	- Erzeugen Sie in der `main()`-Methode der Klasse `PowerTest` ein Objekt der Klasse `PowerArray`, so dass das `p`-Array die Länge `10` hat. Rufen Sie für dieses Objekt die Objektmethoden `fillArray()`, `print()`, `sort()` und wieder `print()` auf. Testen Sie außerdem (mindestens) einmal die `getIndexExponent()`- und die `createArrayOfValues()`- Methode (um das Array of Values auf der Konsole auszugeben, verwenden Sie die statische `toString()`-Methode der `Arrays`-Klasse (`import java.util.Arrays;`). Es sollte eine Ausgabe in ungefähr der folgenden Form erfolgen (Zufallswerte):
+	```bash
+	[ (1,5), (1,2), (3,5), (3,4), (4,4), (1,5), (1,2), (3,4), (2,3), (3,5) ]
+	[ (1,2), (1,2), (1,5), (1,5), (2,3), (3,4), (3,4), (3,5), (3,5), (4,4) ]
+	Index : 5
+	Index : -1
+	[1.0, 1.0, 1.0, 1.0, 8.0, 81.0, 81.0, 243.0, 243.0, 256.0]
+	```
+
+
+??? note "Computer"
+	- Implementieren Sie eine Klasse `Computer`. 
+
+		- Objektvariablen sind `hersteller` vom Typ `String`, `ram` vom Typ `int` und `platte` vom Typ `int`. Die Objektvariablen sind in der Klasse und allen abgeleiteten Klassen sichtbar!
+		- Schreiben Sie für alle Objektvariablen Getter (`getRam()`, `getPlatte()`, `getHersteller()`).
+		- Schreiben Sie einen parametrisierten Konstruktor `Computer(String hersteller, int ram, int platte)`. Die Parameterwerte werden genutzt, um den Objektvariablen die entsprechenden Werte zuzuweisen.
+		- Schreiben Sie eine Objektmethode `gleicherHersteller(Computer c)`, die ein `true` zurückgibt, wenn `c` vom gleichen Hersteller ist, wie das aufrufende Objekt. Ansonsten wird ein `false` zurückgegeben. 
+		- Schreiben Sie eine Objektmethode `gleicherHersteller(String hersteller)`, die ein `true` zurückgibt, wenn das aufrufende Objekt den Hersteller hat, der als Parameterwert der Methode übergeben wird. Ansonsten wird ein `false` zurückgegeben.
+		- Überschreiben Sie die Methode `toString()`, so dass der Computer in folgender Form angezeigt wird (Beispielwerte):
+			```bash
+			lenovo mit 8 RAM und 256 SSD
+			```
+		- Schreiben Sie eine Methode `print()`, die mit Hilfe von `toString()` eine Ausgabe auf der Konsole erzeugt.
+
+	- Erstellen Sie eine Klasse `Testklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode fünf Objekte der Klasse `Computer`:
+
+		- lenovo mit 8 RAM und 256 SSD 
+		- lenovo mit 16 RAM und 512 SSD 
+		- apple mit 4 RAM und 256 SSD 
+		- apple mit 8 RAM und 512 SSD 
+		- dell mit 8 RAM und 256 SSD
+
+		Wenden Sie jeweils die Methode `print()` an, wenden Sie die Methode `gleicherHersteller(Computer c)` für den ersten Computer an und vergleichen ihn mit dem zweiten und dem dritten. Geben Sie jeweils den Wert des Vergleiches aus. <br/>
+		Es sollten folgende Ausgaben auf der Konsole erzeugt werden:
+		```bash
+		--------------------- Test Computer --------------------
+
+		lenovo mit 8 RAM und 256 SSD
+		lenovo mit 16 RAM und 512 SSD
+		apple mit 4 RAM und 256 SSD
+		apple mit 8 RAM und 512 SSD
+		dell mit 8 RAM und 256 SSD
+		c1 und c2 gleicher Hersteller ? : true
+		c1 und c3 gleicher Hersteller ? : false
+		```
+
+	- Erstellen Sie eine Klasse `Notebook`. Diese Klasse erbt von der Klasse `Computer`. 
+	
+		- Zusätzliche Objektvariable der Klasse `Notebook` ist `monitor` vom Typ `int`. Die Objektvariablen sind in der Klasse und allen abgeleiteten Klassen sichtbar!	
+		- Implementieren Sie einen parametrisierten Konstruktor `Notebook(String hersteller, int ram, int platte, int monitor)`. Die Parameterwerte werden genutzt, um den Objektvariablen des zurückgegebenen Objektes die entsprechenden Werte zuzuweisen.
+		- Überschreiben Sie die Methode `toString()`, so dass eine Zeichenkette der Form
+			```bash
+			(hersteller, ram, platte, monitor)
+			```
+			zurückgegeben wird (die entsprechenden Werte werden eingesetzt - siehe Ausgabe der `main()`-Methode unten).  
+
+	- Erzeugen Sie in der `main()`-Methode der `Testklasse` zwei Objekte der Klasse `Notebook` (Beispielwerte siehe nächste Zeile) und rufen Sie jeweils die `print()`-Methode auf. <br/>
+		Es sollten folgende Ausgaben auf der Konsole erzeugt werden:
+		```bash
+		--------------------- Test Notebook --------------------
+
+		(lenovo, 8, 256, 13)
+		(lenovo, 16, 512, 15)
+		```
+
+	- Erstellen Sie eine Klasse `NotebookArray`.  
+
+		- Objektvariable ist `notebooks` vom Typ `Notebook[]`. Die Objektvariable ist nur innerhalb der Klasse sichtbar!
+		- Schreiben Sie einen parametrisierten Konstruktor `NotebookArray(int anzahl)`. Darin wird das `notebooks`-Array mit der Länge `anzahl` erzeugt (es wird noch nicht mit `Notebook`-Objekten befüllt - das macht die nächste Methode).
+		- Schreiben Sie eine Objektmethode `konfigurieren()`. Bei Aufruf der Methode wird das Array `notebooks` mit Objekten der Klasse `Notebook` befüllt. <br/>
+		**Beachten Sie folgende Anforderungen:**
+
+			1. das `notebooks`-Array wird vollständig befüllt
+			2. für das Erzeugen der Objekte wird eine Zufallszahl aus dem Bereich `[0, 1, 2, 3, 4]` (`4` inklusive) erzeugt. Nutzen Sie dazu die Klasse `Random` aus dem `java.util`-Paket. Mithilfe von `nextInt(int exclusiveBorder)` wird eine Zufallszahl erzeugt. Je nach Wert der Zufallszahl wird ein anderes Notebook erzeugt:
+
+				Wert `0` -> zu erzeugendes Objekt: `("lenovo", 8, 256, 13)` <br/>
+				Wert `1` -> zu erzeugendes Objekt: `("lenovo", 16, 512, 15)` <br/>
+				Wert `2` -> zu erzeugendes Objekt: `("apple", 4, 256, 13)` <br/>
+				Wert `3` -> zu erzeugendes Objekt: `("apple", 8, 512, 13)` <br/>
+				Wert `4` -> zu erzeugendes Objekt: `("dell", 8, 512, 15)` <br/>
+
+		- Überschreiben Sie die Objektmethode `toString()`. Diese Methode gibt einen String in der Form (Beispielwerte):
+			```bash
+			[ 5 : (lenovo, 8, 256, 13 ), (apple, 8, 512, 13 ), (lenovo, 16, 512, 15 ), (lenovo, 8, 256, 13 ), (apple, 8, 512, 13 )]
+			```
+			zurück. <br/>
+			**Beachten Sie:**
+	
+			1. die eckigen Klammern zu Beginn und Ende des Strings
+			2. die Angabe der Anzahl der Elemente am Anfang (im obigen Beispiel `5 : `) 
+			3. das Komma zwischen den Elementen (aber nicht nach dem letzten Element)
+
+		- Schreiben Sie eine Methode `print()`, die den in `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+		- Schreiben Sie eine Objektmethode `getHersteller(String hersteller)`. Diese Methode gibt ein Objekt vom Typ `NotebookArray` zurück. Das `notebooks`-Array des erzeugten Objektes enthält genau alle Notebooks aus dem `notebooks`-Array des aufrufenden Objektes, die von dem Hersteller sind, der als Parameterwert übergeben wird.  <br/>
+		**Beispiel:** Angenommen, das `notebooks`-Array des aufrufenden Objektes sieht so aus:
+			```bash
+			[ 10 : (lenovo, 16, 512, 15 ), (apple, 8, 512, 13 ), (apple, 4, 256, 13 ), (apple, 8, 512, 13 ), (lenovo, 8, 256, 13 ), 
+				   (lenovo, 16, 512, 15 ), (lenovo, 16, 512, 15 ), (lenovo, 16, 512, 15 ), (apple, 4, 256, 13 ), (apple, 4, 256, 13 ) ]
+			```
+		Dann würde bei Aufruf der Methode `getHersteller("apple")` das zurückgegebene `NotebookArray`-Objekt folgendes `notebooks`-Array haben:
+			```bash
+			[ (apple, 8, 512, 13 ), (apple, 4, 256, 13 ), (apple, 8, 512, 13 ), (apple, 4, 256, 13 ), (apple, 4, 256, 13 ) ]
+			```
+			, bei Aufruf der Methode `getHersteller("lenovo")` das zurückgegebene `NotebookArray`-Objekt folgendes `notebooks`-Array:
+			```bash
+			[ (lenovo, 16, 512, 15 ), (lenovo, 8, 256, 13 ), (lenovo, 16, 512, 15 ), (lenovo, 16, 512, 15 ), (lenovo, 16, 512, 15 ) ]
+			```
+			und bei Aufruf der Methode `getHersteller("dell")` das zurückgegebene `NotebookArray`-Objekt ein leeres `notebooks`-Array:
+			```bash
+			[ ]
+			```
+
+		- Schreiben Sie eine Objektmethode `sortRamPlatte()`. Diese Methode sortiert das `notebooks`-Array wie folgt:
+
+			1. aufsteigend nach RAM-Größe (kleinste RAM-Größe zuerst)
+			2. ist die RAM-Größer zweier Notebooks gleich, entscheidet die Plattengröße (kleinste Plattengröße zuerst)
+
+	- Erzeugen Sie in der `main()`-Methode der `Testklasse` ein Objekt der Klasse `NotebookArray`, so dass das `notebooks`-Array die Länge `10` hat. Rufen Sie für dieses Objekt die Objektmethoden `konfigurieren()`, `print()`, `sortRamPlatte()` und `print()` auf. Testen Sie außerdem die `getHersteller()`-Methode für alle drei Hersteller und geben Sie jeweils das erzeugte Array aus.  <br/>
+		Es sollten folgende Ausgaben auf der Konsole erzeugt werden (**Zufallswerte!**):
+		```bash
+		------------------ Test NotebookArray ------------------
+
+		[ 10 : (apple, 8, 512, 13), (lenovo, 16, 512, 15), (apple, 4, 256, 13), (lenovo, 8, 256, 13), (apple, 4, 256, 13), (dell, 8, 512, 15), (apple, 4, 256, 13), (apple, 8, 512, 13), (lenovo, 8, 256, 13), (apple, 8, 512, 13)]
+		[ 10 : (apple, 4, 256, 13), (apple, 4, 256, 13), (apple, 4, 256, 13), (lenovo, 8, 256, 13), (lenovo, 8, 256, 13), (apple, 8, 512, 13), (dell, 8, 512, 15), (apple, 8, 512, 13), (apple, 8, 512, 13), (lenovo, 16, 512, 15)]
+		[ 3 : (lenovo, 8, 256, 13), (lenovo, 8, 256, 13), (lenovo, 16, 512, 15)]
+		[ 6 : (apple, 4, 256, 13), (apple, 4, 256, 13), (apple, 4, 256, 13), (apple, 8, 512, 13), (apple, 8, 512, 13), (apple, 8, 512, 13)]
+		[ 1 : (dell, 8, 512, 15)]
+		```
+
+
+??? note "Uhrzeit"
+	- Implementieren Sie eine Klasse `Uhrzeit`. 
+
+		- Objektvariablen sind `stunden` vom Typ `int`, `minuten` vom Typ `int` und `sekunden` vom Typ `int`. Die Objektvariablen sind nur in der Klasse sichtbar!
+
+		- Schreiben Sie einen parametrisierten Konstruktor `Uhrzeit(int sekunden)`. Übergeben wird eine beliebige Anzahl von Sekunden. Aus diesem Wert wird die Uhrzeit berechnet. 
+
+			- Beispiel 1: Angenommen, es wird der Wert `83` übergeben, dann sind das `0` Stunden, `1` Minute (`60` Sekunden) und `23` Sekunden.
+
+			- Beispiel 2: Angenommen, es wird der Wert `3662` übergeben, dann sind das `1` Stunde (`3600` Sekunden), `1` Minute (`60` Sekunden) und `2` Sekunden. 
+
+			- Beispiel 3: Angenommen, es wird der Wert `86399` übergeben, dann sind das `23` Stunden (`23x3600` Sekunden), `59` Minuten (`59x60` Sekunden) und `59` Sekunden. 
+
+			- Die Stunden sollen immer im Bereich `0..23` sein, d.h. für einen Stunden-Wert größer als `24` nehmen Sie einfach den `Modulo-24`-Wert.
+
+			- Initialisieren Sie die Objektvariablen mit den berechneten Werten.  
+
+		- Schreiben Sie eine Objektmethode `uhrzeitInSekunden()`. Diese Methode gibt die Uhrzeit in Sekunden als `int` zurück. Der Wert der zurückgegebenen Sekunden berechnet sich aus den Stunden multipliziert mit `3600` plus den Minuten multipliziert mit `60` plus den Sekunden des aufrufenden `Uhrzeit`-Objektes.  
+
+		- Schreiben Sie eine Objektmethode `frueher(Uhrzeit u)`, die ein `true` zurückgibt, wenn die Uhrzeit des aufrufenden Objektes früher liegt als der Wert von `u`; `false` sonst. 
+
+		- Schreiben Sie eine Objektmethode `jetztPlusXSekunden(int sekunden)`, die ein neues `Uhrzeit`-Objekt zurückgibt. Die Uhrzeit des neuen Objektes ergibt sich aus der Uhrzeit des aufrufenden Objektes plus der Anzahl der Sekunden, die als Parameter übergeben werden.
+
+		- Schreiben Sie eine Objektmethode `differenzInSekunden(Uhrzeit u)`, die die Anzahl in Sekunden (`int`) zurückgibt, die zwischen der Uhrzeit des aufrufenden Objektes und `u` liegen. Geben Sie die Anzahl stets als positiven Wert zurück! Sie können dazu die Methode `Math.abs(int wert)` verwenden, die den absoluten Betrag von `wert` zurückgibt. 
+
+		- Überschreiben Sie die Methode `toString()`, so dass der Wert des aufrufenden Objektes in der Form `hh:mm:ss` als `String` zurückgegeben wird, z.B. `23:59:59`. Achten Sie darauf, dass die Stunden, Minuten und Sekunden führende Nullen enthalten können, also z.B. `01:02:03`!
+
+		- Schreiben Sie eine Methode `print()`, die den von `toString()` erzeugten `String` auf die Konsole ausgibt. 
+
+	- Erstellen Sie eine Klasse `Testklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode vier Objekte der Klasse `Uhrzeit`. Verwenden Sie als Parameterwerte: `83`, `3662`, `86399` und `172799`. Wenden Sie jeweils die Methoden `System.out.print()` und `print()` aus `Uhrzeit` so an, dass folgende Ausgabe entsteht:  
+		```bash
+		z1 : 00:01:23
+		z2 : 01:01:02
+		z3 : 23:59:59
+		z4 : 23:59:59
+		```
+	- Wenden Sie außerdem jeweils die Methoden `System.out.println()` sowie `frueher()`, `jetztPlusXSekunden()`, `differenzInSekunden()` (und evtl. `toString()`) aus `Uhrzeit` so an, dass folgende Ausgabe entsteht:  
+		```bash
+		z1 frueher als z2 ? true
+		z3 frueher als z4 ? false
+
+		z1 plus   40 Sekunden : 00:02:03
+		z2 plus 3598 Sekunden : 02:01:00
+
+		z3-z2 in Sekunden : 82737
+		```
+
+	- Erstellen Sie eine Klasse `UhrzeitArray`. Objektvariable `uhren` ist ein Array, das Elemente von `Uhrzeit` aufnimmt. Die Variable ist nur innerhalb der Klasse sichtbar.
+
+		- Schreiben Sie einen parametrisierten Konstruktor `UhrzeitArray(int laenge)`. Innerhalb des Konstruktors wird das Array erzeugt, auf das die Objektvariable `uhren` referenziert. Das Array hat die Länge `laenge` (Parameterwert).
+		- Schreiben Sie eine Objektmethode `fill()`, die das `uhren`-Array vollständig mit `Uhrzeit`-Objekten befüllt. Die Parameterwerte der `Uhrzeit`-Objekte werden zufällig erzeugt. Erzeugen Sie ein Objekt der Klasse `Random` (dafür muss `java.util.Random` importiert werden) und erzeugen Sie die Parameter-Werte für die `Uhrzeit`-Objekte zufällig (unter Verwendung des `Random`-Objektes) aus dem Bereich `[0, ..., 86399]` (`0` und `86399` jeweils inklusive)
+		- Überschreiben Sie die Objektmethode `toString()`, so dass das `uhren`-Array wie folgt als Zeichenkette zurückgegeben wird (Beispielwerte): 
+			```bash
+			((06:38:30), (01:59:32), (07:16:48), (01:37:58), (18:16:06), (07:50:33), (01:41:47), (05:07:41), (12:38:08), (02:00:04)) 
+			```
+			Also die Uhrzeit jeweils in runden Klammern und durch Komma getrennt sowie das ganze Array in runden Klammern. 
+		- Schreiben Sie eine Objektmethode `print()`, so dass auf der Konsole die durch `toString()` erzeugte eine Zeichenkette ausgegeben wird.  
+		- Schreiben Sie eine Objektmethode `spaeteste()`. Diese Methode gibt die größte (späteste) `Uhrzeit` aus dem Array `uhren` zurück. 
+		- Schreiben Sie eine Objektmethode `zwischen(Uhrzeit frueh, Uhrzeit spaet)`. Diese Methode gibt ein `UhrzeitArray`-Objekt zurück. Das zurückgegebene `UhrzeitArray`-Objekt enthält alle `Uhrzeit`-Objekte aus dem Array `uhren`, welche zwischen den beiden Uhrzeiten `frueh` und `spaet` liegen.
+		- Schreiben Sie eine Objektmethode `sortieren()`. Diese Methode sortiert das `uhren`-Array aufsteigend beginnend mit der kleinsten Uhrzeit.
+		- Schreiben Sie eine Objektmethode `kleinsterAbstand()`. Diese Methode gibt ein `UhrzeitArray` der Länge `2` zurück. Es enthält die beiden `Uhrzeit`en aus dem Array `uhren`, welche den kleinsten Abstand (Differenz in Sekunden) haben. Sie können beim Schreiben der Methode davon ausgehen, dass das `uhren`-Array bereits sortiert ist! 
+
+	- Erzeugen Sie in der `main()`-Methode ein Objekt der Klasse `UhrzeitArray`. Das Array soll die Länge `10` haben. 
+
+		- Rufen Sie die `fill()`- und dann die `print()`-Methode auf. Es entsteht folgende Ausgabe (Zufallswerte):
+			```bash
+			((06:38:30), (01:59:32), (07:16:48), (01:37:58), (18:16:06), (07:50:33), (01:41:47), (05:07:41), (12:38:08), (02:00:04))
+			```
+
+		- Wenden Sie jeweils die Methoden `System.out.print()` sowie `spaeteste()` so an, dass folgende Ausgabe entsteht (Zufallswerte):  
+			```bash
+			spaeteste : 18:16:06
+			```
+
+		- Wenden Sie jeweils die Methoden `System.out.print()` sowie `sortieren()` und `print()` so an, dass folgende Ausgabe entsteht (Zufallswerte):
+			```bash  
+			sortiert  : ((01:37:58), (01:41:47), (01:59:32), (02:00:04), (05:07:41), (06:38:30), (07:16:48), (07:50:33), (12:38:08), (18:16:06))
+			```
+
+		- Erzeugen Sie zwei weitere `Uhrzeit`-Objekte `frueh` (Parameterwert `36000`) und `spaet` (Parameterwert `72000`) und rufen Sie damit die Objektmethoden `zwischen(frueh, spaet)` und `print()` auf, so dass folgende Ausgabe entsteht (Zufallswerte):
+			```bash
+			frueh    : 10:00:00
+			spaet    : 20:00:00
+			zwischen : ((12:38:08), (18:16:06))
+			```
+
+		- Wenden Sie jeweils die Methoden `System.out.print()` sowie `kleinsterAbstand()` und `print()` so an, dass folgende Ausgabe entsteht (Zufallswerte):  
+			```bash
+			kleinster Abstand : ((01:59:32), (02:00:04))
+			```
+
+	- **Zur Kontrolle:** ungefähre Ausgabe auf der Konsole (in Teil 2 Zufallswerte):
+		```bash
+		--------------- Teil 1 ---------------
+
+		z1 : 00:01:23
+		z2 : 01:01:02
+		z3 : 23:59:59
+		z4 : 23:59:59
+
+		z1 frueher als z2 ? true
+		z3 frueher als z4 ? false
+
+		z1 plus   40 Sekunden : 00:02:03
+		z2 plus 3598 Sekunden : 02:01:00
+
+		z3-z2 in Sekunden : 82737
+
+		--------------- Teil 2 ---------------
+
+		((06:38:30), (01:59:32), (07:16:48), (01:37:58), (18:16:06), (07:50:33), (01:41:47), (05:07:41), (12:38:08), (02:00:04))
+
+		spaeteste : 18:16:06
+
+		sortiert  : ((01:37:58), (01:41:47), (01:59:32), (02:00:04), (05:07:41), (06:38:30), (07:16:48), (07:50:33), (12:38:08), (18:16:06))
+
+		frueh    : 10:00:00
+		spaet    : 20:00:00
+		zwischen : ((12:38:08), (18:16:06))
+
+		kleinster Abstand : ((01:59:32), (02:00:04))
+		```
+
+
+??? note "Länder und Kontinente"
+	- Implementieren Sie eine Klasse `Land`. 
+
+		- Objektvariablen sind `name` vom Typ `String` *(Name des Landes)*, `groesse` vom Typ `int` *(Größe des Landes)* und `einwohner` vom Typ `int` *(Anzahl der Einwohner des Landes)*. Die Objektvariablen sind nur in der Klasse sichtbar!
+
+		- Schreiben Sie für alle drei Objektvariablen Getter (`getName()`, `getGroesse()`, `getEinwohner())! 
+
+		- Schreiben Sie eine Objektmethode `erzeugeName()`. Diese Methode gibt einen `String` zurück, der sich aus einem großen Buchstaben und einer Ziffer zusammensetzt, also z.B. `K8`, `L1`, `J4` usw.  Sowohl der Großbuchstabe als auch die Ziffer sollen mithilfe der Klasse `Random` zufällig erzeugt werden. <br/>
+
+		- **Tipps:**
+				
+			- um die Klasse `Random` verwenden zu können, müssen Sie sie aus dem `java.util`-Paket importieren,
+			- verwenden Sie sowohl zum Erzeugen des Großbuchstabens als auch zum Erzeugen der Ziffer die Objektmethode `nextInt(int bound)` der Klasse `Random`,
+			- der ASCII-Code von `A` ist `65`, der von `Z` ist `90` (es sind 26 verschiedene Buchstaben)
+			- bei den Ziffern sind alle 10 Ziffern [0, …,9] möglich
+
+		- Schreiben Sie für die Klasse `Land` einen parameterlosen Konstruktor. In diesem Konstruktor wird
+
+			- die Objektvariable `name` mithilfe der `erzeugeName()`-Methode initialisiert,
+			- die Objektvariable `groesse` wird mit einem Zufallswert aus dem Wertebereich [1, …, 100] (100 verschiedene Zahlen, 1 und 100 inklusive) initialisiert und 
+			- die Objektvariable `einwohner` mit einem Zufallswert aus dem Wertebereich [1, …, 1000] (1000 verschiedene Zahlen, 1 und 1000 inklusive) initialisiert. 
+			- Nutzen Sie erneut die Klasse `Random` und die Methode `nextInt(bound)`.
+
+		- Schreiben Sie eine Objektmethode `ewDichte()`. Diese Methode gibt ein `double` zurück und gibt die Anzahl der `einwohner` pro `groesse` an. 
+		
+		- Überschreiben Sie die Objektmethode `toString()` so, dass ein Land in der folgenden Form als ein `String` zurückgegeben wird (Zufallswerte):
+			```bash
+			A3 :  37 km2 :   91 ew :   2,4595
+			```
+
+			- Zuerst der Name des Landes und dann ` : `, 
+			- dann die Groesse des Landes gefolgt von ` km2 : `,
+			- dann die Anzahl der Einwohner des Landes gefolgt von ` ew : `  und
+			- dann die Einwohnerdichte mit vier Stellen nach dem Komma. 
+
+			Der String soll so formatiert sein, dass die Doppelpunkte ` : ` und das Komma bei der Einwohnerdichte bei der Ausgabe mehrerer Strings untereinander stehen!, also z.B. so:
+				```bash
+				G5 :  76 km2 :   25 ew :   0,3289
+				W0 :  60 km2 :   18 ew :   0,3000
+				S9 :   6 km2 :  585 ew :  97,5000
+				H1 :   4 km2 :  965 ew : 241,2500
+				```
+	
+		- Schreiben Sie eine Objektmethode `print()`. Diese Methode gibt den durch `toString()` erzeugten `String` auf der Konsole aus.
+
+		- Schreiben Sie die Objektmethode `istGroesser(Land land)`. Diese Methode gibt ein `true` zurück, wenn bei dem aufrufenden Objekt der Wert von `groesse` größer ist als von `land`. Ansonsten `false`. 
+
+		- Schreiben Sie die Objektmethode `hatMehrEinwohner(Land land)`. Diese Methode gibt ein `true` zurück, wenn bei dem aufrufenden Objekt der Wert von `einwohner` größer ist als von `land`. Ansonsten `false`. 
+
+		- Schreiben Sie die Objektmethode `nameIstGroesser(Land land)`. Diese Methode gibt ein `true` zurück, wenn bei dem aufrufenden Objekt der Wert von `name` lexikografisch größer ist als von `land`. Ansonsten false.
+
+		**Tipp:** für zwei Strings `s1` und `s2` gilt, dass `s1` lexikografisch größer ist, wenn der Wert von `s1.compareTo(s2)` einem positiven `int`-Wert etspricht. 
+
+		- Überschreiben Sie die Objektmethode `equals(Object o)`. Diese Methode gibt ein `true` zurück, wenn das aufrufende Objekt den gleichen Namen hat wie `o`. Sonst `false`. 
+
+	- Schreiben Sie eine Klasse `Testklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode in einer Schleife `10` Objekte der Klasse `Land` und rufen (auch in der Schleife) jeweils die `print()`-Methode auf. 
+
+		Es entsteht folgende Ausgabe (Beispielwerte sind zufällig und unterscheiden sich!):
+		```bash
+		J6 :  34 km2 :  198 ew :   5,8235
+		B4 :  72 km2 :  171 ew :   2,3750
+		Z8 :  93 km2 :  712 ew :   7,6559
+		W2 :  75 km2 :  149 ew :   1,9867
+		O0 : 100 km2 :  576 ew :   5,7600
+		Q5 :  21 km2 :  210 ew :  10,0000
+		O9 :  71 km2 :  533 ew :   7,5070
+		B8 :  52 km2 :   57 ew :   1,0962
+		K4 :  71 km2 :  830 ew :  11,6901
+		A9 :  98 km2 :  288 ew :   2,9388
+		```
+
+		- Erzeugen Sie 1 Objekt von `Land` und rufen Sie für dieses Objekt die `print()`-Methode auf. Erzeugen Sie in einer Schleife so lange ein weiteres Objekt von `Land`, bis die beiden Objekte laut `equals()`-Methode gleich sind. Zählen Sie mit, wie viele Objekte von `Land` Sie erzeugen mussten, bis ein gleiches Objekt gefunden wurde. Geben Sie das gefundene Objekt mithilfe der `print()`-Methode aus und wie viele Objekte erzeugt wurden. 
+
+			Es entsteht folgende Ausgabe (Beispielwerte sind zufällig und unterscheiden sich!):
+			```bash
+			I1 :  28 km2 :  914 ew :  32,6429
+			I1 :  80 km2 :    1 ew :   0,0125
+			43 andere Laender erzeugt
+			```
+
+		- Erzeugen Sie zwei Objekte `l1` und `l2` von `Land` und wenden Sie die Methoden `istGroesser()`, `hatMehrEinwohner()` und `nameIstGroesser()` so an, dass folgende Ausgabe entsteht (Zufallswerte!):
+			```bash
+			l1 : T0 :  30 km2 :  237 ew :   7,9000
+			l2 : K0 :  29 km2 :  328 ew :  11,3103
+
+			l1 groesser als l2 ?                : true
+			l1 mehr Einwohner als l2 ?          : false
+			l1 lexikografisch groesser als l2 ? : true
+			```
+
+	- Schreiben Sie eine Klasse `Kontinent`. 
+
+		- Objektvariablen dieser Klasse sind:
+
+			- `laender` vom Typ `Land[]` und
+
+			- `kontinent` vom Typ `char`. 
+
+			Beide Objektvariablen sind nur innerhalb der Klasse sichtbar!
+
+
+		- Schreiben Sie einen parametrisierten Konstruktor `Kontinent(char kontinent, int anzahlLaender)`. Innerhalb des Konstruktors werden:
+
+			- der Parameterwert `kontinent` verwendet, um die Objektvariable `kontinent` zu initialisieren, 
+			- das Array erzeugt, auf das die Objektvariable `laender` referenziert. Das Array hat die Länge `anzahlLaender`,
+			- sowie das `laender`-Array vollständig mit Objekten vom Typ `Land` befüllt.
+
+		- Schreiben Sie eine Objektmethode `getAnzLaender()`. Diese Methode gibt die Anzahl der Länder im `laender`-Array als `int` zurück.
+
+		- Schreiben Sie eine Objektmethode `getLaender()`. Diese Methode gibt eine Referenz auf das `laender`-Array zurück.
+
+		- Schreiben Sie eine Objektmethode `getLandAtIndex(int index)`. Diese Methode gibt das `Land` zurück, das im `laender`-Array unter dem Index `index` gespeichert ist. Sollte `index` kein korrekter Index aus dem `laender`-Array sein, wird `null` zurückgegeben. 
+
+		- Schreiben Sie eine Objektmethode `getSummen()`. Diese Methode gibt ein `int`-Array der Länge `2` zurück. 
+
+			- Der erste Eintrag in diesem Array ist die Summe der Größen aller Länder im `laender`-Array und 
+	
+			- der zweite Eintrag ist die Summe der Einwohner aller Länder im `laender`-Array. 
+
+		- Überschreiben Sie die Objektmethode `toString()` so, dass ein `String` in der folgenden Form zurückgegeben wird (Zufallswerte!):
+		```bash
+		Kontinent a 
+		--------------------------
+		S2 :  81 km2 :  918 ew :  11,3333 
+		Z7 :  14 km2 :  453 ew :  32,3571 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+		F1 :  23 km2 :  714 ew :  31,0435 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		W5 :  35 km2 :  128 ew :   3,6571 
+
+		Summen : 269 : 4284 
+		```
+
+			- es wird Kontinent und der Name des Kontinents in der ersten Zeile ausgegeben, 
+
+			- dann kommt eine Trennlinie (egal, wie lang), 
+
+			- dann kommen untereinander alle Länder aus dem laender-Array, 
+
+			- dann kommt eine Lehrzeile und
+
+			- dann kommen die Summen der Größen der Länder und die Summen der Einwohner (beliebig formatiert)
+
+		- Schreiben Sie eine Objektmethode `print()`. Diese Methode gibt den durch `toString()` erzeugten `String` auf der Konsole aus.
+
+		- Schreiben Sie eine Objektmethode `sortiere(int nach)`. Diese Methode sortiert das `laender`-Array aufsteigend von klein nach groß. Der Parameter nach hat folgende Bedeutung:
+
+			-	Ist der Wert von `nach` `0`, dann wird das Array nach der `groesse` der Länder sortiert. 
+
+			-	Ist der Wert von `nach` `1`, dann wird das Array nach der Anzahl der `einwohner` der Länder sortiert.
+
+			-	Ist der Wert von `nach` `2`, dann wird das Array nach der Einwohnerdichte (`ewDichte`) der Länder sortiert.
+
+			-	Für jeden anderen Wert von `nach` (also alles außer `0,1,2`) wird das Array lexikografisch nach den Namen der Länder sortiert. 
+
+	- Erzeugen Sie in der `main()`-Methode ein Array, in dem jedes Element vom Typ `Kontinent` ist. Das Array hat die Länge `5`. Befüllen Sie dieses Array mit `Kontinent`-Objekten in einer **Schleife(!)** wie folgt:
+
+		- Die fünf Kontinente haben die Namen `a`, `b`, `c`, `d`, `e` (der ASCII-Code von `a` ist `97`, der von `b` ist `98` usw. ).
+
+		- Der erste Kontinent hat 7 Länder, der zweite hat 8, der dritte 9, der vierte 10 und der fünfte Kontinent hat 11 Länder.
+
+		- Rufen Sie für alle Kontinente jeweils die `print()`-Methode auf. Es entsteht folgende Ausgabe (Zufallswerte!):
+		```bash
+		Kontinent a
+		--------------------------
+		S2 :  81 km2 :  918 ew :  11,3333 
+		Z7 :  14 km2 :  453 ew :  32,3571 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+		F1 :  23 km2 :  714 ew :  31,0435 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		W5 :  35 km2 :  128 ew :   3,6571 
+
+		Summen : 269 : 4284
+
+		Kontinent b 
+		--------------------------
+		R8 :  65 km2 :  337 ew :   5,1846 
+		L9 :  57 km2 :  732 ew :  12,8421 
+		T0 :  74 km2 :  796 ew :  10,7568 
+		P4 :  13 km2 :  481 ew :  37,0000 
+		L5 :  48 km2 :  575 ew :  11,9792 
+		Q2 :  35 km2 :  538 ew :  15,3714 
+		M8 :  72 km2 :  865 ew :  12,0139 
+		T0 :  29 km2 :  855 ew :  29,4828 
+
+		Summen : 393 : 5179
+
+		Kontinent c 
+		--------------------------
+		I9 :  91 km2 :   84 ew :   0,9231 
+		X9 :  41 km2 :  842 ew :  20,5366 
+		V7 :  31 km2 :  120 ew :   3,8710 
+		O3 :  48 km2 :  990 ew :  20,6250 
+		P6 :  27 km2 :  565 ew :  20,9259 
+		J7 :  54 km2 :  810 ew :  15,0000 
+		S9 :  72 km2 :  401 ew :   5,5694 
+		C4 :  29 km2 :  486 ew :  16,7586 
+		I2 :   6 km2 :  393 ew :  65,5000 
+
+		Summen : 399 : 4691
+
+		Kontinent d 
+		--------------------------
+		C0 :  44 km2 :  122 ew :   2,7727 
+		E2 :   8 km2 :  925 ew : 115,6250 
+		I1 :  12 km2 :  585 ew :  48,7500 
+		X9 :  13 km2 :  583 ew :  44,8462 
+		Z6 :  10 km2 :   24 ew :   2,4000 
+		J1 :  20 km2 :  161 ew :   8,0500 
+		I2 :  75 km2 :  432 ew :   5,7600 
+		Y8 :  69 km2 :  224 ew :   3,2464 
+		H1 :  45 km2 :  410 ew :   9,1111 
+		P1 :  24 km2 :  332 ew :  13,8333 
+
+		Summen : 320 : 3798
+
+		Kontinent e 
+		--------------------------
+		J6 :  22 km2 :  358 ew :  16,2727 
+		N9 :  95 km2 :  471 ew :   4,9579 
+		G5 :  94 km2 :  524 ew :   5,5745 
+		G0 :  72 km2 :  753 ew :  10,4583 
+		L3 :  84 km2 :   49 ew :   0,5833 
+		M8 :  39 km2 :   13 ew :   0,3333 
+		K7 :  22 km2 :  881 ew :  40,0455 
+		Y3 :  58 km2 :  355 ew :   6,1207 
+		H3 :  28 km2 :    2 ew :   0,0714 
+		V2 :  67 km2 :   94 ew :   1,4030 
+		S9 :  15 km2 :  392 ew :  26,1333 
+
+		Summen : 596 : 3892
+		```
+		
+		- Rufen Sie für den **ersten** Kontinent im Array nacheinander die Methoden `sortiere(0)`, `print()`, `sortiere(1)`, `print()`, `sortiere(2)`, `print()`, `sortiere(3)`, `print()` auf. Es entsteht folgende Ausgabe (Zufallswerte!):
+		```bash
+		Kontinent a           // keine Ausgabe, nur Info: Kontinent unsortiert 
+		--------------------------
+		S2 :  81 km2 :  918 ew :  11,3333 
+		Z7 :  14 km2 :  453 ew :  32,3571 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+		F1 :  23 km2 :  714 ew :  31,0435 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		W5 :  35 km2 :  128 ew :   3,6571 
+
+		Kontinent a           // keine Ausgabe, nur Info: nach groesse sortiert 
+		--------------------------
+		Z7 :  14 km2 :  453 ew :  32,3571 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+		F1 :  23 km2 :  714 ew :  31,0435 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		W5 :  35 km2 :  128 ew :   3,6571 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		S2 :  81 km2 :  918 ew :  11,3333 
+
+		Kontinent a           // keine Ausgabe, nur Info: nach einwohner sortiert 
+		--------------------------
+		W5 :  35 km2 :  128 ew :   3,6571 
+		Z7 :  14 km2 :  453 ew :  32,3571 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		F1 :  23 km2 :  714 ew :  31,0435 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+		S2 :  81 km2 :  918 ew :  11,3333 
+
+		Kontinent a           // keine Ausgabe, nur Info: nach ewDichte sortiert 
+		--------------------------
+		W5 :  35 km2 :  128 ew :   3,6571 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		S2 :  81 km2 :  918 ew :  11,3333 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		F1 :  23 km2 :  714 ew :  31,0435 
+		Z7 :  14 km2 :  453 ew :  32,3571 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+
+		Kontinent a           // keine Ausgabe, nur Info: nach name sortiert 
+		--------------------------
+		F1 :  23 km2 :  714 ew :  31,0435 
+		K9 :  67 km2 :  630 ew :   9,4030 
+		O4 :  35 km2 :  713 ew :  20,3714 
+		Q9 :  14 km2 :  728 ew :  52,0000 
+		S2 :  81 km2 :  918 ew :  11,3333 
+		W5 :  35 km2 :  128 ew :   3,6571 
+		Z7 :  14 km2 :  453 ew :  32,3571
+
+		```
+
+	- Schreiben Sie eine Klasse `Welt`.
+
+		- Objektvariable dieser Klasse ist `kontinente` vom Typ `Kontinent[]`. Die Objektvariable ist nur innerhalb der Klasse sichtbar!
+
+		- Schreiben Sie einen parametrisierten Konstruktor `Welt(Kontinent[] kontinente)`. Die Referenz des Parameters wird der Objektvariablen zugewiesen. 
+
+		- Schreiben Sie eine Objektmethode `getAlleLaender()`. Diese Methode gibt ein `Land`-Array zurück, in dem alle Länder aus dem `kontinente`-Array enthalten sind. 
+
+		- Schreiben Sie eine Objektmethode `printAlleLaender(Land[] alleLaender)`, die das als Parameter übergebene Array in der folgenden Form ausgibt (Zufallswerte!): 
+		```bash
+		F1 :  23 km2 :  714 ew :  31,0435
+		K9 :  67 km2 :  630 ew :   9,4030
+		O4 :  35 km2 :  713 ew :  20,3714
+		Q9 :  14 km2 :  728 ew :  52,0000
+		S2 :  81 km2 :  918 ew :  11,3333
+		W5 :  35 km2 :  128 ew :   3,6571
+		Z7 :  14 km2 :  453 ew :  32,3571
+		R8 :  65 km2 :  337 ew :   5,1846
+		L9 :  57 km2 :  732 ew :  12,8421
+		T0 :  74 km2 :  796 ew :  10,7568
+		P4 :  13 km2 :  481 ew :  37,0000
+		L5 :  48 km2 :  575 ew :  11,9792
+		```
+			Es sind mehr Länder – ist hier gekürzt. Also einfach alle Länder untereinander.
+
+		- Schreiben Sie eine Objektmethode `enthaeltDoppel()`. Diese Methode gibt ein `true` zurück, wenn das `kontinente`-Array Länder enthält, die den gleichen Namen haben, also laut `equals()` gleich sind. Ansonsten `false`. 
+
+		- Schreiben Sie eine Objektmethode `groesstestLand()`. Diese Methode gibt das größte Land (größte `groesse`) aller Länder im `kontinente`-Array zurück. 
+
+		- Schreiben Sie eine Objektmethode `alleLaenderGroesserAls(int groesse)`, die ein `Land[]` zurückgibt. Das zurückgegebene `Land[]` enthält alle Länder aus dem `kontinente`-Array, die größer sind als der Parameterwert `groesse`.
+
+	- Testen Sie in der `main()`-Methode die Methoden `getAlleLaender()` und `printAlleLaender()` der Klasse `Welt`, so dass für die Methoden folgende Ausgaben entstehen (Zufallswerte!):
+	```bash
+	L6 :  37 km2 :  122 ew :   3,2973
+	M9 :  22 km2 :  351 ew :  15,9545
+	O4 :  84 km2 :  717 ew :   8,5357
+	P4 :  93 km2 :  759 ew :   8,1613
+	Q3 :   3 km2 :  771 ew : 257,0000
+	R1 :  48 km2 :  610 ew :  12,7083
+	V3 :  40 km2 :  153 ew :   3,8250
+	E8 :  58 km2 :  195 ew :   3,3621
+	I9 :  19 km2 :  875 ew :  46,0526
+	Z6 :  47 km2 :  188 ew :   4,0000
+	Y6 :  75 km2 :  858 ew :  11,4400
+	C7 :  26 km2 :  676 ew :  26,0000
+	V8 :   1 km2 :  470 ew : 470,0000
+	Q8 :  92 km2 :  214 ew :   2,3261
+	T7 :  52 km2 :  544 ew :  10,4615
+	U1 :  46 km2 :  939 ew :  20,4130
+	C9 :  22 km2 :  594 ew :  27,0000
+	Z5 :  94 km2 :  353 ew :   3,7553
+	G6 :   9 km2 :  237 ew :  26,3333
+	D8 :  85 km2 :  910 ew :  10,7059
+	I5 :  15 km2 :  521 ew :  34,7333
+	V7 :  58 km2 :  546 ew :   9,4138
+	V8 :  25 km2 :  535 ew :  21,4000
+	I4 :  91 km2 :  407 ew :   4,4725
+	W1 :  92 km2 :  278 ew :   3,0217
+	M4 :  30 km2 :  494 ew :  16,4667
+	R5 :   8 km2 :  912 ew : 114,0000
+	O1 :  15 km2 :  858 ew :  57,2000
+	S3 :  46 km2 :  463 ew :  10,0652
+	M9 :  43 km2 :  624 ew :  14,5116
+	P5 :  35 km2 :  704 ew :  20,1143
+	Y2 :   2 km2 :  243 ew : 121,5000
+	X9 :  79 km2 :  928 ew :  11,7468
+	Z4 :  36 km2 :  311 ew :   8,6389
+	C6 :   2 km2 :  249 ew : 124,5000
+	J6 :   6 km2 :  683 ew : 113,8333
+	G8 :  18 km2 :    3 ew :   0,1667
+	W3 :  24 km2 :  502 ew :  20,9167
+	K9 :  81 km2 :  996 ew :  12,2963
+	A0 :  46 km2 :  950 ew :  20,6522
+	K9 :  99 km2 :   84 ew :   0,8485
+	T5 :  93 km2 :  488 ew :   5,2473
+	X1 :  40 km2 :  555 ew :  13,8750
+	Q9 :  18 km2 :  631 ew :  35,0556
+	I9 :  22 km2 :  867 ew :  39,4091
+	```
+
+		- Rufen Sie die Methoden `enthaeltDoppel()`, `groesstesLand()`, `alleLaenderGroesserAls(50)` und `printAlleLaender()` so auf, dass folgende Ausgaben entstehen (Zufallswerte!): 
+		```bash
+		Enthaelt Doppel? : true
+		groesstes Land   : K9 :  99 km2 :   84 ew :   0,8485
+		Alle Laender groesser als 50 :
+		O4 :  84 km2 :  717 ew :   8,5357
+		P4 :  93 km2 :  759 ew :   8,1613
+		E8 :  58 km2 :  195 ew :   3,3621
+		Y6 :  75 km2 :  858 ew :  11,4400
+		Q8 :  92 km2 :  214 ew :   2,3261
+		T7 :  52 km2 :  544 ew :  10,4615
+		Z5 :  94 km2 :  353 ew :   3,7553
+		D8 :  85 km2 :  910 ew :  10,7059
+		V7 :  58 km2 :  546 ew :   9,4138
+		I4 :  91 km2 :  407 ew :   4,4725
+		W1 :  92 km2 :  278 ew :   3,0217
+		X9 :  79 km2 :  928 ew :  11,7468
+		K9 :  81 km2 :  996 ew :  12,2963
+		K9 :  99 km2 :   84 ew :   0,8485
+		T5 :  93 km2 :  488 ew :   5,2473
+		```
+
+
+??? note "MyString"
+	- **Information:** 
+
+		- Wir bauen in Ansätzen die Klasse `String` nach, d.h. wir bauen uns einen eigenen Datentypen für Zeichenketten: `MyString`.
+
+		- Ein Objekt von `MyString` ist intern ein `char[]` (wir nennen es `wort`).
+
+		- Von der Klasse `String` selbst verwenden wir nur zwei Methoden: `charAt(index)` und `length()`, und zwar in dem Konstruktor von `MyString`, dem ein `String` als Parameter übergeben wird --> das steht aber nochmal explizit dort
+
+		- Ansonsten verwenden wir von `String` keine weiteren Methoden (ist nicht erlaubt, wäre aber auch nirgendwo hilfreich)
+
+		- Wir erstellen insgesamt nur 2 Klassen: `MyString` und `Testklasse`.
+
+
+	- Implementieren Sie eine Klasse `MyString`. 
+
+		- Objektvariable ist `wort` vom Typ `char[]` *(unsere Zeichenkette - Array von Zeichen)*. Die Objektvariable ist nur in der Klasse sichtbar!
+
+		- Schreiben Sie für `MyString` einen parameterlosen Konstruktor. In diesem Konstruktor wird das `wort`-Array erzeugt mit der Länge `0`.
+
+		- Schreiben Sie für `MyString` einen parametrisierten Konstruktor, dem ein einzelnes Zeichen (`char`) als Parameter übergeben wird. In diesem Konstruktor wird das `wort`-Array erzeugt mit der Länge `1` und das einzelne Zeichen wird in das `wort`-Array gespeichert.
+
+		- Schreiben Sie für `MyString` einen parametrisierten Konstruktor, dem ein `String` als Parameter übergeben wird. In diesem Konstruktor wird das `wort`-Array erzeugt mit der Länge des Strings und jedes einzelne Zeichen des Strings wird in das `wort`-Array gespeichert. Hierzu nutzen Sie die Methoden `charAt(index)` und `length()` der Klasse `String`.
+
+		- Überschreiben Sie die Objektmethode `toString()` so, dass alle Zeichen aus dem `wort`-Array als ein `String` zurückgegeben werden, also z.B. 
+
+			![mystring](./files/208_mystring.png)
+
+		- Schreiben Sie eine Objektmethode `print()`. Diese Methode gibt den durch `toString()` erzeugten `String` auf der Konsole aus.
+
+		- Schreiben Sie die Objektmethode `getLength()`. Diese Methode gibt die Länge des `wort`-Arrays zurück. 
+
+		- Schreiben Sie die Objektmethode `getCharAt(int index)`. Diese Methode gibt ein Leerzeichen zurück, wenn der übergebene `index` kein Index des `wort`-Arrays ist. Ansonsten wird das Zeichen zurückgegeben, das im `wort`-Array unter dem Index `index` gespeichert ist.
+
+		- Schreiben Sie die Objektmethode `contains(char c)`. Diese Methode gibt ein `true` zurück, wenn `c` im `wort`-Array vorkommt. Ansonsten `false`.
+
+		- Überschreiben Sie die Objektmethode `equals(Object o)`. Diese Methode gibt ein `true` zurück, wenn das aufrufende Objekt die gleiche `wort`-Länge hat wie `o` und auch alle Zeichen in den beiden `wort`-Arrays elementweise gleich sind (also Index für Index). Sonst `false`. 
+
+	- Schreiben Sie eine Klasse `Testklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode 
+
+		- ein Objekt s1 von MyString mithilfe des parameterlosen Konstruktors, 
+
+		- ein Objekt s2 von MyString, dem der einzelne Buchstabe a übergeben wird, 
+
+		- ein Objekt s3 von MyString, dem die Zeichenkette hallo übergeben wird, 
+
+		- rufen Sie für alle drei Objekte die print()-Methode auf. Es entsteht folgende Ausgabe:
+			```bash
+			// das hier gehört nicht zur Ausgabe, soll nur zeigen, dass zunächst eine Leerzeile kommt
+
+			a
+			hallo
+			```
+
+		- Wenden Sie die `getCharAt()`-Methode an und lassen sich für das dritte `MyString`-Objekt (`s3`) den Buchstaben auf der Konsole ausgeben, der am Index `1` gespeichert ist. Wenden Sie die `contains()`-Methode `2` Mal an und lassen sich für das dritte `MyString`-Objekt auf der Konsole ausgebenden, 
+
+			- ob der Buchstabe a in dessen wort-Array gespeichert ist und
+
+			- ob der Buchstabe b in dessen wort-Array gespeichert ist. 
+
+			Es entsteht folgende Ausgabe:
+			```bash
+			a
+			a in hallo ? true
+			b in hallo ? false
+			```
+
+		- Erzeugen Sie zwei weitere Objekte `s4` und `s5` von `MyString`, einmal mit der Zeichenkette `hallo` und einmal mit der Zeichenkette `halLo` und vergleichen Sie beide Objekte mithilfe der `equals()`-Methode mit dem dritten `MyString`-Objekt `s3`. Es entstehen folgende Ausgaben:
+		```bash
+		s3 gleich s4 ? true
+		s3 gleich s4 ? false
+		```
+
+	- weiter mit `MyString`:
+
+		- Schreiben Sie eine Objektmethode `getAsciiCodeOfCharAt(int index)`. Diese Methode gibt den Ascii-Code des Zeichens zurück, das im `wort`-Array unter dem Index `index` gespeichert ist. Ist index kein Index aus dem `wort`-Array, wird `-1` zurückgegeben.
+
+		- Schreiben Sie eine Objektmethode `append(char c)`. Diese Methode hängt das Zeichen `c` an das `wort`-Array, d.h. danach ist das `wort`-Array um 1 länger als vor Aufruf der Methode.
+
+		- Schreiben Sie eine Objektmethode `append(MyString s)`. Diese Methode hängt alle Zeichen aus `s` (aus dessen `wort`-Array) an das `wort`-Array des aufrufenden Objektes. **Tipp:** Verwenden Sie dazu die `append(char c)`-Methode.
+
+		- Schreiben Sie eine Objektmethode `concat(MyString s1, MyString s2)`. Diese Methode gibt ein (neues) `MyString`-Objekt zurück, in dem das `wort`-Array alle Zeichen aus `s1` und `s2` enthält. (Diese `concat()`-Methode entspricht `s1+s2` für Strings): 
+
+			![mystring](./files/209_mystring.png)
+
+		- Schreiben Sie die Objektmethode `firstIndexOf(char c)`. Diese Methode gibt den Index zurück, an dem das Zeichen `c` zum ersten Mal im `wort`-Array vorkommt. Kommt das Zeichen `c` nicht im `wort`-Array vor, wird `-1` zurückgegeben.
+
+		- Schreiben Sie die Objektmethode `lastIndexOf(char c)`. Diese Methode gibt den Index zurück, an dem das Zeichen `c` zum letzten Mal im `wort`-Array vorkommt. Kommt das Zeichen `c` nicht im `wort`-Array vor, wird `-1` zurückgegeben.
+
+		- Schreiben Sie eine Objektmethode `substring(int beginIndex)`. Diese Methode gibt ein (neues) `MyString`-Objekt zurück. Das neue `MyString`-Objekt enthält im `wort`-Array alle Zeichen aus dem `wort`-Array des aufrufenden Objektes ab dem Index `beginIndex` (inklusive). Ist `beginIndex` kein korrekter Index aus dem `wort`-Array des aufrufenden Objektes, wird ein `MyString`-Objekt mit leerem `wort`-Array zurückgegeben.
+
+			![mystring](./files/210_mystring.png)
+
+	- weiter mit `Testklasse`:
+
+		- Testen Sie die `getAsciiCodeOfCharAt()`-Methode, indem Sie sich den Ascii-Code des Zeichens von `s3` auf dem Index `1` ausgeben lassen:
+			```bash
+			Ascii-Code Zeichen aus s3 mit Index 1 = 97
+			```
+
+		- Testen Sie die `append(char)`-Methode, indem Sie an `s3` das Zeichen `c` hängen:
+			```bash
+			halloc 
+			```
+
+		- Testen Sie die `append(MyString)`-Methode, indem Sie sich ein weiteres `MyString`-Objekt `s6` mit `ballo` erzeugen und dieses Objekt an `s3` hängen:
+			```bash
+			hallocballo
+			```
+
+		- Testen Sie die `concat()`-Methode, indem Sie sich ein weiteres `MyString`-Objekt `s7` mit leerem `wort`-Array erzeugen und für dieses Objekt die `concat()`-Methode aufrufen, wobei Sie die Objekte `s4` und `s6` übergeben:
+			```bash
+			halloballo
+			```
+
+		- Testen Sie die `firstIndexOf()`- und die `lastIndexOf()`- Methode, indem Sie jeweils in `s3` nach dem Buchstaben `l` suchen (kleines L):
+			```bash
+			erstes l in s3 am Index 2
+			letztes l in s3 am Index 9
+			```
+
+		- Testen Sie die `substring()`-Methode, indem Sie den Teilstring ab Index `5` für `s3` ausgeben:
+			```bash
+			cballo
+			```
+
+	- weiter mit `MyString`:
+
+		- Schreiben Sie eine Objektmethode `substring(int beginIndex, int endIndex)`. Diese Methode gibt ein (neues) `MyString`-Objekt zurück. Das neue `MyString`-Objekt enthält im `wort`-Array alle Zeichen aus dem `wort`-Array des aufrufenden Objektes ab dem Index `beginIndex` (inklusive) bis zum Index `endIndex` (exklusive). Ist `beginIndex` kein korrekter Index aus dem `wort`-Array des aufrufenden Objektes oder ist `beginIndex` größer gleich `endIndex`, wird ein `MyString`-Objekt mit leerem `wort`-Array zurückgegeben.
+
+			![mystring](./files/211_mystring.png)
+
+		- Schreiben Sie eine Objektmethode `toUpperCase()`, die ein (neues) `MyString`-Objekt zurückgibt. Alle Kleinbuchstaben aus dem aufrufenden Objekt sind im neuen Objekt Großbuchstaben. 
+
+			![mystring](./files/212_mystring.png)
+
+			**Tipps:**
+
+			- Bei der Umwandlung müssen Sie sich nur um die Kleinbuchstaben kümmern, alle anderen Zeichen werden direkt übernommen.
+
+			- Kleinbuchstaben haben die Ascii-Codes `97` (`a`) – `122` (`z`)
+
+			- Großbuchstaben haben die Ascii-Codes `65` (`A`) – `90` (`Z)
+
+		- Schreiben Sie eine Objektmethode `reverse()`, die ein (neues) `MyString`-Objekt zurückgibt. In diesem neuen Objekt ist die Zeichenfolge im `wort`-Array genau umgekehrt wie im aufrufenden Objekt.
+
+			![mystring](./files/213_mystring.png)
+
+		- Schreiben Sie die Objektmethode `contains(MyString s)`. Diese Methode gibt ein `true` zurück, wenn das `wort`-Array von `s` im `wort`-Array des aufrufenden Objektes vorkommt. Ansonsten `false`.
+
+	- weiter mit `Testklasse`:
+
+		- Testen Sie Sie alle 4 Methoden `substring(int beginIndex, int endIndex)`, `toUpperCase()`, `reverse()` und `contains(MyString s)`:
+			```bash
+			-------------------- Teil 3 ----------------------------
+
+			s3                : hallocballo
+			s3 substring(3,7) : locb
+			s3 toUpperCase()  : HALLOCBALLO
+			s3 reverse()      : ollabcollah
+			s4                : locba
+			s4 in s3 ?        : true
+
+			```
+
 
 
 
