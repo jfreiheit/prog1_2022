@@ -615,6 +615,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aufgabe-8-abgabe-bis-17012023-2400-uhr" class="md-nav__link">
+    Aufgabe 8 (Abgabe bis 17.01.2023 24:00 Uhr)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -747,6 +754,13 @@
           <li class="md-nav__item">
   <a href="#aufgabe-7-abgabe-bis-10012023-2400-uhr" class="md-nav__link">
     Aufgabe 7 (Abgabe bis 10.01.2023 24:00 Uhr)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-8-abgabe-bis-17012023-2400-uhr" class="md-nav__link">
+    Aufgabe 8 (Abgabe bis 17.01.2023 24:00 Uhr)
   </a>
   
 </li>
@@ -1708,6 +1722,110 @@ n............n <span class="o">(</span><span class="m">13</span><span class="o">
 <li>
 <p>Viel Spaß und viel Erfolg!</p>
 </li>
+</ul>
+</details>
+<h4 id="aufgabe-8-abgabe-bis-17012023-2400-uhr">Aufgabe 8 (Abgabe bis 17.01.2023 24:00 Uhr)<a class="headerlink" href="#aufgabe-8-abgabe-bis-17012023-2400-uhr" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Aufgabe 8 - SortedArray</summary>
+<ul>
+<li>
+<p>Wir erstellen uns einen neuen Datentyp <code>SortedArray</code></p>
+</li>
+<li>
+<p><strong>Idee</strong>: Ein Objekt dieser Klasse beschreibt (enthält) ein <code>int</code>-Array, in dem </p>
+<ul>
+<li>die Elemente aufsteigend sortiert sind und </li>
+<li>kein Element doppelt vorkommt.</li>
+</ul>
+<p>Das Array ist stets genau so groß, so viele Elemente es enthält!</p>
+</li>
+<li>
+<p>Erstellen Sie im package <code>aufgaben.aufgabe7</code> eine Klasse <code>SortedArray</code> ohne <code>main()</code>-Methode und eine Klasse <code>SortedArrayTest</code> mit <code>main()</code>-Methode. </p>
+</li>
+<li>
+<p>In der Klasse <code>SortedArray</code> erstellen Sie eine Objektvariable <code>s</code> vom Typ <code>int[]</code> (<code>private</code>). </p>
+</li>
+<li>
+<p>Implementieren Sie für die Klasse <code>SortedArray</code> zwei verschiedene Konstruktoren</p>
+<ul>
+<li>parameterlos &rarr; der Konstruktor erzeugt ein leeres Array <code>s</code> (mit der Länge <code>0</code>)</li>
+<li>mit einem Parameter (<code>int element</code>) &rarr; der Konstruktor erzeugt ein einelementiges Array <code>s</code> (mit der Länge <code>1</code>), wobei <code>s[0]</code> den Wert von <code>element</code> annimmt.</li>
+</ul>
+</li>
+<li>
+<p>Implementieren Sie eine Objektmethode <code>public boolean insert(int element)</code>. Diese Methode gibt ein <code>false</code> zurück, wenn <code>element</code> bereits in <code>s</code> enthalten ist. Dann wird das <code>element</code> <strong>nicht</strong> dem Array hinzugefügt. Die Methode gibt <code>true</code> zurück, wenn <code>element</code> in <code>s</code> eingefügt wurde. Um <code>element</code> einzufügen, wird ein neues Array für <code>s</code> erzeugt, in dem alle vorherigen Werte aus <code>s</code> und das neue <code>element</code> (an der richtigen Stelle einsortiert) enthalten sind.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Objektmethode <code>public boolean delete(int element)</code>. Diese Methode gibt ein <code>false</code> zurück, wenn <code>element</code> nicht in <code>s</code> enthalten ist. Die Methode gibt <code>true</code> zurück, wenn <code>element</code> aus <code>s</code> gelöscht wurde. Beachten Sie, dass nach Löschen aus <code>s</code> die Länge von <code>s</code> um eins kleiner ist, als vor dem Löschen. Es muss also auch hier wieder ein neues Array erzeugt werden, welches nach dem Löschen dem "Wert" von <code>s</code> entspricht. </p>
+</li>
+<li>
+<p>Implementieren Sie eine Objektmethode <code>public void print()</code>, die das Array <code>s</code> in der Form <code>[ 4, 5, 9 ]</code> (Beispielwerte) ausgibt. </p>
+</li>
+<li>
+<p><strong>Tipp</strong>: </p>
+<ul>
+<li>Um zu überprüfen, ob ein <code>int element</code> in <code>s</code> enthalten ist, sollten Sie sich eine Methode <code>boolean contains(int element)</code> schreiben (diese kann <code>private</code> sein, wenn sie nur innerhalb der Klasse verwendet werden soll; sogenannte  <em>Servicemethode</em>). </li>
+<li>Angenommen, Sie haben zwei Arrays: <code>s = [ 4, 9 ]</code> und <code>copy = [ 4, 5, 9]</code>, dann gilt nach <code>s = copy;</code>, dass <code>s == [ 4, 5, 9 ]</code>. </li>
+</ul>
+</li>
+<li>
+<p>Geben Sie in die <code>main()</code>-Methode der <code>SortedArrayTest</code>-Klasse mindestens folgende Anweisungen ein:
+    <div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- Test a1 -----------------------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">SortedArray</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SortedArray</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a1</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w">       </span><span class="n">a1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- Test a2 -----------------------------------%n%n&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">SortedArray</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SortedArray</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"></span>
+<span class="n">a2</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w">       </span><span class="n">a2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"> </span>
+</code></pre></div>
+    und führen Sie die <code>SortedArrayTest</code>-Klasse aus. Es sollten folgende Augaben entstehen:
+    <div class="highlight"><pre><span></span><code>------------------------- Test a1 -----------------------------------
+
+<span class="o">[</span> <span class="o">]</span>
+<span class="o">[</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">5</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">5</span>, <span class="m">7</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">7</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">6</span>, <span class="m">7</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">6</span>, <span class="m">7</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">6</span>, <span class="m">7</span>, <span class="m">8</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">6</span>, <span class="m">7</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">7</span> <span class="o">]</span>
+
+
+------------------------- Test a2 -----------------------------------
+
+<span class="o">[</span> <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">5</span>, <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">5</span>, <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">5</span>, <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">5</span>, <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">5</span>, <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span>, <span class="m">9</span> <span class="o">]</span>
+<span class="o">[</span> <span class="m">4</span> <span class="o">]</span>
+<span class="o">[</span> <span class="o">]</span>
+<span class="o">[</span> <span class="o">]</span>
+</code></pre></div></p>
+</li>
+<li>Viel Spaß und viel Erfolg!</li>
 </ul>
 </details>
 

@@ -865,5 +865,96 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 
 
+#### Aufgabe 8 (Abgabe bis 17.01.2023 24:00 Uhr)
+
+
+??? "Aufgabe 8 - SortedArray"
+	- Wir erstellen uns einen neuen Datentyp `SortedArray`
+
+	- **Idee**: Ein Objekt dieser Klasse beschreibt (enthält) ein `int`-Array, in dem 
+		- die Elemente aufsteigend sortiert sind und 
+		- kein Element doppelt vorkommt.
+
+		Das Array ist stets genau so groß, so viele Elemente es enthält!
+
+	- Erstellen Sie im package `aufgaben.aufgabe7` eine Klasse `SortedArray` ohne `main()`-Methode und eine Klasse `SortedArrayTest` mit `main()`-Methode. 
+
+	- In der Klasse `SortedArray` erstellen Sie eine Objektvariable `s` vom Typ `int[]` (`private`). 
+
+	- Implementieren Sie für die Klasse `SortedArray` zwei verschiedene Konstruktoren
+		- parameterlos --> der Konstruktor erzeugt ein leeres Array `s` (mit der Länge `0`)
+		- mit einem Parameter (`int element`) --> der Konstruktor erzeugt ein einelementiges Array `s` (mit der Länge `1`), wobei `s[0]` den Wert von `element` annimmt.
+
+	- Implementieren Sie eine Objektmethode `public boolean insert(int element)`. Diese Methode gibt ein `false` zurück, wenn `element` bereits in `s` enthalten ist. Dann wird das `element` **nicht** dem Array hinzugefügt. Die Methode gibt `true` zurück, wenn `element` in `s` eingefügt wurde. Um `element` einzufügen, wird ein neues Array für `s` erzeugt, in dem alle vorherigen Werte aus `s` und das neue `element` (an der richtigen Stelle einsortiert) enthalten sind.
+
+	- Implementieren Sie eine Objektmethode `public boolean delete(int element)`. Diese Methode gibt ein `false` zurück, wenn `element` nicht in `s` enthalten ist. Die Methode gibt `true` zurück, wenn `element` aus `s` gelöscht wurde. Beachten Sie, dass nach Löschen aus `s` die Länge von `s` um eins kleiner ist, als vor dem Löschen. Es muss also auch hier wieder ein neues Array erzeugt werden, welches nach dem Löschen dem "Wert" von `s` entspricht. 
+
+	- Implementieren Sie eine Objektmethode `public void print()`, die das Array `s` in der Form `[ 4, 5, 9 ]` (Beispielwerte) ausgibt. 
+
+	- **Tipp**: 
+		- Um zu überprüfen, ob ein `int element` in `s` enthalten ist, sollten Sie sich eine Methode `boolean contains(int element)` schreiben (diese kann `private` sein, wenn sie nur innerhalb der Klasse verwendet werden soll; sogenannte  *Servicemethode*). 
+		- Angenommen, Sie haben zwei Arrays: `s = [ 4, 9 ]` und `copy = [ 4, 5, 9]`, dann gilt nach `s = copy;`, dass `s == [ 4, 5, 9 ]`. 
+
+	- Geben Sie in die `main()`-Methode der `SortedArrayTest`-Klasse mindestens folgende Anweisungen ein:
+		```java 
+		System.out.printf("%n%n------------------------- Test a1 -----------------------------------%n%n");
+		SortedArray a1 = new SortedArray();
+		a1.print();
+		a1.delete(5);		a1.print();
+		a1.insert(5);		a1.print();
+		a1.insert(7);		a1.print();
+		a1.delete(5);		a1.print();
+		a1.insert(6);		a1.print();
+		a1.insert(4);		a1.print();
+		a1.insert(8);		a1.print();
+		a1.delete(8);		a1.print();
+		a1.delete(6);		a1.print();
+		
+		System.out.printf("%n%n------------------------- Test a2 -----------------------------------%n%n");
+		SortedArray a2 = new SortedArray(9);
+		a2.print();
+		a2.insert(5);		a2.print();
+		a2.insert(9);		a2.print();
+		a2.insert(5);		a2.print();
+		a2.insert(4);		a2.print();
+		a2.insert(4);		a2.print();
+		a2.delete(5);		a2.print();
+		a2.delete(9);		a2.print();
+		a2.delete(4);		a2.print();
+		a2.delete(4);		a2.print();	
+		``` 
+		und führen Sie die `SortedArrayTest`-Klasse aus. Es sollten folgende Augaben entstehen:
+		```bash
+		------------------------- Test a1 -----------------------------------
+
+		[ ]
+		[ ]
+		[ 5 ]
+		[ 5, 7 ]
+		[ 7 ]
+		[ 6, 7 ]
+		[ 4, 6, 7 ]
+		[ 4, 6, 7, 8 ]
+		[ 4, 6, 7 ]
+		[ 4, 7 ]
+
+
+		------------------------- Test a2 -----------------------------------
+
+		[ 9 ]
+		[ 5, 9 ]
+		[ 5, 9 ]
+		[ 5, 9 ]
+		[ 4, 5, 9 ]
+		[ 4, 5, 9 ]
+		[ 4, 9 ]
+		[ 4 ]
+		[ ]
+		[ ]
+		```
+	- Viel Spaß und viel Erfolg!
+
+
+
 
 

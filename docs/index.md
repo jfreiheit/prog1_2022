@@ -1377,5 +1377,351 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	```
 
 
+??? success "Video zur Vorlesung Algorithmen über Arrays"
+
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=16436c46afe17f8589a5c566e6467f32&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=16436c46afe17f8589a5c566e6467f32&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="450" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
+
+??? note "Programmklasse Algorithmen über Arrays"
+	```java linenums="1"
+	package vorlesungen.vorl_2022_12_20;
+
+	import java.util.Random;
+
+	public class Programmklasse
+	{
+		public static void printArray(int[] a)
+		{
+			System.out.print("[ ");
+			for(int index = 0; index < a.length; index++)
+			{
+				if(index == a.length-1)
+				{
+					System.out.print(a[index]);
+				}
+				else
+				{
+					System.out.print(a[index] + ", ");
+				}
+			}
+			System.out.println(" ]");
+		}
+
+		public static int[] createAndFillArray(int length) 
+		{
+			int[] a = new int[length];
+			Random r = new Random();
+			
+			for(int index = 0; index < a.length; index++)
+			{
+				a[index] = r.nextInt();
+			}
+			
+			return a;
+		}
+		
+
+		public static int[] createAndFillArray(int length, int bound) 
+		{
+			int[] a = new int[length];
+			Random r = new Random();
+			
+			for(int index = 0; index < a.length; index++)
+			{
+				a[index] = r.nextInt(bound);
+			}
+			
+			return a;
+		}
+		
+		public static void fill(int[] a, int value)
+		{
+			for (int index = 0; index < a.length; index++)
+			{
+				a[index] = value;
+			}
+		}
+		
+		public static void fill(int a, int value)
+		{
+			a = value;
+		}
+		
+
+		public static int[] createAndFillArrayNoDoublets(int length, int bound) 
+		{
+			int b = 5;
+			fill(b, -1);
+			System.out.println(b);	// 5
+			
+			int[] arr = new int[length];
+			fill(arr, -1);
+			printArray(arr);		// -1, -1, -1, ...
+			
+			Random r = new Random();
+			
+			int index = 0; 
+			while(index < arr.length)
+			{
+				int randNr = r.nextInt(bound);
+				if(!contains(arr, randNr))
+				{
+					arr[index] = randNr;
+					index++;
+					System.out.println("!");
+				}
+				else
+				{
+					System.out.print(". ");
+				}
+			}
+			
+			return arr;
+		}
+		
+		public static boolean contains(int[] a, int value)
+		{
+			for (int index = 0; index < a.length; index++)
+			{
+				if(a[index] == value)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		
+		public static boolean containsSorted(int[] a, int value)
+		{
+			//     a = 5, 7, 11, 13, 17
+			// value = 8
+			for (int index = 0; index < a.length  && a[index] <= value; index++)
+			{
+				if(a[index] == value)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public static boolean binarySearch(int[] aSorted, int element)
+		{
+		    boolean found = false;
+		    int lo = 0;
+		    int hi = aSorted.length-1;
+		    while(lo<=hi && !found)
+		    {
+		        int mid = (hi+lo)/2;
+		        if(element == aSorted[mid])     // gefunden
+		        {
+		            found = true;
+		        }
+		        else                            // nicht gefunden
+		        {
+		            if(element < aSorted[mid])          // links weitersuchen
+		            {
+		                hi = mid-1;
+		            }
+		            else    //  element > aSorted[mid]     rechts weitersuchen
+		            {
+		                lo = mid+1; 
+		            }
+		        }
+		    }
+		    return found;
+		}
+		
+		public static int[] insertIntoSorted(int[] aSorted, int value)
+		{
+			// aSorted [ 3, 6, 8, 9, 11, 15, 17, 19 ]
+			// value    12
+			int[] insertedArr = new int[aSorted.length + 1];
+			// insertedArr [ 3, 6, 8, 9, 11
+			int indexA = 0;
+			int indexB = 0;
+			while(indexA < aSorted.length && aSorted[indexA] < value)
+			{
+				insertedArr[indexB] = aSorted[indexA];
+				indexB++;
+				indexA++;
+			}
+			insertedArr[indexB] = value;
+			indexB++;
+			// ab hier ist indexB um 1 groesser als indexA
+			// insertedArr [ 3, 6, 8, 9, 11, 12
+			// insertedArr [ 3, 6, 8, 9, 11, 12, 15, 17, 19 ]
+			while(indexB < insertedArr.length)
+			{
+				insertedArr[indexB] = aSorted[indexA];
+				indexB++;
+				indexA++;
+			}
+			return insertedArr;
+		}
+		
+		public static double average(int[] a)
+		{
+			int sum = 0;
+			for (int index = 0; index < a.length; index++)
+			{
+				sum += a[index];	// sum = sum + a[index]
+			}
+			return ((double)sum / (double)a.length);
+		}
+		
+		public static boolean areEqual(int[] a, int[] b)
+		{
+			if(a.length == b.length)
+			{
+				for (int index = 0; index < a.length; index++)
+				{
+					if(a[index] != b[index])
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+
+		public static boolean areEqualNoOrder(int[] a, int[] b)
+		{
+			if(a.length == b.length)
+			{
+				for (int indexA = 0; indexA < a.length; indexA++)
+				{
+					//if(!contains(b, a[indexA]))
+					if(nrOfOccurences(a, a[indexA]) != nrOfOccurences(b, a[indexA]))
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		public static int nrOfOccurences(int[] a, int value)
+		{
+			int nrOfOccurences = 0;
+			for (int index = 0; index < a.length; index++)
+			{
+				if(a[index] == value)
+				{
+					nrOfOccurences++;
+				}
+			}
+			return nrOfOccurences;
+			
+		}
+		
+		/*
+		 * [ 55 7 78 12 42 ]
+		 * 
+		 * 1.
+		 * [ 7 55 78 12 42 ]		// 55 und 7 getauscht
+		 * [ 7 55 78 12 42 ]		// 55 und 78 nicht getauscht
+		 * [ 7 55 12 78 42 ]		// 78 und 12 getauscht
+		 * [ 7 55 12 42 78 ]		// 78 und 42 getauscht
+		 * 		einmal durch --> groesste Zahl ganz rechts
+		 * 		78 letzte Stelle fix
+		 * 2. 
+		 * [ 7 55 12 42 78 ]		// 7 und 55 nicht getauscht
+		 * [ 7 12 55 42 78 ]		// 55 und 12 getauscht
+		 * [ 7 12 42 55 78 ]		// 55 und 42 getauscht
+		 * 		55 vorletzte Stelle fix
+		 * 3.
+		 * [ 7 12 42 55 78 ]		// 7 und 12 nicht getauscht
+		 * [ 7 12 42 55 78 ]		// 12 und 42 nicht getauscht
+		 * 		42 drittletzte Stelle fix
+		 * 4.
+		 * [ 7 12 42 55 78 ]		// 7 und 12 nicht getauscht
+		 */
+		public static void bubbleSort(int[] unsorted)
+		{
+			boolean sorted = false;
+			for(int bubble = 1; bubble < unsorted.length && !sorted; bubble++)
+			{
+				sorted = true;
+				System.out.printf("%n%n-------- Bubble-Phase %2d -----------%n%n", bubble);
+				for(int index = 0; index < unsorted.length - bubble; index++)
+				{
+					if(unsorted[index] > unsorted[index+1])
+					{
+						int tmp = unsorted[index + 1];
+						unsorted[index + 1] = unsorted[index];
+						unsorted[index] = tmp;
+						sorted = false;
+					}
+					printArray(unsorted);
+				}
+				if(sorted) System.out.println(" --> Ende");
+			}
+		}
+		
+		
+		public static void main(String[] args)
+		{
+			int[] a1 = { 1, 2, 5, 8, 2, 3, 6, 7, 2, 9 };
+			printArray(a1);
+			
+			int[] a2 = createAndFillArray(10);
+			printArray(a2);
+			
+			int[] a3 = createAndFillArray(10, 100);
+			printArray(a3);
+			
+			System.out.println(contains(a3, 11));
+			
+			
+			int[] a4 = createAndFillArrayNoDoublets(2, 10); 
+			printArray(a4);
+			
+			System.out.println(average(a4));
+			
+			int[] a5 = { 3, 2, 1, 4, 8 };
+			int[] a6 = { 3, 2, 1, 4, 8 };
+			int[] a7 = { 3, 2, 1, 5, 8 };
+			int[] a8 =  { 3, 2, 1, 2, 2, 3, 5, 1, 1, 5};
+			int[] a9 =  { 5, 3, 1, 2, 3, 1, 2, 5, 5, 1 };
+			int[] a10 = { 5, 3, 1, 2, 3, 1, 2, 5, 2, 1 };
+			/*
+			System.out.println(areEqual(a5, a6));
+			System.out.println(areEqual(a6, a5));
+			System.out.println(areEqual(a7, a6));
+			System.out.println(areEqual(a7, a8));
+			System.out.println(areEqual(a8, a7));
+			*/
+			System.out.println(areEqual(a8, a9));
+			System.out.println(areEqualNoOrder(a8, a9));
+			System.out.println(areEqualNoOrder(a8, a10));
+			printArray(a10);
+			bubbleSort(a10);		// a10 wird sortiert
+			printArray(a10);
+			
+			int[] a11 = createAndFillArrayNoDoublets(20, 20);
+			System.out.printf("%n%n------------- unsortiert --------------%n%n");
+			printArray(a11);
+			bubbleSort(a11);		// a10 wird sortiert
+			System.out.printf("%n%n------------- sortiert --------------%n%n");
+			printArray(a11);
+			
+		}
+
+	}
+
+	```
+
+
 
 
