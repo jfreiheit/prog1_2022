@@ -2017,7 +2017,7 @@
 			Es wurde eine 6 gewuerfelt
 			```
 
-		- Implementieren Sie eine Methode `public static int[] insertIntoStatistics(int[] statistics, int cast)`. Das `statistics`-Array wird als Parameter übergeben und das `statistics`-Array selbst wird auch wieder zurückgegeben! Im `statistics`-Array wird der Wert an der Stelle um `1` erhöht, der dem Wurf `cast` entspricht. D.h. wurde eine `1` gewürfelt, wird der Wert im Index `0` um `1` erhöht, wurde eine `2` gewürfelt, der Wert im Index `1` usw. (siehe auch oben die Abbildung zu `statistics`)
+		- Implementieren Sie eine Methode `public static void insertIntoStatistics(int[] statistics, int cast)`. Das `statistics`-Array wird als Parameter übergeben und auch der gewürfelte `cast`. Im `statistics`-Array wird der Wert an der Stelle um `1` erhöht, der dem Wurf `cast` entspricht. D.h. wurde eine `1` gewürfelt, wird der Wert im Index `0` um `1` erhöht, wurde eine `2` gewürfelt, der Wert im Index `1` usw. (siehe auch oben die Abbildung zu `statistics`)
 
 		- Implementieren Sie eine Methode `public static void printStatistics(int[] statistics)`, die das `statistics`-Array wie folgt auf die Konsole ausgibt. <br/>
 
@@ -2033,12 +2033,12 @@
 			for(int index=0; index<100; index++)
 			{
 				int cast = throwDice();
-				statistics = insertIntoStatistics(statistics, cast);
+				insertIntoStatistics(statistics, cast);
 			}
 			printStatistics(statistics);	
 			```
 
-			Es wird angenommen, dass Sie das `statistics`-Array bereits gleich am Anfang in der `main()` erzeugt haben - wenn nicht, können Sie das auch hier machen. Beachten Sie den Aufruf von `statistics = insertIntoStatistics(statistics, cast);`. Die `insertIntoStatistics()`-Methode bekommt das `statistics`-Array als Parameter übergeben, gibt es selbst wieder zurück und in der `main()`-Methode speichern wir die Rückgabe wieder in der `statistics`-Referenz. Das ist zwar so gar nicht nötig, aber das lernen wir erst, wenn es um Objekte geht. Jetzt ist es völlig in Ordnung, das so zu machen. 
+			Es wird angenommen, dass Sie das `statistics`-Array bereits gleich am Anfang in der `main()` erzeugt haben - wenn nicht, können Sie das auch hier machen.  
 
 			Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
 			```bash		

@@ -2670,7 +2670,7 @@ Es wurde eine <span class="m">6</span> gewuerfelt
 </code></pre></div></p>
 </li>
 <li>
-<p>Implementieren Sie eine Methode <code>public static int[] insertIntoStatistics(int[] statistics, int cast)</code>. Das <code>statistics</code>-Array wird als Parameter übergeben und das <code>statistics</code>-Array selbst wird auch wieder zurückgegeben! Im <code>statistics</code>-Array wird der Wert an der Stelle um <code>1</code> erhöht, der dem Wurf <code>cast</code> entspricht. D.h. wurde eine <code>1</code> gewürfelt, wird der Wert im Index <code>0</code> um <code>1</code> erhöht, wurde eine <code>2</code> gewürfelt, der Wert im Index <code>1</code> usw. (siehe auch oben die Abbildung zu <code>statistics</code>)</p>
+<p>Implementieren Sie eine Methode <code>public static void insertIntoStatistics(int[] statistics, int cast)</code>. Das <code>statistics</code>-Array wird als Parameter übergeben und auch der gewürfelte <code>cast</code>. Im <code>statistics</code>-Array wird der Wert an der Stelle um <code>1</code> erhöht, der dem Wurf <code>cast</code> entspricht. D.h. wurde eine <code>1</code> gewürfelt, wird der Wert im Index <code>0</code> um <code>1</code> erhöht, wurde eine <code>2</code> gewürfelt, der Wert im Index <code>1</code> usw. (siehe auch oben die Abbildung zu <code>statistics</code>)</p>
 </li>
 <li>
 <p>Implementieren Sie eine Methode <code>public static void printStatistics(int[] statistics)</code>, die das <code>statistics</code>-Array wie folgt auf die Konsole ausgibt. <br/></p>
@@ -2684,11 +2684,11 @@ Es wurde eine <span class="m">6</span> gewuerfelt
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">index</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">throwDice</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">statistics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertIntoStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span><span class="w"> </span><span class="n">cast</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">insertIntoStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span><span class="w"> </span><span class="n">cast</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 <span class="n">printStatistics</span><span class="p">(</span><span class="n">statistics</span><span class="p">);</span><span class="w">    </span>
 </code></pre></div></p>
-<p>Es wird angenommen, dass Sie das <code>statistics</code>-Array bereits gleich am Anfang in der <code>main()</code> erzeugt haben - wenn nicht, können Sie das auch hier machen. Beachten Sie den Aufruf von <code>statistics = insertIntoStatistics(statistics, cast);</code>. Die <code>insertIntoStatistics()</code>-Methode bekommt das <code>statistics</code>-Array als Parameter übergeben, gibt es selbst wieder zurück und in der <code>main()</code>-Methode speichern wir die Rückgabe wieder in der <code>statistics</code>-Referenz. Das ist zwar so gar nicht nötig, aber das lernen wir erst, wenn es um Objekte geht. Jetzt ist es völlig in Ordnung, das so zu machen. </p>
+<p>Es wird angenommen, dass Sie das <code>statistics</code>-Array bereits gleich am Anfang in der <code>main()</code> erzeugt haben - wenn nicht, können Sie das auch hier machen.  </p>
 <p>Sie sollten eine Ausgabe in folgender Form bekommen (Zufallszahlen):
 <div class="highlight"><pre><span></span><code>------------------ Test insert- and printStatistics -----------------
 
