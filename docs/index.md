@@ -1724,4 +1724,286 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 
 
+??? success "Video zur Vorlesung Probeklausur MyString"
+
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=f23b740fdb565883d0567d6ba00e6c0d&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=f23b740fdb565883d0567d6ba00e6c0d&width=720&height=450&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="450" title="Prog1_MyString" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
+
+??? note "MyString"
+	```java linenums="1"
+	package vorlesungen.vorl_2023_01_03;
+
+	public class MyString
+	{
+		private char[] wort;
+		
+		public MyString()
+		{
+			this.wort = new char[0];
+		}
+		
+		public MyString(char c)
+		{
+			this.wort = new char[1];
+			this.wort[0] = c;
+		}
+		
+		public MyString(String s)
+		{
+			this.wort = new char[s.length()];  // length() Objektmethode von String
+			for(int index = 0; index < this.wort.length; index++)  // oder < s.length()
+			{
+				this.wort[index] = s.charAt(index);
+			}
+		}
+		
+		@Override
+		public String toString()
+		{
+			String s = "";
+			for(int index = 0; index < this.wort.length; index++)
+			{
+				s = s + this.wort[index];
+			}
+			return s;
+		}
+		
+		public void print()
+		{
+			System.out.println(this.toString());
+		}
+		
+		public int getLength()
+		{
+			return this.wort.length;
+		}
+		
+		public char getCharAt(int index)
+		{
+			final char WRONG_INDEX = ' ';
+			if(index >= this.wort.length || index < 0)
+			{
+				return WRONG_INDEX;
+			}
+			else
+			{
+				return this.wort[index];	
+			}
+		}
+		
+		public boolean contains(char c)
+		{
+			boolean contains = false;
+			for(int index = 0; index < this.wort.length && !contains; index++)
+			{
+				if(this.wort[index] == c)
+				{
+					contains = true;
+				}
+			}
+			return contains;
+		}
+		
+		@Override
+		public boolean equals(Object o)
+		{
+			if(o == null) return false;
+			if(o == this) return true;
+			if(this.getClass() != o.getClass()) return false;
+			
+			MyString so = (MyString)o;
+			if(this.wort.length == so.wort.length)
+			{	
+				for (int index = 0; index < this.wort.length; index++)
+				{
+					if(this.wort[index] != so.wort[index])
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
+		
+		public int getAsciiCodeOfCharAt(int index)
+		{
+			final int WRONG_INDEX = -1;
+			if(index < 0 || index >= this.wort.length)
+			{
+				return WRONG_INDEX;
+			}
+			else
+			{
+				return this.wort[index];
+			}
+		}
+		
+		public void append(char c)
+		{
+			char[] neu = new char[this.wort.length + 1];
+			for(int index = 0; index < this.wort.length; index++)
+			{
+				neu[index] = this.wort[index];
+			}
+			neu[neu.length -1] = c;	// neu.length -1 == this.wort.length
+			this.wort = neu;	
+		}
+		
+		public void append(MyString s)
+		{
+			for(int index = 0; index < s.getLength(); index++)
+			{
+				this.append(s.getCharAt(index));
+			}
+		}
+		
+		public MyString concat(MyString s1, MyString s2)
+		{
+			MyString sneu = new MyString();
+			sneu.append(s1);
+			sneu.append(s2);
+			return sneu;
+		}
+		
+		public int firstIndexOf(char c)
+		{
+			final int NOT_FOUND = -1;
+			for (int index = 0; index < this.wort.length; index++)
+			{
+				if(this.wort[index] == c)
+				{
+					return index;
+				}
+			}
+			return NOT_FOUND;
+		}
+			
+		public int lastIndexOf(char c)
+		{
+			final int NOT_FOUND = -1;
+			for (int index = this.wort.length -1; index >= 0; index--)
+			{
+				if(this.wort[index] == c)
+				{
+					return index;
+				}
+			}
+			return NOT_FOUND;
+		}
+		
+		public MyString substring(int beginIndex)
+		{
+			MyString sneu = new MyString();
+			if(beginIndex >= 0)
+			{
+				for(int index = beginIndex; index < this.wort.length; index++)
+				{
+					sneu.append(this.getCharAt(index));
+				}
+			}
+			return sneu;
+		}
+		
+		public MyString substring(int beginIndex, int endIndex)
+		{
+			MyString sneu = new MyString();
+			if(beginIndex >= 0)
+			{
+				for(int index = beginIndex; index < this.wort.length && index < endIndex; index++)
+				{
+					sneu.append(this.getCharAt(index));
+				}
+			}
+			return sneu;
+		}
+		
+		public MyString toUpperCase()
+		{
+			MyString sneu = new MyString();
+			final int LOWER_TO_UPPER = 32;
+			for(int index = 0; index < this.wort.length; index++)
+			{
+				int ascii = this.getAsciiCodeOfCharAt(index);
+				if(ascii >= 97 && ascii <= 122)
+				{
+					sneu.append((char)(ascii - LOWER_TO_UPPER));
+				}
+				else
+				{
+					sneu.append(this.getCharAt(index));
+				}
+			}
+			return sneu;
+		}
+	}
+
+	```
+
+
+??? note "Testklasse für MyString"
+	```java linenums="1"
+	package vorlesungen.vorl_2023_01_03;
+
+	public class Testklasse
+	{
+
+		public static void main(String[] args)
+		{
+			MyString s1 = new MyString();
+			MyString s2 = new MyString('a');
+			MyString s3 = new MyString("hallo");
+			s1.print();
+			s2.print();
+			s3.print();
+			
+			char c = s3.getCharAt(1);
+			System.out.println(c);
+			c = s3.getCharAt(4);
+			System.out.println(c);
+			c = s3.getCharAt(-4);
+			System.out.println(c);
+			c = s3.getCharAt(5);
+			System.out.println(c);
+			c = s3.getCharAt(0);
+			System.out.println(c);
+			
+			System.out.println("a in " + s3.toString() + " ? " + s3.contains('a'));
+			System.out.println("b in " + s3.toString() + " ? " + s3.contains('b'));
+			
+			MyString s4 = new MyString("hallo");
+			MyString s5 = new MyString("halLo");
+			System.out.println("s3 gleich s4 ? " + s3.equals(s4));
+			System.out.println("s3 gleich s5 ? " + s3.equals(s5));
+			
+			System.out.println("Ascii-Code Zeichen aus s3 mit Index 1 = " + s3.getAsciiCodeOfCharAt(1));
+
+			s3.append('c');
+			s3.print();
+			
+			MyString s6 = new MyString("ballo");
+			s3.append(s6);
+			s3.print();
+			
+			MyString s7 = new MyString();
+			MyString s8 = s7.concat(s4, s6);
+			s8.print();
+			
+			System.out.println("erstes l in s3 am Index " + s3.firstIndexOf('l'));
+			System.out.println("letztes l in s3 am Index " + s3.lastIndexOf('l'));
+			
+			MyString s9 = s3.substring(5);
+			s9.print();
+			
+			MyString s10 = s3.toUpperCase();
+			s10.print();
+		}
+
+	}
+
+	```
 
