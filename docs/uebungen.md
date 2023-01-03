@@ -4182,11 +4182,11 @@
 
 	- Schreiben Sie eine Klasse `Testklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode 
 
-		- ein Objekt s1 von MyString mithilfe des parameterlosen Konstruktors, 
+		- ein Objekt `s1` von `MyString` mithilfe des parameterlosen Konstruktors, 
 
-		- ein Objekt s2 von MyString, dem der einzelne Buchstabe a übergeben wird, 
+		- ein Objekt `s2` von `MyString`, dem der einzelne Buchstabe `a` übergeben wird, 
 
-		- ein Objekt s3 von MyString, dem die Zeichenkette hallo übergeben wird, 
+		- ein Objekt `s3` von `MyString`, dem die Zeichenkette `hallo` übergeben wird, 
 
 		- rufen Sie für alle drei Objekte die print()-Methode auf. Es entsteht folgende Ausgabe:
 			```bash
@@ -4198,9 +4198,9 @@
 
 		- Wenden Sie die `getCharAt()`-Methode an und lassen sich für das dritte `MyString`-Objekt (`s3`) den Buchstaben auf der Konsole ausgeben, der am Index `1` gespeichert ist. Wenden Sie die `contains()`-Methode `2` Mal an und lassen sich für das dritte `MyString`-Objekt auf der Konsole ausgebenden, 
 
-			- ob der Buchstabe a in dessen wort-Array gespeichert ist und
+			- ob der Buchstabe `a` in dessen `wort`-Array gespeichert ist und
 
-			- ob der Buchstabe b in dessen wort-Array gespeichert ist. 
+			- ob der Buchstabe `b` in dessen `wort`-Array gespeichert ist. 
 
 			Es entsteht folgende Ausgabe:
 			```bash
@@ -4284,7 +4284,7 @@
 
 			- Kleinbuchstaben haben die Ascii-Codes `97` (`a`) – `122` (`z`)
 
-			- Großbuchstaben haben die Ascii-Codes `65` (`A`) – `90` (`Z)
+			- Großbuchstaben haben die Ascii-Codes `65` (`A`) – `90` (`Z`)
 
 		- Schreiben Sie eine Objektmethode `reverse()`, die ein (neues) `MyString`-Objekt zurückgibt. In diesem neuen Objekt ist die Zeichenfolge im `wort`-Array genau umgekehrt wie im aufrufenden Objekt.
 
