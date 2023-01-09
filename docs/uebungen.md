@@ -2242,7 +2242,7 @@
 
 ??? note "Übung 11"
 
-	[Übung 11 (pdf)](./files/uebung11_aufgaben.pdf)
+	[Übung 11 (pdf)](./files/prog1_uebung11.pdf)
 
 ??? note "Übung 12"
 	
