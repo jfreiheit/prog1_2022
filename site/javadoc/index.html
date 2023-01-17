@@ -453,6 +453,102 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Javadoc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Javadoc
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ein-einfaches-beispiel" class="md-nav__link">
+    Ein einfaches Beispiel
+  </a>
+  
+    <nav class="md-nav" aria-label="Ein einfaches Beispiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javadoc-kommentierung-des-beispiels" class="md-nav__link">
+    Javadoc-Kommentierung des Beispiels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-javadoc" class="md-nav__link">
+    Generate Javadoc...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    Tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weitere-tags" class="md-nav__link">
+    Weitere Tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     <li class="md-nav__item">
       <a href="../tools/" class="md-nav__link">
@@ -512,6 +608,61 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ein-einfaches-beispiel" class="md-nav__link">
+    Ein einfaches Beispiel
+  </a>
+  
+    <nav class="md-nav" aria-label="Ein einfaches Beispiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javadoc-kommentierung-des-beispiels" class="md-nav__link">
+    Javadoc-Kommentierung des Beispiels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-javadoc" class="md-nav__link">
+    Generate Javadoc...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    Tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weitere-tags" class="md-nav__link">
+    Weitere Tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -550,7 +701,399 @@
 
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
-<p>Eine Anleitung dazu, wie Javadoc-Kommentare geschrieben werden sollten, findet sich <a href="https://www.oracle.com/java/technologies/javase/writing-doc-comments.html">hier</a>.</p>
+<p>Eine Anleitung dazu, wie Javadoc-Kommentare geschrieben werden sollten, findet sich <a href="https://www.oracle.com/java/technologies/javase/writing-doc-comments.html">hier</a>. Diese Anleitung enthält auch nützliche Beispiele. </p>
+<h2 id="ein-einfaches-beispiel">Ein einfaches Beispiel<a class="headerlink" href="#ein-einfaches-beispiel" title="Permanent link">&para;</a></h2>
+<p>Wir wollen die Dokumentation an einem (sehr) einfachen Beispiel erläutern. Gegeben sei folgende Klasse <code>Akku.java</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kn">package</span><span class="w"> </span><span class="nn">akku</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Akku</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">typ</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kapazitaet</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">anzahlLadungen</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">Akku</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">typ</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kapazitaet</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">typ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">typ</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">kapazitaet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kapazitaet</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">laden</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getZustand</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">zustand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">zustand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">zustand</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="o">/</span><span class="mi">100</span><span class="p">));</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">zustand</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">zustand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">zustand</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-4s: %5dmAh %5d Ladungen. Zustand %3d%% %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">typ</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">kapazitaet</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">getZustand</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">Akku</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Akku</span><span class="p">)</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">typ</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">typ</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="javadoc-kommentierung-des-beispiels">Javadoc-Kommentierung des Beispiels<a class="headerlink" href="#javadoc-kommentierung-des-beispiels" title="Permanent link">&para;</a></h3>
+<p>Wir schauen uns zunächst mal eine mögliche (nicht wirklich gute, z.B. weil es nicht auf Englisch ist) Javadoc-Kommentierung an und betrachten dann Einzelheiten:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">akku</span><span class="p">;</span><span class="w"></span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Ein Objekt der Klasse &lt;code&gt;Akku&lt;/code&gt; beschreibt ein wiederaufladbares Geraet, </span>
+<span class="cm"> * einen Akkumulator.</span>
+<span class="cm"> * Objekte der Klasse sind spezifiziert durch den Typ, die Kapazitaet (wieviel Stunden </span>
+<span class="cm"> * Entladzeit bei gegebenem Entladestrom) und der Anzahl der bisherigen Ladungen.</span>
+<span class="cm"> * @author jornfreiheit</span>
+<span class="cm"> * @version 1.0</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Akku</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Der Typ eines &lt;code&gt;Akku&lt;/code&gt;-Objektes.</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">typ</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Die Kapazitaet eines &lt;code&gt;Akku&lt;/code&gt;-Objektes in Ah.</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kapazitaet</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Die Anzahl bisheriger Ladungen eines &lt;code&gt;Akku&lt;/code&gt;-Objektes.</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">anzahlLadungen</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Konstruktor; erzeugt ein &lt;code&gt;Akku&lt;/code&gt;-Objekt. Das erzeugte &lt;code&gt;Akku&lt;/code&gt;-Objekt</span>
+<span class="cm">     * ist bisher noch nicht geladen worden (&lt;code&gt;anzahlLadungen&lt;/code&gt; initial &lt;code&gt;0&lt;/code&gt;</span>
+<span class="cm">     * @param typ: initiiert den Wert von &lt;code&gt;typ&lt;/code&gt; des &lt;code&gt;Akku&lt;/code&gt;-Objektes</span>
+<span class="cm">     * @param kapazitaet: initiiert den Wert von &lt;code&gt;kapazitaet&lt;/code&gt; des &lt;code&gt;Akku&lt;/code&gt;-Objektes</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Akku</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">typ</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kapazitaet</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">typ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">typ</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">kapazitaet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kapazitaet</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * erhoeht die Anzahl bisheriger Ladungen um 1 </span>
+<span class="cm">     * der um 1 erhoehte Wert wird in &lt;code&gt;anzahlLadungen&lt;/code&gt; gespeichert</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">laden</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * berechnet den Zustand des &lt;code&gt;Akku&lt;/code&gt;-Objektes und</span>
+<span class="cm">     * gibt diesen zurueck.</span>
+<span class="cm">     * Der Zustand wird in Prozent ermittelt. Initial hat ein </span>
+<span class="cm">     * (bis dahin nie aufgeladenes) &lt;code&gt;Akku&lt;/code&gt;-Objekt den Zustand </span>
+<span class="cm">     * &lt;code&gt;100%%&lt;/code&gt;. Fuer alle &lt;code&gt;100&lt;/code&gt; Ladungen reduziert sich</span>
+<span class="cm">     * der Zustand um &lt;code&gt;1%%&lt;/code&gt;. Das bedeutet, fuer &lt;code&gt;1000&lt;/code&gt; Ladungen reduziert sich</span>
+<span class="cm">     * der Zustand um &lt;code&gt;10%%&lt;/code&gt;. Nach &lt;code&gt;10000&lt;/code&gt; Ladungen ist</span>
+<span class="cm">     * der Zustand bei &lt;code&gt;0%%&lt;/code&gt; und somit ist das &lt;code&gt;Akku&lt;/code&gt;-Objekt</span>
+<span class="cm">     * nicht mehr nutzbar.</span>
+<span class="cm">     * </span>
+<span class="cm">     * @return berechneten Zustand in Prozent</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getZustand</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">zustand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">zustand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">zustand</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="o">/</span><span class="mi">100</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">zustand</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">zustand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">zustand</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Ueberschreibt die {@link Object#toString()}-Methode der Klasse &lt;code&gt;Object&lt;/code&gt;</span>
+<span class="cm">     * Gibt einen &lt;code&gt;String&lt;/code&gt; der Form</span>
+<span class="cm">     * &lt;code&gt;A1  : 10000mAh   984 Ladungen. Zustand  91%&lt;/code&gt;</span>
+<span class="cm">     * wobei </span>
+<span class="cm">     * &lt;ul&gt;</span>
+<span class="cm">     *  &lt;li&gt;&lt;code&gt;A1&lt;/code&gt; ein &lt;code&gt;typ&lt;/code&gt; ist, &lt;/li&gt; </span>
+<span class="cm">     *  &lt;li&gt;&lt;code&gt;10000&lt;/code&gt; ist die &lt;code&gt;kapazitaet&lt;/code&gt;, &lt;/li&gt;</span>
+<span class="cm">     *  &lt;li&gt;&lt;code&gt;984&lt;/code&gt; sind die &lt;code&gt;anzahlLadungen&lt;/code&gt; und &lt;/li&gt;</span>
+<span class="cm">     *  &lt;li&gt;&lt;code&gt;91%&lt;/code&gt; der berechnete Zustand &lt;code&gt;getZustand()&lt;/code&gt;.&lt;/li&gt;</span>
+<span class="cm">     * &lt;/ul&gt;</span>
+<span class="cm">     * @return String, der die Werte eines &lt;code&gt;Akku&lt;/code&gt;-Objektes enthaelt</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%-4s: %5dmAh %5d Ladungen. Zustand %3d%% %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">typ</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">kapazitaet</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">anzahlLadungen</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">getZustand</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Ueberschreibt die {@link Object#equals(Object o)}-Methode der Klasse &lt;code&gt;Object&lt;/code&gt;</span>
+<span class="cm">     * Gibt &lt;code&gt;true&lt;/code&gt; zurueck, wenn das aufrufende &lt;code&gt;Akku&lt;/code&gt;-Objekt</span>
+<span class="cm">     * gleich dem als Parameter uebergebenden &lt;code&gt;Akku&lt;/code&gt;-Objektes ist.</span>
+<span class="cm">     * Gibt &lt;code&gt;false&lt;/code&gt; zurueck sonst.</span>
+<span class="cm">     * Zwei &lt;code&gt;Akku&lt;/code&gt;-Objekte sind gleich, wenn sie den gleichen &lt;code&gt;typ&lt;/code&gt;</span>
+<span class="cm">     * haben.</span>
+<span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; wenn gleich, &lt;code&gt;false&lt;/code&gt; sonst.</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Akku</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Akku</span><span class="p">)</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">typ</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">typ</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * gibt den von {@link toString()} erzeugten &lt;code&gt;String&lt;/code&gt; auf</span>
+<span class="cm">     * die Konsole aus</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>Wichtig ist auch, dass Sie auch das Modul (Ihr Java-Projekt) kommentieren können und auch jedes einzelne Package darin. Um das Package zu kommentieren, erstellen Sie in Ihrem Package eine <code>package-info.java</code> und fügen darin Ihre Javadoc-Kommentare ein. Um Ihr Modul (Ihr Java-Projekt) zu kommentieren, fügen Sie in die <code>module-info.java</code> den Javadoc-Kommentar ein, z.B. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">module-info.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Dieses Modul enthaelt die Klassen Akku und AkkuBestand. </span>
+<span class="cm"> * AkkuBestand implementiert ein Array von Akkus.</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author J. Freiheit</span>
+<span class="cm"> * @version 1.0</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="n">JavadocBeispiel</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="generate-javadoc">Generate Javadoc...<a class="headerlink" href="#generate-javadoc" title="Permanent link">&para;</a></h3>
+<p>Wenn Sie mit der Javadoc-Kommentierung fertig sind, dann wählen Sie in Eclipse im Menüpunkt <code>Project</code> den Menüeintrag <code>Generate Javadoc...</code>. Es erscheint folgendes Fenster:</p>
+<p><img alt="javadoc" src="../files/214_javadoc.png" /></p>
+<p>Hier können Sie insbesondere auswählen, für welches Java-Projekt Sie die Javadoc-Dokumentation erzeugen lassen möchten. Es ist auch die Auswahl von Paketen und Klassen möglich. Außerdem werden in der Standardeinstellung nur die Dokumentationen für <code>public</code> Eigenschaften erzeugt, also für als <code>public</code> deklarierte Methoden und Objektvariablen. Auch das lässt sich in dieser Eingabemaske ändern. Nachdem Sie <code>Finish</code> geklickt haben, erscheint in der Konsole so etwas wie:</p>
+<div class="highlight"><pre><span></span><code>Loading <span class="nb">source</span> files <span class="k">for</span> package akku...
+Constructing Javadoc information...
+Standard Doclet version <span class="m">15</span>.0.1+9-18
+Building tree <span class="k">for</span> all the packages and classes...
+</code></pre></div>
+<p>gefolgt von einer Liste aller <code>.html</code>-Dateien, die erzeugt werden. Eventuell gibt es jedoch auch Fehlerausgaben, die Sie erst noch beheben müssen. Nachdem alle <code>.html</code>-Dateien erzeugt wurden, gibt es in Ihrem Workspace in dem Projektordner, dessen Javadoc-Dokumentation Sie gerade erzeugt haben, einen neuen Ordner <code>doc</code>:</p>
+<p><img alt="javadoc" src="../files/215_javadoc.png" /></p>
+<p>In diesem Ordner befinden sich mehrer <code>.html</code>-Dateien (und Ordner und <code>.js</code>- sowie <code>.css</code>-Datein). Öffnen Sie die <code>index.html</code> durch Doppelklick. Diese öffnet sich im Browser und es erscheint folgende Ansicht:</p>
+<p><img alt="javadoc" src="../files/216_javadoc.png" /></p>
+<p>Klicken Sie darin auf den Button <code>Package</code> und es erscheint:</p>
+<p><img alt="javadoc" src="../files/217_javadoc.png" /></p>
+<p>Klicken Sie auf die Klasse <code>Akku</code> und es erscheint:</p>
+<p><img alt="javadoc" src="../files/218_javadoc.png" /></p>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<p>Wie Sie in den Kommentaren vielleicht erkannt haben, gibt es darin einige <code>@</code> gefolgt von Schlüsselwörtern. Dabei handelt es sich um sogenannte <em>Tags</em>. Hier eine Liste der <em>Tags</em>, die wir verwendet haben:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@author">@author</a> - für den/die Programmierer_innen des Codes; bei mehreren Autor_innen entweder je Autor_in mit <code>@author</code>-Tag oder Autor_innennamen durch Komma getrennt, siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@author">hier</a></li>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@version">@version</a> - gibt die Version des Codes an, siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@version">hier</a></li>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@param">@param</a> - beschreibt einen Parameter der Methode; für jeden Parameter wird ein eigener <code>@param</code>-Tag verwendet; siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@param">hier</a></li>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@return">@return</a> - beschreibt die Rückgabe einer Methode mit Rückgabetyp; auch den Wertebereich der Rückgabe erläutern; siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@return">hier</a></li>
+</ul>
+<h3 id="weitere-tags">Weitere Tags<a class="headerlink" href="#weitere-tags" title="Permanent link">&para;</a></h3>
+<p>Mit den oben genannten <em>Tags</em> können Klassen bereits gut dokumentiert werden. Es gibt jedoch noch weitere <em>Tags</em>, die wir hier kurz auflisten wollen (Liste ist aber nicht vollständig):</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@deprecated">@deprecated</a> - kennzeichnet, dass diese Klasse oder Methode nicht weiter genutzt werden soll, siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@deprecated">hier</a> und <a href="https://docs.oracle.com/javase/1.5.0/docs/guide/javadoc/deprecation/index.html">hier</a></li>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@throws">@throws</a> - synonym zu <code>@exception</code>; in Verbindung zu der Exception (den Exceptions), die durch eine Methode geworfen werden kann/können und für welche Fälle die jeweilige Exception geworfen wird, siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@exception">hier</a></li>
+<li><a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#@see">@see</a> - erstellt einen Link zu einer Klasse, Methode, etc. in der API-Dokumentation (Syntax: <code>@see  package.class#member  label</code>, wobei <code>label</code> sichtbar und <code>package.class#member</code> der Link), siehe auch <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html#@see">hier</a>; <code>@see</code> ist ähnlich zu <a href="https://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/javadoc.html#{@link}">{@ link}</a>, aber ein <code>{@link}</code> beschreibt einen In-line-Link, während der <code>@see</code>-Link im <code>See also</code>-Bereich aufgeführt wird.</li>
+</ul>
 
 
 
@@ -566,6 +1109,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
+      
+        
+        <a href="../hilfsklassen/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Hilfsklassen" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Hilfsklassen
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../tools/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Werkzeuge" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Werkzeuge
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
