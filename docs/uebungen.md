@@ -3269,7 +3269,7 @@
 
 	3. Erstellen Sie im gleichen package eine Klasse `Testklasse` mit `main()`-Methode. 
 
-		- Erzeugen Sie in der `main()`-Methode in einer Schleife `10` Objekte der Klasse `Lottery` und rufen (auch in der Schleife) jeweils die `drawing()` und die `print()`-Methode auf. Erzeugen Sie in der `main()`-Methode drei `Buch`-Objekte mit den folgenden Werten für die Objektvariablen:
+		- Erzeugen Sie in der `main()`-Methode drei `Buch`-Objekte mit den folgenden Werten für die Objektvariablen:
 			```bash
 			"Titel A", 55, 1999
 			"Titel B", 66, 2000
