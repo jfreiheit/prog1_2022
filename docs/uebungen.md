@@ -2453,6 +2453,704 @@
 
 ## Probeklausuren
 
+
+	
+??? note "Fahrzeug"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.fahrzeug`. 
+	2. (**Teil 1**) Erstellen Sie in diesem package eine Klasse `Fahrzeug` mit 
+
+		- den privaten Objektvariablen `marke` vom Typ `String`, `kmStand` vom Typ `int` (*AKilometerstand des Fahrzeugs*), `maxV` vom Typ `int` (*Höchstgeschwindigkeit des Fahrzeugs*) und `verbrauch` vom Typ `double` (*AVerbrauch in Litern pro 100km*). 
+
+		- Erstellen Sie für die Klasse `Fahrzeug` einen parametrisierten Konstruktor, dem die Parameter `marke`, `maxV` und `verbrauch` übergeben werden. Mit den Parameterwerten werden die entsprechenden Objektvariablen initialisiert. Die Objektvariable `kmStand` wird mit dem Wert `0` initialisiert.
+
+		- Erstellen Sie eine Methode `fahren()`. Diese Methode gibt nichts zurück. In dieser Methode wird eine Zufallszahl aus dem Wertebereich `0…999` erzeugt, also potenziell `1000` verschiedene Zahlen. Diese Zufallszahl entspricht einer Reise und wird dem `kmStand` hinzuaddiert.
+
+		- Erstellen Sie eine Objektmethode `gesamtverbrauch()`, die ein `double` zurückgibt. In dieser Methode wird der bisherige Gesamtverbrauch ermittelt, d.h. es soll mithilfe von `verbrauch` (Liter auf 100 Kilometer) berechnet werden, wieviel für den bisherigen `kmStand` insgesamt verbraucht wurde. Beachten Sie, dass Ihnen insbesondere beim Dividieren durch `100` keine Informationen verloren gehen.
+
+		- Erstellen Sie für alle Objektvariablen Getter, also `getMarke()`, `getKmStand()`, `getMaxV()` und `getVerbrauch()`.
+
+		- *Überschreiben* Sie die Methode `toString()` so, dass ein `String` in der folgenden Form zurückgegeben wird (Beispielwerte): 
+			```hash
+			B    200km/h  8,5l/100km   13157km  1118,35l
+			```
+
+			Beachten Sie: `B` ist die marke des Fahrzeugs. Reservieren Sie 
+
+			- für die Marke **4** Zeichen,
+			- für die Höchstgeschwindigkeit **3** Zeichen (dann kommt `km/h`), 
+			- für den Verbrauch insgesamt **4** Zeichen, davon **1** Nachkommastelle (dann kommt `l/100km`),
+			- für den Kilometerstand **7** Zeichen (dann kommt `km`) und
+			- für den Gesamtverbrauch insgesamt **8** Zeichen, davon **2** Nachkommastellen (dann kommt `l`). 
+
+		- Erstellen Sie eine Objektmethode `print()`, die den von `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+		- *Überschreiben* Sie die Methode `equals(Object o)` so, dass zwei Fahrzeuge gleich sind, wenn sie dieselbe `marke` **und** denselben `kmStand` haben.
+
+		- Erstellen Sie eine `Programmklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode ein `Array`, in dem alle Elemente vom Typ `Fahrzeug` sind. Das `Array` soll die Länge **4** haben. Befüllen Sie dieses `Array` mit **vier** Fahrzeug-Objekten mit den folgenden Werten für die Objektvariablen (`marke`, `maxV`, `verbrauch`):
+
+			```bash
+			"A", 250, 10.0
+			"B", 200, 8.5
+			"C", 160, 6.5
+			"D", 180, 7.0 
+			```
+
+			Geben Sie in einer Schleife alle vier Fahrzeug-Objekte auf die Konsole unter Verwendung der `print()`-Methode aus. Es entsteht folgende Ausgabe:
+
+			```bash
+			A    250km/h 10,0l/100km       0km     0,00l
+			B    200km/h  8,5l/100km       0km     0,00l
+			C    160km/h  6,5l/100km       0km     0,00l
+			D    180km/h  7,0l/100km       0km     0,00l
+			```
+ 
+		- Erweitern Sie die `main()`-Methode wie folgt: In einer Schleife sollen insgesamt `100` Fahrten durchgeführt werden. Es wird zufällig ausgewählt, für welches der Fahrzeuge aus dem obigen Array jeweils die Methode `fahren()` aufgerufen wird. 
+
+			Rufen Sie danach erneut die `print()`-Methode in einer Schleife für alle Fahrzeuge aus dem Array auf. Es entsteht folgende Ausgabe (Beispielwerte – zufällig!):
+
+			```bash
+			A    250km/h 10,0l/100km   11845km  1184,50l
+			B    200km/h  8,5l/100km   13157km  1118,35l
+			C    160km/h  6,5l/100km   11762km   764,53l
+			D    180km/h  7,0l/100km   13465km   942,55l 
+			```
+
+	3. (**Teil 2**) 
+
+		- Erstellen Sie eine Klasse `Auto`. Diese Klasse erbt von `Fahrzeug`. Dem Konstruktor werden die Parameter `String marke, int maxV, double verbrauch` übergeben. 
+
+		- Erstellen Sie eine Klasse `LKW`. Diese Klasse erbt von `Fahrzeug`. Dem Konstruktor wird nur der Parameter `double verbrauch` übergeben. Die `marke` ist bei einem `LKW` stets `"LKW"` und die Höchstgeschwindigkeit (`maxV`) ist stets `100`.
+
+		- Erstellen Sie eine Klasse `Fuhrpark`. Objektvariablen sind 
+
+			- `fuhrpark` vom Typ `Fahrzeug[]`,
+			- `anzahl` vom Typ `int` (*Anzahl der Fahrzeuge im Fuhrpark* ).
+
+			Die Objektvariablen sind nur innerhalb der Klasse sichtbar!
+
+		- Erstellen Sie für die Klasse `Fuhrpark` einen parametrisierten Konstruktor, dem ein `int`-Wert `groesse` übergeben wird. Dieser Wert entspricht der Länge des zu erzeugenden Arrays `fuhrpark`. Der Wert für `groesse` steht also für die *maximal mögliche Anzahl* von Fahrzeugen im Fuhrpark, während der Wert `anzahl` für die *tatsächliche Anzahl* von Fahrzeugen im Fuhrpark steht. Das Array wird innerhalb des Konstruktors erzeugt. Der Wert für `anzahl` ist bei Objekterzeugung stets **0**.
+
+		- Erstellen Sie eine Objektmethode `fahrzeugKaufen()`. Diese Methode gibt nichts zurück. 
+
+			- In der Methode wird eine Zufallszahl aus dem Wertebereich `50…449` erzeugt (also potenziell `400` verschiedene Zufallszahlen). 
+			- Ist die erzeugte Zufallszahl kleiner oder gleich `250`, dann wird `fuhrpark` ein `Auto`-Objekt hinzugefügt. 
+
+				- Die `marke` des `Auto`-Objektes ergibt sich aus dem Buchstaben `A` gefolgt vom aktuellen Wert von `anzahl`, also z.B. `A1`, `A2`, `A3`, …
+				- Der Wert für `maxV` entspricht dem Wert der Zufallszahl, 
+				- Der Wert für `verbrauch` entspricht der Zufallszahl geteilt durch `10` (achten Sie aber darauf, eine `double`-Divsion durchzuführen!)
+
+			- Ist die erzeugte Zufallszahl größer als `250`, dann wird `fuhrpark` ein `LKW`-Objekt hinzugefügt.
+
+				- Der Wert für `verbrauch` entspricht der Zufallszahl geteilt durch `10` (achten Sie aber darauf, eine `double`-Divsion durchzuführen!) 
+
+			- Durch das Hinzufügen eines Fahrzeugs (`Auto` oder `LKW`) erhöht sich der Wert von `anzahl` immer um `1`.
+
+		- Erstellen Sie eine Objektmethode `fahrzeugKaufen(Fahrzeug fahrzeug)`. Diese Methode gibt nichts zurück. In dieser Methode wird das `fahrzeug` dem `fuhrpark` hinzugefügt. Achten Sie darauf, auch `anzahl` enstprechend zu erhöhen. 
+
+		- *Überschreiben* Sie die Methode `toString()` so, dass ein `String` in der folgenden Form zurückgegeben wird (Beispielwerte – nach dem Hinzufügen von 15 Fahrzeugen):
+
+			```bash 
+			Im Fuhrpark sind 15 Fahrzeuge : 
+			----------------------------- 
+			LKW  100km/h 26,0l/100km       0km     0,00l 
+			LKW  100km/h 32,9l/100km       0km     0,00l 
+			A2   201km/h 20,1l/100km       0km     0,00l 
+			LKW  100km/h 43,6l/100km       0km     0,00l 
+			LKW  100km/h 39,8l/100km       0km     0,00l 
+			A5   195km/h 19,5l/100km       0km     0,00l 
+			LKW  100km/h 39,2l/100km       0km     0,00l 
+			LKW  100km/h 31,3l/100km       0km     0,00l 
+			A8   214km/h 21,4l/100km       0km     0,00l 
+			A9   155km/h 15,5l/100km       0km     0,00l 
+			A10  241km/h 24,1l/100km       0km     0,00l 
+			LKW  100km/h 40,2l/100km       0km     0,00l 
+			LKW  100km/h 28,5l/100km       0km     0,00l 
+			A13   73km/h  7,3l/100km       0km     0,00l 
+			LKW  100km/h 35,3l/100km       0km     0,00l 
+			----------------------------- 
+			```
+
+			- Es erscheint also zunächst `Im Fuhrpark sind 15 Fahrzeuge :`, wobei `15` dem aktuellen Wert von `anzahl` entspricht,
+			- dann eine Linie, Länge egal, 
+			- dann kommen alle Fahrzeuge aus dem `fuhrpark`-Array,
+			- dann wieder eine Linie, Länge egal.
+
+		- Erzeugen Sie in der `main()`-Methode der Programmklasse ein Objekt von Fuhrpark. Übergeben Sie als Parameterwert die `20`.
+
+			- Geben Sie das Fuhrpark-Objekt unter Verwendung der `toString()`-Methode auf die Konsole aus.
+			- Rufen Sie für das Fuhrpark-Objekt die Methode `fahrzeugKaufen()` in einer Schleife `15` Mal auf. 
+			- Fügen Sie mithilfe der `fahrzeugKaufen(Fahrzeug)`-Methode ein `Auto` und einen `LKW` dem Fuhrpark-Objekt hinzu. 
+			- Geben Sie danach das Fuhrpark-Objekt erneut auf die Konsole aus. 
+			- Es entstehen folgende Ausgaben (Beispielwerte): 
+
+				```bash
+				Im Fuhrpark sind 0 Fahrzeuge : 
+				----------------------------- 
+				----------------------------- 
+
+				Im Fuhrpark sind 17 Fahrzeuge : 
+				----------------------------- 
+				LKW  100km/h 26,0l/100km       0km     0,00l 
+				LKW  100km/h 32,9l/100km       0km     0,00l 
+				A2   201km/h 20,1l/100km       0km     0,00l 
+				LKW  100km/h 43,6l/100km       0km     0,00l 
+				LKW  100km/h 39,8l/100km       0km     0,00l 
+				A5   195km/h 19,5l/100km       0km     0,00l 
+				LKW  100km/h 39,2l/100km       0km     0,00l 
+				LKW  100km/h 31,3l/100km       0km     0,00l 
+				A8   214km/h 21,4l/100km       0km     0,00l 
+				A9   155km/h 15,5l/100km       0km     0,00l 
+				A10  241km/h 24,1l/100km       0km     0,00l 
+				LKW  100km/h 40,2l/100km       0km     0,00l 
+				LKW  100km/h 28,5l/100km       0km     0,00l 
+				A13   73km/h  7,3l/100km       0km     0,00l 
+				LKW  100km/h 35,3l/100km       0km     0,00l 
+				B    200km/h  8,5l/100km       0km     0,00l 
+				LKW  100km/h 35,5l/100km       0km     0,00l 
+				----------------------------- 
+				```
+
+		- Erstellen Sie in der Klasse `Fuhrpark` eine Objektmethode `reisenImMonat(int anzahlReisen)`. Diese Methode gibt nichts zurück. Der Wert des Parameters `anzahlReisen` gibt an, wieviele Fahrten im Fuhrpark durchgeführt werden, d.h. wie oft die Methode `fahren()` insgesamt aufgerufen wird. 
+
+			Für welches Fahrzeug aus dem Fuhrpark die Methode `fahren()` jeweils aufgerufen wird, wird zufällig erzeugt! Achten Sie darauf, die Zufallszahl so zu erzeugen, dass Sie den Wert von `anzahl` berücksichtigen!
+
+		- Rufen Sie in der `main()`-Methode die Methode `reisenImMonat(75)` für das `Fuhrpark`-Objekt auf und geben Sie danach das `Fuhrpark`-Objekt erneut auf die Konsole aus. Es entstehen folgende Ausgaben (Beispielwerte):
+
+			```bash
+			Im Fuhrpark sind 17 Fahrzeuge : 
+			----------------------------- 
+			LKW  100km/h 26,0l/100km    1002km   260,52l 
+			LKW  100km/h 32,9l/100km    3964km  1304,16l 
+			A2   201km/h 20,1l/100km    4792km   963,19l 
+			LKW  100km/h 43,6l/100km    1540km   671,44l 
+			LKW  100km/h 39,8l/100km    2720km  1082,56l 
+			A5   195km/h 19,5l/100km    1647km   321,17l 
+			LKW  100km/h 39,2l/100km    1496km   586,43l 
+			LKW  100km/h 31,3l/100km    5086km  1591,92l 
+			A8   214km/h 21,4l/100km    1649km   352,89l 
+			A9   155km/h 15,5l/100km    1863km   288,77l 
+			A10  241km/h 24,1l/100km    2723km   656,24l 
+			LKW  100km/h 40,2l/100km    2303km   925,81l 
+			LKW  100km/h 28,5l/100km    1031km   293,84l 
+			A13   73km/h  7,3l/100km    1455km   106,22l 
+			LKW  100km/h 35,3l/100km    2902km  1024,41l 
+			B    200km/h  8,5l/100km    2121km   180,29l 
+			LKW  100km/h 35,5l/100km     912km   323,76l 
+			-----------------------------
+			```
+
+		- Erstellen Sie in der Klasse `Fuhrpark` eine Objektmethode `alleLKWs()`. Diese Methode gibt ein neues `Fuhrpark`-Objekt zurück. In dem neuen `Fuhrpark`-Objekt werden alle Fahrzeuge aus dem aufrufenden `Fuhrpark`-Objekt übernommen, die vom (Laufzeit-)Typ `LKW` sind. Verwenden Sie dazu die Objektmethode `fahrzeugKaufen(Fahrzeug)`.
+
+		- Rufen Sie in der `main()`-Methode die Methode `alleLKWs()` auf und lassen Sie sich zurückgegebene `Fuhrpark`-Objekt auf die Konsole ausgeben. Beispielwerte (zufällig):
+
+			```bash
+			Im Fuhrpark sind 10 Fahrzeuge : 
+			----------------------------- 
+			LKW  100km/h 26,0l/100km    1002km   260,52l 
+			LKW  100km/h 32,9l/100km    3964km  1304,16l 
+			LKW  100km/h 43,6l/100km    1540km   671,44l 
+			LKW  100km/h 39,8l/100km    2720km  1082,56l 
+			LKW  100km/h 39,2l/100km    1496km   586,43l 
+			LKW  100km/h 31,3l/100km    5086km  1591,92l 
+			LKW  100km/h 40,2l/100km    2303km   925,81l 
+			LKW  100km/h 28,5l/100km    1031km   293,84l 
+			LKW  100km/h 35,3l/100km    2902km  1024,41l 
+			LKW  100km/h 35,5l/100km     912km   323,76l 
+			-----------------------------
+			```
+
+		- Erstellen Sie in `Fuhrpark` eine Objektmethode `meistenKm()`, die das `Fahrzeug` aus dem `fuhrpark` zurückgibt, das den höchsten `kmStand` hat. Sie können davon ausgehen, dass mindestens ein `Fahrzeug` im `fuhrpark` ist.
+
+			Rufen Sie diese Methode in der `main()`-Methode auf und geben Sie das Fahrzeug auf der Konsole aus. Beispielwerte:
+
+			```bash			
+			LKW  100km/h 31,3l/100km    5086km  1591,92l
+			```
+
+		- Erstellen Sie in Fuhrpark eine Objektmethode `hoechsterGesamtverbrauchAuto()`, die das `Fahrzeug` aus dem `fuhrpark` zurückgibt, das bisher den höchsten Gesamtverbrauch hat. Es sollen nur die Objekte vom (Laufzeit-)Typ `Auto` bewertet werden! Sie können davon ausgehen, dass mindestens ein `Auto` im `fuhrpark` ist.
+
+			Rufen Sie diese Methode in der main()-Methode auf und geben Sie das Fahrzeug auf der Konsole aus. Beispielwerte:
+
+			```bash
+			A2   201km/h 20,1l/100km    4792km   963,19l
+			```
+
+ 		- Erstellen Sie in `Fuhrpark` eine Objektmethode `fahrzeugLoeschen(Fahrzeug fahrzeug)`. Die Methode gibt `true` zurück, wenn `fahrzeug` aus dem `fuhrpark` gelöscht wurde und `false` sonst.
+
+			Beachten Sie für den Fall des Löschens, dass alle nachfolgenden Fahrzeuge in `fuhrpark` um eine Stelle im Array nach links rücken! Vergessen Sie auch nicht, den Wert von `anzahl` für den Löschfall zu verringern. 
+
+			Rufen Sie diese Methode in der `main()`-Methode auf und übergeben Sie ein `Fahrzeug`-Objekt, das in `fuhrpark` vorkommt (siehe z.B. oben die beiden Objekte, die mithilfe der `fahrzeugKaufen(Fahrzeug)`-Methode hinzugefügt wurden). Geben Sie das `Fuhrpark`-Objekt erneut aus:
+
+			```bash
+			Im Fuhrpark sind 16 Fahrzeuge : 
+			----------------------------- 
+			LKW  100km/h 26,0l/100km    1002km   260,52l 
+			LKW  100km/h 32,9l/100km    3964km  1304,16l 
+			A2   201km/h 20,1l/100km    4792km   963,19l 
+			LKW  100km/h 43,6l/100km    1540km   671,44l 
+			LKW  100km/h 39,8l/100km    2720km  1082,56l 
+			A5   195km/h 19,5l/100km    1647km   321,17l 
+			LKW  100km/h 39,2l/100km    1496km   586,43l 
+			LKW  100km/h 31,3l/100km    5086km  1591,92l 
+			A8   214km/h 21,4l/100km    1649km   352,89l 
+			A9   155km/h 15,5l/100km    1863km   288,77l 
+			A10  241km/h 24,1l/100km    2723km   656,24l 
+			LKW  100km/h 40,2l/100km    2303km   925,81l 
+			LKW  100km/h 28,5l/100km    1031km   293,84l 
+			A13   73km/h  7,3l/100km    1455km   106,22l 
+			LKW  100km/h 35,3l/100km    2902km  1024,41l 
+			LKW  100km/h 35,5l/100km     912km   323,76l 
+			-----------------------------
+			```
+
+	4. Zur Kontrolle: Die möglichen Ausgaben (Beispielwerte) könnten sein:
+
+		```bash
+		-------------------- Teil 1 -------------------------
+
+		A    250km/h 10,0l/100km       0km     0,00l
+		B    200km/h  8,5l/100km       0km     0,00l
+		C    160km/h  6,5l/100km       0km     0,00l
+		D    180km/h  7,0l/100km       0km     0,00l
+
+		---- fahren ----
+
+		A    250km/h 10,0l/100km   11323km  1132,30l
+		B    200km/h  8,5l/100km   10202km   867,17l
+		C    160km/h  6,5l/100km   10079km   655,14l
+		D    180km/h  7,0l/100km   15939km  1115,73l
+
+
+		-------------------- Teil 2 -------------------------
+
+		Im Fuhrpark sind 0 Fahrzeuge : 
+		----------------------------- 
+		----------------------------- 
+
+
+		---- 15 fahrzeuge kaufen ----
+
+		Im Fuhrpark sind 15 Fahrzeuge : 
+		----------------------------- 
+		LKW  100km/h 26,0l/100km       0km     0,00l 
+		LKW  100km/h 32,9l/100km       0km     0,00l 
+		A2   201km/h 20,1l/100km       0km     0,00l 
+		LKW  100km/h 43,6l/100km       0km     0,00l 
+		LKW  100km/h 39,8l/100km       0km     0,00l 
+		A5   195km/h 19,5l/100km       0km     0,00l 
+		LKW  100km/h 39,2l/100km       0km     0,00l 
+		LKW  100km/h 31,3l/100km       0km     0,00l 
+		A8   214km/h 21,4l/100km       0km     0,00l 
+		A9   155km/h 15,5l/100km       0km     0,00l 
+		A10  241km/h 24,1l/100km       0km     0,00l 
+		LKW  100km/h 40,2l/100km       0km     0,00l 
+		LKW  100km/h 28,5l/100km       0km     0,00l 
+		A13   73km/h  7,3l/100km       0km     0,00l 
+		LKW  100km/h 35,3l/100km       0km     0,00l 
+		----------------------------- 
+
+
+		---- 2 weitere fahrzeuge kaufen ----
+
+		Im Fuhrpark sind 17 Fahrzeuge : 
+		----------------------------- 
+		LKW  100km/h 26,0l/100km       0km     0,00l 
+		LKW  100km/h 32,9l/100km       0km     0,00l 
+		A2   201km/h 20,1l/100km       0km     0,00l 
+		LKW  100km/h 43,6l/100km       0km     0,00l 
+		LKW  100km/h 39,8l/100km       0km     0,00l 
+		A5   195km/h 19,5l/100km       0km     0,00l 
+		LKW  100km/h 39,2l/100km       0km     0,00l 
+		LKW  100km/h 31,3l/100km       0km     0,00l 
+		A8   214km/h 21,4l/100km       0km     0,00l 
+		A9   155km/h 15,5l/100km       0km     0,00l 
+		A10  241km/h 24,1l/100km       0km     0,00l 
+		LKW  100km/h 40,2l/100km       0km     0,00l 
+		LKW  100km/h 28,5l/100km       0km     0,00l 
+		A13   73km/h  7,3l/100km       0km     0,00l 
+		LKW  100km/h 35,3l/100km       0km     0,00l 
+		B    200km/h  8,5l/100km       0km     0,00l 
+		LKW  100km/h 35,5l/100km       0km     0,00l 
+		----------------------------- 
+
+
+		---- reisenImMonat(75) ----
+
+		Im Fuhrpark sind 17 Fahrzeuge : 
+		----------------------------- 
+		LKW  100km/h 26,0l/100km    1002km   260,52l 
+		LKW  100km/h 32,9l/100km    3964km  1304,16l 
+		A2   201km/h 20,1l/100km    4792km   963,19l 
+		LKW  100km/h 43,6l/100km    1540km   671,44l 
+		LKW  100km/h 39,8l/100km    2720km  1082,56l 
+		A5   195km/h 19,5l/100km    1647km   321,17l 
+		LKW  100km/h 39,2l/100km    1496km   586,43l 
+		LKW  100km/h 31,3l/100km    5086km  1591,92l 
+		A8   214km/h 21,4l/100km    1649km   352,89l 
+		A9   155km/h 15,5l/100km    1863km   288,77l 
+		A10  241km/h 24,1l/100km    2723km   656,24l 
+		LKW  100km/h 40,2l/100km    2303km   925,81l 
+		LKW  100km/h 28,5l/100km    1031km   293,84l 
+		A13   73km/h  7,3l/100km    1455km   106,22l 
+		LKW  100km/h 35,3l/100km    2902km  1024,41l 
+		B    200km/h  8,5l/100km    2121km   180,29l 
+		LKW  100km/h 35,5l/100km     912km   323,76l 
+		----------------------------- 
+
+
+		---- alleLKWs ----
+
+		Im Fuhrpark sind 10 Fahrzeuge : 
+		----------------------------- 
+		LKW  100km/h 26,0l/100km    1002km   260,52l 
+		LKW  100km/h 32,9l/100km    3964km  1304,16l 
+		LKW  100km/h 43,6l/100km    1540km   671,44l 
+		LKW  100km/h 39,8l/100km    2720km  1082,56l 
+		LKW  100km/h 39,2l/100km    1496km   586,43l 
+		LKW  100km/h 31,3l/100km    5086km  1591,92l 
+		LKW  100km/h 40,2l/100km    2303km   925,81l 
+		LKW  100km/h 28,5l/100km    1031km   293,84l 
+		LKW  100km/h 35,3l/100km    2902km  1024,41l 
+		LKW  100km/h 35,5l/100km     912km   323,76l 
+		----------------------------- 
+
+
+		---- meisten kilometer ----
+
+		LKW  100km/h 31,3l/100km    5086km  1591,92l
+
+		---- hoechster gesamtverbrauch auto ----
+
+		A2   201km/h 20,1l/100km    4792km   963,19l
+
+		---- fahrzeug loeschen ----
+
+		Im Fuhrpark sind 16 Fahrzeuge : 
+		----------------------------- 
+		LKW  100km/h 26,0l/100km    1002km   260,52l 
+		LKW  100km/h 32,9l/100km    3964km  1304,16l 
+		A2   201km/h 20,1l/100km    4792km   963,19l 
+		LKW  100km/h 43,6l/100km    1540km   671,44l 
+		LKW  100km/h 39,8l/100km    2720km  1082,56l 
+		A5   195km/h 19,5l/100km    1647km   321,17l 
+		LKW  100km/h 39,2l/100km    1496km   586,43l 
+		LKW  100km/h 31,3l/100km    5086km  1591,92l 
+		A8   214km/h 21,4l/100km    1649km   352,89l 
+		A9   155km/h 15,5l/100km    1863km   288,77l 
+		A10  241km/h 24,1l/100km    2723km   656,24l 
+		LKW  100km/h 40,2l/100km    2303km   925,81l 
+		LKW  100km/h 28,5l/100km    1031km   293,84l 
+		A13   73km/h  7,3l/100km    1455km   106,22l 
+		LKW  100km/h 35,3l/100km    2902km  1024,41l 
+		LKW  100km/h 35,5l/100km     912km   323,76l 
+		-----------------------------
+		```
+
+
+
+??? question "Eine mögliche Lösung für Fahrzeug"
+	=== "Programmklasse.java"
+		```java
+		package klausurvorbereitung.fahrzeug;
+
+		import java.util.Random;
+
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				System.out.printf("%n%n-------------------- Teil 1 -------------------------%n%n");
+				Fahrzeug[] fuhrpark1 = new Fahrzeug[4];
+				fuhrpark1[0] = new Fahrzeug("A", 250, 10.0);
+				fuhrpark1[1] = new Fahrzeug("B", 200, 8.5);
+				fuhrpark1[2] = new Fahrzeug("C", 160, 6.5);
+				fuhrpark1[3] = new Fahrzeug("D", 180, 7.0);
+				
+				for(int index = 0; index < fuhrpark1.length; index++) {
+					fuhrpark1[index].print();
+				}
+				System.out.printf("%n---- fahren ----%n%n");
+				for(int fahrten = 0; fahrten < 100; fahrten++) {
+					Random r = new Random();
+					int nr = r.nextInt(4);
+					fuhrpark1[nr].fahren();
+				}
+				
+				for(int index = 0; index < fuhrpark1.length; index++) {
+					fuhrpark1[index].print();
+				}
+				
+				System.out.printf("%n%n-------------------- Teil 2 -------------------------%n%n");
+				Fuhrpark fp1 = new Fuhrpark(20);
+				
+				System.out.println(fp1.toString());
+				
+				System.out.printf("%n---- 15 fahrzeuge kaufen ----%n%n");
+				for(int fahrzeuge = 0; fahrzeuge < 15; fahrzeuge++) {
+					fp1.fahrzeugKaufen();
+				}
+				System.out.println(fp1.toString());
+				
+				System.out.printf("%n---- 2 weitere fahrzeuge kaufen ----%n%n");
+				Fahrzeug f1 = new Auto("B", 200, 8.5);
+				Fahrzeug f2 = new LKW(35.5);
+				fp1.fahrzeugKaufen(f1);
+				fp1.fahrzeugKaufen(f2);
+				System.out.println(fp1.toString());
+				
+				System.out.printf("%n---- reisenImMonat(75) ----%n%n");
+				fp1.reisenImMonat(75);
+				System.out.println(fp1.toString());
+				
+				System.out.printf("%n---- alleLKWs ----%n%n");
+				Fuhrpark lkws = fp1.alleLKWs();
+				System.out.println(lkws);
+				
+				System.out.printf("%n---- meisten kilometer ----%n%n");
+				Fahrzeug meistenKm = fp1.meistenKilometer();
+				meistenKm.print();
+				
+				System.out.printf("%n---- hoechster gesamtverbrauch auto ----%n%n");
+				Fahrzeug hoechsterVerbrauch = fp1.hoechsterGesamtverbrauchAuto();
+				hoechsterVerbrauch.print();
+				
+				System.out.printf("%n---- fahrzeug loeschen ----%n%n");
+				fp1.fahrzeugLoeschen(f1);
+				System.out.println(fp1.toString());
+			}
+
+		}
+		```
+
+	=== "Fahrzaug.java"
+		```java
+		package klausurvorbereitung.fahrzeug;
+
+		import java.util.Random;
+
+		public class Fahrzeug
+		{
+			private String marke;
+			private int kmStand;
+			private int maxV;
+			private double verbrauch;
+			
+			public Fahrzeug(String marke, int maxV, double verbrauch) {
+				this.marke = marke;
+				this.maxV = maxV;
+				this.kmStand = 0;
+				this.verbrauch = verbrauch;
+			}
+			
+			public void fahren() {
+				Random r = new Random();
+				int reise = r.nextInt(1000);
+				this.kmStand += reise;
+			}
+			
+			public double gesamtverbrauch() {
+				return this.kmStand * this.verbrauch / 100;
+			}
+			
+			public int getKmStand() {
+				return this.kmStand;
+			}
+			
+			public String getMarke()
+			{
+				return this.marke;
+			}
+
+			public int getMaxV()
+			{
+				return this.maxV;
+			}
+
+			public double getVerbrauch()
+			{
+				return this.verbrauch;
+			}
+
+			@Override
+			public String toString() {
+				String s = String.format("%-4s %3dkm/h %4.1fl/100km %7dkm %8.2fl", this.marke, this.maxV, this.verbrauch, this.kmStand, this.gesamtverbrauch());
+				return s;
+			}
+			
+			@Override
+			public boolean equals(Object o) {
+				if(o == null) return false;
+				if(this == o) return true;
+				if(this.getClass() != o.getClass()) return false;
+				
+				Fahrzeug other = (Fahrzeug)o;
+				return this.marke.equals(other.marke) && this.kmStand == other.kmStand;
+			}
+			
+			public void print() {
+				System.out.println(this.toString());
+			}
+			
+		}
+
+		```
+
+	=== "Auto.java"
+		```java
+		package klausurvorbereitung.fahrzeug;
+
+		public class Auto extends Fahrzeug
+		{
+
+			public Auto(String marke, int maxV, double verbrauch)
+			{
+				super(marke, maxV, verbrauch);
+			}
+
+		}
+		```
+
+	=== "LKW.java"
+		```java
+		package klausurvorbereitung.fahrzeug;
+
+		public class LKW extends Fahrzeug
+		{
+
+			public LKW(double verbrauch)
+			{
+				super("LKW", 100, verbrauch);
+			}
+
+		}
+		```
+
+	=== "Fuhrpark.java"
+		```java
+		package klausurvorbereitung.fahrzeug;
+
+		import java.util.Random;
+
+		public class Fuhrpark
+		{
+			private Fahrzeug[] fuhrpark;
+			private int anzahl;
+			
+			public Fuhrpark(int groesse) {
+				this.fuhrpark = new Fahrzeug[groesse];
+				this.anzahl = 0;
+			}
+			
+			public void fahrzeugKaufen() {
+				Random r = new Random();
+				int zufzahl = r.nextInt(400) + 50;
+				double verbrauch = zufzahl / 10.0;
+				
+				if(zufzahl <= 250) {
+					String marke = "A" + this.anzahl;
+					this.fuhrpark[this.anzahl++] = new Auto(marke, zufzahl, verbrauch);
+				} else {
+					this.fuhrpark[this.anzahl++] = new LKW(verbrauch);
+				}
+			}
+			
+			public void fahrzeugKaufen(Fahrzeug fahrzeug) {
+
+				this.fuhrpark[this.anzahl++] = fahrzeug;
+			}
+			
+			public void reisenImMonat(int anzahlReisen) {
+				for(int reise = 0; reise < anzahlReisen; reise++) {
+					Random r = new Random();
+					int zufIndex = r.nextInt(this.anzahl);
+					this.fuhrpark[zufIndex].fahren();
+				}
+			}
+			
+			public Fahrzeug meistenKilometer() {
+				Fahrzeug meistenKm = this.fuhrpark[0];
+				for (int index = 1; index < this.anzahl; index++)
+				{
+					if(this.fuhrpark[index].getKmStand() > meistenKm.getKmStand()) {
+						meistenKm = this.fuhrpark[index];
+					}
+				}
+				return meistenKm;
+			}
+			
+			public Fahrzeug hoechsterGesamtverbrauchAuto() {
+				double hoechsterVerbrauch = 0.0;
+				int indexMax = -1;
+				for (int index = 0; index < this.anzahl; index++)
+				{
+					if(this.fuhrpark[index] instanceof Auto) {
+						
+						if(this.fuhrpark[index].gesamtverbrauch() > hoechsterVerbrauch) {
+							
+							hoechsterVerbrauch = this.fuhrpark[index].gesamtverbrauch();
+							indexMax = index;
+						}
+					}
+				}
+				return this.fuhrpark[indexMax];
+			}
+			
+			public boolean fahrzeugLoeschen(Fahrzeug fahrzeug) {
+				boolean deleted = false;
+				for (int index = 0; index < this.anzahl && !deleted; index++)
+				{
+					if(this.fuhrpark[index].equals(fahrzeug)) 
+					{
+						deleted = true;
+						for(int i = index; i < this.anzahl - 1; i++) 
+						{
+							this.fuhrpark[index] = this.fuhrpark[index+1];
+						}
+						this.anzahl--;
+					}
+				}
+				return deleted;
+			}
+			
+			public int getAnzahl() {
+				return this.anzahl;
+			}
+			
+			@Override
+			public String toString() {
+				String s = String.format("Im Fuhrpark sind %d Fahrzeuge : %n", this.anzahl);
+				s += String.format("----------------------------- %n");
+				for(int index = 0; index < this.anzahl; index++) {
+					s += String.format("%s %n", this.fuhrpark[index].toString());
+				}
+				s += String.format("----------------------------- %n%n");
+				return s;
+			}
+			
+			public Fuhrpark alleLKWs() {
+				int anzahlLKWs = 0;
+				for (int index = 0; index < this.anzahl; index++)
+				{
+					if(fuhrpark[index] instanceof LKW) anzahlLKWs++;
+				}
+				Fuhrpark fp = new Fuhrpark(anzahlLKWs);
+				for (int index = 0; index < this.anzahl; index++)
+				{
+					if(fuhrpark[index] instanceof LKW) {
+						fp.fahrzeugKaufen(fuhrpark[index]);
+					}
+				}
+				return fp;
+			}
+			
+		}
+
+		```
+
+
+
 	
 ??? note "Akku"
 	
