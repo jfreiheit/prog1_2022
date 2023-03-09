@@ -60,7 +60,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 14. | 23.-27.01.2023 | Wiederholung, Klausurvorbereitung  | -  | - |
 | 15. | 30.-03.02.2023 | Wiederholung, Klausurvorbereitung | - | - |
 | 16. | 07.02.2023 12-14 Uhr| Klausur 1.PZ | -  | - |
-| 16. | 28.03.2023 12-14 Uhr| Klausur 2.PZ | -  | - |
+| 16. | 29.03.2023 12-14 Uhr| Klausur 2.PZ | -  | - |
 
 ## Code aus der Vorlesung
 
