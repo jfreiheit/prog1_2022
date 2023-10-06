@@ -59,7 +59,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 ## Aufgaben
 
-#### Aufgabe 1 (Abgabe bis 22.11.2022 24:00 Uhr)
+#### Aufgabe 1 (Abgabe bis 22.11.2023 24:00 Uhr)
 
 ??? "Aufgabe1 - Rhombus"
 	- Erstellen Sie eine Klasse `Aufgabe1` mit `main()`-Methode im package `aufgaben.aufgabe1` 
@@ -108,7 +108,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
-#### Aufgabe 2 (Abgabe bis 29.11.2022 24:00 Uhr)
+#### Aufgabe 2 (Abgabe bis 29.11.2023 24:00 Uhr)
 
 ??? "Aufgabe2 - Numbers"
 	- Erstellen Sie eine Klasse `Aufgabe2` mit `main()`-Methode im package `aufgaben.aufgabe2`.
@@ -188,7 +188,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
-#### Aufgabe 3 (Abgabe bis 06.12.2022 24:00 Uhr)
+#### Aufgabe 3 (Abgabe bis 06.12.2023 24:00 Uhr)
 
 
 ??? "Aufgabe 3 - Triangle"
@@ -390,7 +390,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
-#### Aufgabe 4 (Abgabe bis 13.12.2022 24:00 Uhr)
+#### Aufgabe 4 (Abgabe bis 13.12.2023 24:00 Uhr)
 
 
 ??? "Aufgabe 4 - Bruch"
@@ -484,7 +484,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 
 
-#### Aufgabe 5 (Abgabe bis 20.12.2022 24:00 Uhr)
+#### Aufgabe 5 (Abgabe bis 20.12.2023 24:00 Uhr)
 
 
 ??? "Aufgabe 5 - Doppelt-verkettete Liste"
@@ -583,7 +583,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 
 
-#### Aufgabe 6 (Abgabe bis 03.01.2023 24:00 Uhr)
+#### Aufgabe 6 (Abgabe bis 03.01.2024 24:00 Uhr)
 
 
 ??? "Aufgabe 6 - Arrays ausgeben"
@@ -757,7 +757,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Viel Spaß und viel Erfolg!
 
 
-#### Aufgabe 7 (Abgabe bis 10.01.2023 24:00 Uhr)
+#### Aufgabe 7 (Abgabe bis 10.01.2024 24:00 Uhr)
 
 
 ??? "Aufgabe 7 - Arrays befüllen"
@@ -865,7 +865,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 
 
 
-#### Aufgabe 8 (Abgabe bis 17.01.2023 24:00 Uhr)
+#### Aufgabe 8 (Abgabe bis 17.01.2024 24:00 Uhr)
 
 
 ??? "Aufgabe 8 - SortedArray"
