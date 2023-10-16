@@ -1,11 +1,5 @@
 # Was ist Programmieren?
 
-Zunächst ein bisschen Motivation: 
-
-- [**10 Gründe, Programmieren zu lernen**](https://itgirls.de/10-gruende-programmieren-zu-lernen/) und 
-- [**Bericht einer ehemaligen FIW-Studentin**](https://itgirls.de/100-frauenanteil-im-informatikstudium/).
-
----
 
 Ehe wir uns weiter mit Java und Programmierkonzepten beschäftigen, wollen wir uns bewusst werden, was Programmieren überhaupt ist. Prinzipiell lösen wir beim Programmieren ein Problem mithilfe einer Programmiersprache. Dabei stellt sich die Frage, welche Probleme mithilfe eines Computers lösbar sind und welche nicht. Dazu gibt es umfangreiche theoretische Untersuchungen - viele davon werden Sie in den "Grundlegenden Konzepten der Informatik" diskutieren. Ein wesentlicher Begriff dabei ist *Algorithmus*. Ein Algorithmus ist eine eindeutige Handlungsvorschrift, die aus endlich vielen einzelnen Schritten besteht und ein Problem löst. 
 
