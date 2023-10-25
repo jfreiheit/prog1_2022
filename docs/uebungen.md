@@ -102,6 +102,65 @@
 	
 
 
+??? question "Eine mögliche Lösung für Übung 1"
+	```java
+	package uebungen.uebung1;
+
+	public class Uebung1
+	{
+		public static void main(String[] args)
+		{
+			int in = 123;
+			long lo = 456789;
+			char ch = 'a';
+			byte by = 127;
+			short sh = 32767;
+			float fl = 4.23f;		// f notwendig
+			double d1 = 6.98;
+			boolean b1 = true;
+			String s1 = "Hallo!";
+			
+			System.out.println(" --- Aufgabe 3 -------");
+			System.out.println();
+			System.out.println("Wert vom Typ int     : " + in );
+			System.out.println("Wert vom Typ long    : " + lo );
+			System.out.println("Wert vom Typ char    : " + ch );
+			System.out.println("Wert vom Typ byte    : " + by );
+			System.out.println("Wert vom Typ short   : " + sh );
+			System.out.println("Wert vom Typ float   : " + fl );
+			System.out.println("Wert vom Typ double  : " + d1 );
+			System.out.println("Wert vom Typ boolean : " + b1 );
+			System.out.println("Wert vom Typ String  : " + s1 );
+			
+			System.out.println();
+			System.out.println(" --- Aufgabe 4 -------");
+			System.out.println();
+			in = 2147483647;
+			System.out.println("Wert vom Typ int     : " + in );
+			in = in + 1;		// in++;
+			System.out.println("Wert vom Typ int     : " + in );
+			
+			System.out.println();
+			System.out.println(" --- Aufgabe 5 -------");
+			System.out.println();
+			lo = 2147483647;	
+			System.out.println("Wert vom Typ long    : " + lo );
+			lo = lo +1 ;
+			System.out.println("Wert vom Typ long    : " + lo );
+			lo = 2147483648L;	// L notwendig, da 2147483648 kein int
+			
+			System.out.println();
+			System.out.println(" --- Aufgabe 6 -------");
+			System.out.println();
+			ch = 65;
+			System.out.println("Wert vom Typ char    : " + ch );
+			
+			// 7 a)		
+		}
+
+	}
+	```
+
 
 ??? note "Übung 2"
 	

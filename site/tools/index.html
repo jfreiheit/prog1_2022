@@ -761,19 +761,19 @@
 <p>Die Java-Laufzeitumgebung ist üblicherweise bereits auf allen Rechnern installiert. Sie ist selbst ein Programm. Innerhalb dieses Programms werden Java-Programme ausgeführt. </p>
 <p>Das JDK müssen Sie installieren. Verwenden Sie dazu <a href="https://www.oracle.com/java/technologies/javase-downloads.html">diesen Link</a> und gehen wie für Ihr Betriebssystem angegeben vor (prüfen Sie aber zunächst, ob Sie nicht eventuell bereits Beides haben - <code>java -version</code> und <code>javac -version</code> - siehe folgend). </p>
 <p>Testen Sie am besten auf Ihrer Konsole (Terminal), ob Ihr Java korrekt funktioniert. Zum Testen Ihrer Laufzeitumgebung geben Sie dazu</p>
-<div class="highlight"><pre><span></span><code>java<span class="w"> </span>-version
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>java<span class="w"> </span>-version
+</span></code></pre></div>
 <p>ein. Es sollte soetwas erscheinen, wie (Versionsnummern bei Ihnen sicherlich schon höher):</p>
-<div class="highlight"><pre><span></span><code>java<span class="w"> </span>version<span class="w"> </span><span class="s2">&quot;15.0.1&quot;</span><span class="w"> </span><span class="m">2020</span>-10-20
-Java<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>SE<span class="w"> </span>Runtime<span class="w"> </span>Environment<span class="w"> </span><span class="o">(</span>build<span class="w"> </span><span class="m">15</span>.0.1+9-18<span class="o">)</span>
-Java<span class="w"> </span>HotSpot<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span><span class="m">64</span>-Bit<span class="w"> </span>Server<span class="w"> </span>VM<span class="w"> </span><span class="o">(</span>build<span class="w"> </span><span class="m">15</span>.0.1+9-18,<span class="w"> </span>mixed<span class="w"> </span>mode,<span class="w"> </span>sharing<span class="o">)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>java<span class="w"> </span>version<span class="w"> </span><span class="s2">&quot;15.0.1&quot;</span><span class="w"> </span><span class="m">2020</span>-10-20
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Java<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>SE<span class="w"> </span>Runtime<span class="w"> </span>Environment<span class="w"> </span><span class="o">(</span>build<span class="w"> </span><span class="m">15</span>.0.1+9-18<span class="o">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Java<span class="w"> </span>HotSpot<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span><span class="m">64</span>-Bit<span class="w"> </span>Server<span class="w"> </span>VM<span class="w"> </span><span class="o">(</span>build<span class="w"> </span><span class="m">15</span>.0.1+9-18,<span class="w"> </span>mixed<span class="w"> </span>mode,<span class="w"> </span>sharing<span class="o">)</span>
+</span></code></pre></div>
 <p>Somit wissen Sie, dass die Laufzeitumgebung funktioniert. Zum Testen des JDK rufen wir am besten den Compiler (<code>javac</code>) auf:</p>
-<div class="highlight"><pre><span></span><code>javac<span class="w"> </span>-version
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>javac<span class="w"> </span>-version
+</span></code></pre></div>
 <p>Es sollte soetwas erscheinen, wie (Versionsnummern bei Ihnen sicherlich schon höher):</p>
-<div class="highlight"><pre><span></span><code>javac<span class="w"> </span><span class="m">15</span>.0.1
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>javac<span class="w"> </span><span class="m">15</span>.0.1
+</span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>Sie haben nun die Java-Laufzeitumgebung installiert, in der unsere Java-Programme ausgeführt werden und Sie haben das Java Development Kit installiert. Teil des JDK ist z.B. der <em>Compiler</em>, der unsere Java-Programme in Byte-Code übersetzt. Dieser Bytecode wird in unserer Java-Laufzeitumgebung ausgeführt.</p>

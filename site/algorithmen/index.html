@@ -741,20 +741,20 @@
 </ol>
 <p>Wir versuchen, den Algorithmus in eine verständlichere und genauere Sprache zu überführen, ohne bereits eine <em>Programmiersprache</em> zu verwenden. Wir benutzen sogenannten <em>Pseudocode</em>:</p>
 <p>Angenommen, die beiden Zahlen, von denen wir den <em>ggT</em> berechnen wollen, sind <code>a</code> und <code>b</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>solange<span class="w"> </span>a<span class="w"> </span>ungleich<span class="w"> </span>b<span class="w"> </span>ist,<span class="w"> </span>wiederhole
-<span class="w">    </span>wenn<span class="w"> </span>a<span class="w"> </span>größer<span class="w"> </span>ist<span class="w"> </span>als<span class="w"> </span>b,<span class="w"> </span>dann:
-<span class="w">        </span>ziehe<span class="w"> </span>b<span class="w"> </span>von<span class="w"> </span>a<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>a<span class="w"> </span>zu
-<span class="w">    </span>andernfalls:
-<span class="w">        </span>ziehe<span class="w"> </span>a<span class="w"> </span>von<span class="w"> </span>b<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>b<span class="w"> </span>zu
-wenn<span class="w"> </span>a<span class="w"> </span>gleich<span class="w"> </span>b<span class="w"> </span>ist,<span class="w"> </span>dann:
-<span class="w">    </span>a<span class="w"> </span><span class="o">(</span>oder<span class="w"> </span>auch<span class="w"> </span>b<span class="o">)</span><span class="w"> </span>ist<span class="w"> </span>der<span class="w"> </span>gesuchte<span class="w"> </span>ggT
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>solange<span class="w"> </span>a<span class="w"> </span>ungleich<span class="w"> </span>b<span class="w"> </span>ist,<span class="w"> </span>wiederhole
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span>wenn<span class="w"> </span>a<span class="w"> </span>größer<span class="w"> </span>ist<span class="w"> </span>als<span class="w"> </span>b,<span class="w"> </span>dann:
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span>ziehe<span class="w"> </span>b<span class="w"> </span>von<span class="w"> </span>a<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>a<span class="w"> </span>zu
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span>andernfalls:
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span>ziehe<span class="w"> </span>a<span class="w"> </span>von<span class="w"> </span>b<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>b<span class="w"> </span>zu
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>wenn<span class="w"> </span>a<span class="w"> </span>gleich<span class="w"> </span>b<span class="w"> </span>ist,<span class="w"> </span>dann:
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span>a<span class="w"> </span><span class="o">(</span>oder<span class="w"> </span>auch<span class="w"> </span>b<span class="o">)</span><span class="w"> </span>ist<span class="w"> </span>der<span class="w"> </span>gesuchte<span class="w"> </span>ggT
+</span></code></pre></div></td></tr></table></div>
 <p>Wichtig ist, dass das Einrücken hier eine Bedeutung hat (eine <em>Semantik</em>). In Zeile <code>1</code> formulieren wir, dass sich etwas wiederholen soll, solange eine bestimmte Bedingung gilt. Das, was sich wiederholen soll, ist in den Zeilen <code>2</code> bis <code>5</code> formuliert. Zeile <code>1</code> formuliert eine <em>Schleife</em> und in den Zeilen <code>2</code>-<code>5</code> befindet sich der <em>Schleifeninhalt</em>. Die Zeilen <code>2</code>-<code>5</code> formulieren ein eigenes Konstrukt, nämlich eine Auswahl zwischen Alternativen, abhängig von einer Bedingung. Die Bedingung ist, ob <code>a</code> größer ist als <code>b</code>. Wenn das der Fall ist, dann wird die Alternative <code>ziehe b von a ab und weise das Ergebnis a zu</code> ausgeführt (In der Programmierung werden das später als <code>a = a - b</code> schreiben - das sieht für uns jetzt noch sehr "falsch" aus). Ist jedoch <code>a</code> nicht größer als <code>b</code>, dann wird die Alternative <code>ziehe a von b ab und weise das Ergebnis b zu</code> (<code>b = b - a</code>) ausgeführt. Ein solches Konstrukt wird <em>Selektion</em> (oder auch <em>bedingte Alternative</em>) genannt. Nachdem entweder Zeile <code>3</code> oder Zeile <code>5</code> ausgeführt wurde (es wird genau eins von beiden ausgeführt), wird erneut in Zeile <code>1</code> geprüft, ob <code>a ungleich b</code> ist. Wenn ja, wird die Selektion wiederholt. Wenn nicht, dann ist die Schleife beendet und Zeile <code>6</code> wird ausgeführt. Die in Zeile <code>6</code> formulierte Bedingung <code>wenn a gleich b ist</code>, ist eigentlich unnötig. </p>
 <div class="admonition question">
 <p class="admonition-title">Frage</p>
@@ -803,16 +803,16 @@ Ende</p>
 <h3 id="beispiel-3n1-vermutung-collatz-problem">Beispiel: (3n+1)-Vermutung (Collatz-Problem)<a class="headerlink" href="#beispiel-3n1-vermutung-collatz-problem" title="Permanent link">&para;</a></h3>
 <p>Wir betrachten noch einen weiteren Algorithmus: Als Eingabe bekommen wir eine positive natürliche Zahl, z.B. <code>5</code>. Der Algorithmus berechnet eine Folge von Zahlen und zwar nach folgender Vorschrift: ist die Zahl ungerade, dann wird ihr Nachfolger dadurch berechnet, dass die Zahl mit 3 multipliziert und dann 1 addiert wird. Ist die Zahl gerade, dann wird ihr Nachfolger dadurch berechnet, dass die Zahl durch 2 geteilt wird. Der Algorithmus stoppt, wenn der Nachfolger <code>1</code> ist. </p>
 <p>Angenommen, die eingegebene positive natürliche Zahl ist <code>n</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>solange<span class="w"> </span>n<span class="w"> </span>ungleich<span class="w"> </span><span class="m">1</span><span class="w"> </span>ist,<span class="w"> </span>wiederhole
-<span class="w">    </span>wenn<span class="w"> </span>n<span class="w"> </span>ungerade,<span class="w"> </span>dann:
-<span class="w">        </span>berechne<span class="w"> </span><span class="m">3</span>*n<span class="w"> </span>+1<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
-<span class="w">    </span>andernfalls:
-<span class="w">        </span>berechne<span class="w"> </span>n/2<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>solange<span class="w"> </span>n<span class="w"> </span>ungleich<span class="w"> </span><span class="m">1</span><span class="w"> </span>ist,<span class="w"> </span>wiederhole
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span>wenn<span class="w"> </span>n<span class="w"> </span>ungerade,<span class="w"> </span>dann:
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span>berechne<span class="w"> </span><span class="m">3</span>*n<span class="w"> </span>+1<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span>andernfalls:
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span>berechne<span class="w"> </span>n/2<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
+</span></code></pre></div></td></tr></table></div>
 <p>Wir begeben uns also in eine <em>Schleife</em> und berechnen so lange einen Nachfolger für die Zahl bis der Nachfolger <code>1</code>ist. Betrachten wir den Algorithmus für die Eingabe von <code>n=5</code>:</p>
 <ul>
 <li>Zeile <code>1</code>: <code>n (5) ist ungleich 1</code>, also wird der Schleifeninhalt ausgeführt</li>
@@ -859,17 +859,17 @@ Ende</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Sequenz von 3 Anweisungen</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>Anweisung1
-Anweisung2
-Anweisung3
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Anweisung1
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Anweisung2
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Anweisung3
+</span></code></pre></div>
 </div>
 </div>
 </div>
 <p>Ein Beispiel (mit 2 Anweisungen) wäre:</p>
-<div class="highlight"><pre><span></span><code>berechne<span class="w"> </span><span class="m">3</span>*n<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
-berechne<span class="w"> </span>n+1<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu<span class="w"> </span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>berechne<span class="w"> </span><span class="m">3</span>*n<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>berechne<span class="w"> </span>n+1<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu<span class="w"> </span>
+</span></code></pre></div>
 <p>Zur Visualisierung von Kontrollstrukturen werden auch sogannnte <em>Programmablaufdiagramme</em> oder <em>Programmablaufpläne</em> verwendet. Für eine Sequenz sähe ein solches Ablaufdiagramm so aus:</p>
 <p><img alt="sequenz" src="../files/07_sequenz.png" /></p>
 <p>So ein Diagramm wird von oben nach unten gelesen. Es wird also erst <code>Anweisung1</code> ausgeführt, dann <code>Anweisung2</code> und zuletzt <code>Anweisung3</code>. Innerhalb einer Sequenz gilt immer <em>single entry</em>/<em>single exit</em>, d.h. keine der Anweisungen innerhalb einer Sequenz kann mehrere Ausgänge oder mehrere Eingänge haben. Es wäre ansonsten <em>nicht-deterministisch</em>  und somit ein Verstoß gegen unseren Algorithmusbegriff.</p>
@@ -877,15 +877,15 @@ berechne<span class="w"> </span>n+1<span class="w"> </span>und<span class="w"> <
 <h3 id="die-iteration">Die Iteration<a class="headerlink" href="#die-iteration" title="Permanent link">&para;</a></h3>
 <p>Bei der <em>Iteration</em> handelt es sich um eine wiederholte Ausführung einer Anweisung bzw. einer Sequenz von Anweisungen. Wie oft eine Iteration ausgeführt wird, hängt von einer Bedingung ab. In der Programmierung sprechen wir bei der Iteration auch von einer <em>Schleife</em>. </p>
 <p>Bedingungen für eine solche Schleife haben wir bereits kennengelernt:</p>
-<div class="highlight"><pre><span></span><code>solange<span class="w"> </span>a<span class="w"> </span>ungleich<span class="w"> </span>b<span class="w"> </span>ist,<span class="w"> </span>wiederhole
-<span class="w">    </span>hier<span class="w"> </span>die<span class="w"> </span>Anweisung<span class="w"> </span>
-<span class="w">    </span>oder<span class="w"> </span>die<span class="w"> </span>Anweisungen,<span class="w"> </span>die<span class="w"> </span>wiederholt<span class="w"> </span>werden,<span class="w"> </span>solange<span class="w"> </span>die<span class="w"> </span>Bedingung<span class="w"> </span>gilt
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>solange<span class="w"> </span>a<span class="w"> </span>ungleich<span class="w"> </span>b<span class="w"> </span>ist,<span class="w"> </span>wiederhole
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>hier<span class="w"> </span>die<span class="w"> </span>Anweisung<span class="w"> </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span>oder<span class="w"> </span>die<span class="w"> </span>Anweisungen,<span class="w"> </span>die<span class="w"> </span>wiederholt<span class="w"> </span>werden,<span class="w"> </span>solange<span class="w"> </span>die<span class="w"> </span>Bedingung<span class="w"> </span>gilt
+</span></code></pre></div>
 <p>bzw.</p>
-<div class="highlight"><pre><span></span><code>solange<span class="w"> </span>n<span class="w"> </span>ungleich<span class="w"> </span><span class="m">1</span><span class="w"> </span>ist,<span class="w"> </span>wiederhole
-<span class="w">    </span>hier<span class="w"> </span>die<span class="w"> </span>Anweisung<span class="w"> </span>
-<span class="w">    </span>oder<span class="w"> </span>die<span class="w"> </span>Anweisungen,<span class="w"> </span>die<span class="w"> </span>wiederholt<span class="w"> </span>werden,<span class="w"> </span>solange<span class="w"> </span>die<span class="w"> </span>Bedingung<span class="w"> </span>gilt
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>solange<span class="w"> </span>n<span class="w"> </span>ungleich<span class="w"> </span><span class="m">1</span><span class="w"> </span>ist,<span class="w"> </span>wiederhole
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>hier<span class="w"> </span>die<span class="w"> </span>Anweisung<span class="w"> </span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>oder<span class="w"> </span>die<span class="w"> </span>Anweisungen,<span class="w"> </span>die<span class="w"> </span>wiederholt<span class="w"> </span>werden,<span class="w"> </span>solange<span class="w"> </span>die<span class="w"> </span>Bedingung<span class="w"> </span>gilt
+</span></code></pre></div>
 <p>Wichtig ist, dass es auch hier eine strikte Reihenfolge der Abarbeitung der Anweisungen gibt:</p>
 <ul>
 <li>es wird zunächst geprüft, ob die Bedingung erfüllt (wahr) ist, also ob z.B. <code>a ungleich b ist</code> oder ob <code>n ungleich 1</code>. Wenn diese Bedingung erfüllt (also wahr) ist, dann werden die Anweisung(en) innerhalb der Schleife nacheinander (sequenziell) abgearbeitet. Erst wenn alle Anweisungen innerhalb der Schleife abgearbeitet wurden, wird die Schleifenbedingung erneut geprüft. Ist sie wieder wahr, werden die Anweisungen innerhalb der Schleife erneut abgearbeitet usw. Ist sie nicht wahr, also wenn z.B. <code>a gleich b ist</code> oder <code>n gleich 1 ist</code>, dann wird die Schleife beendet und die Anweisungen innerhalb der Schleife <strong>nicht</strong> (erneut) abgearbeitet. </li>
@@ -906,17 +906,17 @@ Ein Problem ist es jedoch, wenn die Bedingung niemals falsch wird und die Schlei
 <p>Wir werden uns ausführlich mit Schleifen auseinandersetzen, da sie logisch recht anspruchsvoll und dadurch häufig fehleranfällig sein können. </p>
 <h3 id="die-selektion">Die Selektion<a class="headerlink" href="#die-selektion" title="Permanent link">&para;</a></h3>
 <p>Bei der <em>Selektion</em> handelt es sich, im Gegensatz zur Iteration, um eine einmalige Ausführung einer (oder mehrerer) Anweisung(en). Jedoch ist diese Ausführung, im Gegensatz zur Sequenz, von einer Bedingung abhängig. Wir hatten eine solche Selektion jeweils in obigen Beispielalgorithmen. Selektion aus dem euklidischen Algorithmus:</p>
-<div class="highlight"><pre><span></span><code>wenn<span class="w"> </span>a<span class="w"> </span>größer<span class="w"> </span>ist<span class="w"> </span>als<span class="w"> </span>b,<span class="w"> </span>dann:
-<span class="w">    </span>ziehe<span class="w"> </span>b<span class="w"> </span>von<span class="w"> </span>a<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>a<span class="w"> </span>zu
-andernfalls:
-<span class="w">    </span>ziehe<span class="w"> </span>a<span class="w"> </span>von<span class="w"> </span>b<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>b<span class="w"> </span>zu
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wenn<span class="w"> </span>a<span class="w"> </span>größer<span class="w"> </span>ist<span class="w"> </span>als<span class="w"> </span>b,<span class="w"> </span>dann:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>ziehe<span class="w"> </span>b<span class="w"> </span>von<span class="w"> </span>a<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>a<span class="w"> </span>zu
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>andernfalls:
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>ziehe<span class="w"> </span>a<span class="w"> </span>von<span class="w"> </span>b<span class="w"> </span>ab<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>b<span class="w"> </span>zu
+</span></code></pre></div>
 <p>Selektion aus der (3n+1)-Vermutung (dem Collatz-Problem):</p>
-<div class="highlight"><pre><span></span><code>wenn<span class="w"> </span>n<span class="w"> </span>ungerade,<span class="w"> </span>dann:
-<span class="w">    </span>berechne<span class="w"> </span><span class="m">3</span>*n<span class="w"> </span>+1<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
-andernfalls:
-<span class="w">    </span>berechne<span class="w"> </span>n/2<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wenn<span class="w"> </span>n<span class="w"> </span>ungerade,<span class="w"> </span>dann:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>berechne<span class="w"> </span><span class="m">3</span>*n<span class="w"> </span>+1<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>andernfalls:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span>berechne<span class="w"> </span>n/2<span class="w"> </span>und<span class="w"> </span>weise<span class="w"> </span>das<span class="w"> </span>Ergebnis<span class="w"> </span>n<span class="w"> </span>zu
+</span></code></pre></div>
 <p>Es gibt also immer eine Bedingung (z.B. <code>wenn a größer ist als b</code>) und abhängig vom Wert dieser Bedingung (wahr oder falsch), wird entweder die eine Anweisung (z.B. <code>ziehe b von a ab und weise das Ergebnis a zu</code>)  oder die andere (z.B. <code>ziehe a von b ab und weise das Ergebnis b zu</code>) ausgeführt. </p>
 <p>Das Ablaufdiagramm einer Selektion sieht so aus:</p>
 <p><img alt="selektion" src="../files/10_selektion.png" /></p>
