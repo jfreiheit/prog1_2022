@@ -99,62 +99,7 @@
 		=
 		42
 		```
-	8. Betrachten Sie folgenden Pseudocode:
-			
-		```
-		cake prices are 1.0 and 2.0
-		for each item
-			if cake price is even
-				print "even"
-			else
-				print "uneven"
-		```		
-
-		Welche Bedeutungen haben die Einrückungen? Was wird ausgegeben? <br/>
-		<b>a)</b> 
-		```
-		even
-		```
-		<b>b)</b> 
-		```
-		uneven
-		```
-		<b>c)</b> 
-		```
-		even, uneven
-		```
-		<b>d)</b> 
-		```
-		uneven, even
-		```
-	9. Betrachten Sie folgenden Pseudocode:
-			
-		```
-		n = 3
-		while n > 1
-			print n
-			n = n – 1
-		```		
-
-		Welche Bedeutungen haben die Einrückungen? Was wird ausgegeben? <br/>
-		<b>a)</b> 
-		```
-		3
-		```
-		<b>b)</b> 
-		```
-		3,2
-		```
-		<b>c)</b> 
-		```
-		3,2,1
-		```
-	10. Führen Sie folgende Übungen mit 8 Stellen durch:
-
-		1. Rechnen Sie `126` in eine Binärzahl um.
-	2. Rechnen Sie `-126` in eine Binärzahl um.
-	3. Addieren Sie `00001010` und `00001100`. 
-	4. Subtrahieren Sie `00001010` und `00001100`. 
+	
 
 
 
