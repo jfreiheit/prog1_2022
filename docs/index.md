@@ -64,3 +64,177 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 ## Code aus der Vorlesung
 
+
+??? question "Vorlesung 23.10.2023 - Datentypen und Variablen"
+	```java
+	package vorlesungen.vorl1023;
+
+	public class Vorlesung1023
+	{
+		public static void main(String[] args) 
+		{
+			// hier hinter koennen Sie schreiben, was Sie moechten
+			
+			  System.out.println("test test test"); 
+			  System.out.println("test test test");
+			  
+			  int ganzeZahl = 0;
+			  boolean wahrheitswert = true;
+			  double gleitkommaZahl = 1.0;
+			  char zeichen = 'a';
+			  String zeichenkette = "Das ist eine Zeichenkette";
+			  
+			  System.out.println(zeichenkette);
+			  
+			  ganzeZahl = 5;
+			  System.out.println(ganzeZahl);
+			  
+			  ganzeZahl = 9;
+			  System.out.println(ganzeZahl);
+			  
+			  wahrheitswert = true;
+			  gleitkommaZahl = 5.5;
+			  
+			  gleitkommaZahl = 17.56;
+			  
+			  double number = 1;
+			  System.out.println(number);
+			  
+			  //int numberInt = 1.0;
+			  //System.out.println(numberInt);
+			  
+			  System.out.println(ganzeZahl);
+			  
+			  ganzeZahl = ganzeZahl + 1;
+			  
+			  System.out.println(ganzeZahl);
+			  
+			  byte test = 127;
+			  test = (byte) (test + 1);
+			  System.out.println(test);
+			 
+		}
+
+	}
+	```
+
+
+??? question "Vorlesung 06.11.2023 - Methoden"
+	```java
+	package vorlesungen.vorl1106;
+
+	public class Vorlesung1106
+	{
+
+		public static void main(String[] args)
+		{
+			int a = 7;
+			int b = 4;
+			int c = a / b;
+			int j = a % b;
+			System.out.println(a + " / " + b + " = " + c + " Rest " + j);	// 1
+			
+			c+=7;
+			System.out.println(c);
+			
+			double d = 7;
+			double e = 4;
+			double f = d / e;
+			System.out.println(f);
+			
+			int g = 4;
+			int h = 5;
+			String s = g + h + d + " hallo ";
+			System.out.println(s);
+			
+			j = 6;
+			
+			boolean k = a != b;
+			boolean m = d > e;
+			boolean n = !k || m;
+			System.out.println(k);
+			
+			
+			int summand1 = 7;
+			int summand2 = 4;
+			int sum = summand1 + summand2;
+			System.out.println("main : " + summand1 + " + " + summand2 + " = " + sum);
+			
+			summand1 = 17;
+			summand2 = 5;
+			sum = summand1 + summand2;
+			System.out.println("main : " + summand1 + " + " + summand2 + " = " + sum);
+			
+			summand1 = 21;
+			summand2 = 3;
+			sum = summand1 + summand2;
+			System.out.println("main : " + summand1 + " + " + summand2 + " = " + sum);
+			
+			
+			printSum(7,4);
+			printSum(17,5);
+			printSum(21,3);
+			
+			computeSum(11,3);
+			int summe1 = computeSum(7,4);
+			
+			System.out.println(summe1);
+			summe1 = computeSum(17,5);
+			System.out.println(summe1);
+			
+			System.out.println("2 gerade ? : " + isEven(2));
+			System.out.println("3 gerade ? : " + isEven(3));
+			System.out.println("-2 gerade ? : " + isEven(-2));
+			System.out.println("-3 gerade ? : " + isEven(-3));
+			System.out.println("0 gerade ? : " + isEven(0));
+			System.out.println("3333 gerade ? : " + isEven(3333));
+			
+			boolean isEven = isEven(12345);
+			System.out.println(isEven);
+			
+			boolean isOdd = isOdd(12345);
+			System.out.println(isOdd);
+			
+			int year = 2023;
+			System.out.println("2023 false == " + isLeapYear(year));
+			year = 2024;
+			System.out.println("2024 true == " + isLeapYear(year));
+			year = 2100;
+			System.out.println("2100 false == " + isLeapYear(year));
+			year = 2400;
+			System.out.println("2400 true == " + isLeapYear(year));
+		}
+		
+		public static void printSum(int summand1, int summand2)
+		{
+			//int summe = summand1 + summand2;
+			System.out.println("printSum : " + summand1 + " + " + summand2 + " = " + (summand1 + summand2));
+		}
+		
+		public static int computeSum(int summand1, int summand2)
+		{
+			int summe = summand1 + summand2;
+			return summe;
+		}
+		
+		public static boolean isEven(int number)
+		{
+			int rest = number % 2;
+			return (rest == 0);
+		}
+		
+		public static boolean isOdd(int number)
+		{
+			return !isEven(number);
+		}
+		
+		public static boolean isLeapYear(int year)
+		{
+			int rest4 = year % 4;
+			int rest100 = year % 100;
+			int rest400 = year % 400;
+			return (rest4 == 0) && ((rest100 != 0) || (rest400 == 0));
+		}
+
+	}
+	```

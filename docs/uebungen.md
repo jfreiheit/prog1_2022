@@ -197,8 +197,8 @@
 	6. Besitzen die folgende Methodenaufrufe einem Wert? Wenn ja, welcher?
 
 		- `printIntDivision(17, 4);`
-	- `getQuotient(17,4);`
-	- `getRemainder(17,4);`
+		- `getQuotient(17,4);`
+		- `getRemainder(17,4);`
 
 	7. Können wir die Methoden `getQuotient(int nr1, int nr2)` und `getRemainder(int nr1, int nr2)` auch in der `printIntDivision(int nr1, int nr2)`-Methode verwenden/aufrufen? Wenn ja, wie?
 
