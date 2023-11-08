@@ -203,6 +203,62 @@
 	7. Können wir die Methoden `getQuotient(int nr1, int nr2)` und `getRemainder(int nr1, int nr2)` auch in der `printIntDivision(int nr1, int nr2)`-Methode verwenden/aufrufen? Wenn ja, wie?
 
 
+??? question "Eine mögliche Lösung für Übung 2"
+	```java 
+	package uebungen.uebung2;
+
+	public class Uebung2
+	{
+
+		public static void printIntDivision(int nr1, int nr2)
+		{
+			//int quotient = nr1 / nr2;				
+			int quotient = getQuotient(nr1, nr2);
+			//int remainder = nr1 % nr2;
+			int remainder = getRemainder(nr1, nr2);
+			System.out.println(nr1 + " geteilt "
+					+ "durch " + nr2 
+					+ " ergibt " + quotient + ". "
+					+ "Es bleibt ein Rest "
+					+ "von " + remainder);
+		}
+		
+		public static int getQuotient(int nr1, int nr2) 
+		{
+			int quotient = nr1 / nr2;
+			return quotient;		
+		} 
+		
+		public static int getRemainder(int nr1, int nr2) 
+		{
+			int remainder = nr1 % nr2;
+			return remainder;
+		}
+		
+		public static void main(String[] args)
+		{
+			printIntDivision(7,4);
+			printIntDivision(17,4);
+			
+			int number1 = 17;
+			int number2 = 4;
+			int result = getQuotient(number1, number2);
+			int rest = getRemainder(number1, number2);
+			
+			System.out.println(number1 + "/" 
+							+ number2 + " = " 
+							+ result);
+			
+			System.out.println(number1 + " mod " 
+					+ number2 + " = " 
+					+ rest);
+		}
+
+	}
+
+	```
+
+
 ??? note "Übung 3"
 	
 	1. Erstellen Sie ein package `uebungen.uebung3`. 
