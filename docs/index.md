@@ -238,3 +238,162 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 	}
 	```
+
+
+??? question "Vorlesung 13.11.2023 - Selektion und Iteration"
+	```java
+	package vorlesungen.vorl1113;
+
+	public class Vorlesung1113
+	{
+
+		public static void main(String[] args)
+		{
+			System.out.println();
+			System.out.println("------ Selektion --------");
+			System.out.println();
+			
+			int a = 7;
+			int b = 13;
+			System.out.println("a = " + a + ", b = " + b);
+			
+			int month = 1;
+			
+			if(month == 1)
+			{
+				System.out.println("Januar");
+			}
+			else
+			{
+				if(month == 2)
+				{
+					System.out.println("Februar");
+				}
+			}
+			
+			int anzahlTage = switch( month ) {
+				case 1, 3, 5, 7, 8, 10, 12 -> 31; 
+				case 4, 6, 9, 11 -> 30; 
+				case 2 -> 28; 
+				default -> 0;
+			};
+			
+			System.out.println(anzahlTage);
+			
+			if( isEven(a) ) 	// kein Semikolon!!!
+			{
+				System.out.println("true");
+				a = a - b;
+			}
+			else
+			{
+				System.out.println("false");
+				b = b - a;
+			}
+			
+			System.out.println("a = " + a + ", b = " + b);
+			
+			System.out.println();
+			System.out.println("------ Iteration --------");
+			System.out.println();
+			
+			int zaehler = 0;
+			
+			while( zaehler < 10 )
+			{
+				System.out.println("zaehler = " + zaehler);
+				zaehler = zaehler + 1;
+			}
+			
+			System.out.println("Schleifenende");
+			
+			int nr1 = 56;
+			int nr2 = 48;
+			
+			while(nr1 != nr2)
+			{
+				if(nr1 > nr2)
+				{
+					nr1 = nr1 - nr2;
+				}
+				else
+				{
+					nr2 = nr2 - nr1;
+				}
+				System.out.println("nr1 = " + nr1 +" , nr2 = " + nr2);
+			}
+			System.out.println("ggT ist " + nr1);
+			
+			int n = 7;
+			System.out.print(n + " ");
+			
+			while(n > 1)
+			{
+				if(isEven(n))
+				{
+					n = n / 2;
+				}
+				else
+				{
+					n = 3 * n + 1;
+				}
+				System.out.print(n + " ");
+			}
+			
+			System.out.println();
+			System.out.println("fertig");
+			
+			
+			System.out.println();
+			System.out.println("------ for-Schleife --------");
+			System.out.println();
+			
+			printSum(3);
+			printSum(13);
+			printSum(30);
+			System.out.println();
+			printRectangle(20, 5);
+			
+
+			
+		}
+		
+		public static void printSum(int bis)
+		{
+			int summe = 0;
+			for(int i = 1; i < bis; i++)
+			{
+				summe = summe + i;
+				System.out.print(i + " + ");
+			}
+			summe = summe + bis;
+			System.out.println(bis + " = " + summe);
+		}
+		
+		public static void printRectangle(int width, int height)
+		{
+			for(int rows = 0; rows < height; rows++)
+			{
+				for(int stars = 0; stars < width; stars++)
+				{
+					// System.out.println("rows =  " + rows + ", stars = " + stars);
+					System.out.print("* ");
+				}
+				
+				System.out.println();
+			}
+		}
+		
+		public static boolean isOdd(int number)
+		{
+			return (number % 2 != 0);
+		}
+		
+		public static boolean isEven(int number)
+		{
+			return !isOdd(number);
+		}
+
+	}
+
+	```
