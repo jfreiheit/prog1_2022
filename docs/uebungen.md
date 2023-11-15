@@ -439,6 +439,105 @@
 		```
 
 
+
+??? question "Eine mögliche Lösung für Übung 3"
+	```java 
+	package uebungen.uebung3;
+
+	public class Uebung3
+	{
+
+		public static void printTimesTables(int nr1, int nr2)
+		{
+			for (int i = 1; i <= nr1; i++)
+			{
+				for(int j = 1; j <= nr2; j++)
+				{
+					// System.out.println(" i = " + i + ", j = " + j);
+					int product = i * j;
+					System.out.println(i + " * " + j + " = " + product);
+				}
+				System.out.println();
+			}
+		}
+
+		public static void printTimesMatrix(int nr1, int nr2)
+		{
+			for (int i = 1; i <= nr1; i++)
+			{
+				for(int j = 1; j <= nr2; j++)
+				{
+					System.out.print(" i = " + i + ", j = " + j + " ");
+					int product = i * j;
+					System.out.print(product + " ");
+				}
+				System.out.println();
+			}
+		}
+
+		public static void printTriangleUp(int height)
+		{
+			for(int row = 0; row < height; row++)
+			{
+				// System.out.print("Zeile " + row + " : ");
+
+				for(int nrOfStars = 0; nrOfStars < (height - row); nrOfStars++)
+				{
+					// System.out.print(nrOfStars + " ");
+					System.out.print("* ");
+				}
+
+				// System.out.println("  <- Ende Zeile " + row);
+				System.out.println();
+			}
+		}
+
+		public static void printXYZ()
+		{
+			for(int x = -36; x <= 36; x++)
+			{
+				for(int y = x; y <= 36; y++)
+				{
+					for(int z = y; z <= 36; z++)
+					{
+						if(x * y * z == 36)
+						{
+							System.out.println("x=" + x + ", y=" + y + ", z= " + z);
+						}
+					}
+				}
+			}
+		}
+
+		public static void main(String[] args)
+		{
+			System.out.println();
+			System.out.println("---------------- Aufgabe 3 --------------");
+			System.out.println();
+			printTimesTables(10,10);
+
+			System.out.println();
+			System.out.println("---------------- Aufgabe 4 --------------");
+			System.out.println();
+			printTimesMatrix(10,10);
+
+			System.out.println();
+			System.out.println("---------------- Aufgabe 5 --------------");
+			System.out.println();
+			printTriangleUp(7);
+
+
+			System.out.println();
+			System.out.println("---------------- Aufgabe 6 --------------");
+			System.out.println();
+			printXYZ();
+		}
+
+	}
+
+	```
+
+
 	
 ??? note "Übung 4"
 	
