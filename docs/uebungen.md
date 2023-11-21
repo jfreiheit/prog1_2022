@@ -544,7 +544,6 @@
 	1. Erstellen Sie ein package `uebungen.uebung4`. 
 	2. Erstellen Sie in diesem package eine Klasse `Uebung4` mit `main()`-Methode.
 	3. Implementieren Sie folgende Methoden: 
-		- `public static int inputInt()` – in dieser Methode wird über die Konsole eine `int`-Zahl eingelesen. Diese Zahl wird von der Methode zurückgegeben. Zur Eingabe von Zahlen über die Konsole siehe Klasse [Scanner](../hilfsklassen/#die-klasse-scanner).
 		- `public static boolean isPrime(int number)` – diese Methode prüft, ob die als Parameter übergebene `number` eine Primzahl ist. Die Methode gibt ein `true` zurück, wenn `number` eine Primzahl ist und `false` sonst.
 		- `public static void printPrimeNumbers(int maximum)` – diese Methode gibt alle Primzahlen von 1 bis einschließlich `maximum` wie folgt auf der Konsole aus (Bsp. für `maximum=61`):
 			```bash
@@ -558,9 +557,7 @@
 			" 2 * 2 * 5 * 11 * 13 * 13 * 17 = 632060 "
 			```
 			d.h. alle kleinsten Teiler werden mit dem Multiplikationszeichen verbunden und am Ende erscheint `= Wert von number`. 
-		- Testen Sie alle Methoden. Rufen Sie insbesondere `inputInt()`, `printPrimenumbers(int)` und `createStringOfPrimeFactorization(int)` in der `main()`-Methode auf.
-	4. **Tipp:** Bei der Überprüfung, ob `number` eine Primzahl ist, genügt es, Teiler bis zur Wurzel von `number` zu suchen. Werden bis dahin keine Teiler gefunden, ist `number` eine Primzahl. Sie können sich dazu z.B. eine Variable der Form 
-	`int bound = (int) Math.sqrt(number);` erstellen und müssen dann den Teiler nur bis `bound` suchen (der Typkonvertierungsoperator `(int)` macht aus der `double`-Zahl einen `int` - schneidet die Nachkommastellen ab).
+		- Testen Sie alle Methoden. Rufen Sie insbesondere `printPrimenumbers(int)` und `createStringOfPrimeFactorization(int)` in der `main()`-Methode auf.
 
 	
 ??? note "Übung 5"
