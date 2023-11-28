@@ -559,6 +559,121 @@
 			d.h. alle kleinsten Teiler werden mit dem Multiplikationszeichen verbunden und am Ende erscheint `= Wert von number`. 
 		- Testen Sie alle Methoden. Rufen Sie insbesondere `printPrimenumbers(int)` und `createStringOfPrimeFactorization(int)` in der `main()`-Methode auf.
 
+
+
+??? question "Eine mögliche Lösung für Übung 4"
+	```java 
+	package uebungen.uebung4;
+
+	public class Uebung4
+	{
+		
+		public static boolean isPrime(int number)
+		{
+			if(number<2)
+			{
+				return false;
+			}
+			
+			for(int divider=2; divider<number; divider++)
+			{
+				if(number % divider == 0)
+				{
+					return false;
+				}
+			}
+			
+			return true;
+		}
+		
+		public static void printPrimeNumbers(int maximum)
+		{
+			for(int number=1; number<=maximum; number++)
+			{
+				if(isPrime(number))
+				{
+					System.out.print(number+" ");
+				}
+				else
+				{
+					System.out.print(". ");
+				}
+			}
+		}
+		
+
+		public static int getSmallestDivider(int number)
+		{
+			
+			if(number<2)
+			{
+				return number;
+			}
+
+			for(int divider=2; divider<number; divider++)
+			{
+				if(number % divider == 0)
+				{
+					return divider;
+				}
+			}
+
+			return number;
+		}
+		
+		public static String createStringOfPrimeFactorization(int number) 
+		{
+			String s = "";
+			/*
+			 * 	2 * 2 * 5 * 11 * 13 * 13 * 17 = 632060
+			 *  632060 --> 2 
+			 *  316030 --> 2
+			 *  158015 --> 5
+			 *   ...   --> divider
+			 *  result/divider == 1
+			 */
+			int smallestDivider = getSmallestDivider(number);
+			s = s + smallestDivider;
+			int result = number/smallestDivider;
+			
+			while(result > 1)
+			{
+				smallestDivider = getSmallestDivider(result);
+				s = s + " * " + smallestDivider;
+				result = result/smallestDivider;
+			}
+			s = s + " = " + number;
+			
+			return s;
+		}
+
+		public static void main(String[] args)
+		{
+			System.out.printf("%n%n----------- Aufgabe 1 ------------ %n %n");
+			for(int number = 1; number <= 100; number++)
+			{
+				System.out.println(number + " : " + isPrime(number));
+			}
+			
+			System.out.printf("%n%n----------- Aufgabe 2 ------------ %n %n");
+			printPrimeNumbers(61);
+			
+			System.out.printf("%n%n----------- Aufgabe 3 ------------ %n %n");
+			for(int number = 1; number <= 100; number++)
+			{
+				System.out.println(number + " : " + getSmallestDivider(number));
+			}
+			
+			System.out.printf("%n%n----------- Aufgabe 4 ------------ %n %n");
+			String output = createStringOfPrimeFactorization(632060);
+			System.out.println(output);
+			
+		
+		}
+
+	}
+	```
+
 	
 ??? note "Übung 5"
 	

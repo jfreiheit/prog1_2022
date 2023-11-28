@@ -557,26 +557,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-review" class="md-nav__link">
-    Code Review
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Review">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hinweise-zum-review" class="md-nav__link">
-    Hinweise zum Review:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#aufgaben_1" class="md-nav__link">
     Aufgaben
   </a>
@@ -690,26 +670,6 @@
           <li class="md-nav__item">
   <a href="#eclipse" class="md-nav__link">
     Eclipse
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-review" class="md-nav__link">
-    Code Review
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Review">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hinweise-zum-review" class="md-nav__link">
-    Hinweise zum Review:
   </a>
   
 </li>
@@ -835,29 +795,6 @@
 </span></code></pre></div></li>
 <li>Sie können Ihre Aufgaben zu zweit lösen. Tragen Sie dann hinter das <code>@author</code>-Tag beide Namen ein und <strong>laden Sie bitte beide</strong> die Lösung in Moodle hoch!</li>
 </ul>
-<h2 id="code-review">Code Review<a class="headerlink" href="#code-review" title="Permanent link">&para;</a></h2>
-<p>Für jede abgegebene Aufgabe wird Ihnen die Lösung einer Kommilitonin zum Review zugewiesen. Analysieren Sie den Code Ihrer Kommilitonin und geben Sie ihr dazu eine Rückmeldung!  Es genügen 2 bis 3 Review-Kommentare.
-Zur offiziellen Abgabe einer Aufgabe gehören also</p>
-<ul>
-<li>das Hochladen der eigenen Lösung,</li>
-<li>das Analysieren/Kommentieren einer fremden Lösung.</li>
-</ul>
-<h4 id="hinweise-zum-review">Hinweise zum Review:<a class="headerlink" href="#hinweise-zum-review" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Es geht nicht darum, das Programm zu überarbeiten, sondern darum es nachzuvollziehen und Ihrer Kommilitonin eine Rückmeldung und eventuell Anregungen zu geben.</li>
-<li>Weisen Sie sowohl auf Stärken als auch auf Schwächen des Quelltexts hin.</li>
-<li>Worauf Sie u.a. achten können:<ul>
-<li>Ist der Quelltext gut strukturiert und verständlich?</li>
-<li>Haben Variablen und Methoden passende Namen? Werden die Namen konsistent verwendet?</li>
-<li>Werden Konventionen eingehalten? Beispiel: Klassennamen starten immer mit Großbuchstaben, Objektnamen immer mit Kleinbuchstaben</li>
-<li>Ist das Programm übersichtlich formatiert? Beispiel: kein horizontales Scrolling nötig</li>
-</ul>
-</li>
-<li>Machen Sie ggf. Vorschläge für (alternative) Lösungen.</li>
-<li>Gehen Sie respektvoll miteinander um, es gibt keinen Grund, unhöflich zu sein.</li>
-<li>Lesen Sie Ihre Kommentare noch einmal durch, bevor Sie sie an Ihre Kommilitonin weitergeben.</li>
-</ul>
-<p><img alt="review" src="../files/12_review.png" /></p>
 <h2 id="aufgaben_1">Aufgaben<a class="headerlink" href="#aufgaben_1" title="Permanent link">&para;</a></h2>
 <h4 id="aufgabe-1-abgabe-bis-22112023-2400-uhr">Aufgabe 1 (Abgabe bis 22.11.2023 24:00 Uhr)<a class="headerlink" href="#aufgabe-1-abgabe-bis-22112023-2400-uhr" title="Permanent link">&para;</a></h4>
 <details>
@@ -1000,7 +937,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also</p>
 <p>Wir erstellen uns einen neuen Datentyp <code>Triangle</code></p>
 </li>
 <li>
-<p>Erstellen Sie im package <code>aufgaben.aufgabe5</code> eine Klasse <code>Triangle</code> ohne <code>main()</code>-Methode und eine Klasse <code>Testklasse</code> mit <code>main()</code>-Methode. </p>
+<p>Erstellen Sie im package <code>aufgaben.aufgabe3</code> eine Klasse <code>Triangle</code> ohne <code>main()</code>-Methode und eine Klasse <code>Testklasse</code> mit <code>main()</code>-Methode. </p>
 </li>
 <li>
 <p>In der Klasse <code>Triangle</code> erstellen Sie drei Objektvariablen <code>a</code>, <code>b</code> und <code>c</code> jeweils vom Typ <code>int</code> und alle <code>private</code>. Das sollen die Seiten unseres Dreiecks sein. </p>
@@ -1045,7 +982,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also</p>
 <li>
 <p>Erstellen Sie in der Klasse <code>Triangle</code> eine Objektmethode <code>public double area()</code>, die den Flaecheninhalt des Dreiecks zurückgibt.  Der Flächeninhalt <code>A</code> eines Dreiecks lässt sich nach der <a href="https://de.wikipedia.org/wiki/Satz_des_Heron">Heron'schen Formel</a> wie folgt berechnen:</p>
 <ul>
-<li><code>A</code> = Math.sqrt(s * (s-a) * (s-b) * (s-c))</li>
+<li>`A = Math.sqrt(s * (s-a) * (s-b) * (s-c)) (siehe Klasse <a href="../hilfsklassen/#die-klasse-math">Math</a>)</li>
 <li>wobei <code>s = (a + b + c) / 2</code></li>
 <li>Achten Sie darauf, dass Sie stets mit <code>double</code> rechnen!</li>
 <li>Beachten Sie, dass in einem Dreieck keine Seite länger sein darf als die Summe der beiden anderen. Für die oben in der <code>main()</code>-Methode erstellten Objekte gilt das aber. Wir müssen deshalb nichts weiter beachten. </li>
@@ -1211,7 +1148,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also</p>
 </span></code></pre></div></p>
 </li>
 <li>
-<p>Laden Sie Ihre Lösung bis Dienstag, den <strong>06.12.2022 um 24.00 Uhr</strong> in Moodle hoch</p>
+<p>Laden Sie Ihre Lösung bis Dienstag, den <strong>06.12.2023 um 24.00 Uhr</strong> in Moodle hoch</p>
 </li>
 <li>Viel Spaß und viel Erfolg!</li>
 </ul>

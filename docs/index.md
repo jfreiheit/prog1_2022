@@ -537,3 +537,161 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 	```
 
+
+??? question "Vorlesung 27.11.2023 - Klassen und Objekte"
+	=== "Vorlesung1127.java"
+		```java
+		package vorlesungen.vorl1127;
+
+		public class Vorlesung1127
+		{
+
+			public static void main(String[] args)
+			{
+				//System.out.println("hallo   b allo".length());
+				
+				Adresse adresse1 = new Adresse("Treskowallee", 8, 10318, "Berlin");	// erste Objekterzeugung: new Konstruktor
+				Adresse adresse2 = new Adresse("Wilhelminenhofstr.", 75, 12459, "Berlin");	// zweite Objekterzeugzung
+
+				//System.out.println(adresse1.hausnummer);
+				
+				/*
+				 * kein Zugriff auf die Objektvariablen ausserhalb der
+				 * Klasse Adresse mehr moeglich (private)
+				
+				adresse1.strasse = "Treskowallee";
+				adresse1.hausnummer = 8;
+				adresse1.plz = 10318;
+				adresse1.wohnort = "Berlin";
+				
+				adresse2.strasse = "Wilhelminenhofstr.";
+				adresse2.hausnummer = 75;
+				adresse2.plz = 12459;
+				adresse2.wohnort = "Berlin";
+				 */
+				
+				System.out.println(adresse1.getAdresse());
+				System.out.println(adresse2.getAdresse());
+				
+				// System.out.println(getAdresse());	// Fehler! Objektmethode
+				
+				adresse2.strasseUmbennen("Neue Strasse");
+				System.out.println(adresse2.getAdresse());
+				
+				adresse1.strasseUmbennen("HalloStr");
+				System.out.println(adresse1.getAdresse());
+				
+				adresse1.printAdresse();
+				adresse2.printAdresse();
+				
+				// ab hier Point
+				
+				Point p1 = new Point(3,4);
+				Point p2 = new Point(2,2); 
+				Point p3 = new Point();
+				
+				// System.out.println(p1.y);	// Fehler wegen private
+				System.out.println(p1.getX());
+				System.out.println(p1.getY());
+				
+				p1.print();
+				p2.print();
+				p3.print();
+				
+				p1.move(-1, 1);
+				p1.print();
+				
+				
+			}
+
+		}
+
+		```
+
+	=== "Adresse.java"
+		```java
+		package vorlesungen.vorl1127;
+
+		public class Adresse
+		{
+			// Objektvariablen
+			private String strasse;
+			private int hausnummer;
+			private int plz;
+			private String wohnort;
+			
+			// Konstruktor
+			public Adresse(String str, int hausnr, int postlz, String ort)
+			{
+				strasse = str;
+				hausnummer = hausnr;
+				plz = postlz;
+				wohnort = ort;
+			}
+			
+			// Objektmethoden
+			public String getAdresse() 
+			{
+				return strasse + " " + hausnummer + " in " + plz + " " + wohnort;
+			}
+			
+			public void printAdresse()
+			{
+				System.out.println(getAdresse());
+			}
+			
+			public void strasseUmbennen(String neueStrasse)
+			{
+				strasse = neueStrasse;
+			}
+		}
+
+		```
+
+	=== "Point.java"
+		```java
+		package vorlesungen.vorl1127;
+
+		public class Point
+		{
+			// Objektvariablen
+			private int x;
+			private int y;
+			
+			public Point(int newX, int newY)
+			{
+				x = newX;
+				y = newY;
+			}
+			
+			public Point()
+			{
+				x = 0;
+				y = 0;
+			}
+			
+			public int getX()
+			{
+				return x;
+			}
+			
+			public int getY()
+			{
+				return y;
+			}
+			
+			public void move(int deltaX, int deltaY)
+			{
+				x = x + deltaX;
+				y = y + deltaY;
+			}
+			
+			public void print()
+			{
+				System.out.println("[ x=" + x + ", y=" + y + " ]");
+			}
+		}
+
+		```
+
+

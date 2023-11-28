@@ -34,28 +34,6 @@ Sie sind in der Wahl Ihrer Entwicklungsumgebung frei. Ich verwende in der Verans
 	```
 - Sie können Ihre Aufgaben zu zweit lösen. Tragen Sie dann hinter das `@author`-Tag beide Namen ein und **laden Sie bitte beide** die Lösung in Moodle hoch!
 
-## Code Review
-
-Für jede abgegebene Aufgabe wird Ihnen die Lösung einer Kommilitonin zum Review zugewiesen. Analysieren Sie den Code Ihrer Kommilitonin und geben Sie ihr dazu eine Rückmeldung!  Es genügen 2 bis 3 Review-Kommentare.
-Zur offiziellen Abgabe einer Aufgabe gehören also
-
-- das Hochladen der eigenen Lösung,
-- das Analysieren/Kommentieren einer fremden Lösung.
-
-#### Hinweise zum Review:
-
-- Es geht nicht darum, das Programm zu überarbeiten, sondern darum es nachzuvollziehen und Ihrer Kommilitonin eine Rückmeldung und eventuell Anregungen zu geben.
-- Weisen Sie sowohl auf Stärken als auch auf Schwächen des Quelltexts hin.
-- Worauf Sie u.a. achten können:
-	- Ist der Quelltext gut strukturiert und verständlich?
-	- Haben Variablen und Methoden passende Namen? Werden die Namen konsistent verwendet?
-	- Werden Konventionen eingehalten? Beispiel: Klassennamen starten immer mit Großbuchstaben, Objektnamen immer mit Kleinbuchstaben
-	- Ist das Programm übersichtlich formatiert? Beispiel: kein horizontales Scrolling nötig
-- Machen Sie ggf. Vorschläge für (alternative) Lösungen.
-- Gehen Sie respektvoll miteinander um, es gibt keinen Grund, unhöflich zu sein.
-- Lesen Sie Ihre Kommentare noch einmal durch, bevor Sie sie an Ihre Kommilitonin weitergeben.
-
-![review](./files/12_review.png)
 
 ## Aufgaben
 
@@ -194,7 +172,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 ??? "Aufgabe 3 - Triangle"
 	- Wir erstellen uns einen neuen Datentyp `Triangle`
 
-	- Erstellen Sie im package `aufgaben.aufgabe5` eine Klasse `Triangle` ohne `main()`-Methode und eine Klasse `Testklasse` mit `main()`-Methode. 
+	- Erstellen Sie im package `aufgaben.aufgabe3` eine Klasse `Triangle` ohne `main()`-Methode und eine Klasse `Testklasse` mit `main()`-Methode. 
 
 	- In der Klasse `Triangle` erstellen Sie drei Objektvariablen `a`, `b` und `c` jeweils vom Typ `int` und alle `private`. Das sollen die Seiten unseres Dreiecks sein. 
 
@@ -235,7 +213,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 	- Erstellen Sie in der Klasse `Triangle` eine Objektmethode `public int circumference()`, die den Umfang des Dreiecks zurückgibt (also die Summe der drei Seitenlängen).
 
 	- Erstellen Sie in der Klasse `Triangle` eine Objektmethode `public double area()`, die den Flaecheninhalt des Dreiecks zurückgibt.  Der Flächeninhalt `A` eines Dreiecks lässt sich nach der [Heron'schen Formel](https://de.wikipedia.org/wiki/Satz_des_Heron) wie folgt berechnen:
-		- `A` = Math.sqrt(s * (s-a) * (s-b) * (s-c))
+		- `A = Math.sqrt(s * (s-a) * (s-b) * (s-c)) (siehe Klasse [Math](../hilfsklassen/#die-klasse-math))
 		- wobei `s = (a + b + c) / 2`
 		- Achten Sie darauf, dass Sie stets mit `double` rechnen!
 		- Beachten Sie, dass in einem Dreieck keine Seite länger sein darf als die Summe der beiden anderen. Für die oben in der `main()`-Methode erstellten Objekte gilt das aber. Wir müssen deshalb nichts weiter beachten. 
@@ -386,7 +364,7 @@ Zur offiziellen Abgabe einer Aufgabe gehören also
 		Das Dreieck ist rechtwinklig.
 		```
 	
-	- Laden Sie Ihre Lösung bis Dienstag, den **06.12.2022 um 24.00 Uhr** in Moodle hoch
+	- Laden Sie Ihre Lösung bis Dienstag, den **06.12.2023 um 24.00 Uhr** in Moodle hoch
 	- Viel Spaß und viel Erfolg!
 
 
