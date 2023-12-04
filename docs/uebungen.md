@@ -840,14 +840,129 @@
 			Ihr aktuelles Guthaben betraegt 836,16 Euro.
 			```
 
+??? question "Eine mögliche Lösung für Übung 5"
+	=== "Konto.java"
+		```java 
+		package uebungen.uebung5;
+
+		public class Konto
+		{
+			private double guthaben;
+			private int pin;
+			private double dispogrenze;
+			
+			public Konto(int pPin)
+			{
+				guthaben = 0;
+				pin = pPin;
+				dispogrenze = -1000.0;
+			}
+			
+			public void einzahlen(double betrag)
+			{
+				guthaben = guthaben + betrag;
+				System.out.printf("Es wurden %.2f Euro eingezahlt.%n", betrag);
+			}
+			
+			public void auszahlen(int pPin, double betrag)
+			{
+				if(pin==pPin)
+				{
+					if(guthaben - dispogrenze >= betrag)
+					{
+						guthaben = guthaben - betrag;
+						System.out.printf("Es wurden %.2f Euro ausgezahlt.%n", betrag);
+					}
+					else
+					{
+						System.out.printf("Ihr Guthaben reicht nicht, um %.2f Euro auszuzahlen.%n", betrag);
+					}
+				}
+				else
+				{
+					System.out.println("Falsche PIN!");
+				}
+			}
+			
+			public void kontoauszug(int pPin)
+			{
+				if(pin==pPin)
+				{
+					System.out.printf("Ihr aktuelles Guthaben betraegt %.2f Euro.%n", guthaben);
+				}
+				else
+				{
+					System.out.println("Falsche PIN!");
+				}
+			}
+			
+			public void zinsenZahlen()
+			{
+				final double DISPOZINSEN = 12.0;
+				final double GUTHABENZINSEN = 0.5;
+				if(guthaben >0)
+				{
+					double zinsen = guthaben * GUTHABENZINSEN / 100.0;
+					guthaben = guthaben + zinsen;
+					System.out.printf("Ihnen wurden %.2f Euro Zinsen gutgeschrieben.%n", zinsen);
+				}
+				else
+				{
+					double zinsen = guthaben * DISPOZINSEN / 100.0;		// ist negativ!
+					guthaben = guthaben + zinsen;
+					System.out.printf("Ihnen wurden %.2f Euro Zinsen abgebucht.%n", -zinsen);
+				}
+			}
+		}
+		```
+	=== "Testklasse.java"
+		```java 
+		package uebungen.uebung5;
+
+		public class Testklasse
+		{
+
+			public static void main(String[] args)
+			{
+				Konto k1 = new Konto(1234);
+				
+				k1.einzahlen(100.0);
+				k1.einzahlen(50.0);
+				k1.einzahlen(150.0);
+				
+				k1.kontoauszug(1235); 		// Falsche PIN!
+				k1.kontoauszug(1234); 		
+				
+				k1.auszahlen(1235, 100.0); 	// Falsche PIN!
+				k1.auszahlen(1234, 100.0); 	
+				k1.kontoauszug(1234); 		
+				k1.auszahlen(1234, 300.0);	
+				k1.auszahlen(1234, 200.0); 	
+				k1.kontoauszug(1234); 
+				
+				k1.einzahlen(150.0);
+				k1.kontoauszug(1234); 		
+				k1.zinsenZahlen();
+				k1.kontoauszug(1234); 		
+				k1.einzahlen(1000.0);
+				k1.kontoauszug(1234); 		
+				k1.zinsenZahlen();
+				k1.kontoauszug(1234); 
+			}
+		}
+		```
+
+
 ??? note "Übung 6"
 	
 	1. Erstellen Sie ein package `uebungen.uebung6`. 
 	2. Erstellen Sie in diesem package eine Klasse `Rectangle` (ohne `main()`-Methode!)
 	3. Erstellen Sie in diesem package eine Klasse `Testklasse` mit `main()`-Methode	
 	4. Erstellen Sie in der Klasse `Rectangle` zwei Objektvariablen
+
 		- `a` vom Typ `int` --> nur in der Klasse sichtbar!
 		- `b` vom Typ `int`	--> ebenfalls nur in der Klasse sichtbar!
+		
 		`a` und `b` sollen die Seiten des Rechtecks sein. 
 	5. Implementieren Sie einen parameterlosen Konstruktor `Rectangle()`, der für die Seite `a` den Wert `10` und für die Seite `b` den Wert `20` setzt. 
 	6. Implementieren Sie einen parametrisierten Konstruktor `Rectangle(int a, int b)`, der die Parameterwerte zum Initialisieren der Seiten verwendet. 
@@ -925,6 +1040,7 @@
 		areas are not equal 
 		perimeters are not equal 
 		```
+
 	17. **Zusatz:** 
 		- Implementieren Sie eine Objektmethode `public double diagonal()`, die die Länge einer Diagonalen des Rechtecks zurückgibt. 
 		- Erweitern Sie die `toString()`-Methode um die Ausgabe dieser Länge wie folgt:
@@ -967,7 +1083,7 @@
 		newArea= 2310,00 newA= 34,79 newB= 66,41 check (newA*newB)=2310,00
 		```
 
-
+		Sollte die `scale()`-Methode besser ein neues `Rectangle`-Objekt zurückgeben? Wenn ja, dann implementieren Sie es so.
 
 ??? "Übung 7"
 	

@@ -538,7 +538,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	```
 
 
-??? question "Vorlesung 27.11.2023 - Klassen und Objekte"
+??? question "Vorlesung 27.11.2023 - Klassen und Objekte (Einführung)"
 	=== "Vorlesung1127.java"
 		```java
 		package vorlesungen.vorl1127;
@@ -695,3 +695,173 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		```
 
 
+??? question "Vorlesung 04.12.2023 - Klassen und Objekte (this)"
+	=== "Programmklasse.java"
+		```java
+		package vorlesungen.vorl1204;
+
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				Point p1 = new Point(3,4);
+				p1.print();
+				Point p2 = p1.move(2, 2);
+				p1.print();
+				p2.print();
+				
+				System.out.println("p1 links von p2 ? " + p1.isLeft(p2));
+				System.out.println("p2 links von p1 ? " + p2.isLeft(p1));
+				p1.isLeft(p1);
+				p2.isLeft(p2);
+				
+				Point p3 = new Point(1,2);
+				p3.print();
+				System.out.println("p1 links von p3 ? " + p1.isLeft(p3));
+				System.out.println("p3 links von p1 ? " + p3.isLeft(p1));
+				
+				System.out.println("p1 links von p2 UND p3 ? " + p1.isLeft(p2,p3));
+				
+				Circle c1 = new Circle(2.5);
+				Circle c2 = new Circle();
+				c1.print();
+				c2.print();
+				
+				Circle c3 = c1;
+				System.out.println("---------- c3 ----------- ");
+				c3.print();
+				
+				c1.setRadius(5.0);
+				
+				System.out.println("---------- c3 ----------- ");
+				c3.print();
+				
+				
+				
+				c1.diameter();
+				System.out.println("c1 groesse als c2 ? " + c1.isBigger(c2));
+				
+				
+			}
+
+		}
+		```
+
+	=== "Point.java"
+		```java
+		package vorlesungen.vorl1204;
+
+		public class Point
+		{
+			// Objektvariablen
+			private int x;
+			private int y;
+			
+			public Point(int x, int y)
+			{
+				this.x = x;
+				this.y = y;
+			}
+			
+			public Point()
+			{
+				this.x = 0;
+				this.y = 0;
+			}
+			
+			public int getX()
+			{
+				return this.x;
+			}
+			
+			public int getY()
+			{
+				return this.y;
+			}
+			
+			public Point move(int deltaX, int deltaY)
+			{
+				int xNew = this.x + deltaX;
+				int yNew = this.y + deltaY;
+				return new Point(xNew, yNew);
+			}
+			
+			public void print()
+			{
+				System.out.println("[ x=" + this.x + ", y=" + this.y + " ]");
+			}
+			
+			public boolean isLeft(Point other)
+			{
+				return (this.x < other.x);
+			}
+			
+			
+			public boolean isLeft(Point o1, Point o2)
+			{
+				return (this.x < o1.x && this.x < o2.x);
+			}
+		}
+
+		```
+
+	=== "Circle.java"
+		```java
+		package vorlesungen.vorl1204;
+
+		public class Circle
+		{
+			private double radius;
+			
+			public Circle(double radius)
+			{
+				this.radius = radius;
+			}
+			
+			public Circle()
+			{
+				this.radius = 1.0;
+			}
+			
+			public double diameter()
+			{
+				return 2.0 * this.radius;
+			}
+			
+			public double circumference()
+			{
+				return Math.PI * this.diameter();
+			}
+			
+			public double area()
+			{
+				return Math.PI * this.radius * this.radius;
+			}
+			
+			public boolean isSmaller(Circle other)
+			{
+				return this.radius < other.radius;
+			}
+				
+			public boolean isBigger(Circle other)
+			{
+				return other.isSmaller(this);
+			}
+			
+			public void setRadius(double radius)
+			{
+				this.radius = radius;
+			}
+			
+			public void print()
+			{
+				System.out.printf("%-15s : %6.2f %n", "Radius", this.radius);
+				System.out.printf("%-15s : %6.2f %n", "Durchmesser", this.diameter());
+				System.out.printf("%-15s : %6.2f %n", "Umfang", this.circumference());
+				System.out.printf("%-15s : %6.2f %n", "Flaecheninhalt", this.area());
+				System.out.println();
+			}
+		}
+
+		```
