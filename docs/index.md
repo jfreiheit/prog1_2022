@@ -865,3 +865,165 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		}
 
 		```
+
+
+??? question "Vorlesung 11.12.2023 - Vererbung"
+	=== "Programmklasse.java"
+		```java
+		package vorlesungen.vorl1211;
+
+		import vorlesungen.vorl1127.Adresse;	// bei Ihnen evtl. woanders
+
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				
+				System.out.printf("%n%n----------- Objekte in Objekten ---------------%n%n");
+
+				Adresse wilhelminenhof = new Adresse("Wilhelminenhofstr.", 75, 12459, "Berlin");
+				Adresse treskowallee = new Adresse("Treskowallee", 8, 10318, "Berlin");
+				
+				Person max = new Person("Max", "Maxim", wilhelminenhof);
+				Person maria = new Person("Maria", "Mariam", treskowallee);
+				
+				
+				Adresse maxAdresse = max.getAdresse();	// Aufruf von getAdresse() aus Person
+				maxAdresse.printAdresse();
+				max.getAdresse().printAdresse();		// Aufruf von getAdresse() aus Person
+				
+				System.out.println(max.getAdresse().getAdresse());
+				//System.out.println(max.getAdresse());
+				
+				maria.getAdresse().printAdresse();
+				
+				max.print();
+				maria.print();
+				
+				treskowallee.strasseUmbenennen("Neue Strasse");
+				maria.print();
+				
+				System.out.printf("%n%n----------- Verebung ---------------%n%n");
+				
+				Viereck v1 = new Viereck(10,15,20,25);
+				v1.print();
+				// System.out.println(v1.flaecheninhalt());	// fuer Viereck nicht definiert
+				
+				Rechteck r1 = new Rechteck(25, 35);
+				r1.print();
+				System.out.println(r1.umfang());
+				System.out.println(r1.a);  // leider wegen protected
+				System.out.println(r1.flaecheninhalt());
+
+			}
+
+		}
+		```
+
+	=== "Person.java"
+		```java
+		package vorlesungen.vorl1211;
+
+		import vorlesungen.vorl1127.Adresse;	// bei Ihnen evtl. woanders
+
+		public class Person
+		{
+			private String vorname;
+			private String nachname;
+			private Adresse adresse;
+			
+			public Person(String vorname, String nachname, Adresse adresse)
+			{
+				this.vorname = vorname;
+				this.nachname = nachname;
+				this.adresse = adresse;
+			}
+			
+			public Adresse getAdresse()
+			{
+				return this.adresse;
+			}
+			
+			public void print()
+			{
+				System.out.println(this.vorname + " " + this.nachname);
+				System.out.println(this.adresse.getAdresse());  // Aufruf von getAdresse() aus Adresse
+			}
+		}
+
+		```
+
+	=== "Viereck.java"
+		```java
+		package vorlesungen.vorl1211;
+
+		public class Viereck
+		{
+			// Objektvariablen
+			// 4 Seiten des Vierecks
+			protected int a;
+			protected int b;
+			protected int c;
+			protected int d;
+			
+			// Konstruktor
+			public Viereck(int a, int b, int c, int d)
+			{
+				this.a = a;
+				this.b = b;
+				this.c = c;
+				this.d = d;
+			}
+			
+			// Objektmethoden
+			public int umfang()
+			{
+				return this.a + this.b + this.c + this.d;
+			}
+			
+			public String toString()
+			{
+				String s = String.format("Seiten : a = %2d, b = %2d, c = %d, d = %d%n", this.a, this.b, this.c, this.d); 
+				s =    s + String.format("Umfang : %3d%n", this.umfang());
+				return s;
+			}
+			
+			public void print()
+			{
+				System.out.println(this.toString());
+			}
+
+		}
+
+		```
+
+	=== "Rechteck.java"
+		```java
+		package vorlesungen.vorl1211;
+
+		public class Rechteck extends Viereck
+		{
+			public Rechteck(int laenge, int breite)
+			{
+				super(laenge, breite, laenge, breite);	// Aufruf des Konstruktors von Viereck
+			}
+			
+			public int flaecheninhalt()
+			{
+				return this.a * this.b;
+			}
+			
+			@Override
+			public String toString()
+			{
+				String s = String.format("Seiten         : a = %2d, b = %2d, c = %d, d = %d%n", this.a, this.b, this.c, this.d); 
+				s =    s + String.format("Umfang         : %3d%n", this.umfang());
+				s =    s + String.format("Flaecheninhalt : %3d%n", this.flaecheninhalt());
+				return s;
+			}
+		}
+
+		```
+
+
