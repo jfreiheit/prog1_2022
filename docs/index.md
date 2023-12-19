@@ -1027,3 +1027,245 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		```
 
 
+??? question "Vorlesung 18.12.2023 - Object und Arrays Einführung"
+	=== "Programmklasse.java"
+		```java
+		package vorlesungen.vorl1218;
+
+		public class Programmklasse
+		{
+			public static int computeSum(int[] numbersArray)
+			{
+				int sum = 0;
+				for(int index = 0; index < numbersArray.length; index++)
+				{
+					sum = sum + numbersArray[index];
+				}
+				
+				return sum;
+			}
+
+			public static void main(String[] args)
+			{
+				
+				System.out.printf("%n%n----------- Verebung ---------------%n%n");
+				
+				Viereck v1 = new Viereck(15, 20, 25, 30);
+				System.out.println(v1.umfang());
+				//System.out.println(v1.flaecheninhalt());
+				v1.print();
+				
+				Rechteck r1 = new Rechteck(20, 30);
+				System.out.println(r1.umfang());
+				System.out.println(r1.flaecheninhalt());
+				r1.print();
+				
+				Quadrat q1 = new Quadrat(35);
+				System.out.println(q1.umfang());
+				System.out.println(q1.flaecheninhalt());
+				q1.print();
+
+				System.out.printf("%n%n----------- Object ---------------%n%n");
+				
+				Viereck v2 = new Quadrat(26);	// Compilertyp von v2 ist Viereck
+				v2.print();
+				if(v2 instanceof Object) {
+					System.out.println("v2 vom Typ Object");	// Laufzeittypen
+				}
+				if(v2 instanceof Viereck) {
+					System.out.println("v2 vom Typ Viereck");	// Laufzeittypen
+				}
+				if(v2 instanceof Rechteck) {
+					System.out.println("v2 vom Typ Rechteck");	// Laufzeittypen
+				}
+				if(v2 instanceof Quadrat) {
+					System.out.println("v2 vom Typ Quadrat");	// Laufzeittypen
+				}
+				// v2.flaecheninhalt();
+				
+				Viereck v3 = new Viereck(10,11,12,13);	// Compilertyp von v3 ist Viereck
+				v3.print();
+				if(v3 instanceof Object) {
+					System.out.println("v3 vom Typ Object");
+				}
+				if(v3 instanceof Viereck) {
+					System.out.println("v3 vom Typ Viereck");
+				}
+				if(v3 instanceof Rechteck) {
+					System.out.println("v3 vom Typ Rechteck");
+				} else {
+					System.out.println("v3 ist NICHT vom Typ Rechteck");
+				}
+				if(v3 instanceof Quadrat) {
+					System.out.println("v3 vom Typ Quadrat");
+				} else {
+					System.out.println("v3 ist NICHT vom Typ Quadrat");
+				}
+				
+				Rechteck r2 = new Rechteck(12, 12);
+				Object r3 = new Quadrat(12);
+				
+				//Quadrat q3 = new Viereck(1,2,3,4);
+				//int i1 = 5.5;
+				double d1 = 5;
+				Viereck v4 = new Quadrat(5);
+				
+				System.out.println(r2.toString());
+				//r2.print();
+				System.out.println(r3.toString());
+				
+				System.out.println(r2);
+
+
+				System.out.printf("%n%n----------- Arrays ---------------%n%n");
+				
+				Viereck[] viereckArray = new Viereck[10];	// 10 Referenzvariablen vom Typ Viereck
+				viereckArray[0] = new Viereck(1,2,3,4);
+				viereckArray[1] = new Rechteck(3,7);
+				viereckArray[2] = new Quadrat(5);
+				viereckArray[3] = new Viereck(3,5,8,9);
+				viereckArray[4] = new Viereck(1,2,3,4);
+				viereckArray[5] = new Rechteck(3,7);
+				viereckArray[6] = new Quadrat(4);
+				viereckArray[7] = new Viereck(13,5,18,9);		
+				viereckArray[8] = new Quadrat(15);
+				viereckArray[9] = new Viereck(2,5,7,9);	
+				
+				int kleinsterUmfang = viereckArray[0].umfang();
+				for(int index = 0; index < 10; index++)
+				{
+					if(viereckArray[index].umfang() < kleinsterUmfang)
+					{
+						kleinsterUmfang = viereckArray[index].umfang();
+					}
+				}
+				System.out.println("kleinster Umfang: " + kleinsterUmfang);
+				
+				viereckArray[0].print();
+				viereckArray[1].print();
+				viereckArray[2].print();
+				System.out.println("Laenge des Arrays : " + viereckArray.length);
+				
+				int[] quadratzahlen = new int[1000];
+				for(int index = 0; index < quadratzahlen.length; index++)
+				{
+					quadratzahlen[index] = (index * index);
+				}
+				
+				//zahlen.length = 11;
+				
+				// 0 1 4 9 16 25 36 49 64 81
+				// 0 1 2 3 4  5  6  7  8  9
+				
+				System.out.println(quadratzahlen[8]);
+				
+				for(int index = 0; index < quadratzahlen.length; index++)
+				{
+					System.out.printf("%3d x %3d = %7d%n", index, index, quadratzahlen[index]);
+				}
+				
+				System.out.println("Summe = " + computeSum(quadratzahlen));
+				
+			}
+
+		}
+		```
+
+	=== "Viereck.java"
+		```java
+		package vorlesungen.vorl1218;
+
+		public class Viereck
+		{
+			// Objektvariablen
+			// 4 Seiten des Vierecks
+			protected int a;
+			protected int b;
+			protected int c;
+			protected int d;
+			
+			// Konstruktor
+			public Viereck(int a, int b, int c, int d)
+			{
+				this.a = a;
+				this.b = b;
+				this.c = c;
+				this.d = d;
+			}
+			
+			// Objektmethoden
+			public int umfang()
+			{
+				return this.a + this.b + this.c + this.d;
+			}
+			
+			public String toString()
+			{
+				String s = String.format("Seiten : a = %2d, b = %2d, c = %d, d = %d%n", this.a, this.b, this.c, this.d); 
+				s =    s + String.format("Umfang : %3d%n", this.umfang());
+				return s;
+			}
+			
+			public void print()
+			{
+				System.out.println(this.toString());
+			}
+
+		}
+
+		```
+
+	=== "Rechteck.java"
+		```java
+		package vorlesungen.vorl1218;
+
+		public class Rechteck extends Viereck
+		{
+			public Rechteck(int laenge, int breite)
+			{
+				super(laenge, breite, laenge, breite);	// Aufruf des Konstruktors von Viereck
+			}
+			
+			public int flaecheninhalt()
+			{
+				return this.a * this.b;
+			}
+			
+			@Override
+			public String toString()
+			{
+				String s = String.format("Seiten         : laenge = %2d, breite = %2d%n", this.a, this.b); 
+				s =    s + String.format("Umfang         : %3d%n", this.umfang());
+				s =    s + String.format("Flaecheninhalt : %3d%n", this.flaecheninhalt());
+				return s;
+			}
+		}
+
+		```
+
+	=== "Quadrat.java"
+		```java
+		package vorlesungen.vorl1218;
+
+		public class Quadrat extends Rechteck
+		{
+			public Quadrat(int seite)
+			{
+				super(seite, seite);	// Aufruf des Konstruktors von Rechteck
+			}
+			
+			@Override
+			public String toString()
+			{
+				String s = String.format("Seiten         : seitenlaenge = %2d%n", this.a); 
+				s =    s + String.format("Umfang         : %3d%n", this.umfang());
+				s =    s + String.format("Flaecheninhalt : %3d%n", this.flaecheninhalt());
+				return s;
+			}
+		}
+		```
+
+
+??? info "Vorlesung 18.12.2023 - Object und Arrays Einführung - Video"
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=ae1d054e69342c0575510926be120af3&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=ae1d054e69342c0575510926be120af3&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_Object_und_Arrays" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
