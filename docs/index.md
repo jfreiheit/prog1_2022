@@ -1269,3 +1269,160 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 ??? info "Vorlesung 18.12.2023 - Object und Arrays Einführung - Video"
 	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=ae1d054e69342c0575510926be120af3&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=ae1d054e69342c0575510926be120af3&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_Object_und_Arrays" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
+
+
+??? question "Vorlesung 2.1.2024 - Algorithmen über Arrays"
+	```java
+	package vorlesungen.vorl0102;
+
+	import java.util.Random;
+
+	public class Vorlesung0102
+	{
+		
+		public static void doSomething(int a)
+		{
+			a = 2;
+		}
+		
+		public static void doSomething(int[] a)
+		{
+			System.out.println(a[0]);
+			//a[0] = 2;
+		}
+
+		public static int[] createAndFillArray(int length)
+		{
+			int[] a = new int[length];
+			
+			Random r = new Random();
+			
+			for(int index = 0; index < a.length; index++)
+			{
+				a[index] = r.nextInt(6)+1;
+			}
+			
+			return a;
+		}
+		
+		public static void print(int[] a)
+		{
+			System.out.print("[ ");
+			for(int index = 0; index < a.length; index++)
+			{
+				System.out.print(a[index]);
+				if(index < a.length-1)
+				{
+					System.out.print(", ");
+				}
+			}
+			System.out.println(" ]");
+		}
+		
+		public static boolean contains(int[] a, int value)
+		{
+			for (int index = 0; index < a.length; index++) 
+			{
+				if(a[index] == value)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public static int[] insert(int[] a, int newValue)
+		{
+			int[] newArray = new int[a.length + 1];
+			
+			for (int index = 0; index < a.length; index++) 
+			{
+				newArray[index] = a[index];
+			}
+			newArray[a.length] = newValue;
+			
+			return newArray;
+		}
+		
+		public static int[] concat(int[] a, int[] b)
+		{
+			int[] newArray = new int[a.length + b.length];
+			
+			for (int index = 0; index < a.length; index++) 
+			{
+				newArray[index] = a[index];	
+			}
+			
+			for (int index = 0; index < b.length; index++) 
+			{
+				newArray[index + a.length] = b[index];
+			}
+			
+			return newArray;
+		}
+		
+		public static int nrOfOccurences(int[] a, int value)
+		{
+			int counter = 0;
+			for (int index = 0; index < a.length; index++) 
+			{
+				if(a[index] == value)
+				{
+					counter++;
+				}
+			}
+			return counter;
+		}
+		
+		public static int[] filter(int[] a, int value)
+		{
+			int[] newArray = new int[a.length - nrOfOccurences(a,value)];
+			
+			int indexNewArray = 0;
+			for (int indexA = 0; indexA < a.length; indexA++) 
+			{
+				if(a[indexA] != value)
+				{
+					newArray[indexNewArray] = a[indexA];
+					indexNewArray++;
+				}
+			}
+			
+			return newArray;
+		}
+		
+		public static void main(String[] args)
+		{
+			int a = 1;
+			System.out.println("a = " + a);		// 1
+			doSomething(a);
+			System.out.println("a = " + a);		// 1
+			
+			//int[] b = { 1 };
+			int[] b;	// b ist null  --> b == null ist true
+			b = new int[1];
+			b[0] = 1;
+			System.out.println("b[0] = " + b[0]);	// 1
+			doSomething(b);
+			//b = null; // fuehrt zu NullPointerException
+			System.out.println("b[0] = " + b[0]);	// 2
+			
+			int[] c = createAndFillArray(11);
+			print(c);
+			
+			int[] d = insert(c, 12);
+			print(d);
+			
+			int[] e = concat(d,c);
+			print(e);
+			
+			int[] f = filter(e, 5);
+			print(f);
+		}
+
+	}
+	```
+
+??? info "Vorlesung 2.1.2024 - Algorithmen über Arrays - Video"
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=08795afcedcc01d5d509a47578f795b4&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=08795afcedcc01d5d509a47578f795b4&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_Arrays_Algorithmen" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
