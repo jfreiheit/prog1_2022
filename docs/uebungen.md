@@ -2018,19 +2018,122 @@
 			Es muss das `target` nicht exakt getroffen werden, das ist Zufall. Es stoppt, sobald `100` oder mehr Punkte erreicht wurden. 
 
 
+??? question "Eine mögliche Lösung für Übung 9"
+
+	```java
+	package uebungen.uebung9;
+
+	import java.util.Random;
+
+	public class Uebung9
+	{
+		public static int throwDice()
+		{
+			Random r = new Random();
+			return r.nextInt(6)+1;
+		}
+		
+		public static void printThrow(int cast)
+		{
+			System.out.println("Es wurde eine " + cast + " gewuerfelt.");
+		}
+		
+		public static void insertIntoStatistics(int[] statistics, int cast)
+		{
+			int index = cast - 1;
+			statistics[index]++;
+		}
+		
+		public static void printStatistics(int[] statistics)
+		{
+			System.out.print("[ ");
+			
+			int counter = 1;
+			for (int index = 0; index < statistics.length; index++) 
+			{
+				System.out.print("(" + statistics[index] + " x " + counter + ")");
+				counter++;
+				if(index < statistics.length - 1)
+				{
+					System.out.print(", ");
+				}
+			}
+			
+			System.out.println(" ]");
+		}
+		
+		public static int sumOfStatistics(int[] statistics)
+		{
+			int sum = 0;
+			
+			for (int index = 0; index < statistics.length; index++) 
+			{
+				sum = sum + (statistics[index] * (index+1));
+			}
+			
+			return sum;
+		}
+		
+		public static int throwDiceUntilTarget(int target, int[] statistics)
+		{
+			int tries = 0;
+			
+			while(sumOfStatistics(statistics) < target)
+			{
+				int cast = throwDice();
+				printThrow(cast);
+				insertIntoStatistics(statistics, cast);
+				tries++;
+			}
+			
+			return tries;
+		}
+		
+		public static void main(String[] args)
+		{
+			int[] statistics = new int[6];
+
+			System.out.printf("%n%n------------------- Test throwDice and printThrow -------------------%n%n");
+			for(int index=0; index<10; index++)
+			{
+			    int cast = throwDice();
+			    printThrow(cast);
+			}
+			
+			statistics = new int[6];
+			System.out.printf("%n%n------------------ Test insert- and printStatistics -----------------%n%n");
+			for(int index=0; index<100; index++)
+			{
+			    int cast = throwDice();
+			    insertIntoStatistics(statistics, cast);
+			}
+			printStatistics(statistics);
+			
+			System.out.printf("%n%n--------------------- Test sumOfStatistics --------------------------%n%n");
+			printStatistics(statistics);
+			int sumTest = sumOfStatistics(statistics);
+			System.out.println("Summe = " + sumTest);
+
+			System.out.printf("%n%n------------------- Test throwDiceUntilTarget -----------------------%n%n");
+			statistics = new int[6];    // altes Array war schon befuellt 
+			final int TARGET = 100;
+			int tries = throwDiceUntilTarget(TARGET, statistics);
+			printStatistics(statistics);
+			int sum = sumOfStatistics(statistics);
+			System.out.println("Es wurden " + tries + " Versuche benötigt, um " + sum + " Punkte zu erzielen.");
+		}
+
+	}
+	```		
+
 
 ??? note "Übung 10"
-
-	[Übung 11 (pdf)](./files/prog1_uebung11.pdf)
-
-
-??? note "Übung 11"
 	
-	1. Erstellen Sie ein package `uebungen.uebung11`. 
+	1. Erstellen Sie ein package `uebungen.uebung10`. 
 	2. Erstellen Sie in diesem package eine Klasse `Lottery` mit 
 
-		- der privaten Objektvariablen `drawingResults` vom Typ `int[]`. 
-		- **Information**: *Lottery steht für eine Lotterie, bei der aus 9 Zahlen (1..9) 5 Zahlen zufällig gelost werden (5 aus 9). Das Array `drawingResults` dient zum Speichern der gezogenen 5 Zahlen.*
+		- der privaten Objektvariablen `drawingResults` vom Typ `int[]`. <br />
+			**Information**: *Lottery steht für eine Lotterie, bei der aus 9 Zahlen (1..9) 5 Zahlen zufällig gelost werden (5 aus 9). Das Array `drawingResults` dient zum Speichern der gezogenen 5 Zahlen.*
 			
 		- Schreiben Sie für die Klasse `Lottery` einen parameterlosen Konstruktor. In diesem Konstruktor wird das Array `drawingResults` mit der Länge 5 erzeugt. 
 		- Schreiben Sie eine Objektmethode `contains(int number)`. Diese Methode gibt ein `true` zurück, wenn `number` in `drawingResults` enthalten ist und `false` sonst. 
@@ -2048,9 +2151,7 @@
 			3. ist die Zahl nicht enthalten, wird ein `-` angezeigt
 			4. d.h. es werden immer die 5 gezogenen Zahlen ausgegeben und 4 Striche.
 
-		- Schreiben Sie eine Objektmethode `print()`, die den von `toString()`zurückgegebenen `String` auf der Konsole ausgibt.
-		- Überschreiben Sie die Objektmethode `equals(Object o)`. Diese Methode gibt `true` zurück, wenn wenn bei dem aufrufenden Objekt die gleichen Zahlen gezogen wurden, wie bei `o`. Sonst `false` (`hashCode()` muss nicht überschrieben werden). <br/>
-		**Tipp**: *Implementieren Sie die Methode am einfachsten so, dass Sie die beiden `drawingResult`-Arrays erst sortieren und dann die sortierten Arrays elementweise miteinander vergleichen.*     
+		- Schreiben Sie eine Objektmethode `print()`, die den von `toString()`zurückgegebenen `String` auf der Konsole ausgibt.   
 
 	3. Erstellen Sie im gleichen package eine Klasse `Programmklasse` mit `main()`-Methode. 
 
@@ -2067,13 +2168,21 @@
 			( 1 - - 4 5 - 7 8 - )
 			( - 2 3 - 5 - - 8 9 )
 			```
-		- Erzeugen Sie ein Objekt von `Lottery` und rufen für dieses Objekt die `drawing()`-Methode auf. Erzeugen Sie in einer Schleife so lange ein weiteres Objekt von `Lottery` und rufen dafür die `drawing()`-Methode auf, bis die beiden Objekte die gleichen gezogenen Zahlen enthalten, d.h. laut `equals()`-Methode gleich sind. Geben Sie dann beide Objekte mithilfe der `print()`-Methode aus. Es entsteht folgende Ausgabe (zufällige Beispielwerte):
+
+	4. **Zusatz:**:
+
+		- Implementieren Sie in der Klasse `Lottery` eine Objektmethode `isEqual(Lottery other)`, die ein `true` zurückgibt, wenn das aufrufende Objekt das gleiche `drawingResults`-Array enthält, wie `other` (also die Werte darin jeweils gleich sind). <br />
+			**Tipp:** *Implementieren Sie die Methode am einfachsten so, dass Sie die beiden drawingResult-Arrays erst sortieren und dann die sortierten Arrays elementweise miteinander vergleichen.*
+		- Erzeugen Sie ein Objekt von `Lottery` und rufen für dieses Objekt die `drawing()`-Methode auf. Erzeugen Sie in einer Schleife so lange ein weiteres Objekt von `Lottery` und rufen dafür die `drawing()`-Methode auf, bis die beiden Objekte die gleichen gezogenen Zahlen enthalten, d.h. laut `isEqual()`-Methode gleich sind. Geben Sie dann beide Objekte mithilfe der `print()`-Methode aus. Es entsteht folgende Ausgabe (zufällige Beispielwerte):
 			```bash
 			( 1 - 3 - - 6 - 8 9 )
 			( 1 - 3 - - 6 - 8 9 )
 			```
 
 
+??? note "Übung 11"
+
+	[Übung 11 (pdf)](./files/prog1_uebung11.pdf)
 
 ## Probeklausuren
 
