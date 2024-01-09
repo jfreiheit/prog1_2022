@@ -2188,6 +2188,665 @@
 
 
 	
+??? note "Produkt"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.produkt`. 
+	2. (**Teil 1**) Erstellen Sie in diesem package eine Klasse `Produkt` mit 
+
+		- den privaten Objektvariablen 
+
+			- `nummer` vom Typ `int` (*8stellige Produktnummer*), 
+			- `preis` vom Typ `double` und 
+			- `code` vom Typ `String` (*4stelliger Namenscode*) . 
+
+		- einer Objektmethode `erzeuge8stelligeNummer()`, welche ein `int` zurückgibt. Zurückgegeben wird eine zufällig erzeugte 8-stellige Zahl, also im Wertebereich `[10 000 000 , … , 99 999 999]`. Es werden also potenziell `90 000 000` verschiedene Zufallszahlen erzeugt.
+
+		- einer Objektmethode `erzeugePreis(int nummer)`, welche ein `double` zurückgibt. Die übergebene `nummer` ist 8-stellig (müssen Sie nicht prüfen, Sie können davon ausgehen). Zurückgegeben wird eine `double`-Zahl, die sich aus den ersten 4 Ziffern von `nummer` ergibt und die zwei Nachkommastellen hat. <br />
+		*Beispiel:* `nummer = 1234 5678` --> zurückgegeben wird `12,34` <br />
+		<br />
+		**Tipp:** die letzten vier Ziffern der nummer werden einfach „abgeschnitten“.
+
+		- einer Objektmethode `erzeugeCode()`, welche einen `String` zurückgibt. Zurückgegeben wird eine 4-stellige Zeichenkette aus Kombinationen
+		der Großbuchstaben `A, B, C, D, E, F, G, H, I, J`. Die Buchstaben werden jeweils zufällig erzeugt. <br/>
+		<br/>
+		**Tipp:** Der Großbuchstabe `A` hat den ASCII-Code `65`, `B` den ASCII-Code `66` ... bis `J` ASCII-Code `74`. Es werden also potenziell `10` verschiedene Buchstaben erzeugt. <br />
+		<br />
+		**Beachten Sie:** Der zurückgegebene Code muss stets 4-stellig sein.
+
+		- Erstellen Sie eine `Programmklasse` mit `main()`-Methode. Rufen Sie in der `main()`-Methode *in einer Schleife* alle drei Methoden **5** Mal auf, so dass folgende Ausgabe entsteht (Beispielwerte zufällig):
+			```bash
+			12181268 12,18 Euro BCGI
+			24708077 24,70 Euro IAHH
+			60117886 60,11 Euro HIIG
+			80346223 80,34 Euro GCCD
+			27118770 27,11 Euro IHHA
+			```
+
+			**Beachten Sie**, dass die Ausgabe formatiert ist, d.h. ein Preis von z.B. `12.3` wird als `12,30` dargestellt.
+
+		- Erstellen Sie in der `Produkt`-Klasse einen parameterlosen Konstruktor. Initialisieren Sie darin die drei Objektvariablen `nummer`, `preis` und `code` mithilfe der Objektmethoden `erzeuge8stelligeNummer()`, `erzeugePreis(int)` und `erzeugeCode()`.
+
+		- *Überschreiben* Sie die Methode `toString()` so, dass ein `Produkt`-Objekt in der folgenden Form als String zurückgegeben wird (zufällige Beispielwerte):
+			```
+			86163993 86,16 Euro DJJD
+			```
+			
+		- Erstellen Sie eine Objektmethode `print()`, die den von `toString()` erzeugten `String` auf die Konsole ausgibt.
+
+		- Erstellen Sie eine Objektmethode `istTeurer(Produkt p)`, die ein `true` zurückgibt, wenn das aufrufende `Produkt`-Objekt einen höheren Preis hat als `p` und `false` sonst.
+
+		- Erstellen Sie für die Objektvariable `code` einen Getter `getCode()`.
+
+	2. (**Teil 2**) Erstellen Sie eine Klasse `Produktgruppe` mit 
+
+		- den privaten Objektvariablen 
+
+			- `gruppe` vom Typ `Produkt[]` und
+			- `kennzeichen` vom Typ `char` (*Buchstabe mit dem jeder Produktcode beginnt*). 
+
+		- Erstellen Sie für die Klasse `Produktgruppe` einen parametrisierten Konstruktor `Produktgruppe(char kennzeichen)`. Der Parameterwert wird verwendet, um der Objektvariablen `kennzeichen` einen Wert zuzuweisen. Außerdem wird das `gruppe`-Array mit der Länge 0 erzeugt.
+
+		- Erstellen Sie für Klasse `Produktgruppe` eine Objektmethode `enthalten(Produkt p)`. Diese gibt ein `true` zurück, wenn in `gruppe` bereits ein Produkt enthalten ist, das denselben `code` wie `p` hat und `false` sonst.
+	
+
+		- Erstellen Sie für Klasse `Produktgruppe` eine Objektmethode `einfuegen(Produkt p)`. Diese Methode fügt `p` in das `gruppe`-Array ein, aber nur, wenn
+
+			- der `code` von `p` mit demselben Buchstaben beginnt, wie `kennzeichen` und
+			- `p` noch nicht in `gruppe` enthalten ist.
+
+			Wird `p` tatsächlich in `gruppe` eingefügt, gibt die Methode ein `true` zurück und `false` sonst. <br />
+			<br />
+			**Beachten Sie**, dass sich die Länge von `gruppe` um 1 erhöht, wenn `p` eingefügt wird (sonst nicht).
+
+		- Erstellen Sie eine Objektmethode `getAnzahl()`. Diese Methode gibt die Anzahl der in `gruppe` befindlichen Produkte zurück.
+
+		- Erstellen Sie eine Objektmethode `getProdukt(int index)`. Diese Methode gibt das Produkt zurück, das sich unter `index` in `gruppe` befindet. Ist der Wert von `index` kein korrekter Index aus dem `gruppe`-Array, wird `null` zurückgegeben.
+
+		- Erstellen Sie eine Objektmethode `print()`, so dass alle Produkte aus dem `gruppe`-Array in der folgenden Form auf der Konsole ausgegeben werden (zufällige Beispielwerte):
+			```bash
+			-----------------
+			Produktgruppe B Anzahl: 5
+			73541548 73,54 Euro BFEI
+			64251775 64,25 Euro BHHF
+			76401485 76,40 Euro BEIF
+			37121451 37,12 Euro BEFB
+			32961676 32,96 Euro BGHG
+			-----------------
+			```
+
+			- Es erscheint also zunächst eine Linie, Länge egal,
+			- dann `Produktgruppe B Anzahl: 5`, wobei `B` dem Wert von `kennzeichen` entspricht und `5` der aktuellen Anzahl von Produkten in der Produktgruppe,
+			- dann kommen alle Produkte aus dem `gruppe`-Array,
+			- dann wieder eine Linie, Länge egal.
+
+		- Erzeugen Sie in der `main()`-Methode der Programmklasse zwei Objekte von `Produktgruppe`. Übergeben Sie dem einen Objekt den Buchstaben `A` und dem anderen Objekt dem Buchstaben `B`.
+
+			- Erstellen Sie *in einer Schleife* so lange `Produkt`-Objekte und fügen Sie diese in die Produktgruppen `A` und `B` ein, bis beide Produktgruppen jeweils genau `10` Produkte enthalten.
+			- Beachten Sie, dass die meisten Produkt-Objekte, die erzeugt werden, gar nicht eingefügt werden. Entweder, weil deren `code` weder mit `A` noch mit `B` beginnt oder weil sie bereits in der Produktgruppe `A` oder `B` enthalten sind oder weil die entsprechende Produktgruppe bereits „voll“ ist.
+			- Die Schleife wird beendet, sobald beide Produktgruppen „voll“ sind (jeweils `10` Produkte enthalten).
+			- Geben Sie danach beide Produktgruppen aus (zufällige Beispielwerte):
+
+				```bash
+				-----------------
+				Produktgruppe A Anzahl: 10
+				65300097 65,30 Euro AAJH
+				47910971 47,91 Euro AJHB
+				54670624 54,67 Euro AGCE
+				24670796 24,67 Euro AHJG
+				88720102 88,72 Euro ABAC
+				65710294 65,71 Euro ACJE
+				62720994 62,72 Euro AJJE
+				85260450 85,26 Euro AEFA
+				58780851 58,78 Euro AIFB
+				77570265 77,57 Euro ACGF
+				-----------------
+				-----------------
+				Produktgruppe B Anzahl: 10
+				73541548 73,54 Euro BFEI
+				64251775 64,25 Euro BHHF
+				76401485 76,40 Euro BEIF
+				37121451 37,12 Euro BEFB
+				32961676 32,96 Euro BGHG
+				89731572 89,73 Euro BFHC
+				70431224 70,43 Euro BCCE
+				52921559 52,92 Euro BFFJ
+				58991433 58,99 Euro BEDD
+				42611284 42,61 Euro BCIE
+				-----------------
+				```
+
+
+	3. (**Teil 3**) Erstellen Sie eine Klasse `Lager` mit 
+
+		- den privaten Objektvariablen 
+
+			- `lager` vom Typ `Produktgruppe[]` und
+			- `kapazitaet` vom Typ `int` (*größtmögliche Anzahl von Produkten im Lager*). 
+
+		- Erstellen Sie für die Klasse Lager einen parametrisierten Konstruktor Lager(int kapazitaet). Der Parameterwert wird verwendet, um der Objektvariablen kapazitaet einen Wert zuzuweisen. Außerdem wird das lager-Array mit der Länge 10 erzeugt. Befüllen Sie das lager-Array mit den Produktgruppen-Objekten A bis J, d.h. das erste Element im lager-Array zeigt auf das Produktgruppe-Objekt A, das zweite auf das Produktgruppe-Objekt B usw.
+
+		- Erstellen Sie eine Objektmethode fuellen(). Diese Methode gibt nichts zurück. In dieser Methode werden kapazitaet viele Produkt-Objekte erzeugt und diese Produkt-Objekte in die Produktgruppen in lager eingefügt. Verwenden Sie zum Einfügen die Objektmethode einfuegen(Produkt) aus der Klasse Produktgruppe. <br />
+		<br />
+		**Beachten Sie:** am Ende sollen kapazität viele Produkte im Lager sein. Wenn Sie ein Produkt erzeugen, können Sie es prinzipiell allen Produktgruppen hinzufügen, denn das Hinzufügen ist ja nur bei der Produktgruppe erfolgreich, die das passende kennzeichen hat.
+
+		- Erstellen Sie eine Objektmethode print(), die alle Produktgruppen aus dem lager-Array auf die Konsole ausgibt.
+
+		- Erstellen Sie eine Objektmethode produktgruppeMitDenMeistenProdukten(). Diese Methode gibt die Produktgruppe aus dem lager-Array zurück, welche die meisten Produkte enthält.
+
+		- Erstellen Sie eine Objektmethode billigstesProdukt(). Diese Methode gibt das Produkt aus dem gesamten lager-Array zurück, das den geringsten Preis von allen hat.
+
+		- Erzeugen Sie in der main()-Methode der Programmklasse ein Lager-Objekt mit dem Parameterwert 50.
+
+			- Befüllen Sie das Lager-Objekt mithilfe der Methode fuellen() und geben Sie es mithilfe von print() aus (zufällige Beispielwerte):
+
+				```bash
+				-----------------
+				Produktgruppe A Anzahl: 5
+				81530793 81,53 Euro AHJD
+				47370387 47,37 Euro ADIH
+				67750984 67,75 Euro AJIE
+				82940201 82,94 Euro ACAB
+				88270574 88,27 Euro AFHE
+				-----------------
+				-----------------
+				Produktgruppe B Anzahl: 5
+				13051709 13,05 Euro BHAJ
+				72061661 72,06 Euro BGGB
+				60111349 60,11 Euro BDEJ
+				51931137 51,93 Euro BBDH
+				90881647 90,88 Euro BGEH
+				-----------------
+				-----------------
+				Produktgruppe C Anzahl: 3
+				71872170 71,87 Euro CBHA
+				26982074 26,98 Euro CAHE
+				79032470 79,03 Euro CEHA
+				-----------------
+				-----------------
+				Produktgruppe D Anzahl: 7
+				77193585 77,19 Euro DFIF
+				35983109 35,98 Euro DBAJ
+				20313080 20,31 Euro DAIA
+				86093082 86,09 Euro DAIC
+				41883886 41,88 Euro DIIG
+				51103455 51,10 Euro DEFF
+				71353002 71,35 Euro DAAC
+				-----------------
+				-----------------
+				Produktgruppe E Anzahl: 6
+				62374914 62,37 Euro EJBE
+				95954960 95,95 Euro EJGA
+				11804488 11,80 Euro EEII
+				79574003 79,57 Euro EAAD
+				87084361 87,08 Euro EDGB
+				37804191 37,80 Euro EBJB
+				-----------------
+				-----------------
+				Produktgruppe F Anzahl: 4
+				41795426 41,79 Euro FECG
+				94345512 94,34 Euro FFBC
+				16055839 16,05 Euro FIDJ
+				96565390 96,56 Euro FDJA
+				-----------------
+				-----------------
+				Produktgruppe G Anzahl: 3
+				94946327 94,94 Euro GDCH
+				65536904 65,53 Euro GJAE
+				31006786 31,00 Euro GHIG
+				-----------------
+				-----------------
+				Produktgruppe H Anzahl: 4
+				64707668 64,70 Euro HGGI
+				11957550 11,95 Euro HFFA
+				79047293 79,04 Euro HCJD
+				85057454 85,05 Euro HEFE
+				-----------------
+				-----------------
+				Produktgruppe I Anzahl: 8
+				57408724 57,40 Euro IHCE
+				26408714 26,40 Euro IHBE
+				11118773 11,11 Euro IHHD
+				64038221 64,03 Euro ICCB
+				20578532 20,57 Euro IFDC
+				82238986 82,23 Euro IJIG
+				35148126 35,14 Euro IBCG
+				73748018 73,74 Euro IABI
+				-----------------
+				-----------------
+				Produktgruppe J Anzahl: 5
+				52249267 52,24 Euro JCGH
+				15129449 15,12 Euro JEEJ
+				21219816 21,21 Euro JIBG
+				96469515 96,46 Euro JFBF
+				56669411 56,66 Euro JEBB
+				-----------------
+				```
+
+			- Rufen Sie die produktgruppeMitDenMeistenProdukten()-Methode auf und geben Sie die zurückgegebene Produktgruppe aus (Beispielwerte):
+
+				```bash
+				-----------------
+				Produktgruppe I Anzahl: 8
+				57408724 57,40 Euro IHCE
+				26408714 26,40 Euro IHBE
+				11118773 11,11 Euro IHHD
+				64038221 64,03 Euro ICCB
+				20578532 20,57 Euro IFDC
+				82238986 82,23 Euro IJIG
+				35148126 35,14 Euro IBCG
+				73748018 73,74 Euro IABI
+				-----------------
+				```
+
+			- Rufen Sie die billigstesProdukt ()-Methode auf und geben Sie das zurückgegebene Produkt aus (Beispielwerte):
+
+				```
+				11118773 11,11 Euro IHHD
+				```
+
+	4. Zur Kontrolle: Die möglichen Ausgaben (Beispielwerte) könnten sein:
+
+		```bash
+		------------------------- Teil 1 Produkt --------------------------
+		12181268 12,18 Euro BCGI
+		24708077 24,70 Euro IAHH
+		60117886 60,11 Euro HIIG
+		80346223 80,34 Euro GCCD
+		27118770 27,11 Euro IHHA
+		-------------------- Teil 2 Produktgruppe ------------------------
+		-----------------
+		Produktgruppe A Anzahl: 10
+		65300097 65,30 Euro AAJH
+		47910971 47,91 Euro AJHB
+		54670624 54,67 Euro AGCE
+		24670796 24,67 Euro AHJG
+		88720102 88,72 Euro ABAC
+		65710294 65,71 Euro ACJE
+		62720994 62,72 Euro AJJE
+		85260450 85,26 Euro AEFA
+		58780851 58,78 Euro AIFB
+		77570265 77,57 Euro ACGF
+		-----------------
+		-----------------
+		Produktgruppe B Anzahl: 10
+		73541548 73,54 Euro BFEI
+		64251775 64,25 Euro BHHF
+		76401485 76,40 Euro BEIF
+		37121451 37,12 Euro BEFB
+		32961676 32,96 Euro BGHG
+		89731572 89,73 Euro BFHC
+		70431224 70,43 Euro BCCE
+		52921559 52,92 Euro BFFJ
+		58991433 58,99 Euro BEDD
+		42611284 42,61 Euro BCIE
+
+		----------------------- Teil 3 Lager ------------------------
+		-----------------
+		Produktgruppe A Anzahl: 5
+		81530793 81,53 Euro AHJD
+		47370387 47,37 Euro ADIH
+		67750984 67,75 Euro AJIE
+		82940201 82,94 Euro ACAB
+		88270574 88,27 Euro AFHE
+		-----------------
+		-----------------
+		Produktgruppe B Anzahl: 5
+		13051709 13,05 Euro BHAJ
+		72061661 72,06 Euro BGGB
+		60111349 60,11 Euro BDEJ
+		51931137 51,93 Euro BBDH
+		90881647 90,88 Euro BGEH
+		-----------------
+		-----------------
+		Produktgruppe C Anzahl: 3
+		71872170 71,87 Euro CBHA
+		26982074 26,98 Euro CAHE
+		79032470 79,03 Euro CEHA
+		-----------------
+		-----------------
+		Produktgruppe D Anzahl: 7
+		77193585 77,19 Euro DFIF
+		35983109 35,98 Euro DBAJ
+		20313080 20,31 Euro DAIA
+		86093082 86,09 Euro DAIC
+		41883886 41,88 Euro DIIG
+		51103455 51,10 Euro DEFF
+		71353002 71,35 Euro DAAC
+		-----------------
+		-----------------
+		Produktgruppe E Anzahl: 6
+		62374914 62,37 Euro EJBE
+		95954960 95,95 Euro EJGA
+		11804488 11,80 Euro EEII
+		79574003 79,57 Euro EAAD
+		87084361 87,08 Euro EDGB
+		37804191 37,80 Euro EBJB
+		-----------------
+		-----------------
+		Produktgruppe F Anzahl: 4
+		41795426 41,79 Euro FECG
+		94345512 94,34 Euro FFBC
+		16055839 16,05 Euro FIDJ
+		96565390 96,56 Euro FDJA
+		-----------------
+		-----------------
+		Produktgruppe G Anzahl: 3
+		94946327 94,94 Euro GDCH
+		65536904 65,53 Euro GJAE
+		31006786 31,00 Euro GHIG
+		-----------------
+		-----------------
+		Produktgruppe H Anzahl: 4
+		64707668 64,70 Euro HGGI
+		11957550 11,95 Euro HFFA
+		79047293 79,04 Euro HCJD
+		85057454 85,05 Euro HEFE
+		-----------------
+		-----------------
+		Produktgruppe I Anzahl: 8
+		57408724 57,40 Euro IHCE
+		26408714 26,40 Euro IHBE
+		11118773 11,11 Euro IHHD
+		64038221 64,03 Euro ICCB
+		20578532 20,57 Euro IFDC
+		82238986 82,23 Euro IJIG
+		35148126 35,14 Euro IBCG
+		73748018 73,74 Euro IABI
+		-----------------
+		-----------------
+		Produktgruppe J Anzahl: 5
+		52249267 52,24 Euro JCGH
+		15129449 15,12 Euro JEEJ
+		21219816 21,21 Euro JIBG
+		96469515 96,46 Euro JFBF
+		56669411 56,66 Euro JEBB
+		-----------------
+
+		----------------------- Teil 3 Lager – Produktgruppe mit den meisten Produkten ------------------------
+		-----------------
+		Produktgruppe I Anzahl: 8
+		57408724 57,40 Euro IHCE
+		26408714 26,40 Euro IHBE
+		11118773 11,11 Euro IHHD
+		64038221 64,03 Euro ICCB
+		20578532 20,57 Euro IFDC
+		82238986 82,23 Euro IJIG
+		35148126 35,14 Euro IBCG
+		73748018 73,74 Euro IABI
+		-----------------
+
+		----------------------- Teil 3 Lager – billigstes Produkt ------------------------
+		11118773 11,11 Euro IHHD
+		```
+
+
+
+??? question "Eine mögliche Lösung für Produkt"
+	=== "Programmklasse.java"
+		```java
+		package klausurvorbereitung.produkt;
+
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				System.out.printf("%n%n----------------------------  Testen von Produkt  --------------------------------%n%n");
+				Produkt p1 = new Produkt();
+				for(int i = 0; i < 20; i++) {
+					int nummer = p1.erzeuge8stelligeNummer();
+					double preis = p1.erzeugePreis(nummer);
+					String code = p1.erzeugeCode(nummer);
+					System.out.printf("%8d %.2f Euro %s %n", nummer, preis, code);
+				}
+				
+				System.out.printf("%n%n-------------------------  Testen von Produktgruppe  -----------------------------%n%n");
+				Produktgruppe pgA = new Produktgruppe('A');
+				Produktgruppe pgB = new Produktgruppe('B');
+				final int LIMIT = 10;
+				boolean pgAVoll = pgA.getAnzahl() == LIMIT;
+				boolean pgBVoll = pgB.getAnzahl() == LIMIT;
+				boolean beideVoll = pgAVoll && pgBVoll;
+				while(!beideVoll) {
+					Produkt p = new Produkt();
+					// p.print();
+					if(!pgAVoll) {
+						// if(pgA.einfuegen(p)) pgA.print();	// variante mit ausdrucken
+						pgA.einfuegen(p);						// ohne ausdrucken
+					}
+					if(!pgBVoll) {
+						// if(pgB.einfuegen(p)) pgB.print();	// mit ausdruck zum testen
+						pgB.einfuegen(p);						// ohne ausdruck
+					}
+					pgAVoll = pgA.getAnzahl() == LIMIT;
+					pgBVoll = pgB.getAnzahl() == LIMIT;
+					beideVoll = pgAVoll && pgBVoll;
+				}
+				pgA.print();
+				pgB.print();
+				
+				/*
+				 * nicht in der Klausur verlangt
+				 */
+				Produktgruppe pgC = new Produktgruppe('C', 10);
+				//pgC.print();
+				
+				System.out.printf("%n%n----------------------------   Testen von Lager   --------------------------------%n%n");
+				Lager l1 = new Lager(50);
+				l1.fuellen();
+				l1.print();
+				
+				System.out.printf("%n%n----------   Produktgruppe mit den meisten Produkten in Lager   ------------------%n%n");	
+				Produktgruppe pg = l1.produktgruppeMitDenMeistenProdukten();
+				pg.print();
+				
+				System.out.printf("%n%n------------------------   billigstes Produkt in Lager   -------------------------%n%n");	
+				Produkt p = l1.billigstesProdukt();
+				p.print();
+			}
+
+		}
+
+		```
+
+	=== "Produkt.java"
+		```java
+		package klausurvorbereitung.produkt;
+
+		import java.util.Random;
+
+		public class Produkt
+		{
+			private int nummer;
+			private double preis;
+			private String code;
+			
+			public int erzeuge8stelligeNummer() {
+				Random r = new Random();
+				int number = r.nextInt(90000000) + 10000000;
+				return number;
+			}
+			
+			public double erzeugePreis(int nummer) {
+				double ersten4Ziffern = nummer / 10000;
+				double preis = ersten4Ziffern / 100.0;
+				return preis;
+			}
+			
+			public String erzeugeCode(int nummer) {
+				int letzten4Ziffern = nummer % 10000;
+				int nr = letzten4Ziffern;
+				String code = "";
+				final int ASCII_A = 65;
+				while(nr > 0) {
+					int rest = nr % 10;
+					int asciiCode = ASCII_A + rest;
+					char buchstabe = (char)asciiCode;
+					code = buchstabe + code;
+					nr = nr / 10;
+				}
+				while(code.length() < 4) {
+					code = "A" + code;
+				}
+				return code;
+			}
+			
+			public Produkt() {
+				this.nummer = this.erzeuge8stelligeNummer();
+				this.code = this.erzeugeCode(this.nummer);
+				this.preis = this.erzeugePreis(this.nummer);
+			}
+			
+			public String toString() {
+				String s = String.format("%8d %.2f Euro %s ", this.nummer, this.preis, this.code);
+				return s;
+			}
+			
+			public void print() {
+				System.out.println(this.toString());
+			}
+			
+			public boolean istTeurer(Produkt p) {
+				return this.preis > p.preis;
+			}
+			
+			public String getCode() {
+				return this.code;
+			}
+		}
+
+		```
+
+	=== "Produktgruppe.java"
+		```java
+		package klausurvorbereitung.produkt;
+
+		public class Produktgruppe
+		{
+			Produkt[] gruppe;
+			char kennzeichen;
+			
+			Produktgruppe(char kennzeichen) {
+				this.gruppe = new Produkt[0];
+				this.kennzeichen = kennzeichen;
+			}
+			
+			Produktgruppe(char kennzeichen, int anzahl) {
+				this.gruppe = new Produkt[0];
+				this.kennzeichen = kennzeichen;
+				while(this.gruppe.length < anzahl) {
+					this.einfuegen(new Produkt());
+				}
+			}
+			
+			public boolean enthalten(Produkt p) {
+				for(int index = 0; index < this.gruppe.length; index++) {
+					if(this.gruppe[index].getCode().equals(p.getCode())) return true;
+				}
+				return false;
+			}
+			
+			public boolean einfuegen(Produkt p) {
+				String code = p.getCode();
+				char pKennzeichen = code.charAt(0);
+				if(pKennzeichen == this.kennzeichen && !this.enthalten(p)) {
+					Produkt[] neueGruppe = new Produkt[this.gruppe.length + 1];
+					for(int index = 0; index < this.gruppe.length; index++) {
+						neueGruppe[index] = this.gruppe[index];
+					}
+					neueGruppe[this.gruppe.length] = p;
+					this.gruppe = neueGruppe;
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
+			public int getAnzahl() {
+				return this.gruppe.length;
+			}
+			
+			public Produkt getProdukt(int index) {
+				if(index < 0 || index >= this.getAnzahl()) {
+					return null;
+				} else {
+					return this.gruppe[index];
+				}
+			}
+			
+			public void print() {
+				System.out.printf("%n-----------------%nProduktgruppe %c Anzahl: %d %n%n", this.kennzeichen, this.getAnzahl());
+				for(int index = 0; index < this.gruppe.length; index++) {
+					this.gruppe[index].print();
+				}
+				System.out.printf("%n-----------------%n");	
+			}
+		}
+
+		```
+
+	=== "Lager.java"
+		```java
+		package klausurvorbereitung.produkt;
+
+		public class Lager
+		{
+			int kapazitaet;
+			Produktgruppe[] lager;
+			
+			Lager(int kapazitaet) {
+				this.kapazitaet = kapazitaet;
+				this.lager = new Produktgruppe[10];
+				char kennzeichen = 'A';
+				for(int index = 0; index < 10; index++) {
+					this.lager[index] = new Produktgruppe(kennzeichen);
+					kennzeichen++;
+				}
+			}
+			
+			public void fuellen() {
+				for(int anzahl = 0; anzahl < this.kapazitaet; anzahl++) {
+					Produkt p = new Produkt();
+					for(int index = 0; index < 10; index++) {
+						this.lager[index].einfuegen(p);
+					}
+				}
+			}
+			
+			public void print() {
+				for(int index = 0; index < 10; index++) {
+					this.lager[index].print();
+				}
+			}
+			
+			public Produktgruppe produktgruppeMitDenMeistenProdukten() {
+				Produktgruppe pg = this.lager[0];
+				for(int index = 1; index < 10; index++) {
+					if(this.lager[index].getAnzahl() > pg.getAnzahl()) {
+						pg = this.lager[index];
+					}
+				}
+				return pg;
+			}
+			
+			public Produkt billigstesProdukt() {
+				Produkt p = this.lager[0].getProdukt(0);
+				for(int indexPG = 0; indexPG < 10; indexPG++) {
+					for(int indexP = 0; indexP < this.lager[indexPG].getAnzahl(); indexP++) {
+						if(p.istTeurer(this.lager[indexPG].getProdukt(indexP))) {
+							p = this.lager[indexPG].getProdukt(indexP);
+						}
+					}
+				}
+				return p;
+			}
+		}
+
+		```
+
+
+
+
 ??? note "Fahrzeug"
 	
 	1. Erstellen Sie ein package `klausurvorbereitung.fahrzeug`. 

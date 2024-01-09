@@ -1426,3 +1426,149 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 ??? info "Vorlesung 2.1.2024 - Algorithmen über Arrays - Video"
 	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=08795afcedcc01d5d509a47578f795b4&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=08795afcedcc01d5d509a47578f795b4&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_Arrays_Algorithmen" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
+
+
+??? question "Vorlesung 8.1.2024 - Sortieren von Arrays"
+	```java
+	package vorlesungen.vorl0108;
+
+	import java.util.Random;
+
+	public class Vorlesung0108
+	{
+		
+		public static int[] createAndFillArray(int length)
+		{
+			int[] intArray = new int[length];
+			final int NR_OF_DIFFERENT_RANDOM_NUMBERS = 10;
+			
+			Random r = new Random();
+			for(int index=0; index<intArray.length; index++)
+			{
+				intArray[index] = r.nextInt(NR_OF_DIFFERENT_RANDOM_NUMBERS);
+			}
+			return intArray;
+		}
+		
+		public static int[] bubblesort(int[] original)
+		{
+			// zunaechst Kopie von original
+			int[] copy = new int[original.length];
+			for (int index = 0; index < copy.length; index++) 
+			{
+				copy[index] = original[index];
+			}
+			
+			//boolean sorted = false;
+			// Kopie sortieren
+			for (int bubble = 0; bubble < copy.length && !isSorted(copy); bubble++) 
+			{
+				System.out.print(bubble + " : ");
+				print(copy);
+				//sorted = true;
+				for (int index = 0; index < copy.length-1 - bubble; index++) 
+				{
+					if(copy[index]>copy[index+1])
+					{
+						int tmp = copy[index];
+						copy[index] = copy[index+1];
+						copy[index+1] = tmp;
+						//sorted = false;
+					}
+					System.out.print("  : ");
+					print(copy);
+				}
+
+			}
+			
+			// sortierte Kopie zurueckgeben
+			return copy;
+		}
+		
+		public static boolean isSorted(int[] a)
+		{
+			for (int index = 0; index < a.length-1; index++) 
+			{
+				if(a[index] > a[index+1])
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		public static int[] createAndFillArrayNoDoublets(int length)
+		{
+			int[] intArray = new int[length];
+			print(intArray);
+			final int NR_OF_DIFFERENT_RANDOM_NUMBERS = 11;
+			
+			Random r = new Random();
+			for(int index=0; index<intArray.length; index++)
+			{
+				int newValue = r.nextInt(NR_OF_DIFFERENT_RANDOM_NUMBERS);
+				while(contains(intArray, newValue))
+				{
+					newValue = r.nextInt(NR_OF_DIFFERENT_RANDOM_NUMBERS);
+					System.out.print(". ");
+				}
+				intArray[index] = newValue;
+				System.out.println(newValue);
+			}
+			return intArray;
+		}
+		
+		public static void print(int[] arr)
+		{
+			final int BIGGEST_INDEX = arr.length-1;
+			String s = "[ ";
+			for (int index = 0; index < arr.length; index++) 
+			{
+				s += arr[index];
+				if(index < BIGGEST_INDEX)
+				{
+					s += ", ";
+				}
+			}
+			s += " ]";
+			System.out.println(s);
+		}
+		
+		public static boolean contains(int[] arr, int value)
+		{
+			for (int index = 0; index < arr.length; index++) 
+			{
+				if(arr[index] == value)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+		public static void main(String[] args)
+		{
+			int[] a = createAndFillArray(10);
+			print(a);
+			
+			int[] b = createAndFillArray(5);
+			print(b);
+			
+			print(createAndFillArray(8));
+			System.out.println(contains(createAndFillArray(8), 6));
+			
+			print(b);
+			b = createAndFillArray(8);
+			print(b);
+
+			int[] c = createAndFillArrayNoDoublets(10);
+			print(c);
+			
+			int[] sorted = bubblesort(c);
+			print(sorted);
+			print(c);
+		}
+	}
+	```
+
