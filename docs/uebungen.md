@@ -2180,6 +2180,166 @@
 			```
 
 
+??? question "Eine mögliche Lösung für Übung 10"
+	=== "Lottery.java"
+		```java
+		package uebungen.uebung10;
+
+		import java.util.Iterator;
+		import java.util.Random;
+
+		public class Lottery
+		{
+			private int[] drawingResults;
+			
+			public Lottery()
+			{
+				this.drawingResults = new int[5];
+			}
+			
+			public boolean contains(int number)
+			{
+				for (int index = 0; index < this.drawingResults.length; index++) 
+				{
+					if(this.drawingResults[index] == number)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			public void drawing()
+			{
+				Random r = new Random();
+				
+				for (int index = 0; index < this.drawingResults.length; index++) 
+				{
+					int newValue = r.nextInt(9) + 1;
+					while(this.contains(newValue)) 
+					{
+						newValue = r.nextInt(9) + 1; 
+					}
+					this.drawingResults[index] = newValue;
+				}	
+			}
+			
+			public void print()
+			{
+				String s = "[ ";
+				for (int index = 0; index < this.drawingResults.length; index++) 
+				{
+					s += this.drawingResults[index];
+					if(index < this.drawingResults.length-1)
+					{
+						s += ", ";
+					}
+				}
+				s += " ]";
+				//System.out.println(s);
+				System.out.println(this.toString());
+			}
+			
+			public void sort()
+			{
+				for (int bubble = 0; bubble < this.drawingResults.length-1; bubble++) 
+				{
+					for (int index = 0; index < this.drawingResults.length-1-bubble; index++) 
+					{
+						if(this.drawingResults[index] > this.drawingResults[index+1])
+						{
+							int tmp = this.drawingResults[index];
+							this.drawingResults[index] = this.drawingResults[index+1];
+							this.drawingResults[index+1] = tmp;
+						}
+					}
+				}
+			}
+			
+			@Override
+			public String toString()
+			{
+				String s = "( ";
+				for(int number=1; number<10; number++)
+				{
+					if(this.contains(number))
+					{
+						s += number + " ";
+					}
+					else
+					{
+						s += "- ";
+					}
+				}
+				s += ")";
+				return s;
+			}
+			
+			public boolean isEqual(Lottery lo)
+			{
+				/*
+				this.sort();
+				lo.sort();
+				for (int index = 0; index < this.drawingResults.length; index++) 
+				{
+					if(this.drawingResults[index] != lo.drawingResults[index])
+					{
+						return false;
+					}
+				}
+				return true;
+				*/
+				for (int index = 0; index < this.drawingResults.length; index++) 
+				{
+					if(!lo.contains(this.drawingResults[index]))
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+		```		
+	=== "Programmklasse.java"
+		```java
+		package uebungen.uebung10;
+
+		public class Programmklasse
+		{
+
+			public static void main(String[] args)
+			{
+				for(int i=0; i<10; i++)
+				{
+					Lottery lo = new Lottery();
+					lo.drawing();
+					lo.sort();
+					lo.print();
+				}
+				
+				System.out.printf("%n%n--------- Zusatz ------------%n%n");
+				
+				Lottery lo1 = new Lottery();
+				lo1.drawing();
+				lo1.print();
+				
+				Lottery lo2 = new Lottery();
+				lo2.drawing();
+				while(!lo1.isEqual(lo2))
+				{
+					lo2 = new Lottery();	// damit das Array wieder leer ist
+					lo2.drawing();
+				}
+				lo2.print();
+			}
+
+		}
+		```
+
+
+??? info "Video von Übung 10"
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=b1d7a0585e6ad4180b4d8eabc98b8bb6&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=b1d7a0585e6ad4180b4d8eabc98b8bb6&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_Uebung10" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
 ??? note "Übung 11"
 
 	[Übung 11 (pdf)](./files/prog1_uebung11.pdf)
