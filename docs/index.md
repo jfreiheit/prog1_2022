@@ -1572,3 +1572,262 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	}
 	```
 
+
+??? question "Vorlesung 15.01.2024 - Power"
+	=== "Vorlesung0115.java"
+		```java
+		package vorlesungen.vorl0115;
+
+		public class Vorlesung0115
+		{
+
+		    public static void main(String[] args)
+		    {
+		    	Power p1 = new Power(3,4);
+		    	p1.print();
+		    	System.out.println(p1.toString() + " = " + p1.getValue());
+		    	
+		    	Power p2 = new Power(-3,4);
+		    	System.out.println(p2.toString() + " = " + p2.getValue());
+		    	
+		    	Power p3 = new Power(3,0);
+		    	System.out.println(p3.toString() + " = " + p3.getValue());
+		    	
+		    	Power p4 = new Power(3,-4);
+		    	System.out.println(p4.toString() + " = " + p4.getValue());
+		    	
+		    	Power p5 = new Power(-3,-4);
+		    	System.out.println(p5.toString() + " = " + p5.getValue());
+		    	
+		    	/*
+		    	Power p6 = new Power(-2,7);
+		    	System.out.println(p6.getValue());
+		    	
+		    	Power p7 = new Power(2,-1);
+		    	System.out.println(p7.getValue());
+		    	
+		    	Power p8 = new Power(2,-2);
+		    	System.out.println(p8.getValue());
+		    	
+		    	Power p9 = new Power(2,-3);
+		    	System.out.println(p9.getValue());
+		    	*/
+		    	
+		    	PowerOfTwo po1 = new PowerOfTwo(4);
+		    	po1.print();
+		    	po1.printBinary();
+		    	
+		    	PowerOfTwo po2 = new PowerOfTwo(-4);
+		    	po2.print();
+		    	po2.printBinary();
+		    	
+		    	PowerOfTwo po3 = new PowerOfTwo(0);
+		    	po3.print();
+		    	po3.printBinary();
+		    	
+		    	System.out.printf("%n%n----------- PowerArray ----------%n%n");
+		    	PowerArray pa1 = new PowerArray(7);
+		    	pa1.fillArray();
+		    	pa1.print();
+		    	double[] values = pa1.createArrayOfValues();
+		    	for (int index = 0; index < values.length; index++) 
+		    	{
+					System.out.println(values[index]);
+				}
+		    	pa1.sort();
+		    	pa1.print();
+		    }
+		}
+		```
+
+	=== "Power.java"
+		```java
+		package vorlesungen.vorl0115;
+
+		public class Power
+		{
+			private int base;
+			private int exp;
+			
+			public int getBase()
+			{
+				return this.base;
+			}
+			
+			public int getExp()
+			{
+				return this.exp;
+			}
+			
+			public Power(int base, int exp)
+			{
+				this.base = base;
+				this.exp = exp;
+			}
+			
+			public double getValue()
+			{
+				double result = 1.0;
+				if(this.exp >= 0)
+				{
+					for(int i = 0; i < this.exp; i++)
+					{
+						result = result * this.base;
+					}
+				} 
+				else
+				{
+					for(int i = 0; i > this.exp; i--)
+					{
+						result = result * this.base;
+					}
+					result = 1.0/result;
+				}
+				return result;
+			}
+			
+			@Override
+			public String toString()
+			{
+				return "(" + this.base + "," + this.exp + ")";
+			}
+			
+			public void print()
+			{
+				System.out.println(this.toString());
+			}
+		}
+		```
+
+	=== "PowerOfTwo.java"
+		```java
+		package vorlesungen.vorl0115;
+
+		public class PowerOfTwo extends Power
+		{
+			public PowerOfTwo(int exp)
+			{
+				super(2, exp);
+			}
+			
+			public void printBinary()
+			{
+				if(this.getExp() >= 0)
+				{
+					//System.out.print("1");
+					String s = "1";
+					for(int i = 0; i < this.getExp(); i++)
+					{
+						//System.out.print(" 0");
+						s += " 0";
+					}
+					System.out.println(s);
+				}
+				else
+				{
+					System.out.println("Zahl ist kleiner als 1.");
+				}
+			}
+		}
+		```
+
+	=== "PowerArray.java"
+		```java
+		package vorlesungen.vorl0115;
+
+		import java.util.Random;
+
+		public class PowerArray
+		{
+			private Power[] p;
+			
+			PowerArray(int length)
+			{
+				this.p = new Power[length];
+			}
+			
+			public void fillArray()
+			{
+				Random r = new Random();
+				final int BOUND = 5;
+				for (int index = 0; index < this.p.length; index++) 
+				{
+					int base = r.nextInt(BOUND) + 1;
+					int exp = r.nextInt(BOUND) + 1;
+					while(base > exp)
+					{
+						base = r.nextInt(BOUND) + 1;
+						exp = r.nextInt(BOUND) + 1;
+					}
+					this.p[index] = new Power(base, exp);
+				}
+			}
+			
+			public double[] createArrayOfValues()
+			{
+				double[] values = new double[this.p.length];
+				for (int index = 0; index < values.length; index++) 
+				{
+					values[index] = this.p[index].getValue();
+				}
+				return values;
+			}
+			
+			public int getIndexExponent(int exponent)
+			{
+				final int NOT_FOUND = -1;
+				for (int index = 0; index < this.p.length; index++) 
+				{
+					if(this.p[index].getExp() == exponent)
+					{
+						return index;
+					}
+				}
+				return NOT_FOUND;
+			}
+			
+			@Override
+			public String toString()
+			{
+				String s = "[ ";
+				
+				for (int index = 0; index < this.p.length; index++) 
+				{
+					s += this.p[index].toString();
+					if(index < this.p.length-1)
+					{
+						s += ", ";
+					}
+				}
+				
+				s += " ]";
+				return s;
+			}
+			
+			public void print()
+			{
+				System.out.println(this.toString());
+			}
+			
+			public void sort()
+			{
+				for(int bubble=0; bubble < this.p.length - 1; bubble++)
+				{
+					for(int index = 0; index < this.p.length -1 - bubble; index++)
+					{
+						if((this.p[index].getValue() > this.p[index+1].getValue()) || 
+							(this.p[index].getValue() == this.p[index+1].getValue() && 
+							 this.p[index].getExp() > this.p[index+1].getExp()))
+						{
+							// beide tauschen
+							Power tmp = this.p[index];
+							this.p[index] = this.p[index+1];
+							this.p[index+1] = tmp;
+						}
+					}
+				}
+			}
+		}
+
+		```
+
