@@ -2344,6 +2344,22 @@
 
 	[Übung 11 (pdf)](./files/prog1_uebung11.pdf)
 
+
+??? note "Übung 12"
+
+	Implementieren Sie eine Methode, die überprüft, ob ein gegebener String doppelte Zeichen enthält. Von der `String`-Klasse dürfen nur die Methoden `length()` und `charAt(int)` verwendet werden.
+
+	- Was ist Ihre algorithmische Idee? 
+	- Welche Hilfsmethoden benötigen Sie? 
+
+
+	**Zusatz** (Es dürfen weiterhin nur die Methoden `length()` und `charAt(int)` von der Klasse `String` verwendet werden)
+
+	- Wie oben, aber Groß-und Kleinschreibung wird ignoriert. 
+	- Implementieren Sie die `startsWith()`-Methode der Klasse [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) nach. 
+	- Implementieren Sie die `replace(char, char)`-Methode der Klasse [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) nach. 
+	- Implementieren Sie die `split(char)`-Methode der Klasse [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) nach. 
+
 ## Probeklausuren
 
 

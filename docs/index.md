@@ -1831,3 +1831,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 		```
 
+
+??? info "Vorlesung 22.1.2024 - Klausurvorbereitung - Video"
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=a73c521e1e3afa823fef8b29e47f2fff&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=a73c521e1e3afa823fef8b29e47f2fff&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_Klausurvorbereitung1" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
