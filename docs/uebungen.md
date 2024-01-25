@@ -2345,6 +2345,11 @@
 	[Übung 11 (pdf)](./files/prog1_uebung11.pdf)
 
 
+??? question "Eine mögliche Lösung für Übung 11"
+
+	[Übung 11 Lösung (pdf)](./files/prog1_uebung11_lsg.pdf)
+
+
 ??? note "Übung 12"
 
 	Implementieren Sie eine Methode, die überprüft, ob ein gegebener String doppelte Zeichen enthält. Von der `String`-Klasse dürfen nur die Methoden `length()` und `charAt(int)` verwendet werden.
@@ -2360,6 +2365,296 @@
 	- Implementieren Sie die `replace(char, char)`-Methode der Klasse [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) nach. 
 	- Implementieren Sie die `split(char)`-Methode der Klasse [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) nach. 
 
+??? question "Quellcode aus Übung 12a"
+	=== "Uebung12.java"
+		```java
+		package uebungen.uebung12a;
+
+		public class Uebung12
+		{
+			// enthaelt ein ein int-Array Doppelungen?
+			
+			public static boolean containsDoubles(int[] arr)
+			{
+				boolean foundDouble = false;
+				for (int index = 0; index < arr.length && !foundDouble; index++) 
+				{
+					// pruefe, ob arr[index] in arr ab Index index+1 vorkommt
+					// wenn ja, dann return true (Methode wird sofort verlassen)
+					// wenn nicht, dann index++ (Schleife)
+					int elementToCheck = arr[index];
+					for(int indexNochNichtAbgearbeitet = index+1; indexNochNichtAbgearbeitet < arr.length; indexNochNichtAbgearbeitet++)
+					{
+						int elementToCompare = arr[indexNochNichtAbgearbeitet];
+						//if(arr[index] == arr[indexNochNichtAbgearbeitet])			// funktioniert!
+						if(elementToCheck == elementToCompare)
+						{
+							foundDouble = true;
+						}
+					}
+				}
+				return foundDouble;
+			}
+			
+
+			public static void main(String[] args)
+			{
+				System.out.printf("%n%n------------------ a1 -------------------------%n%n");
+				int[] a1 = new int[5];	// 5 int-Variablen erzeugt (a1[0], a1[1], ... , a1[4]
+				
+				a1[0] = 4;
+				a1[1] = 3;
+				a1[2] = 2;
+				a1[3] = 4;
+				a1[4] = 1;
+				System.out.println("Laenge von a1 : " + a1.length);
+				System.out.println("Wert in a1 am Index 3 ist " + a1[3]);
+				
+				int index = 2;
+				System.out.println("Wert in a1 am Index " + index + " ist " + a1[index]);
+				index = 4;
+				System.out.println("Wert in a1 am Index " + index + " ist " + a1[index]);
+				
+				for(int i = 0; i < a1.length; i++)
+				{
+					System.out.println("Wert in a1 am Index " + i + " ist " + a1[i]);
+				}
+				
+				System.out.printf("%n%n------------------ contains a1 -------------------------%n%n");
+				System.out.println(containsDoubles(a1));
+				
+				System.out.printf("%n%n------------------ a2 -------------------------%n%n");
+				int[] a2 = { 5, 3, 2, 5, 2, 1, 8 }; // 7 int-Variablen erzeugt (a2[0], a2[1], ... , a2[6]
+				System.out.println("Laenge von a2 : " + a2.length);
+				System.out.println("Wert in a2 am Index 3 ist " + a2[3]);
+				
+				for(int i = 0; i < a2.length; i++)
+				{
+					System.out.println("Wert in a2 am Index " + i + " ist " + a2[i]);
+				}
+				
+				System.out.printf("%n%n------------------ contains a2 -------------------------%n%n");
+				System.out.println(containsDoubles(a2));
+				
+				System.out.printf("%n%n------------------ contains a3 -------------------------%n%n");
+				int[] a3 = { 5, 3, 2, 0, 4, 1, 8 };
+				System.out.println(containsDoubles(a3));
+				
+				System.out.printf("%n%n------------------ NeuerTyp -------------------------%n%n");
+				NeuerTyp nt1 = new NeuerTyp(20);
+				nt1.fillArray();
+				System.out.println(nt1.containsDoubles());
+				
+				NeuerTyp nt2 = new NeuerTyp(10);
+				nt2.fillArray();
+				System.out.println(nt2.containsDoubles());
+				
+				NeuerTyp nt3 = new NeuerTyp(100);
+				nt3.fillArray();
+				System.out.println(nt3.containsDoubles());
+			}
+
+		}
+		```
+	=== "NeuerTyp.java"
+		```java
+		package uebungen.uebung12a;
+
+		import java.util.Random;
+
+		public class NeuerTyp
+		{
+			private int[] myArray;
+			
+			public NeuerTyp(int length)
+			{
+				this.myArray = new int[length];
+				//this.fillArray();
+			}
+			
+			public void fillArray()
+			{
+				Random r = new Random();
+				for(int i = 0; i < this.myArray.length; i++)
+				{
+					this.myArray[i] = r.nextInt(100);
+				}
+			}
+			
+			public boolean containsDoubles()
+			{
+				boolean foundDouble = false;
+				for (int index = 0; index < this.myArray.length; index++) 
+				{
+					// pruefe, ob arr[index] in arr ab Index index+1 vorkommt
+					// wenn ja, dann return true (Methode wird sofort verlassen)
+					// wenn nicht, dann index++ (Schleife)
+					int elementToCheck = this.myArray[index];
+					for(int indexNochNichtAbgearbeitet = index+1; indexNochNichtAbgearbeitet < this.myArray.length; indexNochNichtAbgearbeitet++)
+					{
+						int elementToCompare = this.myArray[indexNochNichtAbgearbeitet];
+						//if(arr[index] == arr[indexNochNichtAbgearbeitet])			// funktioniert!
+						if(elementToCheck == elementToCompare)
+						{
+							foundDouble = true;
+						}
+					}
+				}
+				return foundDouble;
+			}
+		}
+		```
+
+
+??? info "Video von Übung 12a"
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=5f90b3baed1c8059edcfc85afbf4d72b&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=5f90b3baed1c8059edcfc85afbf4d72b&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_uebung12a" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
+
+??? question "Quellcode aus Übung 12b"
+	=== "Uebung12.java"
+		```java
+		package uebungen.uebung12b;
+
+		import java.util.Random;
+
+		public class Uebung12
+		{
+
+			public static void main(String[] args)
+			{
+				System.out.printf("%n%n------ Schleifen ------ %n%n");
+				Random r = new Random();
+				int[] a1 = new int[10];	// 10 int-Variablen a1[0], a1[1], ... , a1[9]
+				
+				System.out.println("Laenge von a1 ist " + a1.length);
+				
+				a1[0] = 12;
+				a1[1] = 10;
+				
+				for(int index = 2; index < a1.length; index++)
+				{
+					System.out.println("Wert der Variablen index ist : " + index);
+					int neuerWert = r.nextInt(10) + 10; // r.nextInt(10) erzeugt eine Zufallszahl 
+														// aus dem Bereich 0, 1, .., 9
+														// wegen +10 aus dem Bereich 10, 11, ... 19
+					a1[index] = neuerWert;
+					System.out.println("a1[" + index + "] = " + neuerWert);
+				}
+				System.out.println("Schleifenende");
+				
+				// diese while-Schleife ist identisch mit ...
+				int index = 0;
+				System.out.print("[ ");
+				while(index < a1.length)
+				{
+					System.out.print(a1[index] + " ");
+					index++;
+				}
+				System.out.println("]");
+				
+				// ... dieser for-Schleife
+				System.out.print("[ ");
+				for(int i = 0; i < a1.length; i++)
+				{
+					System.out.print(a1[i] + " ");
+				}
+				System.out.println("]");
+				
+				// 3n+1-Problem
+				int startZahl = 7;
+				int naechsteZahl;
+				if(startZahl % 2 == 0) // gerade Zahl
+				{
+					naechsteZahl = startZahl / 2;
+				}
+				else // ungerade Zahl
+				{
+					naechsteZahl = startZahl * 3 + 1;
+				}
+				System.out.print(startZahl + " " + naechsteZahl);
+				
+				while(naechsteZahl > 1)
+				{
+					if(naechsteZahl % 2 == 0) // gerade Zahl
+					{
+						naechsteZahl = naechsteZahl / 2;
+					}
+					else // ungerade Zahl
+					{
+						naechsteZahl = naechsteZahl * 3 + 1;
+					}
+					System.out.print(" " + naechsteZahl);
+				}
+				
+				System.out.printf("%n%n------ ListElement ------ %n%n");
+				ListElement l1 = new ListElement('a');
+				ListElement l2 = new ListElement('b');
+				l1.insertBefore(l2);
+				
+				/*
+					int indexX = i;
+					int indexB = x[indexX];
+					b[indexB] = true;
+					
+					gleich:
+					
+					b[x[i]] = true;
+				
+
+				 * b = { f , t , t , t , f }
+				 */
+			}
+
+		}
+
+		```
+	=== "ListElement.java"
+		```java
+		package uebungen.uebung12b;
+
+		public class ListElement
+		{
+			private char value;
+			private boolean hasSuccessor;
+			private boolean hasPredecessor;
+			private ListElement predecessor;
+			private ListElement successor;
+
+			/*
+			E <-> E <-> E
+			 */
+
+			public ListElement(char value)
+			{
+				this.value = value;
+				this.hasPredecessor = false;
+				this.hasSuccessor = false;
+			}
+
+			public void insertBefore(ListElement element)
+			{
+				/*
+				 * irgend <-> element --> irgend <-> this <-> element
+				 * this <-> element
+				 */
+				if(element.hasPredecessor)
+				{
+					this.hasPredecessor = true;
+					this.predecessor = element.predecessor;
+				}
+				
+				this.hasSuccessor = true;
+				this.successor = element;
+				element.hasPredecessor = true;
+				element.predecessor = this;
+			}
+		}
+		```
+
+
+??? info "Video von Übung 12b"
+	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=1db30c08e884fc7ea7a73b86aa60ffbd&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=1db30c08e884fc7ea7a73b86aa60ffbd&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_uebung12b" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+	
 ## Probeklausuren
 
 

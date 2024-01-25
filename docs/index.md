@@ -59,8 +59,8 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 13. | 15.-19.01.2024 | [JavaDoc](./javadoc/#javadoc) | - | - |
 | 14. | 22.-26.01.2024 | Wiederholung, Klausurvorbereitung  | -  | - |
 | 15. | 29.-02.02.2024 | Wiederholung, Klausurvorbereitung | - | - |
-| 16. | 05.02.2024 12-14 Uhr| Klausur 1.PZ | -  | - |
-| 16. | 25.03.2024 12-14 Uhr| Klausur 2.PZ | -  | - |
+| 16. | 05.02.2024 11-13 Uhr| Klausur 1.PZ | -  | - |
+| 16. | 25.03.2024 11-13 Uhr| Klausur 2.PZ | -  | - |
 
 ## Code aus der Vorlesung
 
