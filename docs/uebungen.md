@@ -2654,6 +2654,367 @@
 
 ??? info "Video von Übung 12b"
 	<iframe src="https://mediathek.htw-berlin.de/media/embed?key=1db30c08e884fc7ea7a73b86aa60ffbd&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=1db30c08e884fc7ea7a73b86aa60ffbd&width=720&height=405&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="405" title="Prog1_uebung12b" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
+
+
+??? question "Quellcode aus Übung 13a"
+	=== "Uebung13.java"
+		```java
+		package uebungen.uebung13a;
+
+		import java.util.Random;
+
+		public class Uebung13
+		{
+			public static boolean contains(char[] ca, char c)
+			{
+				for (int index = 0; index < ca.length; index++) 
+				{
+					if(ca[index] == c)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			public static char[] sort(char[] a)
+			{
+				char[] sortiert = new char[a.length];
+				
+				// zuerst kopieren
+				for (int index = 0; index < sortiert.length; index++) 
+				{
+					sortiert[index] = a[index];
+				}
+				
+				// sortiert sortieren
+				for (int bubble = 1; bubble < sortiert.length; bubble++) 
+				{
+					for (int index = 0; index < sortiert.length-bubble; index++)
+					{
+						if(sortiert[index] > sortiert[index+1])
+						{
+							char tmp = sortiert[index];
+							sortiert[index] = sortiert[index+1];
+							sortiert[index+1] = tmp;
+						}
+					}
+				}
+				
+				return sortiert;
+				
+			}
+			
+			
+			public static char[] createAndFillCharArray()
+			{
+				char[] charArray = new char[25];
+				Random r = new Random();
+				for (int index = 0; index < charArray.length; index++) 
+				{
+					int randNr = r.nextInt(26) + 97;
+					char c = (char) randNr;
+					while(contains(charArray, c))
+					{
+						randNr = r.nextInt(26) + 97;
+						c = (char) randNr;
+					}
+					charArray[index] = c;
+				}
+				
+				return charArray;
+			}
+			
+			public static void main(String[] args)
+			{
+				for(int newName = 97; newName<123; newName++)
+				{
+				    char c = (char) newName;
+				    System.out.print(c + " ");
+				}
+				System.out.println();
+				
+				char c = 65500;
+				System.out.println(c);
+				c++;
+				c = (char)(c + 1);
+				System.out.println(c);
+				
+				int i = c;
+				System.out.println(i);
+				
+				
+
+			}
+
+		}
+		```
+	=== "Computer.java"
+		```java
+		package uebungen.uebung13a;
+
+		public class Computer
+		{
+			protected String hersteller;
+			protected int ram;
+			protected int platte;
+			
+			public Computer(String hersteller, int ram, int platte)
+			{
+				this.hersteller = hersteller;
+				this.ram = ram;
+				this.platte = platte;
+			}
+			
+		}
+		```
+	=== "Notebook.java"
+		```java
+		package uebungen.uebung13a;
+
+		public class Notebook extends Computer
+		{
+			protected int monitor;
+			
+			public Notebook(String hersteller, int ram, int platte, int monitor)
+			{
+				super(hersteller, ram, platte);  // Aufruf des Konstruktors von Computer
+				this.monitor = monitor;
+			}
+		}
+		```
+	=== "NotebookArray.java"
+		```java
+		package uebungen.uebung13a;
+
+		import java.util.Random;
+
+		public class NotebookArray
+		{
+			private Notebook[] notebooks;
+			
+			public NotebookArray(int anzahl)
+			{
+				this.notebooks = new Notebook[anzahl];
+			}
+			
+			public void konfigurieren()
+			{
+				Random r = new Random();
+				for (int index = 0; index < this.notebooks.length; index++) 
+				{
+					int randNr = r.nextInt(5);
+					/*
+					this.notebooks[index] = switch(randNr) {
+						case 0 -> new Notebook("lenovo", 8, 256, 13);
+						case 1 -> new Notebook("lenovo", 16, 512, 15);
+						case 2 -> new Notebook("apple", 4, 256, 13);
+						case 3 -> new Notebook("apple", 8, 512, 13);
+						case 4 -> new Notebook("dell", 8, 512, 15);
+					default -> null;
+					};
+					*/
+					if(randNr == 0)
+					{
+						this.notebooks[index] = new Notebook("lenovo", 8, 256, 13);
+					} 
+					else if(randNr == 1)
+					{
+						this.notebooks[index] = new Notebook("lenovo", 16, 512, 15);
+					} 
+					else if(randNr == 2)
+					{
+						this.notebooks[index] = new Notebook("apple", 4, 256, 13);
+					} 
+					else if(randNr == 3)
+					{
+						this.notebooks[index] = new Notebook("apple", 8, 512, 13);
+					} 
+					else if(randNr == 4)
+					{
+						this.notebooks[index] = new Notebook("dell", 8, 512, 15);
+					}
+				}
+			}
+		}
+		```
+
+
+??? question "Quellcode aus Übung 13a"
+	=== "Uebung13.java"
+		```java
+		package uebungen.uebung13b;
+
+		public class Uebung13
+		{
+
+			public static char[] copy(char[] original)
+			{
+				char[] kopie = new char[original.length];
+				
+				for (int index = 0; index < kopie.length; index++) 
+				{
+					kopie[index] = original[index];
+				}
+				
+				return kopie;
+			}
+			
+			public void print(char[] a)
+			{
+				System.out.print("[ ");
+				for(int index = 0; index < a.length; index++)
+				{
+					System.out.print(a[index] + " ");
+				}
+				System.out.println("]");
+			}
+			
+			public static boolean containsDigit(String s)
+			{
+				for(int index = 0; index < s.length(); index++)
+				{
+					char c = s.charAt(index);
+					int asciiCode = c;
+					if(asciiCode >= 48 && asciiCode <= 57)
+					//if(c >= '0' && c <= '9')
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			public static String myToString(int i)
+			{
+				return i+"";
+			}
+			
+			
+			public static void main(String[] args)
+			{
+				Klausur prog1 = new Klausur("Prog1");
+				Klausur prog2 = new Klausur("Prog2");
+				Klausur prog3 = new Klausur("Prog1");
+				Klausur prog4 = prog1;
+				Klausur prog5 = null;		
+				
+				System.out.println( prog1 == prog2 );	// false
+				System.out.println( prog1 == prog3 );	// false
+				System.out.println( prog1 == prog4 );	// true
+				
+				System.out.println(prog1.isEqual(prog2));  // false
+				System.out.println(prog1.isEqual(prog3));  // true
+				System.out.println(prog1.isEqual(prog4));  // true
+				System.out.println(prog1.isEqual(prog5));  // Exception
+				
+				System.out.println(prog1.equals(prog2));  // false
+				System.out.println(prog1.equals(prog3));  // true
+				System.out.println(prog1.equals(prog4));  // true
+				
+				System.out.println(prog1.getClass());
+				
+				char[] a = { 'a', 'b', 'c', 'e', 'h', 'j' };
+				char[] b = copy(a);
+				b[1] = 'a';
+				
+				Uebung13 u13 = new Uebung13();
+				u13.print(a);
+				u13.print(b);
+				
+				char c = 'A';		// c hat den Wert 65
+				int i = c;			// char Wertebereich 0 ... 65535
+				System.out.println(i);
+				c = 66;
+				System.out.println(c);
+				c++;
+				System.out.println(c);
+				c = (char)(c + 7);
+				System.out.println(c);
+				i = c;
+				System.out.println(i);
+				
+				for(int j = 97; j < 123; j++)
+				{
+					char ca = (char)j;
+					System.out.print(ca + " ");
+				}
+				for(int j = 65; j < 91; j++)
+				{
+					char ca = (char)j;
+					System.out.print(ca + " ");
+				}
+				
+				char c1 = '0';
+				int i1 = c1;
+				System.out.println(i1);
+				
+				System.out.println(containsDigit("Hallo FIW!"));
+				System.out.println(containsDigit("Hallo 1 FIW!"));
+				System.out.println(containsDigit("Hallo 9 FIW!"));
+				System.out.println(containsDigit("Hallo FIW! 7"));
+				
+				String s = myToString(1234);
+			}
+
+		}
+
+		```
+	=== "Klausur.java"
+		```java
+		package uebungen.uebung13b;
+
+		public class Klausur
+		{
+			private String modul;
+			
+			public Klausur(String modul)
+			{
+				this.modul = modul;
+			}
+			
+			public boolean isEqual(Klausur k)
+			{
+				if(k == null) return false;
+				return this.modul.equals(k.modul);	// String-Vergleich
+			}
+			
+			
+			@Override
+			public boolean equals(Object o)
+			{
+				if(o == null) return false;
+				if(this == o) return true;
+				if(this.getClass() != o.getClass()) return false;
+				// o ist nicht null und auch nicht this und vom Laufzeittyp Klausur
+				Klausur k = (Klausur)o;
+				return this.modul.equals(k.modul);
+			}
+			
+			/*
+			 * wir betrachten die Vererbungshierarchie Object <- Viereck <- Rechteck <- Quadrat
+			 * 
+			 * Viereck v = new Quadrat(10);
+			 * v ist vom Compilertyp Viereck
+			 * v ist vom Laufzeittyp Object
+			 * 						 Viereck
+			 * 						 Rechteck
+			 * 						 Quadrat
+			 * v.flaecheninhalt()		// Fehler, gibt es nicht fuer Viereck
+			 * v.toString()				// Implementierung von Quadrat! Dynamische Polymorphie
+			 * 
+			 * Viereck v1 = new Viereck(10,20,30,40);
+			 * v1 ist vom Compilertyp Viereck
+			 * v1 ist vom Laufzeittyp Object
+			 * 						  Viereck
+			 * 
+			 * v1.toString() 			// Implemnetierung von Viereck!
+			 */
+		}
+
+		```
+
 	
 ## Probeklausuren
 
