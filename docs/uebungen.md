@@ -3020,6 +3020,667 @@
 
 
 	
+??? note "Bit und Byte"
+	
+	1. Erstellen Sie ein package `klausurvorbereitung.bit`. 
+	2. (**Teil 1**) Erstellen Sie in diesem package eine Klasse `Bit` mit 
+
+		- der privaten Objektvariablen 
+
+			- `value` vom Typ `boolean`.
+
+		- Erstellen Sie für die Klasse `Bit` einen parametrisierten Konstruktor, dem ein Wert für `value` übergeben wird. Initialisieren Sie damit die Objektvariable. 
+
+		- Erstellen Sie eine Objektmethode `bitToInt()`. Diese Methode gibt eine `1` zurück, wenn die Objektvariable `value` den Wert `true` hat und eine `0`, wenn der Wert der Objektvariable `false` ist.
+
+		- Erstellen Sie eine Objektmethode `and(Bit b)`, die ein `Bit`-Objekt zurückgibt. Der Wert der Objektvariablen `value` des zurückzugebenden Objektes ergibt sich aus der `&&`-Verknüpfung (Java-UND-Operator) der beiden `value`-Werte des aufrufenden Objektes und `b`. 
+
+		- Erstellen Sie eine Objektmethode `or(Bit b)`, die ein `Bit`-Objekt zurückgibt. Der Wert der Objektvariablen `value` des zurückzugebenden Objektes ergibt sich aus der `||`-Verknüpfung (Java-OR-Operator) der beiden `value`-Werte des aufrufenden Objektes und `b`. 
+
+		- Erstellen Sie eine Objektmethode `isBigger(Bit b)`, die genau dann ein `true` zurückgibt, wenn `value` des aufrufenden Objektes `true` und der Wert von `b` `false` ist. Ansonsten wird `false` zurückgegeben.
+
+		- Erstellen Sie eine Objektmethode `isEqual(Bit b)`, die genau dann ein `true` zurückgibt, wenn `value` des aufrufenden Objektes gleich dem Wert von `b` ist (also entweder `true` und `true` oder `false` und `false`). Ansonsten wird `false` zurückgegeben.
+		
+		- Überschreiben Sie die Methode `toString()` so, dass eine `"1"` zurückgegeben wird, wenn `value` den Wert `true` hat und eine `"0"`, wenn `false`.
+
+		- Erstellen Sie eine `Programmklasse` mit `main()`-Methode. Erzeugen Sie in der `main()`-Methode vier `Bit`-Objekte `b1`, `b2`, `b3` und `b4` mit den Werten `true` (b1), `true` (b2), `false` (b3), `false` (b4). Erzeugen Sie mithilfe der `toString()`-Methode von `Bit` folgende Konsolenausgaben:
+			```bash
+			------------------ Bit-Objekte ----------------------
+			b1 = 1
+			b2 = 1
+			b3 = 0
+			b4 = 0
+			```
+
+		- Wenden Sie die `isBigger(Bit)`- und `isEqual(Bit)`-Methode jeweils für (b1,b2), (b1, b3) und (b3, b4) (`>` steht für `isBigger()` und `==` steht für `isEqual()`) an und erzeugen Sie mithilfe der `toString()`-Methode von `Bit` folgende Konsolenausgaben:
+			```bash
+			---------------- Bit Vergleiche ---------------------
+			b1 > b2 ? false
+			b1 > b3 ? true
+			b3 > b4 ? false
+			b1 == b2 ? true
+			b1 == b3 ? false
+			b3 == b4 ? true
+			```
+
+	3. (**Teil 2**) Erstellen Sie in diesem package eine Klasse `Byte` mit 
+
+		- der privaten Objektvariablen 
+
+			- `bits` vom Typ `Bit[]`.
+
+		- Erstellen Sie für die Klasse `Byte` einen parameterlosen Konstruktor. Innerhalb des Konstruktors wird das `bits`-Array der Länge `8` erzeugt.
+
+		- Erstellen Sie eine Objektmethode `createByte()`. Diese Methode gibt nichts zurück.
+
+			- In der Methode wird das `bits`-Array vollständig mit `Bit`-Objekten befüllt.
+			- Die `value`-Werte der einzelnen `Bit`-Objekte werden jeweils zufällig mithilfe der `nextBoolean()`-Methode der Klasse `Random` erzeugt. (`nextBoolean()` gibt zufällig ein `true` oder ein `false` zurück).
+			- Erzeugen Sie sich dazu in der `createByte()`-Methode ein `Random`-Objekt, für das Sie jeweils `nextBoolean()` aufrufen. Die Klasse `Random` muss aus dem `java.util`-Paket importiert werden.
+
+		- Erstellen Sie eine Objektmethode `createByte(String nr)`. Diese Methode gibt nichts zurück. Für den übergebenen String können Sie folgende Annahmen treffen:
+
+			- Der String hat die Länge `8`
+			- Der String enthält nur die Zeichen `'0'` und `'1'`
+			- Beispiele: `"10010010"`, `"10010001"`, `"01110001"`, `"01110011"`
+			<br/>
+			- In der Methode wird das `bits`-Array vollständig mit `Bit`-Objekten befüllt.
+			- Die `value`-Werte der einzelnen `Bit`-Objekte entsprechen dem Zeichen im übergebenen String (`'1'` ergibt `true`, `'0'` ergibt `false`).
+
+				![bit](./files/219_bit.png){: style="width:60%"}
+
+		- Überschreiben Sie die Methode `toString()` so, dass ein `String` in der folgenden Form zurückgegeben wird (Beispielwerte):
+			```bash
+			1001 0010
+			```
+			Nach 4 Bits erfolgt ein Leerzeichen
+
+		- Erzeugen Sie in der `main()`-Methode der `Programmklasse` ein Objekt `by1` von `Byte` und befüllen Sie das `bits`-Array mithilfe der `createByte()`-Methode (also zufällig).
+		<br />
+		Erzeugen Sie 5 weite `Byte`-Objekte `by2`, `by3`, `by4`, `by5` und `by6` und befüllen Sie das jeweilige `bits`-Array mithilfe der `createByte(String)`-Methode unter Verwendung folgender Strings:
+
+			- `by2` &rarr; `"10010010"`
+			- `by3` &rarr; `"10010001"`
+			- `by4` &rarr; `"10010010"`
+			- `by5` &rarr; `"01110001"`
+			- `by6` &rarr; `"01110011"`
+
+		Erzeugen Sie mithilfe der `toString()`-Methode für `Byte` folgende Konsolenausgaben (für `by1` Beispielwerte – zufällig erzeugt):
+			```bash
+			----------------- Byte-Objekte ----------------------
+			by1 = 0011 0100
+			by2 = 1001 0010
+			by3 = 1001 0001
+			by4 = 1001 0010
+			by5 = 0111 0001
+			by6 = 0111 0011
+			```
+
+		- Erstellen Sie in der Klasse `Byte` eine Objektmethode `isBigger(Byte b)`. Diese Methode gibt ein `true` zurück, wenn das aufrufende `Byte`-Objekt einem höheren `Byte`-Wert entspricht als `b`, also z.B. `"1001 0010"` *isBigger* als `"1001 0001"` oder `"0111 0011"` *isBigger* als `"0111 0001"`. Für gleich oder kleiner wird `false` zurückgegeben.
+
+		- Erstellen Sie in der Klasse `Byte` eine Objektmethode `and(Byte b)`. Diese Methode gibt ein `Byte`-Objekt zurück. Die Werte des `bits`-Array des zurückzugebenden Objektes ergeben sich durch bitweise `&&`-Verknüpfung (`and(Bit)`-Methode), z.B.:
+
+			![bit](./files/220_bit.png){: style="width:40%"}
+
+		- Erstellen Sie in der Klasse `Byte` eine Objektmethode `add(Byte b)`. Diese Methode gibt ein `Byte`-Objekt zurück. Die Werte des `bits`-Array des zurückzugebenden Objektes ergeben sich durch bitweise **Addition**:
+
+			![bit](./files/221_bit.png){: style="width:50%"}
+
+		Beispiel:
+
+		![bit](./files/222_bit.png){: style="width:50%"}
+
+		- Verwenden Sie in der `main()`-Methode
+
+			- die Methode `isBigger(Byte)` für den Vergleich der Objekte (by2, by3), (by2, by4) und (by3, by4) und erzeugen Sie unter Verwendung der `toString()`-Methode von `Byte` folgende Konsolenausgaben:
+				```bash
+				--------------- Byte Vergleiche ---------------------
+				1001 0010 > 1001 0001 ? true
+				1001 0010 > 1001 0010 ? false
+				1001 0001 > 1001 0010 ? false
+				```
+
+			- die Methode `and(Byte)` für die Operation der Objekte (by2, by3) und (by2, by4) und erzeugen Sie unter Verwendung der `toString()`-Methode von `Byte` folgende Konsolenausgaben:
+				```bash
+				------------------- Byte and ------------------------
+				1001 0010 and 1001 0001 = 0000 1001
+				1001 0010 and 1001 0010 = 0100 1001
+				```
+
+			- die Methode `add(Byte)` für die Operation der Objekte (by2, by3) und (by5, by6) und erzeugen Sie unter Verwendung der `toString()`-Methode von `Byte` folgende Konsolenausgaben:
+				```bash
+				------------------- Byte add ------------------------
+				1001 0010 + 1001 0001 = 0010 0011
+				0111 0001 + 0111 0011 = 1110 0100
+				```
+
+	4. (**Teil 3**) 
+
+		- Erzeugen Sie in der `main()`-Methode der `Programmklasse` zwei `Byte`-Arrays `bya1` und `bya2`.
+
+			- Das `Byte`-Array `bya1` hat die Länge `10`. Befüllen Sie es vollständig mit `Byte`-Objekten. Wenden Sie auf die `Byte`-Objekte jeweils die `createByte()`-Methode an (zufällige Werte).
+			- Das `Byte`-Array `bya2` hat die Länge `20`. Befüllen Sie es vollständig mit `Byte`-Objekten. Wenden Sie auf die `Byte`-Objekte jeweils die `createByte()`-Methode an (zufällige Werte).
+
+		- Erstellen Sie in der `Programmklasse` eine *statische* Methode `printByteArray(Byte[] bya)`. Diese Methode gibt das übergebene `Byte`-Array `bya` auf der Konsole in der folgenden Form aus (Beispiel `bya1` – Zufallswerte):
+			```bash
+			------ Byte-Array der Laenge 10 --------
+			0 : 0001 1110
+			1 : 1000 0000
+			2 : 0010 1000
+			3 : 1110 1010
+			4 : 0100 0111
+			5 : 0010 0101
+			6 : 1100 0001
+			7 : 1010 0111
+			8 : 1100 1100
+			9 : 0100 0001
+			```
+
+			- In der obersten Zeile wird also auch immer zunächst die Länge des Arrays mitausgegeben!
+			- Die einzelnen `Byte`-Objekte werden nummeriert (ganz linker Wert in jeder Zeile) beginnend mit `0` (gefolgt von Doppelpunkt).
+
+		- Rufen Sie in der `main()`-Methode die `printByteArray()`-Methode für die `Byte`-Arrays `bya1` und `bya2` auf. Es entstehen folgende Ausgaben (Zufallswerte!):
+			```bash
+			------ Byte-Array der Laenge 10 --------
+			0 : 0001 1110
+			1 : 1000 0000
+			2 : 0010 1000
+			3 : 1110 1010
+			4 : 0100 0111
+			5 : 0010 0101
+			6 : 1100 0001
+			7 : 1010 0111
+			8 : 1100 1100
+			9 : 0100 0001
+
+			------ Byte-Array der Laenge 20 --------
+			0 : 1101 0111
+			1 : 0110 1000
+			2 : 0011 0101
+			3 : 1100 0000
+			4 : 1001 0010
+			5 : 0101 0010
+			6 : 1110 1101
+			7 : 0110 1100
+			8 : 1100 1010
+			9 : 1111 1110
+			10 : 0101 0101
+			11 : 0101 1100
+			12 : 1011 1101
+			13 : 1011 0101
+			14 : 0110 1000
+			15 : 1011 0100
+			16 : 1001 1000
+			17 : 0011 0001
+			18 : 1000 1101
+			19 : 0011 0100
+			```
+
+		- Erstellen Sie in der `Programmklasse` eine *statische* Methode `sortByteArray(Byte[] bya)`. Diese Methode gibt ein `Byte`-Array zurück. Das zurückgegebene `Byte`-Array enthält alle `Byte`-Objekte aus `bya` und ist aufsteigend sortiert. Das übergebene `bya` wird nicht sortiert!
+
+		- Rufen Sie in der `main()`-Methode die `sortByteArray()`-Methode für die `Byte`-Arrays `bya1` und `bya2` auf. Geben Sie das jeweils zurückgegebene Byte-Array mithilfe der `printByteArray()`-Methode auf die Konsole aus. Es entstehen folgende Ausgaben (Zufallswerte!):
+			```bash
+			------ Byte-Array der Laenge 10 --------
+			0 : 0001 1110
+			1 : 0010 0101
+			2 : 0010 1000
+			3 : 0100 0001
+			4 : 0100 0111
+			5 : 1000 0000
+			6 : 1010 0111
+			7 : 1100 0001
+			8 : 1100 1100
+			9 : 1110 1010
+
+			------ Byte-Array der Laenge 20 --------
+			0 : 0011 0001
+			1 : 0011 0100
+			2 : 0011 0101
+			3 : 0101 0010
+			4 : 0101 0101
+			5 : 0101 1100
+			6 : 0110 1000
+			7 : 0110 1000
+			8 : 0110 1100
+			9 : 1000 1101
+			10 : 1001 0010
+			11 : 1001 1000
+			12 : 1011 0100
+			13 : 1011 0101
+			14 : 1011 1101
+			15 : 1100 0000
+			16 : 1100 1010
+			17 : 1101 0111
+			18 : 1110 1101
+			19 : 1111 1110
+			```
+
+	5. Zur Kontrolle: Die möglichen Ausgaben (Beispielwerte) könnten sein:
+
+		```bash
+		------------------ Bit-Objekte ----------------------
+		b1 = 1
+		b2 = 1
+		b3 = 0
+		b4 = 0
+
+		---------------- Bit and und or ---------------------
+		b1 and b2 = 1
+		b1 or b2 = 1
+		b1 and b3 = 0
+		b1 or b3 = 1
+		b3 and b4 = 0
+		b3 or b4 = 0
+
+		---------------- Bit Vergleiche ---------------------
+		b1 > b2 ? false
+		b1 > b3 ? true
+		b3 > b4 ? false
+		b1 == b2 ? true
+		b1 == b3 ? false
+		b3 == b4 ? true
+
+		----------------- Byte-Objekte ----------------------
+		by1 = 1111 0101
+		by2 = 1001 0010
+		by3 = 1001 0001
+		by4 = 1001 0010
+		by5 = 0111 0001
+		by6 = 0111 0011
+
+		--------------- Byte Vergleiche ---------------------
+		1001 0010 > 1001 0001 ? true
+		1001 0010 > 1001 0010 ? false
+		1001 0001 > 1001 0010 ? false
+
+		------------------- Byte and ------------------------
+		1001 0010 and 1001 0001 = 0000 1001
+		1001 0010 and 1001 0010 = 0100 1001
+
+		------------------- Byte add ------------------------
+		1001 0010 + 1001 0001 = 0010 0011
+		0111 0001 + 0111 0011 = 1110 0100
+
+		------------------- Byte-Array unsortiert ------------------------
+
+		------ Byte-Array der Laenge 10 --------
+		0 : 0001 1110
+		1 : 1000 0000
+		2 : 0010 1000
+		3 : 1110 1010
+		4 : 0100 0111
+		5 : 0010 0101
+		6 : 1100 0001
+		7 : 1010 0111
+		8 : 1100 1100
+		9 : 0100 0001
+
+		------ Byte-Array der Laenge 20 --------
+		0 : 1101 0111
+		1 : 0110 1000
+		2 : 0011 0101
+		3 : 1100 0000
+		4 : 1001 0010
+		5 : 0101 0010
+		6 : 1110 1101
+		7 : 0110 1100
+		8 : 1100 1010
+		9 : 1111 1110
+		10 : 0101 0101
+		11 : 0101 1100
+		12 : 1011 1101
+		13 : 1011 0101
+		14 : 0110 1000
+		15 : 1011 0100
+		16 : 1001 1000
+		17 : 0011 0001
+		18 : 1000 1101
+		19 : 0011 0100
+
+		--------------------- Byte-Array sortiert ------------------------
+
+		------ Byte-Array der Laenge 10 --------
+		0 : 0001 1110
+		1 : 0010 0101
+		2 : 0010 1000
+		3 : 0100 0001
+		4 : 0100 0111
+		5 : 1000 0000
+		6 : 1010 0111
+		7 : 1100 0001
+		8 : 1100 1100
+		9 : 1110 1010
+
+		------ Byte-Array der Laenge 20 --------
+		0 : 0011 0001
+		1 : 0011 0100
+		2 : 0011 0101
+		3 : 0101 0010
+		4 : 0101 0101
+		5 : 0101 1100
+		6 : 0110 1000
+		7 : 0110 1000
+		8 : 0110 1100
+		9 : 1000 1101
+		10 : 1001 0010
+		11 : 1001 1000
+		12 : 1011 0100
+		13 : 1011 0101
+		14 : 1011 1101
+		15 : 1100 0000
+		16 : 1100 1010
+		17 : 1101 0111
+		18 : 1110 1101
+		19 : 1111 1110
+		```
+
+
+
+??? question "Eine mögliche Lösung für Bit und Byte"
+	=== "Bit.java"
+		```java
+		package klausurvorbereitung.bit;
+
+		public class Bit
+		{
+			private boolean value;
+			
+			public Bit(boolean value)
+			{
+				this.value = value;
+			}
+			
+			public int bitToInt()
+			{
+				if(this.value) return 1;
+				else return 0;
+			}
+			
+			public Bit and(Bit b)
+			{
+				return new Bit(this.value && b.value);
+			}
+			
+			public Bit or(Bit b)
+			{
+				return new Bit(this.value || b.value);
+			}
+			
+			public boolean isBigger(Bit b)
+			{
+				return (this.value && !b.value);
+			}
+			
+			public boolean isEqual(Bit b)
+			{
+				return (this.value && b.value) || (!this.value && !b.value);
+			}
+			
+			@Override
+			public String toString()
+			{
+				return this.bitToInt()+"";
+			}
+		}
+		```	
+
+	=== "Byte.java"
+		```java
+		package klausurvorbereitung.bit;
+
+		import java.util.Random;
+
+		public class Byte
+		{
+			private Bit[] bits;
+			
+			public Byte()
+			{
+				this.bits = new Bit[8];
+			}
+			
+			public void createByte()
+			{
+				Random r = new Random();
+				for(int i=0; i < this.bits.length; i++)
+				{
+					this.bits[i] = new Bit(r.nextBoolean());
+				}
+			}
+			
+			public void createByte(String nr)
+			{
+				for(int i=this.bits.length-1; i >= 0; i--)
+				{
+					if(nr.charAt(i) == '1')
+					{
+						this.bits[i] = new Bit(true);
+					}
+					else
+					{
+						this.bits[i] = new Bit(false);
+					}
+				}
+			}
+			
+			public String toString()
+			{
+				String s = "";
+				for (int i = 0; i < this.bits.length; i++) 
+				{
+					if(i==4) s+= " ";
+					s += this.bits[i].bitToInt();
+				}
+				return s;
+			}
+			
+			public boolean isBigger(Byte b)
+			{
+				for (int i = 0; i < this.bits.length; i++) 
+				{
+					if(this.bits[i].isBigger(b.bits[i])) return true;
+					else if(b.bits[i].isBigger(this.bits[i])) return false;
+				}
+				return false;
+			}
+			
+			public Byte and(Byte b)
+			{
+				String s = "";
+				for (int i = 0; i < this.bits.length; i++) 
+				{
+					Bit result = this.bits[i].and(b.bits[i]);
+					s = result.bitToInt() + s;
+				}
+				Byte by = new Byte();
+				by.createByte(s);
+				return by;
+			}
+			
+			public Byte add(Byte b)
+			{
+				int uebertrag = 0;
+				String result = "";
+				for (int i = bits.length-1; i >= 0; i--) 
+				{
+					if(this.bits[i].and(b.bits[i]).bitToInt()==1)
+					{
+						result = (0 + uebertrag) + result;
+						uebertrag = 1;
+					} 
+					else if(this.bits[i].or(b.bits[i]).bitToInt()==1)
+					{
+						if(uebertrag == 0)
+						{
+							result = "1" + result;
+							uebertrag = 0;
+						} 
+						else if(uebertrag == 1)
+						{
+							result = "0" + result;
+							uebertrag = 1;
+						}
+					}
+					else
+					{
+						result = (0 + uebertrag) + result;
+						uebertrag = 0;
+					}
+				}
+				Byte resultByte = new Byte();
+				resultByte.createByte(result);
+				return resultByte;
+			}
+		}
+
+		```	
+
+	=== "Programmklasse.java"
+		```java
+		package klausurvorbereitung.bit;
+
+		public class Programmklasse
+		{
+			public static void printByteArray(Byte[] bya)
+			{
+				String s = String.format("%n%n------ Byte-Array der Laenge %d --------%n%n", bya.length);
+				for (int i = 0; i < bya.length; i++) 
+				{
+					s += String.format("%2d : %10s %n", i, bya[i].toString());
+				}
+				System.out.println(s);
+			}
+			
+			public static Byte[] sortByteArray(Byte[] unsorted)
+			{
+				Byte[] sorted = new Byte[unsorted.length];
+				for (int i = 0; i < sorted.length; i++) 
+				{
+					sorted[i] = unsorted[i];
+				}
+				
+				for (int bubble = 1; bubble < sorted.length; bubble++) 
+				{
+					for (int index = 0; index < sorted.length - bubble; index++) 
+					{
+						if(sorted[index].isBigger(sorted[index+1]))
+						{
+							Byte tmp = sorted[index];
+							sorted[index] = sorted[index+1];
+							sorted[index+1] = tmp;
+						}
+					}
+				}
+				return sorted;
+			}
+
+			public static void main(String[] args)
+			{
+				System.out.printf("%n%n------------------ Bit-Objekte ----------------------%n%n");
+				Bit b1 = new Bit(true);
+				Bit b2 = new Bit(true);
+				Bit b3 = new Bit(false);
+				Bit b4 = new Bit(false);
+
+				System.out.println("b1 = " + b1.toString());
+				System.out.println("b2 = " + b2.toString());
+				System.out.println("b3 = " + b3.toString());
+				System.out.println("b4 = " + b4.toString());
+				
+				System.out.printf("%n%n---------------- Bit and und or ---------------------%n%n");
+				Bit b = b1.and(b2);
+				System.out.println("b1 and b2 = " + b.toString());
+				b = b1.or(b2);
+				System.out.println("b1 or  b2 = " + b.toString());
+				b = b1.and(b3);
+				System.out.println("b1 and b3 = " + b.toString());
+				b = b1.or(b3);
+				System.out.println("b1 or  b3 = " + b.toString());
+				b = b3.and(b4);
+				System.out.println("b3 and b4 = " + b.toString());
+				b = b3.or(b4);
+				System.out.println("b3 or  b4 = " + b.toString());
+
+				
+				System.out.printf("%n%n---------------- Bit Vergleiche ---------------------%n%n");
+				System.out.println("b1 >  b2 ? " + b1.isBigger(b2));
+				System.out.println("b1 >  b3 ? " + b1.isBigger(b3));
+				System.out.println("b3 >  b4 ? " + b3.isBigger(b4));
+				System.out.println("b1 == b2 ? " + b1.isEqual(b2));
+				System.out.println("b1 == b3 ? " + b1.isEqual(b3));
+				System.out.println("b3 == b4 ? " + b3.isEqual(b4));
+				
+				System.out.printf("%n%n----------------- Byte-Objekte ----------------------%n%n");
+				Byte by1 = new Byte();
+				by1.createByte();
+				System.out.println("by1 = " + by1.toString());
+				
+				Byte by2 = new Byte();
+				by2.createByte("10010010");
+				System.out.println("by2 = " + by2.toString());
+				
+				Byte by3 = new Byte();
+				by3.createByte("10010001");
+				System.out.println("by3 = " + by3.toString());
+				
+				Byte by4 = new Byte();
+				by4.createByte("10010010");
+				System.out.println("by4 = " + by4.toString());
+				
+				Byte by5 = new Byte();
+				by5.createByte("01110001");
+				System.out.println("by5 = " + by5.toString());	
+				
+				Byte by6 = new Byte();
+				by6.createByte("01110011");
+				System.out.println("by6 = " + by6.toString());	
+				
+				System.out.printf("%n%n--------------- Byte Vergleiche ---------------------%n%n");
+				System.out.println(by2.toString() + " > " + by3.toString()  + " ? " + by2.isBigger(by3));
+				System.out.println(by2.toString() + " > " + by4.toString()  + " ? " + by2.isBigger(by4));
+				System.out.println(by3.toString() + " > " + by4.toString()  + " ? " + by3.isBigger(by4));
+				
+				System.out.printf("%n%n------------------- Byte and ------------------------%n%n");
+				Byte by10 = by2.and(by3);
+				System.out.println(by2.toString() + " and " + by3.toString()  + " = " + by10.toString());
+				Byte by11 = by2.and(by4);
+				System.out.println(by2.toString() + " and " + by4.toString()  + " = " + by11.toString());
+				
+				System.out.printf("%n%n------------------- Byte add ------------------------%n%n");
+				Byte by12 = by2.add(by3);
+				System.out.println(by2.toString() + " + " + by3.toString()  + " = " + by12.toString());
+				Byte by13 = by5.add(by6);
+				System.out.println(by5.toString() + " + " + by6.toString()  + " = " + by13.toString());
+
+				System.out.printf("%n%n------------------- Byte-Array unsortiert ------------------------%n%n");
+				Byte[] bya1 = new Byte[10];
+				for (int i = 0; i < bya1.length; i++) 
+				{
+					bya1[i] = new Byte();
+					bya1[i].createByte();
+				}
+				printByteArray(bya1);
+				
+				Byte[] bya2 = new Byte[20];
+				for (int i = 0; i < bya2.length; i++) 
+				{
+					bya2[i] = new Byte();
+					bya2[i].createByte();
+				}
+				printByteArray(bya2);
+				
+				System.out.printf("%n%n--------------------- Byte-Array sortiert ------------------------%n%n");
+				Byte[] bya3 = sortByteArray(bya1);
+				printByteArray(bya3);
+				Byte[] bya4 = sortByteArray(bya2);
+				printByteArray(bya4);
+			}
+
+		}
+		```
+
+
+
+
 ??? note "Produkt"
 	
 	1. Erstellen Sie ein package `klausurvorbereitung.produkt`. 
